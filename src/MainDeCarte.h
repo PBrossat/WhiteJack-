@@ -142,6 +142,16 @@ class MainDeCartes
     */ 
     void setSommeValeur (int SommeValeur);
 
+    /**
+    * @brief Tester la classe et ses fonctionnalités
+    * @return void
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * MainDeCarte.testRegression();
+    * @endcode     
+    */ 
+    void testRegression();
 
 
     private : 
