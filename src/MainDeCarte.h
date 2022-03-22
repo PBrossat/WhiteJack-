@@ -1,20 +1,20 @@
-﻿#ifndef MAINSDECARTES_H
-#define MAINSDECARTES_H
+﻿#ifndef MAINSDECARTE_H
+#define MAINSDECARTE_H
 
 #include <vector>
 #include <iostream>
 
 using namespace std;
 
-class MainDeCartes 
+class MainDeCarte 
 {
     public :
 
 
     /**
-    * @brief  tableau dynamique de liens sur Cartes
+    * @brief  vector de liens sur Cartes
     */
-    tableauDynamque*Cartes;
+    vector Cartes;
 
     /**
     * @brief   nbCartes désigne le nombre de cartes qu'a le joueur dans sa main 
