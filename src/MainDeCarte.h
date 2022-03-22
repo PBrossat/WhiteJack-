@@ -1,5 +1,5 @@
-﻿#ifndef MAINSDECARTE_H
-#define MAINSDECARTE_H
+﻿#ifndef MAINDECARTE_H
+#define MAINDECARTE_H
 
 #include <vector>
 #include <iostream>
