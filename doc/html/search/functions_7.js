@@ -1,8 +1,6 @@
 var searchData=
 [
-<<<<<<< HEAD
-  ['_7emaindecarte_39',['~MainDeCarte',['../class_main_de_cartes.html#a37bc3f01db6282576fba20d6553b69ad',1,'MainDeCartes']]]
-=======
-  ['_7emaindecarte_0',['~MainDeCarte',['../class_main_de_cartes.html#a37bc3f01db6282576fba20d6553b69ad',1,'MainDeCartes']]]
->>>>>>> b6588336de8d3d166aea4070040c074cd06607e1
+  ['testargentjoueur_46',['testArgentJoueur',['../class_joueur.html#a8715338d676dc9cb5fbfbc81451c0fc6',1,'Joueur']]],
+  ['testregression_47',['testRegression',['../class_joueur.html#a26d38e39feb2ce8534139e7c7ac611cd',1,'Joueur::testRegression()'],['../class_main_de_cartes.html#af91b08355e9672681669f77bca1e00f4',1,'MainDeCartes::testRegression()']]],
+  ['tirercarte_48',['tirerCarte',['../class_main_de_cartes.html#a9ea65d3e09454f209873a640070cdd0b',1,'MainDeCartes']]]
 ];

@@ -1,8 +1,4 @@
 var searchData=
 [
-<<<<<<< HEAD
-  ['maindecarte_32',['MainDeCarte',['../class_main_de_cartes.html#a17e4c31aca4691430c07825bee1e9ceb',1,'MainDeCartes']]]
-=======
-  ['maindecarte_0',['MainDeCarte',['../class_main_de_cartes.html#a17e4c31aca4691430c07825bee1e9ceb',1,'MainDeCartes']]]
->>>>>>> b6588336de8d3d166aea4070040c074cd06607e1
+  ['joueur_40',['Joueur',['../class_joueur.html#ac831e9c4f338d397e4e50162bbfbe73d',1,'Joueur']]]
 ];

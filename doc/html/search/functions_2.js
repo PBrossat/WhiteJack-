@@ -1,8 +1,4 @@
 var searchData=
 [
-<<<<<<< HEAD
-  ['joueur_31',['Joueur',['../class_joueur.html#ac831e9c4f338d397e4e50162bbfbe73d',1,'Joueur']]]
-=======
-  ['joueur_0',['Joueur',['../class_joueur.html#ac831e9c4f338d397e4e50162bbfbe73d',1,'Joueur']]]
->>>>>>> b6588336de8d3d166aea4070040c074cd06607e1
+  ['getsommevaleur_39',['getSommeValeur',['../class_main_de_cartes.html#a95da7f8b84572f89b0192de3f28f6e23',1,'MainDeCartes']]]
 ];

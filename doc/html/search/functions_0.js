@@ -1,8 +1,4 @@
 var searchData=
 [
-<<<<<<< HEAD
-  ['doubler_28',['doubler',['../class_main_de_cartes.html#a992c25d0677de0ca9c5b407c8876ca8c',1,'MainDeCartes']]]
-=======
-  ['doubler_0',['doubler',['../class_main_de_cartes.html#a992c25d0677de0ca9c5b407c8876ca8c',1,'MainDeCartes']]]
->>>>>>> b6588336de8d3d166aea4070040c074cd06607e1
+  ['assert_37',['assert',['../_main_de_carte_8cpp.html#ae4b767acfac092b60a1a6bf5cd1aa129',1,'assert(nbCartes==0):&#160;MainDeCarte.cpp'],['../_main_de_carte_8cpp.html#aa0db29894ba66a44e21705f85788ae8e',1,'assert(SommeValeur==0):&#160;MainDeCarte.cpp']]]
 ];

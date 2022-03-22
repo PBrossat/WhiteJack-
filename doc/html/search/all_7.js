@@ -1,12 +1,11 @@
 var searchData=
 [
-<<<<<<< HEAD
-  ['nbcartes_12',['nbCartes',['../class_main_de_cartes.html#a23b4be024de28093aa63592187608995',1,'MainDeCartes']]],
-  ['niveaujoueur_13',['niveauJoueur',['../class_joueur.html#aefe5071bc92d27c48ed64f578206560f',1,'Joueur']]],
-  ['nom_14',['nom',['../class_joueur.html#a251a7192f61dae541f80cbff3914f208',1,'Joueur']]]
-=======
-  ['nbcartes_0',['nbCartes',['../class_main_de_cartes.html#a23b4be024de28093aa63592187608995',1,'MainDeCartes']]],
-  ['niveaujoueur_1',['niveauJoueur',['../class_joueur.html#aefe5071bc92d27c48ed64f578206560f',1,'Joueur']]],
-  ['nom_2',['nom',['../class_joueur.html#a251a7192f61dae541f80cbff3914f208',1,'Joueur']]]
->>>>>>> b6588336de8d3d166aea4070040c074cd06607e1
+  ['main_9',['main',['../main_test_joueur_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;mainTestJoueur.cpp'],['../main_test_main_de_carte_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;mainTestMainDeCarte.cpp']]],
+  ['main_2ecpp_10',['Main.cpp',['../_main_8cpp.html',1,'']]],
+  ['maindecarte_11',['MainDeCarte',['../class_main_de_cartes.html#a17e4c31aca4691430c07825bee1e9ceb',1,'MainDeCartes']]],
+  ['maindecarte_2ecpp_12',['MainDeCarte.cpp',['../_main_de_carte_8cpp.html',1,'']]],
+  ['maindecarte_2eh_13',['MainDeCarte.h',['../_main_de_carte_8h.html',1,'']]],
+  ['maindecartes_14',['MainDeCartes',['../class_main_de_cartes.html',1,'']]],
+  ['maintestjoueur_2ecpp_15',['mainTestJoueur.cpp',['../main_test_joueur_8cpp.html',1,'']]],
+  ['maintestmaindecarte_2ecpp_16',['mainTestMainDeCarte.cpp',['../main_test_main_de_carte_8cpp.html',1,'']]]
 ];

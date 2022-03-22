@@ -37,6 +37,4 @@ class Carte
     */
     Carte (unsigned int valeur, unsigned int signe);
 
-    
-
 }
