@@ -14,7 +14,7 @@ class MainDeCarte
     /**
     * @brief  vector de liens sur Cartes
     */
-    vector Cartes;
+    vector<Carte*>;
 
     /**
     * @brief   nbCartes désigne le nombre de cartes qu'a le joueur dans sa main 
@@ -28,14 +28,14 @@ class MainDeCarte
 
 
     /**
-    * @brief Constructeur par défaut de la classe
+    * @brief Constructeur avec parametres de la classe MainDeCarte
     * 
     * Exemple d'utilisation :
     * @code
-    * MainDeCarte Main_1;
+    * MainDeCarte Main_1(carte1, carte2);
     * @endcode
     */
-    MainDeCarte ();
+    MainDeCarte (Carte carte1, Carte carte2);
 
 
     /**
@@ -49,18 +49,19 @@ class MainDeCarte
     /**
     * @brief Permet de tirer une nouvelle carte
     * @param[in] niveauJoueur Le niveau du joueur qui est en train de tirer 
+    * @param[in] carteAjoutee La carte que le croupier tire pour le joueur  
     * @return void  
     * 
     * Exemple d'utilisation :
     * @code
-    * MainDeCarte.tirerCarte(0);
-    * MainDeCarte.tirerCarte(1);
-    * MainDeCarte.tirerCarte(2);
-    * MainDeCarte.tirerCarte(3);
+    * MainDeCarte.tirerCarte(0,carteAjoutee);
+    * MainDeCarte.tirerCarte(1,carteAjoutee);
+    * MainDeCarte.tirerCarte(2,carteAjoutee);
+    * MainDeCarte.tirerCarte(3,carteAjoutee);
     * @endcode
     * @warning niveauJoueur doit etre compris entre 0 et 3 
     */
-    void tirerCarte (int niveauJoueur);
+    void tirerCarte (unsigned int niveauJoueur, Carte carteAjoutee);
 
 
     /**
@@ -78,7 +79,7 @@ class MainDeCarte
     * @warning niveauJoueur doit etre compris entre 0 et 3 
     * @warning le joueur peut doubler que lors de sa première action (lorsqu'il à deux cartes uniquement)
     */
-    void doubler (int niveauJoueur);
+    void doubler (unsigned int niveauJoueur);
 
 
     /**
@@ -96,7 +97,7 @@ class MainDeCarte
     * @warning niveauJoueur doit etre compris entre 0 et 3 
     * @warning le joueur peut splitter que lors de sa première action (lorsqu'il à deux cartes uniquement)
     */
-    void splitter (int niveauJoueur);
+    void splitter (unsigned int niveauJoueur);
 
 
     /**
@@ -114,7 +115,7 @@ class MainDeCarte
     * @warning niveauJoueur doit etre compris entre 0 et 3 
     * @warning le joueur peut splitter que lors de sa première action (lorsqu'il à deux cartes uniquement)
     */
-    void rester (int niveauJoueur);
+    void rester (unsigned int niveauJoueur);
 
 
     /**
