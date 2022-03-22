@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['joueur_0',['Joueur',['../class_joueur.html#ac831e9c4f338d397e4e50162bbfbe73d',1,'Joueur']]]
+  ['getid_0',['getId',['../class_joueur.html#a97e56df3f42bb55dda1e2c74f10698d5',1,'Joueur']]],
+  ['getsommevaleur_1',['getSommeValeur',['../class_main_de_cartes.html#a95da7f8b84572f89b0192de3f28f6e23',1,'MainDeCartes']]]
 ];

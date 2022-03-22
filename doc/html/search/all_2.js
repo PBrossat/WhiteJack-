@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hand_0',['hand',['../class_joueur.html#abab98f9b8894ee41ffa59efd77122957',1,'Joueur']]]
+  ['doubler_0',['doubler',['../class_main_de_cartes.html#a992c25d0677de0ca9c5b407c8876ca8c',1,'MainDeCartes']]]
 ];

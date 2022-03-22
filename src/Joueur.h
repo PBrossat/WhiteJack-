@@ -51,16 +51,6 @@ class Joueur
     */ 
     Joueur(string nomJ, unsigned int nivJoueur);
 
-    /**
-     * @brief  Accesseur : récupère l'identifiant du joueur 
-     * @return unsigned int 
-     * 
-     * Exemple d'utilisation :
-     * @code
-     * unJoueur.getId();
-     * @endcode     
-    */ 
-    unsigned int getId();
 
     /**
      * @brief Tester si un joueur a toujours de l'argent ou non
@@ -83,13 +73,6 @@ class Joueur
      * @endcode     
     */ 
     void testRegression();
-
-	private :
-
-	/**
-	 * @brief id : un entier positif servant d'identifiant pour le joueur
-	*/
-	unsigned int id;
 
 };
 

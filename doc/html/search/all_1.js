@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getid_0',['getId',['../class_joueur.html#a97e56df3f42bb55dda1e2c74f10698d5',1,'Joueur']]]
+  ['cartes_0',['Cartes',['../class_main_de_cartes.html#aaea2cca00644d7496c4c28b073054f3f',1,'MainDeCartes']]]
 ];
