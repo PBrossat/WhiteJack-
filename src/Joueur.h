@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string.h>
-#include "MaineDeCartes.h"
+#include "MainDeCarte.h"
 
 using namespace std;
 
@@ -33,7 +33,7 @@ class Joueur
 	/**
 	 * @brief hand : la main de cartes du joueur
 	*/
-	MainDeCartes hand;
+	MainDeCarte hand;
 
 	 /**
      * @brief  Constructeur de joueur
@@ -49,7 +49,7 @@ class Joueur
      * @warning 2 : le joueur est intermédiaire
      * @warning 3 : le joueur est expert
     */ 
-    Joueur(string nomJ, unsigned int nivJoueur);
+    Joueur(string nomJ, unsigned int nivJoueur, float budgetJ);
 
 
     /**
