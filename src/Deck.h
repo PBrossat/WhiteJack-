@@ -12,7 +12,7 @@ class Deck
 {
 	public :
 
-	stack<Carte> i;  
+	stack<Carte> deck;  
 	unsigned int getNbPaquets();
 	Deck(unsigned int nombrePaquets);
 
