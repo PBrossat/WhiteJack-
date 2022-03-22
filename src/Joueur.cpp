@@ -27,5 +27,7 @@ void Joueur::testRegression()
 	assert(budget == 0);
 	assert(unJoueur.testArgentJoueur()==0);
 
-	//belleck
+	//tester MainDeCartes
+
+	cout<<"Test de regression passé avec succès !"<<endl;
 }
