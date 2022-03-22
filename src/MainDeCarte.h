@@ -162,4 +162,6 @@ class MainDeCarte
     unsigned int sommeValeur;
 
 
-}
+};
+
+#endif
