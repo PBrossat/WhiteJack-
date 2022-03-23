@@ -14,7 +14,7 @@ class MainDeCarte
     /**
     * @brief  vector de liens sur Cartes
     */
-    vector<Carte*>;
+    vector<Carte>;
 
     /**
     * @brief   nbCartes désigne le nombre de cartes qu'a le joueur dans sa main 
