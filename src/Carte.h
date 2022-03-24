@@ -1,5 +1,5 @@
-﻿#ifndef CARTES_H
-#define CARTES_H
+﻿#ifndef CARTE_H
+#define CARTE_H
 
 
 #include <iostream>
@@ -38,3 +38,5 @@ class Carte
     Carte (unsigned int valeur, unsigned int signe);
 
 }
+
+#endif

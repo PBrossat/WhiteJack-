@@ -31,9 +31,9 @@ class Joueur
 	unsigned int niveauJoueur;
 
 	/**
-	 * @brief hand : la main de cartes du joueur
+	 * @brief tabMainDeCartes : tableau dynamique contenant les mains de cartes du joueur
 	*/
-	MainDeCarte hand;
+	vector<MainDeCarte>tabMainDeCartes;
 
 	 /**
      * @brief  Constructeur de joueur
@@ -75,6 +75,8 @@ class Joueur
     void testRegression();
 
 };
+
+//fonction splitter pour joeur qui appel splitter de main de cartes
 
 #endif
 

@@ -11,13 +11,13 @@ Deck::Deck(unsigned int nombrePaquets)
  	vector<Carte>tabTemp(nbPaquets*52);
  	for(int i=1; i<=nbPaquets; i++)
  	{
- 		for(int k=1; k<=52; k++)
+ 		for(int j=1; j<=52; j++)
  		{
  			for(int k=0; k<=3; k++)
  			{
  				for(int l=1; l<=10; l++)
  				{
- 					tabTemp.push_back(Carte(l,k));
+ 					tabTemp.push_back(Carte(l,k));    //ATTENTION CAS DE L'AS 
  				}
  			}
  		}
@@ -33,5 +33,32 @@ Deck::Deck(unsigned int nombrePaquets)
     }
 
 }
+
+void Deck::testRegression()
+{
+    Deck unDeck(2);
+
+    cout << "Nombre d'éléments dans la pile : " << unDeck.deck.size() << endl;
+
+    for(int i=0; i<unDeck.deck.size(); i++)
+    {
+        cout << unDeck.deck.top() << endl;  // accès au dernier élément
+        unDeck.deck.pop();  // suppression du dernier élément
+    }
+}
+
+
+// unsigned int Deck::getNbPaquets() const
+// {
+//     return nbPaquets;
+// }
+
+// void Deck::setNbPaquets(unsigned int nombrePaquets)
+// {
+//     nbPaquets = nombrePaquets;
+
+// }
+
+
 
 //Toutes les données en privé quasiment --> ce qui intéresse c'est juste les fonctionnalités, ce qu'on peut faire
