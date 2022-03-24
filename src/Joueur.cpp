@@ -8,7 +8,7 @@ using namespace std;
 Joueur::Joueur(string nomJ, unsigned int nivJoueur, float budgetJ)
 {
 	assert(budget>0);
-	assert(nivJoueur < 4 && nivJoueur >= 0)
+	assert(nivJoueur < 4 && nivJoueur >= 0);
 
 	nom = nomJ;
 	niveauJoueur = nivJoueur;
@@ -32,5 +32,5 @@ void Joueur::testRegression()
 
 	//tester MainDeCartes
 
-	cout<<"Test de regression passé avec succès !"<<endl
+	cout<<"Test de regression passé avec succès !"<<endl;
 }

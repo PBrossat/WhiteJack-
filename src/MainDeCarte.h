@@ -1,6 +1,6 @@
 ﻿#ifndef MAINDECARTE_H
 #define MAINDECARTE_H
-
+#include "Carte.h"
 #include <vector>
 #include <iostream>
 
@@ -30,7 +30,7 @@ class MainDeCarte
     /**
     * @brief  Booléen permettant de savoir si la valeur de la somme de ses cartes est supérieur à 21 (0= pas cramé, 1= il a cramé)
     */
-    bool cramé?;
+    bool crame;
     
 
 
@@ -53,7 +53,6 @@ class MainDeCarte
 
 
 
-
     /**
     * @brief Destructeur de la classe
     */
@@ -61,7 +60,6 @@ class MainDeCarte
 
 
 
-   
     /**
     * @brief Permet de tirer une nouvelle carte
     * @param[in] carteAjoutee La carte que le croupier tire pour le joueur  
@@ -73,6 +71,7 @@ class MainDeCarte
     * @endcode
     */
     void tirerCarte (Carte carteAjoutee);
+
 
 
     /**
@@ -89,6 +88,7 @@ class MainDeCarte
     void doubler (Carte carteAjoutee);
 
 
+
     /**
     * @brief Permet de splitter son jeu lorsque le joueur à deux carte d'une même valeur
     * @param[in] carteAjoutee1 La carte que le croupier tire pour la main 1 du joueur 
@@ -101,7 +101,7 @@ class MainDeCarte
     * @endcode
     * @warning Le joueur peut splitter que lors de sa première action (lorsqu'il à deux cartes uniquement)
     */
-    MainDeCArte splitter (Carte carteAjoutee1, Carte carteAjoutee2);
+    MainDeCarte splitter (Carte carteAjoutee1, Carte carteAjoutee2);
 
 
 

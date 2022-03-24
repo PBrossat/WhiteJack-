@@ -12,7 +12,6 @@ obj/Joueur.o : src/Joueur.h src/Joueur.cpp src/MainDeCarte.h
 obj/MainDeCartes.o : src/MainDeCarte.cpp src/MainDeCarte.h
 	g++ -g -Wall -c src/MainDeCarte.cpp -o obj/MainDeCarte.o
 
-
 bin/Deck : obj/mainTestDeck.o obj/Deck.o obj/Carte.o
 	g++ -g -Wall obj/mainTestDeck.o obj/Deck.o obj/Carte.o -o bin/Deck
 
@@ -24,3 +23,9 @@ obj/Deck.o : src/Deck.h src/Deck.cpp src/Carte.h
 
 obj/Carte.o : src/Carte.cpp src/Carte.h
 	g++ -g -Wall -c src/Carte.cpp -o obj/Carte.o
+
+obj/mainTestMainDeCarte.o : src/mainTestMainDeCarte.cpp src/MainDeCarte.h src/Carte.h
+	g++ -g -Wall -c src/mainTestMainDeCarte.cpp -o obj/mainTestMainDeCarte.o
+
+bin/mainTestMainDeCarte : obj/mainTestMainDeCarte.o obj/MainDeCarte.o obj/Carte.h
+	g++ -g -Wall obj/mainTestMainDeCarte.o obj/MainDeCarte.o -o bin/MainDeCarte

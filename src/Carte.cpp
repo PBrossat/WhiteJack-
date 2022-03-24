@@ -6,6 +6,5 @@
 Carte::Carte(unsigned int Valeur, unsigned int Signe )
 {
     valeur=Valeur;
-    signe=Signe ;
-
+    signe=Signe;
 }
