@@ -12,9 +12,9 @@ class MainDeCarte
 
 
     /**
-    * @brief  vector de liens sur Cartes
+    * @brief  tableau de Carte
     */
-    vector<Carte>;
+    vector<Carte>Hand;
 
     /**
     * @brief   nbCartes désigne le nombre de cartes qu'a le joueur dans sa main 
@@ -22,9 +22,16 @@ class MainDeCarte
     unsigned int nbCartes;
 
     /**
-    * @brief  Booléen permettant de savoir si le joueur est toujours en lice (SommeValeur est inférieur ou égal à 21)
+    * @brief  Booléen permettant de savoir si le joueur joue encore.
     */
-    bool état;
+    bool joueToujours;
+
+
+    /**
+    * @brief  Booléen permettant de savoir si la valeur de la somme de ses cartes est supérieur à 21 (0= pas cramé, 1= il a cramé)
+    */
+    bool cramé?;
+    
 
 
     /**
@@ -48,74 +55,60 @@ class MainDeCarte
    
     /**
     * @brief Permet de tirer une nouvelle carte
-    * @param[in] niveauJoueur Le niveau du joueur qui est en train de tirer 
     * @param[in] carteAjoutee La carte que le croupier tire pour le joueur  
     * @return void  
     * 
     * Exemple d'utilisation :
     * @code
-    * MainDeCarte.tirerCarte(0,carteAjoutee);
-    * MainDeCarte.tirerCarte(1,carteAjoutee);
-    * MainDeCarte.tirerCarte(2,carteAjoutee);
-    * MainDeCarte.tirerCarte(3,carteAjoutee);
+    * MainDeCarte.tirerCarte(carteAjoutee);
+    * MainDeCarte.tirerCarte(carteAjoutee);
+    * MainDeCarte.tirerCarte(carteAjoutee);
+    * MainDeCarte.tirerCarte(carteAjoutee);
     * @endcode
     * @warning niveauJoueur doit etre compris entre 0 et 3 
     */
-    void tirerCarte (unsigned int niveauJoueur, Carte carteAjoutee);
+    void tirerCarte (Carte carteAjoutee);
 
 
     /**
-    * @brief Permet de demander une unique nouvelle carte au croupier
-    * @param[in] niveauJoueur Le niveau du joueur qui est en train de tirer 
+    * @brief Permet de demander une unique nouvelle carte au croupier 
+    * @param[in] carteAjoutee La carte a ajouter
     * @return void  
     * 
     * Exemple d'utilisation :
     * @code
-    * MainDeCarte.doubler(0);
-    * MainDeCarte.doubler(1);
-    * MainDeCarte.doubler(2);
-    * MainDeCarte.doubler(3);
+    * MainDeCarte.doubler(carteAjoutee);
     * @endcode
-    * @warning niveauJoueur doit etre compris entre 0 et 3 
     * @warning le joueur peut doubler que lors de sa première action (lorsqu'il à deux cartes uniquement)
     */
-    void doubler (unsigned int niveauJoueur);
+    void doubler (Carte carteAjoutee);
 
 
     /**
     * @brief Permet de splitter son jeu lorsque le joueur à deux carte d'une même valeur
-    * @param[in] niveauJoueur Le niveau du joueur qui est en train de tirer 
-    * @return void  
+    * @param[in] carteAjoutee1 La carte que le croupier tire pour la main 1 du joueur 
+    * @param[in] carteAjoutee2 La carte que le croupier tire pour la main 2 du joueur (la nouvelle main du joueur)
+    * @return cette fonction renvoie une MainDeCarte (car on en crée une nouvelle) 
     * 
     * Exemple d'utilisation :
     * @code
-    * MainDeCarte.splitter(0);
-    * MainDeCarte.splitter(1);
-    * MainDeCarte.splitter(2);
-    * MainDeCarte.splitter(3);
+    * MainDeCarte.splitter(carteAjoutee1, carteAjoutee2);
     * @endcode
-    * @warning niveauJoueur doit etre compris entre 0 et 3 
     * @warning le joueur peut splitter que lors de sa première action (lorsqu'il à deux cartes uniquement)
     */
-    void splitter (unsigned int niveauJoueur);
+    MainDeCArte splitter (Carte carteAjoutee1, Carte carteAjoutee2);
 
 
     /**
-    * @brief Permet au joueur de passer son tour lorsque la somme des valeurs de ses cartes lui convient 
-    * @param[in] niveauJoueur Le niveau du joueur qui est en train de tirer 
+    * @brief Permet au joueur de passer son tour lorsque la somme des valeurs de ses cartes lui convient  
     * @return void  
     * 
     * Exemple d'utilisation :
     * @code
-    * MainDeCarte.rester(0);
-    * MainDeCarte.rester(1);
-    * MainDeCarte.rester(2);
-    * MainDeCarte.rester(3);
+    * MainDeCarte.rester();
     * @endcode
-    * @warning niveauJoueur doit etre compris entre 0 et 3 
-    * @warning le joueur peut splitter que lors de sa première action (lorsqu'il à deux cartes uniquement)
     */
-    void rester (unsigned int niveauJoueur);
+    void rester ();
 
 
     /**
