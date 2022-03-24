@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['setsommevaleur_21',['setSommeValeur',['../class_main_de_cartes.html#ae6884c8ef0d5d498132908108d257711',1,'MainDeCartes']]],
-  ['splitter_22',['splitter',['../class_main_de_cartes.html#af7ef5f7c77a58e5f73d8a85601daa99a',1,'MainDeCartes']]]
+  ['setsommevaleur_28',['setSommeValeur',['../class_main_de_carte.html#a40e554adc5bba6bc8e860cfcb8013746',1,'MainDeCarte']]],
+  ['signe_29',['signe',['../class_carte.html#a16e6a4928683bad7270bd77aa10a9950',1,'Carte']]],
+  ['splitter_30',['splitter',['../class_main_de_carte.html#aba2202c0c4d0c88cfdf6a09b7378f50a',1,'MainDeCarte']]]
 ];

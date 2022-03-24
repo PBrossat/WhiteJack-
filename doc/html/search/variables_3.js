@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['nbcartes_53',['nbCartes',['../class_main_de_cartes.html#a23b4be024de28093aa63592187608995',1,'MainDeCartes']]],
-  ['niveaujoueur_54',['niveauJoueur',['../class_joueur.html#aefe5071bc92d27c48ed64f578206560f',1,'Joueur']]],
-  ['nom_55',['nom',['../class_joueur.html#a251a7192f61dae541f80cbff3914f208',1,'Joueur']]]
+  ['hand_70',['hand',['../class_joueur.html#aea0f3a9514050cd347afb2bb5164bf8f',1,'Joueur::hand()'],['../class_main_de_carte.html#a4ccf6d4e4e4f18a37a8270c355d63463',1,'MainDeCarte::Hand()']]]
 ];

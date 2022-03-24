@@ -74,7 +74,7 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;MaineDeCartes.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_main_de_carte_8h.html">MainDeCarte.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
@@ -88,9 +88,9 @@ $(function() {
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
 <div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_joueur.html#aefe5071bc92d27c48ed64f578206560f">   31</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_joueur.html#aefe5071bc92d27c48ed64f578206560f">niveauJoueur</a>;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_joueur.html#abab98f9b8894ee41ffa59efd77122957">   36</a></span>&#160;    <a class="code" href="class_main_de_cartes.html">MainDeCartes</a> <a class="code" href="class_joueur.html#abab98f9b8894ee41ffa59efd77122957">hand</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_joueur.html#aea0f3a9514050cd347afb2bb5164bf8f">   36</a></span>&#160;    <a class="code" href="class_main_de_carte.html">MainDeCarte</a> <a class="code" href="class_joueur.html#aea0f3a9514050cd347afb2bb5164bf8f">hand</a>;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="class_joueur.html">Joueur</a>(<span class="keywordtype">string</span> nomJ, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nivJoueur);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="class_joueur.html">Joueur</a>(<span class="keywordtype">string</span> nomJ, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nivJoueur, <span class="keywordtype">float</span> budgetJ);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">bool</span> testArgentJoueur();</div>
@@ -105,9 +105,10 @@ $(function() {
 <div class="ttc" id="aclass_joueur_html"><div class="ttname"><a href="class_joueur.html">Joueur</a></div><div class="ttdef"><b>Definition:</b> Joueur.h:10</div></div>
 <div class="ttc" id="aclass_joueur_html_ad16381ffdedfac5e724271447138cb78"><div class="ttname"><a href="class_joueur.html#ad16381ffdedfac5e724271447138cb78">Joueur::budget</a></div><div class="ttdeci">float budget</div><div class="ttdoc">budget : un réel décrivant le budget du joueur</div><div class="ttdef"><b>Definition:</b> Joueur.h:22</div></div>
 <div class="ttc" id="aclass_joueur_html_aefe5071bc92d27c48ed64f578206560f"><div class="ttname"><a href="class_joueur.html#aefe5071bc92d27c48ed64f578206560f">Joueur::niveauJoueur</a></div><div class="ttdeci">unsigned int niveauJoueur</div><div class="ttdoc">niveauJoueur: un entier entre 0 et 3 définissant le niveau du joueur</div><div class="ttdef"><b>Definition:</b> Joueur.h:31</div></div>
-<div class="ttc" id="aclass_main_de_cartes_html"><div class="ttname"><a href="class_main_de_cartes.html">MainDeCartes</a></div><div class="ttdef"><b>Definition:</b> MainDeCarte.h:9</div></div>
-<div class="ttc" id="aclass_joueur_html_abab98f9b8894ee41ffa59efd77122957"><div class="ttname"><a href="class_joueur.html#abab98f9b8894ee41ffa59efd77122957">Joueur::hand</a></div><div class="ttdeci">MainDeCartes hand</div><div class="ttdoc">hand : la main de cartes du joueur</div><div class="ttdef"><b>Definition:</b> Joueur.h:36</div></div>
+<div class="ttc" id="aclass_main_de_carte_html"><div class="ttname"><a href="class_main_de_carte.html">MainDeCarte</a></div><div class="ttdef"><b>Definition:</b> MainDeCarte.h:9</div></div>
+<div class="ttc" id="a_main_de_carte_8h_html"><div class="ttname"><a href="_main_de_carte_8h.html">MainDeCarte.h</a></div></div>
 <div class="ttc" id="aclass_joueur_html_a251a7192f61dae541f80cbff3914f208"><div class="ttname"><a href="class_joueur.html#a251a7192f61dae541f80cbff3914f208">Joueur::nom</a></div><div class="ttdeci">string nom</div><div class="ttdoc">nom : une chaîne de caractères décrivant le nom du joueur</div><div class="ttdef"><b>Definition:</b> Joueur.h:17</div></div>
+<div class="ttc" id="aclass_joueur_html_aea0f3a9514050cd347afb2bb5164bf8f"><div class="ttname"><a href="class_joueur.html#aea0f3a9514050cd347afb2bb5164bf8f">Joueur::hand</a></div><div class="ttdeci">MainDeCarte hand</div><div class="ttdoc">hand : la main de cartes du joueur</div><div class="ttdef"><b>Definition:</b> Joueur.h:36</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Généré par &#160;<a href="http://www.doxygen.org/index.html">

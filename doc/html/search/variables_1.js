@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cartes_51',['Cartes',['../class_main_de_cartes.html#aaea2cca00644d7496c4c28b073054f3f',1,'MainDeCartes']]]
+  ['cramé_68',['cramé',['../class_main_de_carte.html#adeeba337a6f2cdb19fe48b20c3a9dc0d',1,'MainDeCarte']]]
 ];

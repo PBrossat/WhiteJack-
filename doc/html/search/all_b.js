@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['testargentjoueur_23',['testArgentJoueur',['../class_joueur.html#a8715338d676dc9cb5fbfbc81451c0fc6',1,'Joueur']]],
-  ['testregression_24',['testRegression',['../class_joueur.html#a26d38e39feb2ce8534139e7c7ac611cd',1,'Joueur::testRegression()'],['../class_main_de_cartes.html#af91b08355e9672681669f77bca1e00f4',1,'MainDeCartes::testRegression()']]],
-  ['tirercarte_25',['tirerCarte',['../class_main_de_cartes.html#a9ea65d3e09454f209873a640070cdd0b',1,'MainDeCartes']]]
+  ['testargentjoueur_31',['testArgentJoueur',['../class_joueur.html#a8715338d676dc9cb5fbfbc81451c0fc6',1,'Joueur']]],
+  ['testregression_32',['testRegression',['../class_joueur.html#a26d38e39feb2ce8534139e7c7ac611cd',1,'Joueur::testRegression()'],['../class_main_de_carte.html#ab761930f0aed29007e61bdbdda2cacda',1,'MainDeCarte::testRegression()']]],
+  ['tirercarte_33',['tirerCarte',['../class_main_de_carte.html#a847609b258d9b01dd99ef4b97d396fd6',1,'MainDeCarte']]]
 ];
