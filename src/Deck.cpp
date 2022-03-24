@@ -3,19 +3,16 @@
 #include <vector>
 #include <stack>
 #include "Deck.h"
-#include <algorithm> 
-#include <ctime>       
-#include <cstdlib>      
+#include <random>
+#include <algorithm>
+    
 
 using namespace std;
 
 Deck::Deck(unsigned int nombrePaquets)
 {
-    srand ( unsigned ( std::time(0) ) );
-    random_shuffle ( myvector.begin(), myvector.end(), myrandom);
-
 	nbPaquets = nombrePaquets;
- 	vector<Carte>tabTemp(nbPaquets*52);
+ 	vector<carte>tabTemp(nbPaquets*52);
  	for(int i=1; i<=nbPaquets; i++)
  	{
  		for(int j=1; j<=52; j++)
@@ -30,28 +27,30 @@ Deck::Deck(unsigned int nombrePaquets)
  		}
  	}
 
-    random_shuffle ( tabTemp.begin(), tabTemp.end() );
-    random_shuffle ( tabTemp.begin(), tabTemp.end(), myrandom);
+  for(int i=0; i<nbPaquets*52; i++)
+  {
+    cout<<tabTemp[i]<<endl;
+  }
 
-    for(int i=0; i<nbPaquets*52; i++)
-    {
-    	deck.push(tabTemp[i]);
-    }
+    // for(int i=0; i<nbPaquets*52; i++)
+    // {
+    // 	deck.push(tabTemp[i]);
+    // }
 
 }
 
 void Deck::testRegression()
 {
-    Deck unDeck(2);
-    assert(unDeck.deck.size()==104);
-    cout << "Nombre d'éléments dans la pile : " << unDeck.deck.size() << endl;
+//     Deck unDeck(2);
+//     assert(unDeck.deck.size()==104);
+//     cout << "Nombre d'éléments dans la pile : " << unDeck.deck.size() << endl;
 
-    for(int i=0; i<unDeck.deck.size(); i++)
-    {
-        cout << unDeck.deck.top() << endl;  // accès au dernier élément
-        unDeck.deck.pop();  // suppression du dernier élément
-    }
-}
+//     for(int i=0; i<unDeck.deck.size(); i++)
+//     {
+//         cout << unDeck.deck.top() << endl;  // accès au dernier élément
+//         unDeck.deck.pop();  // suppression du dernier élément
+//     }
+// }
 
 
 // unsigned int Deck::getNbPaquets() const
