@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 #include <vector>
 #include <stack>
 #include "Deck.h"
@@ -17,7 +18,7 @@ Deck::Deck(unsigned int nombrePaquets)
  			{
  				for(int l=1; l<=10; l++)
  				{
- 					tabTemp.push_back(Carte(l,k));    //ATTENTION CAS DE L'AS 
+ 					tabTemp.push_back(Carte carte(l,k));    //ATTENTION CAS DE L'AS 
  				}
  			}
  		}
@@ -37,7 +38,7 @@ Deck::Deck(unsigned int nombrePaquets)
 void Deck::testRegression()
 {
     Deck unDeck(2);
-
+    assert(unDeck.deck.size()==104);
     cout << "Nombre d'éléments dans la pile : " << unDeck.deck.size() << endl;
 
     for(int i=0; i<unDeck.deck.size(); i++)
@@ -62,3 +63,5 @@ void Deck::testRegression()
 
 
 //Toutes les données en privé quasiment --> ce qui intéresse c'est juste les fonctionnalités, ce qu'on peut faire
+
+//objet en param --> const& objet

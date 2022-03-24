@@ -4,7 +4,7 @@
 #include <iostream>
 #include <stack>
 #include "Carte.h"
-#include <list>
+#include <vector>
 
 using namespace std;
 

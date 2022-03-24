@@ -20,6 +20,21 @@ bool Joueur::testArgentJoueur()
 	return (budget>0);
 }
 
+void Joueur::ajouterMainDeCartes(MainDeCarte hand)
+{
+	tabMainDeCartes.push_back(hand);
+	nbMainDeCartes++;
+}
+
+void Joueur::supprimerMainDeCartes()
+{
+	if(nbMainDeCartes > 0)
+	{
+		tabMainDeCartes.pop_back(hand);
+		nbMainDeCartes--;
+	}
+}
+
 void Joueur::testRegression()
 {
 	Joueur unJoueur("Kirikou", 2, 1000);
@@ -34,3 +49,4 @@ void Joueur::testRegression()
 
 	cout<<"Test de regression passé avec succès !"<<endl
 }
+

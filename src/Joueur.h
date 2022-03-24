@@ -35,6 +35,11 @@ class Joueur
 	*/
 	vector<MainDeCarte>tabMainDeCartes;
 
+    /**
+     * @brief nbMainDeCartes : entier positif représentant le nombre de mains de cartes que le joueur est en train de jouer 
+    */
+    unsigned int nbMainDeCartes;
+
 	 /**
      * @brief  Constructeur de joueur
      * @param[in] nomJ : une chaîne de caractères décrivant le nom du joueur 
@@ -51,7 +56,30 @@ class Joueur
     */ 
     Joueur(string nomJ, unsigned int nivJoueur, float budgetJ);
 
+     /**
+     * @brief  Ajouter une main de cartes 
+     * @param[in] hand : la main de carte à ajouter
+     * @return void
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * unJoueur.ajouterMainDeCartes(hand);
+     * @endcode     
+    */ 
+    void ajouterMainDeCartes(MainDeCarte hand);
+   
 
+     /**
+     * @brief  Supprimer une main de cartes
+     * @return void
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * unJoueur.supprimerMainDeCartes();
+     * @endcode     
+    */    
+    void supprimerMainDeCartes();
+   
     /**
      * @brief Tester si un joueur a toujours de l'argent ou non
      * @return bool
