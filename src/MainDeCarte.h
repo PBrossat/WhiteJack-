@@ -35,7 +35,7 @@ class MainDeCarte
 
 
     /**
-    * @brief Destructeur de la classe (sommeValeur=0 et nbCarte=0)
+    * @brief Constructeur de la classe (sommeValeur=0 et nbCarte=0)
     */
     MainDeCarte();
 

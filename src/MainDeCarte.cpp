@@ -27,9 +27,9 @@ MainDeCarte::MainDeCarte (Carte carte1, Carte carte2)
 }
 
 
-void MainDeCarte::tirerCarte (Carte carteAjoutee);
+void MainDeCarte::tirerCarte (Carte carteAjoutee)
 {
-    if ((joueToujours)&&(!cramé?)) //tant que le joueur est encore en lice et qu'il n'a pas cramé 
+    if ((joueToujours)&&(! crame)) //tant que le joueur est encore en lice et qu'il n'a pas cramé 
             {
                 nbCartes++; // son nb de carte augmente de 1 
                 Hand.push_back (carteAjoutee); // on ajoute la carte tirée à sa main 
@@ -46,7 +46,7 @@ void MainDeCarte::tirerCarte (Carte carteAjoutee);
 
 
 
-void MainDeCarte::doubler (Carte carteAjoutee);
+void MainDeCarte::doubler (Carte carteAjoutee)
 {
     if ( nbCartes==2) // on peut doubler que quand on a uniquement 2 cartes
         {
@@ -69,16 +69,16 @@ void MainDeCarte::doubler (Carte carteAjoutee);
 
 
 
-MainDeCarte MainDeCarte::splitter (Carte carteAjoutee1, Carte carteAjoutee2);
-{
-    if ((nbCartes==2)&&(Hand[0].valeur==Hand[1].valeur))
-        {
-            MainDecarte Hand2(Hand[1],carteAjoutee2); // création de la nouvelle main (Hand2)
-            Hand[1]=carteAjoutee1; //mise à jour de la main de base
-            sommeValeur=Hand[0].valeur+Hand[1].valeur; // somme des valeur mise à jour (ATTENTION pour la valeur de l'as)
-            return Hand2; 
-        }
-}
+// MainDeCarte MainDeCarte::splitter (Carte carteAjoutee1, Carte carteAjoutee2)
+// {
+//     if ((nbCartes==2)&&(Hand[0].valeur==Hand[1].valeur))
+//         {
+//             MainDeCarte Hand2(Hand[1],carteAjoutee2); // création de la nouvelle main (Hand2)
+//             Hand[1]=carteAjoutee1; //mise à jour de la main de base
+//             sommeValeur=Hand[0].valeur+Hand[1].valeur; // somme des valeur mise à jour (ATTENTION pour la valeur de l'as)
+//             return Hand2; 
+//         }
+// }
 
 
 
@@ -97,18 +97,18 @@ unsigned int MainDeCarte::getSommeValeur () const
 
 
 
-void MainDeCarte::setSommeValeur (int SommeValeur) const
+void MainDeCarte::setSommeValeur (int SommeValeur) 
 {
     sommeValeur=SommeValeur;
 }
 
 
 
-void MainDeCArte::testRegression();
+void MainDeCarte::testRegression()
 {
-    MainDeCarte main1(); //creation d'une main de base main1
+    MainDeCarte main1; //creation d'une main de base main1
     assert (main1.nbCartes==0);
-    assert (main1.SommeValeur==0);
+    assert (main1.sommeValeur==0);
 
     Carte carte1(2,2); //creation de deux cartes (carte1 et carte2)
     Carte carte2 (3,0);
