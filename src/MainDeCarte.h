@@ -35,6 +35,13 @@ class MainDeCarte
 
 
     /**
+    * @brief Destructeur de la classe (sommeValeur=0 et nbCarte=0)
+    */
+    MainDeCarte();
+
+
+
+    /**
     * @brief Constructeur avec parametres de la classe MainDeCarte
     * 
     * Exemple d'utilisation :
@@ -43,6 +50,8 @@ class MainDeCarte
     * @endcode
     */
     MainDeCarte (Carte carte1, Carte carte2);
+
+
 
 
     /**

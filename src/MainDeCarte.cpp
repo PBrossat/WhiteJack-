@@ -6,6 +6,14 @@
 
 using namespace std;
 
+MainDeCarte::MainDeCarte ()
+{
+    nbCartes=0; // le nombre de carte est initialisé à 0
+    sommeValeur=0; //la somme des valeurs est initialisé à 0
+}
+
+
+
 MainDeCarte::MainDeCarte (Carte carte1, Carte carte2)
 {   
 
