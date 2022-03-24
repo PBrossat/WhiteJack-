@@ -3,11 +3,17 @@
 #include <vector>
 #include <stack>
 #include "Deck.h"
+#include <algorithm> 
+#include <ctime>       
+#include <cstdlib>      
 
 using namespace std;
 
 Deck::Deck(unsigned int nombrePaquets)
 {
+    srand ( unsigned ( std::time(0) ) );
+    random_shuffle ( myvector.begin(), myvector.end(), myrandom);
+
 	nbPaquets = nombrePaquets;
  	vector<Carte>tabTemp(nbPaquets*52);
  	for(int i=1; i<=nbPaquets; i++)
@@ -24,9 +30,8 @@ Deck::Deck(unsigned int nombrePaquets)
  		}
  	}
 
- 	random_device rd;
-    default_random_engine rng(rd());
-    shuffle(begin(tabTemp), end(tabTemp), rng);
+    random_shuffle ( tabTemp.begin(), tabTemp.end() );
+    random_shuffle ( tabTemp.begin(), tabTemp.end(), myrandom);
 
     for(int i=0; i<nbPaquets*52; i++)
     {
