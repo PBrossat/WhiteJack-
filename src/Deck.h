@@ -15,13 +15,15 @@ class Deck
 	
 	void initDeck();
 	void melangerDeck();
-	void testRegression() const;
-
+	Carte distribuerCarte();
 	void afficherDeck() const;
+
+	void testRegression() const;
 
 	private :
 
-	unsigned int nbPaquets;
+
 };
 
 #endif
+

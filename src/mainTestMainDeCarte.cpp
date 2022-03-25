@@ -1,4 +1,5 @@
-﻿#include "MainDeCarte.h"
+﻿#include <iostream>
+#include "MainDeCarte.h"
 
 using namespace std;
  

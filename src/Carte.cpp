@@ -9,6 +9,12 @@ Carte::Carte(unsigned int Valeur, unsigned int Signe )
     signe=Signe;
 }
 
+Carte::Carte()
+{
+    valeur=-1;
+    signe=-1;
+}
+
 void Carte::testRegression() const
 {
     Carte card(5,2);
@@ -21,12 +27,6 @@ void Carte::testRegression() const
 
 
 
-Carte::Carte()
-{
-    valeur=-1;
-    signe=-1;
-}
-
 
 
 
@@ -36,4 +36,14 @@ ostream& operator << (ostream& flux, const Carte& carteAffichee)
     //flux << " / Signe : "<<carteAffichee.signe;
     return flux;
 }
+
+
+
+Carte& Carte::operator = (const Carte& operandeDroite)
+{
+    valeur = operandeDroite.valeur;
+    signe = operandeDroite.signe;
+    return *this;
+}
+
 

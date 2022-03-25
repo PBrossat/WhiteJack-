@@ -43,10 +43,23 @@ void Deck::afficherDeck() const
     cout << endl;
 }
 
+Carte Deck::distribuerCarte()
+{
+  Carte carteDistribuee;
+  carteDistribuee = deck.back();
+  deck.pop_back();
+  if(deck.empty())
+  {
+    initDeck();
+    melangerDeck();
+  }
+  return carteDistribuee;
+}
 
 
 void Deck::testRegression() const
 {
+  //FAIRE ASSERT AVEC TAILLE DU DECK / VERIFIER VALEUR INIT
     Deck unDeck;
     unDeck.initDeck();
     cout<<"Deck initialisé :"<<endl;
@@ -54,6 +67,15 @@ void Deck::testRegression() const
     unDeck.melangerDeck();
     cout<<"Deck mélangé :"<<endl;
     unDeck.afficherDeck();
+    Carte test;
+    test = unDeck.distribuerCarte();
+    cout<<test<<endl;
+    unDeck.afficherDeck();
+    test = unDeck.distribuerCarte();
+    cout<<test<<endl;
+    unDeck.afficherDeck();
+
+    cout<<"Le test de regression a été passé avec succès"<<endl;
 }
     
 

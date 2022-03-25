@@ -45,6 +45,7 @@ class Carte
     void testRegression() const;
 
 
+    Carte& operator = (const Carte& operandeDroite);
 
 
     friend ostream& operator << (ostream& flux, const Carte& carteAffichee);

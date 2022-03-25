@@ -104,14 +104,14 @@ void MainDeCarte::setSommeValeur (int SommeValeur)
 
 
 
-void MainDeCarte::testRegression()
+void MainDeCarte::testRegression() const
 {
     MainDeCarte main1; //creation d'une main de base main1
     assert (main1.nbCartes==0);
     assert (main1.sommeValeur==0);
 
     Carte carte1(2,2); //creation de deux cartes (carte1 et carte2)
-    Carte carte2 (3,0);
+    Carte carte2(3,0);
     MainDeCarte main2(carte1,carte2); //creation d'une main de deux cartes (carte1 et carte2)
     assert (main2.nbCartes==2); // test du nombre de cartes 
     assert (main2.sommeValeur==5);// test de la somme des valeur 
@@ -123,7 +123,7 @@ void MainDeCarte::testRegression()
     assert (carte2.signe==0);
 
 
-    Carte carteAjoutee (8,1); //création d'une carte à ajouter
+    Carte carteAjoutee(8,1); //création d'une carte à ajouter
     main2.tirerCarte(carteAjoutee); 
     assert (main2.nbCartes==3); // test du nombre de cartes 
     assert (main2.sommeValeur==13);// test de la somme des valeur 
@@ -133,7 +133,7 @@ void MainDeCarte::testRegression()
     assert (carteAjoutee.signe==1); // test si le signe de la nouvelle carte est bien celui attribué 
 
 
-    Carte carteAjoutee2 (10,1);
+    Carte carteAjoutee2(10,1);
     main2.tirerCarte(carteAjoutee2);
     assert (main2.nbCartes==4); // test du nombre de cartes 
     assert (main2.sommeValeur==23);// test de la somme des valeur

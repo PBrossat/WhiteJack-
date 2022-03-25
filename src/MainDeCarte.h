@@ -53,12 +53,6 @@ class MainDeCarte
 
 
 
-    /**
-    * @brief Destructeur de la classe
-    */
-    ~MainDeCarte ();
-
-
 
     /**
     * @brief Permet de tirer une nouvelle carte
@@ -101,7 +95,7 @@ class MainDeCarte
     * @endcode
     * @warning Le joueur peut splitter que lors de sa première action (lorsqu'il à deux cartes uniquement)
     */
-    MainDeCarte splitter (Carte carteAjoutee1, Carte carteAjoutee2);
+    //MainDeCarte splitter (Carte carteAjoutee1, Carte carteAjoutee2);
 
 
 
@@ -152,7 +146,7 @@ class MainDeCarte
     * MainDeCarte.testRegression();
     * @endcode     
     */ 
-    void testRegression();
+    void testRegression() const;
 
 
     private : 
