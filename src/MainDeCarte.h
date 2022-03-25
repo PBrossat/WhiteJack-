@@ -34,6 +34,7 @@ class MainDeCarte
     
 
 
+
     /**
     * @brief Constructeur de la classe (sommeValeur=0 et nbCarte=0)
     */
@@ -110,6 +111,19 @@ class MainDeCarte
     */
     void rester ();
 
+
+
+
+    /**
+    * @brief Permet de verifier si le score du joueur est inferieur ou egal à 21  
+    * @return void  
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * MainDeCarte.verifScore();
+    * @endcode
+    */
+    void verifScore ();
 
 
     /**

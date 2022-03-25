@@ -27,6 +27,19 @@ MainDeCarte::MainDeCarte (Carte carte1, Carte carte2)
 }
 
 
+
+
+void MainDeCarte::verifScore()
+{
+    if (sommeValeur>21) 
+        {
+            crame=1; // passage de crame à vrai , le joueur a cramé
+            joueToujours=0; // passage de joueToujours à faux , le joueur ne peut plus jouer
+        }
+}
+
+
+
 void MainDeCarte::tirerCarte (Carte carteAjoutee)
 {
     if ((joueToujours)&&(! crame)) //tant que le joueur est encore en lice et qu'il n'a pas cramé 
@@ -36,11 +49,7 @@ void MainDeCarte::tirerCarte (Carte carteAjoutee)
                 sommeValeur=sommeValeur+ carteAjoutee.valeur; // MAJ de la sommeValeur
 
             }
-    if (sommeValeur>21) // si le joueur a cramé
-        {
-                joueToujours=0; // booléen = FAUX
-                crame=1; // le joueur a cramé 
-        }    
+    verifScore(); // permet de changer les booléen en fonction du score du joueur 
 }
    
 
@@ -57,13 +66,10 @@ void MainDeCarte::doubler (Carte carteAjoutee)
 
         }
 
-    if (sommeValeur>21) // si le joueur a cramé
-            {   
-                    crame=1; // le joueur a cramé (booléen VRAI)
+        verifScore(); // permet de changer les booléens crame et joueToujours en fonction du score du joueur
 
-            } 
-    rester ();
-}
+        rester (); // reste si le joueur n'as pas cramé
+}   
 
 
 
