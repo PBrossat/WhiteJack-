@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	Deck testDeck(1);
+	Deck testDeck;
 	testDeck.testRegression();
 	return 0;
 }

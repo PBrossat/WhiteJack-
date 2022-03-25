@@ -2,7 +2,6 @@
 #define DECK_H
 
 #include <iostream>
-#include <stack>
 #include "Carte.h"
 #include <vector>
 
@@ -12,11 +11,13 @@ class Deck
 {
 	public :
 
-	stack<Carte>deck;  
-	// unsigned int getNbPaquets() const;
-	// void setNbPaquets(unsigned int nombrePaquets);
-	Deck(unsigned int nombrePaquets);
-	void testRegression();
+	vector<Carte> deck;  
+	
+	void initDeck();
+	void melangerDeck();
+	void testRegression() const;
+
+	void afficherDeck() const;
 
 	private :
 

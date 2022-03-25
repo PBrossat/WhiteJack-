@@ -37,6 +37,18 @@ class Carte
     */
     Carte (unsigned int valeur, unsigned int signe);
 
+
+    Carte();
+
+
+
+    void testRegression() const;
+
+
+
+
+    friend ostream& operator << (ostream& flux, const Carte& carteAffichee);
+
 };
 
 #endif

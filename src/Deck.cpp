@@ -1,68 +1,62 @@
 #include <iostream>
 #include <cassert>
 #include <vector>
-#include <stack>
 #include "Deck.h"
 #include <random>
 #include <algorithm>
+
     
 
 using namespace std;
 
-Deck::Deck(unsigned int nombrePaquets)
+
+void Deck::initDeck()
 {
-	nbPaquets = nombrePaquets;
- 	vector<carte>tabTemp(nbPaquets*52);
- 	for(int i=1; i<=nbPaquets; i++)
- 	{
- 		for(int j=1; j<=52; j++)
- 		{
- 			for(int k=0; k<=3; k++)
- 			{
- 				for(int l=1; l<=10; l++)
- 				{
- 					tabTemp.push_back(Carte carte(l,k));    //ATTENTION CAS DE L'AS 
- 				}
- 			}
- 		}
- 	}
-
-  for(int i=0; i<nbPaquets*52; i++)
+  for(int i=0 ; i<1 ; i++)
   {
-    cout<<tabTemp[i]<<endl;
+    for(int k=0 ; k<4 ; k++)
+    {
+      for(int l=1 ; l<11 ; l++)   //ATTENTION CAS DE L'AS
+      {
+         Carte card(l,k);
+         deck.push_back(card);
+      }
+    }
   }
-
-    // for(int i=0; i<nbPaquets*52; i++)
-    // {
-    // 	deck.push(tabTemp[i]);
-    // }
-
 }
 
-void Deck::testRegression()
+void Deck::melangerDeck()
 {
-//     Deck unDeck(2);
-//     assert(unDeck.deck.size()==104);
-//     cout << "Nombre d'éléments dans la pile : " << unDeck.deck.size() << endl;
-
-//     for(int i=0; i<unDeck.deck.size(); i++)
-//     {
-//         cout << unDeck.deck.top() << endl;  // accès au dernier élément
-//         unDeck.deck.pop();  // suppression du dernier élément
-//     }
-// }
+  random_device rd;
+  default_random_engine rng(rd());
+  shuffle(deck.begin(), deck.end(), rng);
+}
 
 
-// unsigned int Deck::getNbPaquets() const
-// {
-//     return nbPaquets;
-// }
 
-// void Deck::setNbPaquets(unsigned int nombrePaquets)
-// {
-//     nbPaquets = nombrePaquets;
+void Deck::afficherDeck() const
+{
+  for (int i = 0; i < deck.size(); i++) 
+  {
+    cout << deck[i] << "; ";
+  }
+    cout << endl;
+}
 
-// }
+
+
+void Deck::testRegression() const
+{
+    Deck unDeck;
+    unDeck.initDeck();
+    cout<<"Deck initialisé :"<<endl;
+    unDeck.afficherDeck();
+    unDeck.melangerDeck();
+    cout<<"Deck mélangé :"<<endl;
+    unDeck.afficherDeck();
+}
+    
+
 
 
 
