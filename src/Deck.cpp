@@ -16,7 +16,7 @@ void Deck::initDeck()
   {
     for(int k=0 ; k<4 ; k++)
     {
-      for(int l=1 ; l<11 ; l++)   //ATTENTION CAS DE L'AS
+      for(int l=1 ; l<11 ; l++)   //ATTENTION CAS DE L'AS //ATTENTION IL MANQUE DES CARTES (10,J,Q,K VALENT TOUTES 10)
       {
          Carte card(l,k);
          deck.push_back(card);
@@ -27,31 +27,29 @@ void Deck::initDeck()
 
 void Deck::melangerDeck()
 {
-  random_device rd;
-  default_random_engine rng(rd());
-  shuffle(deck.begin(), deck.end(), rng);
-}
-
-
-
-void Deck::afficherDeck() const
-{
-  for (int i = 0; i < deck.size(); i++) 
+  if(!deck.empty())
   {
-    cout << deck[i] << "; ";
+    random_device rd;
+    default_random_engine rng(rd());
+    shuffle(deck.begin(), deck.end(), rng);
   }
-    cout << endl;
 }
+
 
 Carte Deck::distribuerCarte()
 {
   Carte carteDistribuee;
-  carteDistribuee = deck.back();
-  deck.pop_back();
-  if(deck.empty())
+  if(!deck.empty())
+  {
+    carteDistribuee = deck.back();
+    deck.pop_back();
+  }
+  else
   {
     initDeck();
     melangerDeck();
+    carteDistribuee = deck.back();
+    deck.pop_back();
   }
   return carteDistribuee;
 }
@@ -61,7 +59,10 @@ void Deck::testRegression() const
 {
   //FAIRE ASSERT AVEC TAILLE DU DECK / VERIFIER VALEUR INIT
     Deck unDeck;
+    assert(deck.empty());
     unDeck.initDeck();
+    assert(!deck.empty());
+    assert(deck.size()==;
     cout<<"Deck initialisé :"<<endl;
     unDeck.afficherDeck();
     unDeck.melangerDeck();
@@ -79,6 +80,14 @@ void Deck::testRegression() const
 }
     
 
+void Deck::afficherDeck() const
+{
+  for (int i = 0; i < deck.size(); i++) 
+  {
+    cout << deck[i] << "; ";
+  }
+    cout << endl;
+}
 
 
 

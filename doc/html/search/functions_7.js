@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['setsommevaleur_61',['setSommeValeur',['../class_main_de_carte.html#a40e554adc5bba6bc8e860cfcb8013746',1,'MainDeCarte']]],
-  ['splitter_62',['splitter',['../class_main_de_carte.html#aba2202c0c4d0c88cfdf6a09b7378f50a',1,'MainDeCarte']]]
+  ['operator_3c_3c_0',['operator&lt;&lt;',['../_carte_8cpp.html#aa319ef76270da1a21f58a0ff3c35a9a2',1,'Carte.cpp']]],
+  ['operator_3d_1',['operator=',['../class_carte.html#a917692eb67c3a6c114825c0050e5eaec',1,'Carte']]]
 ];

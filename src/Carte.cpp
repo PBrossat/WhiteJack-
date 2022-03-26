@@ -3,10 +3,11 @@
 #include <cassert>
 
 
-Carte::Carte(unsigned int Valeur, unsigned int Signe )
+Carte::Carte(RANK r, unsigned int Valeur, unsigned int Signe )
 {
     valeur=Valeur;
     signe=Signe;
+    rang=r;
 }
 
 Carte::Carte()
@@ -17,7 +18,7 @@ Carte::Carte()
 
 void Carte::testRegression() const
 {
-    Carte card(5,2);
+    Carte card(Carte::CINQ, 5,2);
     assert(card.valeur==5);
     assert(card.signe==2);
     cout<<card<<endl;
@@ -33,7 +34,8 @@ void Carte::testRegression() const
 ostream& operator << (ostream& flux, const Carte& carteAffichee)
 {
     flux << "Valeur : "<<carteAffichee.valeur;
-    //flux << " / Signe : "<<carteAffichee.signe;
+    flux << " / Signe : "<<carteAffichee.signe;
+    flux << " / Rang : "<<carteAffichee.rang;
     return flux;
 }
 
