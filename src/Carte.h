@@ -45,10 +45,10 @@ class Carte
     void testRegression() const;
 
 
-    Carte& operator = (const Carte& operandeDroite);
+    Carte& operator = (const Carte& operandeDroite); 
 
 
-    friend ostream& operator << (ostream& flux, const Carte& carteAffichee);
+    friend ostream& operator << (ostream& flux, const Carte& carteAffichee);    //À METTRE DANS MODULE JEU TXT
 
 };
 
