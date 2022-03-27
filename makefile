@@ -51,5 +51,5 @@ obj/Carte.o : src/Carte.cpp src/Carte.h
 	g++ -g -Wall -c src/Carte.cpp -o obj/Carte.o
 
 
-doc : 
+doc : src/Carte.h src/Deck.h src/MainDeCarte.h #src/Joueur.h
 	doxygen doc/whitejack.doxy

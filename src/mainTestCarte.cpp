@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	Carte cardTest(1,1);
+	Carte cardTest;
 	cardTest.testRegression();
 	return 0;
 }

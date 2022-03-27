@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['_7emaindecarte_66',['~MainDeCarte',['../class_main_de_carte.html#a58f90e6e1604cff3a0d51ebf5cebe9a9',1,'MainDeCarte']]]
+  ['setsommevaleur_0',['setSommeValeur',['../class_main_de_carte.html#a40e554adc5bba6bc8e860cfcb8013746',1,'MainDeCarte']]],
+  ['setvaleur_1',['setValeur',['../class_carte.html#a32a60ac4130db24746d2d442966c3459',1,'Carte']]],
+  ['supprimermaindecartes_2',['supprimerMainDeCartes',['../class_joueur.html#ab1fb17f1972df5d73fafbeda9a69c389',1,'Joueur']]]
 ];

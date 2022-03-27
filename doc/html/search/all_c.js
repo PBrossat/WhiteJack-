@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['valeur_34',['valeur',['../class_carte.html#a41fe2e1de4d62ad44ee526fe217efd62',1,'Carte']]]
+  ['setsommevaleur_0',['setSommeValeur',['../class_main_de_carte.html#a40e554adc5bba6bc8e860cfcb8013746',1,'MainDeCarte']]],
+  ['setvaleur_1',['setValeur',['../class_carte.html#a32a60ac4130db24746d2d442966c3459',1,'Carte']]],
+  ['supprimermaindecartes_2',['supprimerMainDeCartes',['../class_joueur.html#ab1fb17f1972df5d73fafbeda9a69c389',1,'Joueur']]]
 ];
