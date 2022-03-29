@@ -103,7 +103,7 @@ class Joueur
     /**
      * @brief Fonction permettant au joueur de miser 
      * @param[in] mise : la mise du joueur 
-     * @return unsigned int
+     * @return void
      * 
      * Exemple d'utilisation :
      * @code
@@ -111,7 +111,7 @@ class Joueur
      * @endcode     
      * @warning Attention la mise du joueur ne peut être supérieur à son budget 
     */ 
-    unsigned int miser(unsigned int mise);
+    void miser(unsigned int mise);
 
     private :
 
