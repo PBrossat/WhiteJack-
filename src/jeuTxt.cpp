@@ -1,29 +1,29 @@
 ﻿#include <iostream>
 #include <cassert>
 #include "Jeu.h"
-#include "JeuTxt.h"
-#include "MainDeCarte.h"
-Using namespace std; 
+//#include "jeuTxt.h"
+
+using namespace std; 
 
 
 
 char choix;
 
 
-void jeuTxt::afficherMainDeCarte(MainDeCarte mainJoueur)
+void afficherMainDeCarte(MainDeCarte mainJoueur)
 {
 
     int i;
     for (i=0, i<mainJoueur.getNbCarte(), i++)
     {
-        cout<<getIemeCarte(i)<<endl;
+        cout<<mainJoueur.getIemeCarte(i)<<endl;
     }
 
 }
 
 
 
-void txtBoucle (Jeu & jeu)
+void txtBoucle (Jeu& jeu)
 {
     do{
     cout<<"Bonjour, soyez le bienvenue ! Nous verifions votre carte d'identité ... Tout est bon vous êtes bien majeur"<<endl;

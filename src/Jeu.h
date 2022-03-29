@@ -13,6 +13,11 @@ class Jeu
 {
 	public :
 
+	Deck unDeck;
+	Joueur joueurSolo; 
+	MainDeCarte mainCroupier;
+	Carte deuxiemeCarteCroupier;
+
 	unsigned int mise;
 	unsigned int gain;
 	
@@ -24,11 +29,6 @@ class Jeu
 	void actionClavier(const char touche);
 	void actionCroupier();
 	void resultat(); 
-	
-	Deck unDeck;
-	Joueur joueurSolo; 
-	MainDeCarte mainCroupier;
-	Carte deuxiemeCarteCroupier;
 
 };
 

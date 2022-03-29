@@ -4,6 +4,8 @@ using namespace std;
 
 #include "Jeu.h"
 
-void txtBoucle (Jeu & j);
+
+char choix;
+void txtBoucle (Jeu& jeu);
 void afficherMainDeCarte(const MainDeCarte& mainJoueur);
 #endif
