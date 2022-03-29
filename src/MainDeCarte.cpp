@@ -40,6 +40,28 @@ void MainDeCarte::verifScore()
 
 
 
+
+bool MainDeCarte::verifBlackJack ()
+{
+ if ((nbCartes==2)&&(sommeValeur==21)) // si on a deux cartes et que la somme des valeurs des deux cartes est = 21 (BlackJack)
+    {
+        joueToujours=0; // le joueur ne peut plus jouer
+    }
+}
+
+
+Carte MainDeCarte::getIemeCarte(unsigned int indice)
+{
+ if ((indice< mainDeJoueur.size())&&(mainDeJoueur.size()!=0))
+    {
+        return mainDeJoueur[indice];
+    }
+    
+}
+
+
+
+
 void MainDeCarte::tirerCarte (const Carte& carteAjoutee)
 {
     if ((joueToujours)&&(! crame)) //tant que le joueur est encore en lice et qu'il n'a pas cramé 

@@ -76,7 +76,7 @@ class MainDeCarte
     * @endcode
     * @warning Le joueur peut splitter que lors de sa première action (lorsqu'il à deux cartes uniquement)
     */
-    //MainDeCarte splitter (Carte carteAjoutee1, Carte carteAjoutee2);
+    MainDeCarte splitter (Carte carteAjoutee1, Carte carteAjoutee2);
 
 
 
@@ -107,7 +107,36 @@ class MainDeCarte
     void verifScore ();
 
 
+    /**
+    * @brief Permet de verifier si le joueur a un blackJack  
+    * @return bool
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * MainDeCarte.verifBlackJack();
+    * @endcode
+    */
+    bool verifBlackJack ();
 
+
+
+
+
+    /**
+    * @brief Permet d'obtenir la carte d'indice I dans la main.  
+    * @return Carte 
+    * @param[in] indice L'indice de la carte que l'on veut 
+
+    * Exemple d'utilisation :
+    * @code
+    * MainDeCarte.getIemeCarte(1);
+    * @endcode
+    * @warning Le tableau de carte ne doit pas être vide
+    * @warning L'indice en paramètre doit être inférieur à la taille du tableau de Carte
+    */
+    Carte getIemeCarte(unsigned int indice);
+
+    
 
     /**
      * @brief   Accesseur : récupère la somme des valeurs des cartes du joueur 
@@ -205,15 +234,21 @@ class MainDeCarte
     */
     vector<Carte>mainDeJoueur;
 
+
+
     /**
     * @brief   nbCartes désigne le nombre de cartes qu'a le joueur dans sa main 
     */
     unsigned int nbCartes;
 
+
+
     /**
     * @brief  Booléen permettant de savoir si le joueur joue encore.
     */
     bool joueToujours;
+
+
 
 
     /**
