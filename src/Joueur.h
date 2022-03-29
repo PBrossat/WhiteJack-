@@ -17,33 +17,15 @@ class Joueur
 	string nom;
 
 	/**
-	 * @brief budget : un réel décrivant le budget du joueur 
+	 * @brief hand : main de carte du joueur
 	*/
-	float budget;
-	
-	/**
-	 * @brief niveauJoueur: un entier entre 0 et 3 définissant le niveau du joueur 
-	 * @warning 0 : le joueur est humain
-     * @warning 1 : le joueur est amateur
-     * @warning 2 : le joueur est intermédiaire
-     * @warning 3 : le joueur est expert
-	*/
-	unsigned int niveauJoueur;
-
-	/**
-	 * @brief tabMainDeCartes : tableau dynamique contenant les mains de cartes du joueur
-	*/
-	vector<MainDeCarte>tabMainDeCartes;
-
-    /**
-     * @brief nbMainDeCartes : entier positif représentant le nombre de mains de cartes que le joueur est en train de jouer 
-    */
-    unsigned int nbMainDeCartes;
+	MainDeCarte hand;
 
 	 /**
      * @brief  Constructeur de joueur
      * @param[in] nomJ : une chaîne de caractères décrivant le nom du joueur 
      * @param[in] nivJoueur: un entier entre 0 et 3 définissant le niveau du joueur 
+     * @param[in] budgetJ: un réel > 0 représentant le budget du joueur 
      * 
      * Exemple d'utilisation :
      * @code
@@ -56,29 +38,6 @@ class Joueur
     */ 
     Joueur(string nomJ, unsigned int nivJoueur, float budgetJ);
 
-     /**
-     * @brief  Ajouter une main de cartes 
-     * @param[in] hand : la main de carte à ajouter
-     * @return void
-     * 
-     * Exemple d'utilisation :
-     * @code
-     * unJoueur.ajouterMainDeCartes(hand);
-     * @endcode     
-    */ 
-    void ajouterMainDeCartes(MainDeCarte hand);
-   
-
-     /**
-     * @brief  Supprimer une main de cartes
-     * @return void
-     * 
-     * Exemple d'utilisation :
-     * @code
-     * unJoueur.supprimerMainDeCartes();
-     * @endcode     
-    */    
-    void supprimerMainDeCartes();
    
     /**
      * @brief Tester si un joueur a toujours de l'argent ou non
@@ -91,7 +50,34 @@ class Joueur
     */ 
     bool testArgentJoueur();
 
+
+    /**
+     * @brief Accesseur de budget
+     * @return float 
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * unJoueur.getBudget();
+     * @endcode     
+    */ 
+    float getBudget() const;
+
+
      /**
+     * @brief Mutateur de budget
+     * @param[in] gain : l'argent que le joueur a gagné (ou perdu)
+     * @return void 
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * unJoueur.setBudget(100);
+     * unJoueur.setBudget(-100);
+     * @endcode     
+    */ 
+    void setBudget(float gain);
+
+
+    /**
      * @brief Tester la classe et ses fonctionnalités
      * @return void
      * 
@@ -101,6 +87,29 @@ class Joueur
      * @endcode     
     */ 
     void testRegression();
+
+    private :
+
+    /**
+     * @brief budget : un réel décrivant le budget du joueur 
+    */
+    float budget;
+
+    /**
+     * @brief niveauJoueur: un entier entre 0 et 3 définissant le niveau du joueur 
+     * @warning 0 : le joueur est humain
+     * @warning 1 : le joueur est amateur
+     * @warning 2 : le joueur est intermédiaire
+     * @warning 3 : le joueur est expert
+    */
+    unsigned int niveauJoueur;
+
+    //  *
+    //  * @brief nbMainDeCartes : entier positif représentant le nombre de mains de cartes que le joueur est en train de jouer 
+    
+    // unsigned int nbMainDeCartes;
+
+
 
 };
 

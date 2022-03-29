@@ -20,18 +20,31 @@ bool Joueur::testArgentJoueur()
 	return (budget>0);
 }
 
-void Joueur::ajouterMainDeCartes(MainDeCarte hand)
+
+float Joueur::getBudget() const
 {
-	tabMainDeCartes.push_back(hand);
-	nbMainDeCartes++;
+	if(budget>0)
+	{
+		return budget;
+	}
+	else
+	{
+		return 0;
+	}
 }
 
-void Joueur::supprimerMainDeCartes()
+void Joueur::setBudget(float gain)
 {
-	if(nbMainDeCartes > 0)
+	float budgetTemp;
+	budgetTemp = budget + gain;
+
+	if(budgetTemp>0)
 	{
-		tabMainDeCartes.pop_back(hand);
-		nbMainDeCartes--;
+		budget = budgetTemp;
+	}
+	else
+	{
+		budget = 0;
 	}
 }
 
@@ -41,17 +54,20 @@ void Joueur::testRegression()
 	assert(nom=="Kirikou");
 	assert(niveauJoueur == 2);
 	assert(budget == 1000);
-	unJoueur.budget=0;
-	assert(budget == 0);
+	cout<<"Constructeur avec paramètres OK"<<endl;
+	unJoueur.setBudget(-100);
+	assert(unJoueur.getBudget() == 900);
+	unJoueur.setBudget(-1000);
+	assert(unJoueur.getBudget() == 0);
+	unJoueur.setBudget(100);
+	assert(unJoueur.getBudget() == 100);
+	cout<<"Accesseur et mutateurs OK"<<endl;
+	assert(unJoueur.testArgentJoueur()==1);
+	unJoueur.setBudget(-100);
 	assert(unJoueur.testArgentJoueur()==0);
+	cout<<"Test Argent OK"<<endl;
 
-	//tester MainDeCartes
-
-<<<<<<< HEAD
 	cout<<"Test de regression passé avec succès !"<<endl;
 }
-=======
-	cout<<"Test de regression passé avec succès !"<<endl
-}
 
->>>>>>> ae98213b556536c9a6d1a4e95e384d878abfde99
+
