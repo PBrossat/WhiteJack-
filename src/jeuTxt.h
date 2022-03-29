@@ -4,5 +4,5 @@
 #include "Jeu.h"
 
 void txtBoucle (Jeu & j);
-
+void afficherMainDeCarte(const MainDeCarte& mainJoueur);
 #endif
