@@ -77,15 +77,15 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:ad4dbf2fd90d352ded476eaef349e85a3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#ad4dbf2fd90d352ded476eaef349e85a3">Joueur</a> (string nomJ, unsigned int nivJoueur, float budgetJ)</td></tr>
 <tr class="memdesc:ad4dbf2fd90d352ded476eaef349e85a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de joueur.  <a href="class_joueur.html#ad4dbf2fd90d352ded476eaef349e85a3">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ad4dbf2fd90d352ded476eaef349e85a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cf94d4e77f65e78cfe52c77cb7a4532"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a5cf94d4e77f65e78cfe52c77cb7a4532">ajouterMainDeCartes</a> (<a class="el" href="class_main_de_carte.html">MainDeCarte</a> hand)</td></tr>
-<tr class="memdesc:a5cf94d4e77f65e78cfe52c77cb7a4532"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajouter une main de cartes.  <a href="class_joueur.html#a5cf94d4e77f65e78cfe52c77cb7a4532">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a5cf94d4e77f65e78cfe52c77cb7a4532"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1fb17f1972df5d73fafbeda9a69c389"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#ab1fb17f1972df5d73fafbeda9a69c389">supprimerMainDeCartes</a> ()</td></tr>
-<tr class="memdesc:ab1fb17f1972df5d73fafbeda9a69c389"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprimer une main de cartes.  <a href="class_joueur.html#ab1fb17f1972df5d73fafbeda9a69c389">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ab1fb17f1972df5d73fafbeda9a69c389"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8715338d676dc9cb5fbfbc81451c0fc6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a8715338d676dc9cb5fbfbc81451c0fc6">testArgentJoueur</a> ()</td></tr>
 <tr class="memdesc:a8715338d676dc9cb5fbfbc81451c0fc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tester si un joueur a toujours de l'argent ou non.  <a href="class_joueur.html#a8715338d676dc9cb5fbfbc81451c0fc6">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a8715338d676dc9cb5fbfbc81451c0fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f0185d6991c2ad84bded3e6cf6ed64c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a4f0185d6991c2ad84bded3e6cf6ed64c">getBudget</a> () const</td></tr>
+<tr class="memdesc:a4f0185d6991c2ad84bded3e6cf6ed64c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesseur de budget.  <a href="class_joueur.html#a4f0185d6991c2ad84bded3e6cf6ed64c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4f0185d6991c2ad84bded3e6cf6ed64c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba5c5a18a9f52bdd00e5ae76625d5eb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#aba5c5a18a9f52bdd00e5ae76625d5eb8">setBudget</a> (float gain)</td></tr>
+<tr class="memdesc:aba5c5a18a9f52bdd00e5ae76625d5eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutateur de budget.  <a href="class_joueur.html#aba5c5a18a9f52bdd00e5ae76625d5eb8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aba5c5a18a9f52bdd00e5ae76625d5eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26d38e39feb2ce8534139e7c7ac611cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a26d38e39feb2ce8534139e7c7ac611cd">testRegression</a> ()</td></tr>
 <tr class="memdesc:a26d38e39feb2ce8534139e7c7ac611cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tester la classe et ses fonctionnalités.  <a href="class_joueur.html#a26d38e39feb2ce8534139e7c7ac611cd">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a26d38e39feb2ce8534139e7c7ac611cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -95,18 +95,9 @@ Attributs publics</h2></td></tr>
 <tr class="memitem:a251a7192f61dae541f80cbff3914f208"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#a251a7192f61dae541f80cbff3914f208">nom</a></td></tr>
 <tr class="memdesc:a251a7192f61dae541f80cbff3914f208"><td class="mdescLeft">&#160;</td><td class="mdescRight">nom : une chaîne de caractères décrivant le nom du joueur  <a href="class_joueur.html#a251a7192f61dae541f80cbff3914f208">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a251a7192f61dae541f80cbff3914f208"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad16381ffdedfac5e724271447138cb78"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#ad16381ffdedfac5e724271447138cb78">budget</a></td></tr>
-<tr class="memdesc:ad16381ffdedfac5e724271447138cb78"><td class="mdescLeft">&#160;</td><td class="mdescRight">budget : un réel décrivant le budget du joueur  <a href="class_joueur.html#ad16381ffdedfac5e724271447138cb78">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ad16381ffdedfac5e724271447138cb78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefe5071bc92d27c48ed64f578206560f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#aefe5071bc92d27c48ed64f578206560f">niveauJoueur</a></td></tr>
-<tr class="memdesc:aefe5071bc92d27c48ed64f578206560f"><td class="mdescLeft">&#160;</td><td class="mdescRight">niveauJoueur: un entier entre 0 et 3 définissant le niveau du joueur  <a href="class_joueur.html#aefe5071bc92d27c48ed64f578206560f">Plus de détails...</a><br /></td></tr>
-<tr class="separator:aefe5071bc92d27c48ed64f578206560f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad8e82bc0771d915125c6ff727458fad"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_main_de_carte.html">MainDeCarte</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#aad8e82bc0771d915125c6ff727458fad">tabMainDeCartes</a></td></tr>
-<tr class="memdesc:aad8e82bc0771d915125c6ff727458fad"><td class="mdescLeft">&#160;</td><td class="mdescRight">tabMainDeCartes : tableau dynamique contenant les mains de cartes du joueur  <a href="class_joueur.html#aad8e82bc0771d915125c6ff727458fad">Plus de détails...</a><br /></td></tr>
-<tr class="separator:aad8e82bc0771d915125c6ff727458fad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae38f5f45ba6b1d77f49c95d66231b6fa"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#ae38f5f45ba6b1d77f49c95d66231b6fa">nbMainDeCartes</a></td></tr>
-<tr class="memdesc:ae38f5f45ba6b1d77f49c95d66231b6fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">nbMainDeCartes : entier positif représentant le nombre de mains de cartes que le joueur est en train de jouer  <a href="class_joueur.html#ae38f5f45ba6b1d77f49c95d66231b6fa">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ae38f5f45ba6b1d77f49c95d66231b6fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea0f3a9514050cd347afb2bb5164bf8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_main_de_carte.html">MainDeCarte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joueur.html#aea0f3a9514050cd347afb2bb5164bf8f">hand</a></td></tr>
+<tr class="memdesc:aea0f3a9514050cd347afb2bb5164bf8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">hand : main de carte du joueur  <a href="class_joueur.html#aea0f3a9514050cd347afb2bb5164bf8f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aea0f3a9514050cd347afb2bb5164bf8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="ad4dbf2fd90d352ded476eaef349e85a3" name="ad4dbf2fd90d352ded476eaef349e85a3"></a>
@@ -145,7 +136,8 @@ Attributs publics</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">nomJ</td><td>: une chaîne de caractères décrivant le nom du joueur </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">nivJoueur</td><td>un entier entre 0 et 3 définissant le niveau du joueur</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">nivJoueur</td><td>un entier entre 0 et 3 définissant le niveau du joueur </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">budgetJ</td><td>un réel &gt; 0 représentant le budget du joueur</td></tr>
   </table>
   </dd>
 </dl>
@@ -162,52 +154,53 @@ Attributs publics</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Documentation des fonctions membres</h2>
-<a id="a5cf94d4e77f65e78cfe52c77cb7a4532" name="a5cf94d4e77f65e78cfe52c77cb7a4532"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5cf94d4e77f65e78cfe52c77cb7a4532">&#9670;&nbsp;</a></span>ajouterMainDeCartes()</h2>
+<a id="a4f0185d6991c2ad84bded3e6cf6ed64c" name="a4f0185d6991c2ad84bded3e6cf6ed64c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f0185d6991c2ad84bded3e6cf6ed64c">&#9670;&nbsp;</a></span>getBudget()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Joueur::ajouterMainDeCartes </td>
+          <td class="memname">float Joueur::getBudget </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_main_de_carte.html">MainDeCarte</a>&#160;</td>
-          <td class="paramname"><em>hand</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Accesseur de budget. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>float</dd></dl>
+<p>Exemple d'utilisation : </p><div class="fragment"><div class="line">unJoueur.getBudget();</div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="aba5c5a18a9f52bdd00e5ae76625d5eb8" name="aba5c5a18a9f52bdd00e5ae76625d5eb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba5c5a18a9f52bdd00e5ae76625d5eb8">&#9670;&nbsp;</a></span>setBudget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joueur::setBudget </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>gain</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Ajouter une main de cartes. </p>
+<p>Mutateur de budget. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">hand</td><td>: la main de carte à ajouter </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">gain</td><td>: l'argent que le joueur a gagné (ou perdu) </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>void</dd></dl>
-<p>Exemple d'utilisation : </p><div class="fragment"><div class="line">unJoueur.ajouterMainDeCartes(hand);</div>
-</div><!-- fragment --> 
-</div>
-</div>
-<a id="ab1fb17f1972df5d73fafbeda9a69c389" name="ab1fb17f1972df5d73fafbeda9a69c389"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1fb17f1972df5d73fafbeda9a69c389">&#9670;&nbsp;</a></span>supprimerMainDeCartes()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Joueur::supprimerMainDeCartes </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Supprimer une main de cartes. </p>
-<dl class="section return"><dt>Renvoie</dt><dd>void</dd></dl>
-<p>Exemple d'utilisation : </p><div class="fragment"><div class="line">unJoueur.supprimerMainDeCartes();</div>
+<p>Exemple d'utilisation : </p><div class="fragment"><div class="line">unJoueur.setBudget(100);</div>
+<div class="line">unJoueur.setBudget(-100);</div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -254,58 +247,19 @@ Attributs publics</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Documentation des données membres</h2>
-<a id="ad16381ffdedfac5e724271447138cb78" name="ad16381ffdedfac5e724271447138cb78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad16381ffdedfac5e724271447138cb78">&#9670;&nbsp;</a></span>budget</h2>
+<a id="aea0f3a9514050cd347afb2bb5164bf8f" name="aea0f3a9514050cd347afb2bb5164bf8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea0f3a9514050cd347afb2bb5164bf8f">&#9670;&nbsp;</a></span>hand</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Joueur::budget</td>
+          <td class="memname"><a class="el" href="class_main_de_carte.html">MainDeCarte</a> Joueur::hand</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>budget : un réel décrivant le budget du joueur </p>
-
-</div>
-</div>
-<a id="ae38f5f45ba6b1d77f49c95d66231b6fa" name="ae38f5f45ba6b1d77f49c95d66231b6fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae38f5f45ba6b1d77f49c95d66231b6fa">&#9670;&nbsp;</a></span>nbMainDeCartes</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int Joueur::nbMainDeCartes</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>nbMainDeCartes : entier positif représentant le nombre de mains de cartes que le joueur est en train de jouer </p>
-
-</div>
-</div>
-<a id="aefe5071bc92d27c48ed64f578206560f" name="aefe5071bc92d27c48ed64f578206560f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefe5071bc92d27c48ed64f578206560f">&#9670;&nbsp;</a></span>niveauJoueur</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int Joueur::niveauJoueur</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>niveauJoueur: un entier entre 0 et 3 définissant le niveau du joueur </p>
-<dl class="section warning"><dt>Avertissement</dt><dd>0 : le joueur est humain </dd>
-<dd>
-1 : le joueur est amateur </dd>
-<dd>
-2 : le joueur est intermédiaire </dd>
-<dd>
-3 : le joueur est expert </dd></dl>
+<p>hand : main de carte du joueur </p>
 
 </div>
 </div>
@@ -322,22 +276,6 @@ Attributs publics</h2></td></tr>
 </div><div class="memdoc">
 
 <p>nom : une chaîne de caractères décrivant le nom du joueur </p>
-
-</div>
-</div>
-<a id="aad8e82bc0771d915125c6ff727458fad" name="aad8e82bc0771d915125c6ff727458fad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad8e82bc0771d915125c6ff727458fad">&#9670;&nbsp;</a></span>tabMainDeCartes</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt;<a class="el" href="class_main_de_carte.html">MainDeCarte</a>&gt; Joueur::tabMainDeCartes</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>tabMainDeCartes : tableau dynamique contenant les mains de cartes du joueur </p>
 
 </div>
 </div>

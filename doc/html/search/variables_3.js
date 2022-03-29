@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['jouetoujours_0',['joueToujours',['../class_main_de_carte.html#a364e9cfb25c5eed010af0f9734aab255',1,'MainDeCarte']]]
+  ['nbcartes_0',['nbCartes',['../class_main_de_carte.html#a256d2502ed06c0d411567843fad99cc8',1,'MainDeCarte']]],
+  ['nom_1',['nom',['../class_joueur.html#a251a7192f61dae541f80cbff3914f208',1,'Joueur']]]
 ];
