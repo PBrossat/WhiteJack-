@@ -76,7 +76,7 @@ class MainDeCarte
     * @endcode
     * @warning Le joueur peut splitter que lors de sa première action (lorsqu'il à deux cartes uniquement)
     */
-    MainDeCarte splitter (Carte carteAjoutee1, Carte carteAjoutee2);
+    //MainDeCarte splitter (Carte carteAjoutee1, Carte carteAjoutee2);
 
 
 

@@ -2,6 +2,14 @@ all :  bin/Deck bin/MainDeCarte bin/Carte bin/Joueur
 
 
 
+bin/Jeu : obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o
+	g++ -g -Wall obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o -o bin/Jeu
+
+obj/Jeu.o : src/Jeu.cpp src/Jeu.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h
+	g++ -g -Wall -c src/Jeu.cpp -o obj/Jeu.o
+
+
+
 bin/Joueur : obj/mainTestJoueur.o obj/Joueur.o obj/MainDeCarte.o obj/Carte.o
 	g++ -g -Wall obj/mainTestJoueur.o obj/Joueur.o obj/MainDeCarte.o obj/Carte.o -o bin/Joueur
 

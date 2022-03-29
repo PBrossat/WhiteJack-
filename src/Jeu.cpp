@@ -19,6 +19,8 @@ void Jeu::actionClavier(const char touche)
 			joueurSolo.mainJoueur.tirer(carteTiree);
 			break;
 		case 'd' :
+			joueurSolo.miser(mise);
+			mise=mise*2;
 			Carte carteTiree = unDeck.distribuerCarte();
 			joueurSolo.mainJoueur.doubler(carteTiree);
 			break;
