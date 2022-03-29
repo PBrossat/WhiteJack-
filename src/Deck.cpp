@@ -12,7 +12,7 @@ using namespace std;
 
 void Deck::initDeck()
 {
-  for(int i=0 ; i<1 ; i++)
+  for(int i=0 ; i<4 ; i++)
   {
     for(int k=1 ; k<=4 ; k++)
     {
@@ -70,7 +70,7 @@ void Deck::testRegression() const
 {
     Deck unDeck;
     unDeck.initDeck();
-    assert(!unDeck.deck.empty() && unDeck.deck.size()==52);
+    assert(!unDeck.deck.empty() && unDeck.deck.size()==(4*52));
     cout<<"Deck initialisé OK "<<endl;
     //unDeck.afficherDeck();
     vector<Carte> AvantMelange;
@@ -89,7 +89,7 @@ void Deck::testRegression() const
     assert(test1.getRang()==test2.getRang());
     assert(test1.getValeur()==test2.getValeur());
     assert(test1.getSigne()==test2.getSigne());
-    assert(unDeck.deck.size()==51);
+    assert(unDeck.deck.size()==((4*52)-1));
     cout<<"Distribution de cartes OK"<<endl;
     //unDeck.afficherDeck();
 

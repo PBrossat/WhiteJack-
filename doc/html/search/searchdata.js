@@ -1,10 +1,18 @@
 var indexSectionsWithContent =
 {
+<<<<<<< HEAD
+  0: "acdghijmnorstv",
+  1: "cdjm",
+  2: "cdjm",
+  3: "acdgijmorstv",
+  4: "chjn",
+=======
   0: "abcdgijmnorstv",
   1: "cdjm",
   2: "cdjm",
   3: "acdgijmorstv",
   4: "bnt",
+>>>>>>> 1138e7c1850b7c5114b812db3353095d1ccf523b
   5: "o"
 };
 

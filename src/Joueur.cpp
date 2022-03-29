@@ -7,7 +7,7 @@ using namespace std;
 
 Joueur::Joueur(string nomJ, unsigned int nivJoueur, float budgetJ)
 {
-	assert(budget>0);
+	assert(budgetJ>0);
 	assert(nivJoueur < 4 && nivJoueur >= 0);
 
 	nom = nomJ;
@@ -48,11 +48,25 @@ void Joueur::setBudget(float gain)
 	}
 }
 
+unsigned int Joueur::getNiveau() const
+{
+	return niveauJoueur;
+}
+
+
+unsigned int Joueur::miser(unsigned int mise)
+{
+	assert(mise<budget);
+	budget = budget - mise;
+	return mise;
+}
+
+
 void Joueur::testRegression()
 {
 	Joueur unJoueur("Kirikou", 2, 1000);
-	assert(nom=="Kirikou");
-	assert(niveauJoueur == 2);
+	assert(unJoueur.nom=="Kirikou");
+	assert(unJoueur.getNiveau() == 2);
 	assert(budget == 1000);
 	cout<<"Constructeur avec paramètres OK"<<endl;
 	unJoueur.setBudget(-100);
@@ -61,9 +75,11 @@ void Joueur::testRegression()
 	assert(unJoueur.getBudget() == 0);
 	unJoueur.setBudget(100);
 	assert(unJoueur.getBudget() == 100);
+	unJoueur.miser(50);
+	assert(unJoueur.budget == 50 );
 	cout<<"Accesseur et mutateurs OK"<<endl;
 	assert(unJoueur.testArgentJoueur()==1);
-	unJoueur.setBudget(-100);
+	unJoueur.setBudget(-50);
 	assert(unJoueur.testArgentJoueur()==0);
 	cout<<"Test Argent OK"<<endl;
 
