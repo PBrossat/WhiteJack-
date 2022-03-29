@@ -76,6 +76,17 @@ class Joueur
     */ 
     void setBudget(float gain);
 
+    /**
+     * @brief Accesseur du niveau de joueur 
+     * @return usigned int 
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * unJoueur.getNiveau();
+     * @endcode     
+    */ 
+    unsigned int getNiveau() const;
+
 
     /**
      * @brief Tester la classe et ses fonctionnalités
@@ -87,6 +98,20 @@ class Joueur
      * @endcode     
     */ 
     void testRegression();
+
+
+    /**
+     * @brief Fonction permettant au joueur de miser 
+     * @param[in] mise : la mise du joueur 
+     * @return unsigned int
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * unJoueur.miser(100);
+     * @endcode     
+     * @warning Attention la mise du joueur ne peut être supérieur à son budget 
+    */ 
+    unsigned int miser(unsigned int mise);
 
     private :
 

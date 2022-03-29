@@ -11,34 +11,12 @@ class MainDeCarte
     public :
 
 
-    /**
-    * @brief  tableau de Carte
-    */
-    vector<Carte>Hand;
-
-    /**
-    * @brief   nbCartes désigne le nombre de cartes qu'a le joueur dans sa main 
-    */
-    unsigned int nbCartes;
-
-    /**
-    * @brief  Booléen permettant de savoir si le joueur joue encore.
-    */
-    bool joueToujours;
-
-
-    /**
-    * @brief  Booléen permettant de savoir si la valeur de la somme de ses cartes est supérieur à 21 (0= pas cramé, 1= il a cramé)
-    */
-    bool crame;
-    
-
-
 
     /**
     * @brief Constructeur de la classe (sommeValeur=0 et nbCarte=0)
     */
     MainDeCarte();
+
 
 
 
@@ -69,6 +47,7 @@ class MainDeCarte
 
 
 
+
     /**
     * @brief Permet de demander une unique nouvelle carte au croupier 
     * @param[in] carteAjoutee La carte a ajouter
@@ -81,6 +60,7 @@ class MainDeCarte
     * @warning Le joueur peut doubler que lors de sa première action (lorsqu'il à deux cartes uniquement)
     */
     void doubler (Carte carteAjoutee);
+
 
 
 
@@ -97,6 +77,7 @@ class MainDeCarte
     * @warning Le joueur peut splitter que lors de sa première action (lorsqu'il à deux cartes uniquement)
     */
     //MainDeCarte splitter (Carte carteAjoutee1, Carte carteAjoutee2);
+
 
 
 
@@ -126,6 +107,8 @@ class MainDeCarte
     void verifScore ();
 
 
+
+
     /**
      * @brief   Accesseur : récupère la somme des valeurs des cartes du joueur 
      * @return  unsigned int 
@@ -136,6 +119,7 @@ class MainDeCarte
      * @endcode       
      */   
     unsigned int getSommeValeur () const;
+
 
 
 
@@ -150,6 +134,51 @@ class MainDeCarte
     * @endcode  
     */ 
     void setSommeValeur (int SommeValeur);
+
+
+
+
+    /**
+     * @brief   Accesseur : récupère le nombre de cartes du joueur 
+     * @return  unsigned int 
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * unsigned int NbCarte = MainDeCarte.getNbCarte();
+     * @endcode       
+     */   
+    unsigned int getNbCartes () const;
+
+
+
+
+    /**
+     * @brief   Accesseur : récupère le booléen permettant de savoir si le joueur joue toujours.
+     * @return  bool
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * MainDeCarte.getJoueToujours();
+     * @endcode       
+     */   
+    bool getJoueToujours () const;
+
+
+
+
+    /**
+     * @brief   Accesseur : récupère le booléen permettant de savoir si le joueur a cramé.
+     * @return  bool
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * MainDeCarte.getCrame();
+     * @endcode       
+     */   
+    bool getCrame () const;
+
+
+
 
     /**
     * @brief Tester la classe et ses fonctionnalités
@@ -169,6 +198,29 @@ class MainDeCarte
     * @brief   sommeValeur est la somme des valeurs des cartes de la main de cartes
     */
     unsigned int sommeValeur;
+
+
+    /**
+    * @brief  tableau de Carte
+    */
+    vector<Carte>Hand;
+
+    /**
+    * @brief   nbCartes désigne le nombre de cartes qu'a le joueur dans sa main 
+    */
+    unsigned int nbCartes;
+
+    /**
+    * @brief  Booléen permettant de savoir si le joueur joue encore.
+    */
+    bool joueToujours;
+
+
+    /**
+    * @brief  Booléen permettant de savoir si la valeur de la somme de ses cartes est supérieur à 21 (0= pas cramé, 1= il a cramé)
+    */
+    bool crame;
+    
 
 
 };
