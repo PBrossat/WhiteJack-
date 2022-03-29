@@ -14,10 +14,15 @@ class Jeu
 	public :
 
 	unsigned int mise;
+	unsigned int gain;
+	
 	Jeu();
+	
+    
+    void initialisationMise();
+	void initialisationJeu();  
+	void actionClavier(const char touche);
 	void actionCroupier();
-    void actionClavier(const char touche);
-	void initialisation();  
 	void resultat(); 
 
 

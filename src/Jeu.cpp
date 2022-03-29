@@ -28,13 +28,18 @@ void Jeu::actionClavier(const char touche)
 	}
 }
 
-void Jeu::intialisationJeu()
+void Jeu::intialisationMise()
 {
+	gain = 0;
 	do
 	{
 		cin>>mise;
 	}while(mise>joueurSolo.getBudget());
+}
 
+
+void Jeu::intialisationJeu()
+{
 	joueurSolo.miser(mise);
 	Carte carteTiree;
 	Carte carteTiree = unDeck.distribuerCarte();
@@ -67,10 +72,12 @@ void Jeu::resultat()
 		if(mainCroupier.verifBlackJack())
 		{
 			joueurSolo.setBudget(mise);
+			gain = mise;
 		}
 		else
 		{
 			joueurSolo.setBudget((2.5)*mise);
+			gain = (2.5)*mise;
 		}
 	}
 	if(!joueurSolo.mainJoueur.getCrame())
@@ -78,16 +85,19 @@ void Jeu::resultat()
 		if(mainCroupier.getCrame())
 		{
 			joueurSolo.setBudget(2*mise);
+			gain = 2*mise;
 		}
 		else
 		{
 			if(joueurSolo.mainJoueur.getSommeValeur() > mainCroupier.getSommeValeur())
 			{
 				joueurSolo.setBudget(2*mise);	
+				gain = 2*mise;
 			}
 			else if(joueurSolo.mainJoueur.getSommeValeur() == mainCroupier.getSommeValeur())
 			{
 				joueurSolo.setBudget(mise);	
+				gain = mise;
 			}
 		}
 	}
