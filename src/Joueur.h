@@ -19,7 +19,7 @@ class Joueur
 	/**
 	 * @brief hand : main de carte du joueur
 	*/
-	MainDeCarte hand;
+	MainDeCarte mainJoueur;
 
 	 /**
      * @brief  Constructeur de joueur
@@ -29,7 +29,7 @@ class Joueur
      * 
      * Exemple d'utilisation :
      * @code
-     * Joueur unJoueur("Pierrick", 0);
+     * Joueur unJoueur("Pierrick", 0, 1000);
      * @endcode     
      * @warning 0 : le joueur est humain
      * @warning 1 : le joueur est amateur

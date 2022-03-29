@@ -14,6 +14,9 @@ class Jeu
 	public :
 
 	Jeu();
+	void boucleJeu ();
+    void actionClavier(const char touche);
+	void distribution();   
 
 
 	private :
@@ -21,6 +24,9 @@ class Jeu
 	Deck unDeck;
 	Joueur joueurSolo; 
 	MainDeCarte mainJoueurSolo;
+	MainDeCarte mainCroupier;
+	Carte deuxiemeCarteCroupier 
+
 };
 
 #endif

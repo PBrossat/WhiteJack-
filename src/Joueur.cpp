@@ -54,7 +54,7 @@ unsigned int Joueur::getNiveau() const
 }
 
 
-unsigned int Joueur::miser(mise)
+unsigned int Joueur::miser(unsigned int mise)
 {
 	assert(mise<budget);
 	budget = budget - mise;
@@ -75,9 +75,11 @@ void Joueur::testRegression()
 	assert(unJoueur.getBudget() == 0);
 	unJoueur.setBudget(100);
 	assert(unJoueur.getBudget() == 100);
+	unJoueur.miser(50);
+	assert(unJoueur.budget == 50 );
 	cout<<"Accesseur et mutateurs OK"<<endl;
 	assert(unJoueur.testArgentJoueur()==1);
-	unJoueur.setBudget(-100);
+	unJoueur.setBudget(-50);
 	assert(unJoueur.testArgentJoueur()==0);
 	cout<<"Test Argent OK"<<endl;
 
