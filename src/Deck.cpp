@@ -14,44 +14,53 @@ void Deck::initDeck()
 {
   for(int i=0 ; i<1 ; i++)
   {
-    for(int k=0 ; k<4 ; k++)
+    for(int k=1 ; k<=4 ; k++)
     {
-      for(int l=1 ; l<11 ; l++)   //ATTENTION CAS DE L'AS
+      for(int l=1 ; l<=13 ; l++)   //ATTENTION CAS DE L'AS
       {
-         Carte card(l,k);
-         deck.push_back(card);
+        if(l<=10)
+        {
+          Carte card(l,l,k);    //rang,valeur,signe
+          deck.push_back(card);
+        }
+        else
+        {
+          Carte card(l,10,k);    //rang,valeur,signe
+          deck.push_back(card);
+        }
+  
       }
     }
   }
 }
 
+
 void Deck::melangerDeck()
 {
-  random_device rd;
-  default_random_engine rng(rd());
-  shuffle(deck.begin(), deck.end(), rng);
-}
-
-
-
-void Deck::afficherDeck() const
-{
-  for (int i = 0; i < deck.size(); i++) 
+  if(!deck.empty())
   {
-    cout << deck[i] << "; ";
+    random_device rd;
+    default_random_engine rng(rd());
+    shuffle(deck.begin(), deck.end(), rng);
   }
-    cout << endl;
 }
+
+
 
 Carte Deck::distribuerCarte()
 {
   Carte carteDistribuee;
-  carteDistribuee = deck.back();
-  deck.pop_back();
   if(deck.empty())
   {
     initDeck();
     melangerDeck();
+    carteDistribuee = deck.back();
+    deck.pop_back();
+  }
+  else
+  {
+    carteDistribuee = deck.back();
+    deck.pop_back();
   }
   return carteDistribuee;
 }
@@ -59,27 +68,50 @@ Carte Deck::distribuerCarte()
 
 void Deck::testRegression() const
 {
-  //FAIRE ASSERT AVEC TAILLE DU DECK / VERIFIER VALEUR INIT
     Deck unDeck;
     unDeck.initDeck();
-    cout<<"Deck initialisé :"<<endl;
-    unDeck.afficherDeck();
+    assert(!unDeck.deck.empty() && unDeck.deck.size()==52);
+    cout<<"Deck initialisé OK "<<endl;
+    //unDeck.afficherDeck();
+    vector<Carte> AvantMelange;
+    AvantMelange = unDeck.deck;
     unDeck.melangerDeck();
-    cout<<"Deck mélangé :"<<endl;
-    unDeck.afficherDeck();
-    Carte test;
-    test = unDeck.distribuerCarte();
-    cout<<test<<endl;
-    unDeck.afficherDeck();
-    test = unDeck.distribuerCarte();
-    cout<<test<<endl;
-    unDeck.afficherDeck();
+    bool taille = (unDeck.deck.size()==AvantMelange.size());
+    assert(taille);
+    bool same = ((unDeck.deck[0]==AvantMelange[0]) && (unDeck.deck[1]==AvantMelange[1]) && (unDeck.deck[2]==AvantMelange[2]) && (unDeck.deck[3]==AvantMelange[3]) && (unDeck.deck[4]==AvantMelange[4])); //POUR L'INSTANT J'AI PAS DE MEILLEURES MOYENS DE TESTER == 
+    assert(!same);
+    cout<<"Deck mélangé OK "<<endl;
+    //unDeck.afficherDeck();
+    Carte test1;
+    Carte test2;
+    test1 = unDeck.deck.back();
+    test2 = unDeck.distribuerCarte();
+    assert(test1.getRang()==test2.getRang());
+    assert(test1.getValeur()==test2.getValeur());
+    assert(test1.getSigne()==test2.getSigne());
+    assert(unDeck.deck.size()==51);
+    cout<<"Distribution de cartes OK"<<endl;
+    //unDeck.afficherDeck();
+
+    //TESTER QUAND ON ARRIVE À LA FIN DU DECK ET QU'IL FAUT EN RECREER UN POUR DISTRIBUER
 
     cout<<"Le test de regression a été passé avec succès"<<endl;
 }
     
 
+// À METTRE DANS JEU TXT
 
+void Deck::afficherDeck() const
+{
+  if(!deck.empty())
+  {
+    for (int i = 0; i < deck.size(); i++) 
+    {
+      cout << deck[i] <<endl;
+    }
+      cout << endl;
+  }
+}
 
 
 //Toutes les données en privé quasiment --> ce qui intéresse c'est juste les fonctionnalités, ce qu'on peut faire

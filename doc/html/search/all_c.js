@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['setsommevaleur_36',['setSommeValeur',['../class_main_de_carte.html#a40e554adc5bba6bc8e860cfcb8013746',1,'MainDeCarte']]],
-  ['signe_37',['signe',['../class_carte.html#a16e6a4928683bad7270bd77aa10a9950',1,'Carte']]],
-  ['supprimermaindecartes_38',['supprimerMainDeCartes',['../class_joueur.html#ab1fb17f1972df5d73fafbeda9a69c389',1,'Joueur']]]
+  ['tabmaindecartes_42',['tabMainDeCartes',['../class_joueur.html#aad8e82bc0771d915125c6ff727458fad',1,'Joueur']]],
+  ['testargentjoueur_43',['testArgentJoueur',['../class_joueur.html#a8715338d676dc9cb5fbfbc81451c0fc6',1,'Joueur']]],
+  ['testregression_44',['testRegression',['../class_carte.html#a5e4f814e87215790a5bf1a5e0963f64a',1,'Carte::testRegression()'],['../class_deck.html#adab56dfd75deee446023e04853cf9eed',1,'Deck::testRegression()'],['../class_joueur.html#a26d38e39feb2ce8534139e7c7ac611cd',1,'Joueur::testRegression()'],['../class_main_de_carte.html#a30ed8e57979e78a32fbdc9efa123e4c5',1,'MainDeCarte::testRegression()']]],
+  ['tirercarte_45',['tirerCarte',['../class_main_de_carte.html#a847609b258d9b01dd99ef4b97d396fd6',1,'MainDeCarte']]]
 ];

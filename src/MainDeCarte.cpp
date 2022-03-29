@@ -20,7 +20,7 @@ MainDeCarte::MainDeCarte (Carte carte1, Carte carte2)
     Hand.push_back (carte1);// ajoute carte 1 à la main 
     Hand.push_back (carte2);// ajoute carte 2 à la main 
     nbCartes=2; // le nombre de carte est initialisé à 2 
-    sommeValeur=carte1.valeur+carte2.valeur; // somme des valeur mise à jour (ATTENTION pour la valeur de l'as)
+    sommeValeur=carte1.getValeur()+carte2.getValeur(); // somme des valeur mise à jour (ATTENTION pour la valeur de l'as)
     joueToujours=1; // initialisation du booléen à VRAI (1)
     crame=0; //le joueur à moins de 22
 
@@ -46,7 +46,7 @@ void MainDeCarte::tirerCarte (Carte carteAjoutee)
             {
                 nbCartes++; // son nb de carte augmente de 1 
                 Hand.push_back (carteAjoutee); // on ajoute la carte tirée à sa main 
-                sommeValeur=sommeValeur+ carteAjoutee.valeur; // MAJ de la sommeValeur
+                sommeValeur=sommeValeur+ carteAjoutee.getValeur(); // MAJ de la sommeValeur
 
             }
     verifScore(); // permet de changer les booléen en fonction du score du joueur 
@@ -61,7 +61,7 @@ void MainDeCarte::doubler (Carte carteAjoutee)
         {
             nbCartes++; // son nb de carte augmente de 1 
             Hand.push_back (carteAjoutee); // on ajoute la carte tirée à sa main 
-            sommeValeur=sommeValeur+ carteAjoutee.valeur; // MAJ de la sommeValeur
+            sommeValeur=sommeValeur+ carteAjoutee.getValeur(); // MAJ de la sommeValeur
             
 
         }
@@ -109,42 +109,70 @@ void MainDeCarte::setSommeValeur (int SommeValeur)
 }
 
 
+unsigned int MainDeCarte::getNbCartes () const
+{
+    return nbCartes;
+}
+
+
+
+
+bool MainDeCarte::getJoueToujours () const
+{
+    return joueToujours;
+}
+
+
+
+bool MainDeCarte::getCrame () const
+{
+    return crame;
+}
+
+
+
 
 void MainDeCarte::testRegression() const
 {
     MainDeCarte main1; //creation d'une main de base main1
-    assert (main1.nbCartes==0);
-    assert (main1.sommeValeur==0);
+    assert (main1.getNbCartes()==0);
+    assert (main1.getSommeValeur()==0);
+    cout<<"Création de la main par défaut OK"<<endl;
 
-    Carte carte1(2,2); //creation de deux cartes (carte1 et carte2)
-    Carte carte2(3,0);
+
+    Carte carte1(2,2,1); //creation de deux cartes (carte1 et carte2)
+    Carte carte2(3,3,2);
     MainDeCarte main2(carte1,carte2); //creation d'une main de deux cartes (carte1 et carte2)
-    assert (main2.nbCartes==2); // test du nombre de cartes 
-    assert (main2.sommeValeur==5);// test de la somme des valeur 
-    assert (main2.joueToujours==1); //test du booléen joueToujours?
-    assert (main2.crame==0); // test du booléen crame
-    assert (carte1.valeur==2); // test si la valeur des cartes est bien celle attribuée 
-    assert (carte2.valeur==3);
-    assert (carte1.signe==2); // test si le signe des cartes est bien celui attribué 
-    assert (carte2.signe==0);
+    assert (main2.getNbCartes()==2); // test du nombre de cartes 
+    assert (main2.getSommeValeur()==5);// test de la somme des valeur 
+    assert (main2.getJoueToujours()==1); //test du booléen joueToujours?
+    assert (main2.getCrame()==0); // test du booléen crame
+    assert (carte1.getValeur()==2); // test si la valeur des cartes est bien celle attribuée 
+    assert (carte2.getValeur()==3);
+    assert (carte1.getSigne()==1); // test si le signe des cartes est bien celui attribué 
+    assert (carte2.getSigne()==2);
+    cout<<"Création de main2 réaliser avec succès"<<endl;
 
 
-    Carte carteAjoutee(8,1); //création d'une carte à ajouter
+    Carte carteAjoutee(8,8,4); //création d'une carte à ajouter
     main2.tirerCarte(carteAjoutee); 
-    assert (main2.nbCartes==3); // test du nombre de cartes 
-    assert (main2.sommeValeur==13);// test de la somme des valeur 
-    assert (main2.joueToujours==1); //test du booléen joueToujours
-    assert (main2.crame==0); // test du booléen crame
-    assert (carteAjoutee.valeur==8); // test si la valeur de la nouvelle carte est bien celle attribuée 
-    assert (carteAjoutee.signe==1); // test si le signe de la nouvelle carte est bien celui attribué 
+    assert (main2.getNbCartes()==3); // test du nombre de cartes 
+    assert (main2.getSommeValeur()==13);// test de la somme des valeur 
+    assert (main2.getJoueToujours()==1); //test du booléen joueToujours
+    assert (main2.getCrame()==0); // test du booléen crame
+    assert (carteAjoutee.getValeur()==8); // test si la valeur de la nouvelle carte est bien celle attribuée 
+    assert (carteAjoutee.getSigne()==4); // test si le signe de la nouvelle carte est bien celui attribué 
+    cout<<"Ajout d'une carte réaliser avec succès"<<endl;
 
 
-    Carte carteAjoutee2(10,1);
+
+    Carte carteAjoutee2(11,10,1);
     main2.tirerCarte(carteAjoutee2);
-    assert (main2.nbCartes==4); // test du nombre de cartes 
-    assert (main2.sommeValeur==23);// test de la somme des valeur
-    assert (main2.joueToujours==0); //test du booléen joueToujours qui doit être =0 car 23>21
-    assert (main2.crame==1); // test du booléen crame qui doit être =1 car 23>21
+    assert (main2.getNbCartes()==4); // test du nombre de cartes 
+    assert (main2.getSommeValeur()==23);// test de la somme des valeur
+    assert (main2.getJoueToujours()==0); //test du booléen joueToujours qui doit être =0 car 23>21
+    assert (main2.getCrame()==1); // test du booléen crame qui doit être =1 car 23>21
+    cout<<"La carte ajoutée a fait cramer le joueur avec succès"<<endl;
 
 
     // Carte carte3(10,2); //creation de deux cartes (carte3 et carte4)
@@ -154,6 +182,6 @@ void MainDeCarte::testRegression() const
     // MainDeCarte main3(carte3,carte4); //creation d'une main de deux cartes (carte1 et carte2)
     // main3.splitter (Carte carteAjoutee3, Carte carteAjoutee4); 
 
-    cout<<"test de regression passé avec succès"<<endl;
+    cout<<"Test de regression passé avec succès"<<endl;
     
 }

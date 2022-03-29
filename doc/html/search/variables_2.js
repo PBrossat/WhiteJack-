@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deck_84',['deck',['../class_deck.html#acff25b820db2940cd1aba95f4c9a132c',1,'Deck']]]
+  ['tabmaindecartes_96',['tabMainDeCartes',['../class_joueur.html#aad8e82bc0771d915125c6ff727458fad',1,'Joueur']]]
 ];

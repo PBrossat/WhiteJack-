@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['crame_83',['crame',['../class_main_de_carte.html#ab89c225a8992cba6aa770071a56cf4a7',1,'MainDeCarte']]]
+  ['nbmaindecartes_93',['nbMainDeCartes',['../class_joueur.html#ae38f5f45ba6b1d77f49c95d66231b6fa',1,'Joueur']]],
+  ['niveaujoueur_94',['niveauJoueur',['../class_joueur.html#aefe5071bc92d27c48ed64f578206560f',1,'Joueur']]],
+  ['nom_95',['nom',['../class_joueur.html#a251a7192f61dae541f80cbff3914f208',1,'Joueur']]]
 ];

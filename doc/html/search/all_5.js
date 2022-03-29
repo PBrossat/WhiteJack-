@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hand_13',['Hand',['../class_main_de_carte.html#a4ccf6d4e4e4f18a37a8270c355d63463',1,'MainDeCarte']]]
+  ['initdeck_18',['initDeck',['../class_deck.html#aeda57b97a4217282d85cab6129a4a7df',1,'Deck']]]
 ];

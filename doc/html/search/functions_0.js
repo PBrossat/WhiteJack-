@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['afficherdeck_62',['afficherDeck',['../class_deck.html#ac9796a067bc20e731cc84e5f59bf1491',1,'Deck']]],
-  ['ajoutermaindecartes_63',['ajouterMainDeCartes',['../class_joueur.html#a5cf94d4e77f65e78cfe52c77cb7a4532',1,'Joueur']]]
+  ['afficherdeck_64',['afficherDeck',['../class_deck.html#ac9796a067bc20e731cc84e5f59bf1491',1,'Deck']]],
+  ['ajoutermaindecartes_65',['ajouterMainDeCartes',['../class_joueur.html#a5cf94d4e77f65e78cfe52c77cb7a4532',1,'Joueur']]]
 ];

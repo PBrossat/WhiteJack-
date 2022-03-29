@@ -82,35 +82,49 @@ $(function() {
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_carte.html#a41fe2e1de4d62ad44ee526fe217efd62">   19</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_carte.html#a41fe2e1de4d62ad44ee526fe217efd62">valeur</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_carte.html#a16e6a4928683bad7270bd77aa10a9950">   25</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_carte.html#a16e6a4928683bad7270bd77aa10a9950">signe</a>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_carte.html">Carte</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> valeur, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> signe);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_carte.html">Carte</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_carte.html">Carte</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Rang, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Valeur, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Signe);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="class_carte.html">Carte</a>();</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> testRegression() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="class_carte.html">Carte</a>&amp; operator = (<span class="keyword">const</span> <a class="code" href="class_carte.html">Carte</a>&amp; operandeDroite);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">friend</span> ostream&amp; <a class="code" href="_carte_8cpp.html#af96dc847b0745fb32fda3ec936c6ffb6">operator &lt;&lt; </a>(ostream&amp; flux, <span class="keyword">const</span> <a class="code" href="class_carte.html">Carte</a>&amp; carteAffichee);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getRang() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getValeur() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getSigne() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> setValeur(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Valeur) ;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">void</span> testRegression() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="class_carte.html">Carte</a>&amp; operator = (<span class="keyword">const</span> <a class="code" href="class_carte.html">Carte</a>&amp; operandeDroite); </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">bool</span> operator == (<span class="keyword">const</span> <a class="code" href="class_carte.html">Carte</a>&amp; operandeDroite); </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keyword">friend</span> ostream&amp; <a class="code" href="_carte_8cpp.html#af96dc847b0745fb32fda3ec936c6ffb6">operator &lt;&lt; </a>(ostream&amp; flux, <span class="keyword">const</span> <a class="code" href="class_carte.html">Carte</a>&amp; carteAffichee);    <span class="comment">//À METTRE DANS MODULE JEU TXT</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    private :   <span class="comment">//DOXYGEN INUTILE SI PRIVATE</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> valeur;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> signe;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> rang;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;};</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="a_carte_8cpp_html_af96dc847b0745fb32fda3ec936c6ffb6"><div class="ttname"><a href="_carte_8cpp.html#af96dc847b0745fb32fda3ec936c6ffb6">operator&lt;&lt;</a></div><div class="ttdeci">ostream &amp; operator&lt;&lt;(ostream &amp;flux, const Carte &amp;carteAffichee)</div><div class="ttdef"><b>Definition:</b> Carte.cpp:33</div></div>
+<div class="ttc" id="a_carte_8cpp_html_af96dc847b0745fb32fda3ec936c6ffb6"><div class="ttname"><a href="_carte_8cpp.html#af96dc847b0745fb32fda3ec936c6ffb6">operator&lt;&lt;</a></div><div class="ttdeci">ostream &amp; operator&lt;&lt;(ostream &amp;flux, const Carte &amp;carteAffichee)</div><div class="ttdef"><b>Definition:</b> Carte.cpp:97</div></div>
 <div class="ttc" id="aclass_carte_html"><div class="ttname"><a href="class_carte.html">Carte</a></div><div class="ttdef"><b>Definition:</b> Carte.h:10</div></div>
-<div class="ttc" id="aclass_carte_html_a16e6a4928683bad7270bd77aa10a9950"><div class="ttname"><a href="class_carte.html#a16e6a4928683bad7270bd77aa10a9950">Carte::signe</a></div><div class="ttdeci">unsigned int signe</div><div class="ttdoc">Represente la signe de la carte (pique=0 , coeur =1, trèfle=2, carreau=3)</div><div class="ttdef"><b>Definition:</b> Carte.h:25</div></div>
-<div class="ttc" id="aclass_carte_html_a41fe2e1de4d62ad44ee526fe217efd62"><div class="ttname"><a href="class_carte.html#a41fe2e1de4d62ad44ee526fe217efd62">Carte::valeur</a></div><div class="ttdeci">unsigned int valeur</div><div class="ttdoc">Represente la valeur de la carte.</div><div class="ttdef"><b>Definition:</b> Carte.h:19</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Généré par &#160;<a href="http://www.doxygen.org/index.html">
