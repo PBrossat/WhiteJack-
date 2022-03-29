@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['joueur_57',['Joueur',['../class_joueur.html#ad4dbf2fd90d352ded476eaef349e85a3',1,'Joueur']]]
+  ['initdeck_68',['initDeck',['../class_deck.html#aeda57b97a4217282d85cab6129a4a7df',1,'Deck']]]
 ];
