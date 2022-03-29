@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <cassert>
 #include "Jeu.h"
+#include "JeuTxt.h"
 #include "MainDeCarte.h"
 Using namespace std; 
 
@@ -22,7 +23,7 @@ void jeuTxt::afficherMainDeCarte(MainDeCarte mainJoueur)
 
 
 
-void txtBoucle (jeu & jeu)
+void txtBoucle (Jeu & jeu)
 {
     do{
     cout<<"Bonjour, soyez le bienvenue ! Nous verifions votre carte d'identité ... Tout est bon vous êtes bien majeur"<<endl;
