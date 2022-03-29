@@ -14,11 +14,11 @@ MainDeCarte::MainDeCarte ()
 
 
 
-MainDeCarte::MainDeCarte (Carte carte1, Carte carte2)
+MainDeCarte::MainDeCarte (const Carte& carte1, const Carte& carte2)
 {   
 
-    Hand.push_back (carte1);// ajoute carte 1 à la main 
-    Hand.push_back (carte2);// ajoute carte 2 à la main 
+    mainDeJoueur.push_back (carte1);// ajoute carte 1 à la main 
+    mainDeJoueur.push_back (carte2);// ajoute carte 2 à la main 
     nbCartes=2; // le nombre de carte est initialisé à 2 
     sommeValeur=carte1.getValeur()+carte2.getValeur(); // somme des valeur mise à jour (ATTENTION pour la valeur de l'as)
     joueToujours=1; // initialisation du booléen à VRAI (1)
@@ -40,12 +40,12 @@ void MainDeCarte::verifScore()
 
 
 
-void MainDeCarte::tirerCarte (Carte carteAjoutee)
+void MainDeCarte::tirerCarte (const Carte& carteAjoutee)
 {
     if ((joueToujours)&&(! crame)) //tant que le joueur est encore en lice et qu'il n'a pas cramé 
             {
                 nbCartes++; // son nb de carte augmente de 1 
-                Hand.push_back (carteAjoutee); // on ajoute la carte tirée à sa main 
+                mainDeJoueur.push_back (carteAjoutee); // on ajoute la carte tirée à sa main 
                 sommeValeur=sommeValeur+ carteAjoutee.getValeur(); // MAJ de la sommeValeur
 
             }
@@ -55,12 +55,12 @@ void MainDeCarte::tirerCarte (Carte carteAjoutee)
 
 
 
-void MainDeCarte::doubler (Carte carteAjoutee)
+void MainDeCarte::doubler (const Carte& carteAjoutee)
 {
     if ( nbCartes==2) // on peut doubler que quand on a uniquement 2 cartes
         {
             nbCartes++; // son nb de carte augmente de 1 
-            Hand.push_back (carteAjoutee); // on ajoute la carte tirée à sa main 
+            mainDeJoueur.push_back (carteAjoutee); // on ajoute la carte tirée à sa main 
             sommeValeur=sommeValeur+ carteAjoutee.getValeur(); // MAJ de la sommeValeur
             
 
@@ -77,11 +77,11 @@ void MainDeCarte::doubler (Carte carteAjoutee)
 
 // MainDeCarte MainDeCarte::splitter (Carte carteAjoutee1, Carte carteAjoutee2)
 // {
-//     if ((nbCartes==2)&&(Hand[0].valeur==Hand[1].valeur))
+//     if ((nbCartes==2)&&(Hand[0].getValeur==Hand[1].getValeur))
 //         {
 //             MainDeCarte Hand2(Hand[1],carteAjoutee2); // création de la nouvelle main (Hand2)
 //             Hand[1]=carteAjoutee1; //mise à jour de la main de base
-//             sommeValeur=Hand[0].valeur+Hand[1].valeur; // somme des valeur mise à jour (ATTENTION pour la valeur de l'as)
+//             sommeValeur=Hand[0].getValeur+Hand[1].valeur; // somme des valeur mise à jour (ATTENTION pour la valeur de l'as)
 //             return Hand2; 
 //         }
 // }
@@ -152,6 +152,7 @@ void MainDeCarte::testRegression() const
     assert (carte1.getSigne()==1); // test si le signe des cartes est bien celui attribué 
     assert (carte2.getSigne()==2);
     cout<<"Création de main2 réaliser avec succès"<<endl;
+
 
 
     Carte carteAjoutee(8,8,4); //création d'une carte à ajouter

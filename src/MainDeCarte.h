@@ -28,7 +28,7 @@ class MainDeCarte
     * MainDeCarte Main_1(carte1, carte2);
     * @endcode
     */
-    MainDeCarte (Carte carte1, Carte carte2);
+    MainDeCarte (const Carte& carte1, const Carte& carte2);
 
 
 
@@ -43,7 +43,7 @@ class MainDeCarte
     * MainDeCarte.tirerCarte(carteAjoutee);
     * @endcode
     */
-    void tirerCarte (Carte carteAjoutee);
+    void tirerCarte (const Carte& carteAjoutee);
 
 
 
@@ -59,7 +59,7 @@ class MainDeCarte
     * @endcode
     * @warning Le joueur peut doubler que lors de sa première action (lorsqu'il à deux cartes uniquement)
     */
-    void doubler (Carte carteAjoutee);
+    void doubler (const Carte& carteAjoutee);
 
 
 
@@ -203,7 +203,7 @@ class MainDeCarte
     /**
     * @brief  tableau de Carte
     */
-    vector<Carte>Hand;
+    vector<Carte>mainDeJoueur;
 
     /**
     * @brief   nbCartes désigne le nombre de cartes qu'a le joueur dans sa main 
