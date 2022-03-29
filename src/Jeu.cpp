@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Jeu::Jeu() joueurSolo("JoueurSOLO", 0, 2000) unDeck(), mainJoueurSolo()
+Jeu::Jeu() joueurSolo("JoueurSOLO", 0, 2000),unDeck()
 {
 	unDeck.initDeck();
 	unDeck.melangerDeck();
@@ -12,7 +12,8 @@ Jeu::Jeu() joueurSolo("JoueurSOLO", 0, 2000) unDeck(), mainJoueurSolo()
 
 void Jeu::actionClavier(const char touche)
 {
-	switch(touche) {
+	switch(touche) 
+	{
 		case 't' :
 			Carte carteTiree = unDeck.distribuerCarte();
 			joueurSolo.mainJoueur.tirer(carteTiree);
@@ -27,8 +28,14 @@ void Jeu::actionClavier(const char touche)
 	}
 }
 
-void Jeu::distribution()
+void Jeu::intialisationJeu()
 {
+	do
+	{
+		cin>>mise;
+	}while(mise>joueurSolo.getBudget());
+
+	joueurSolo.miser(mise);
 	Carte carteTiree;
 	Carte carteTiree = unDeck.distribuerCarte();
 	joueurSolo.mainJoueur.tirer(carteTiree);
@@ -42,15 +49,46 @@ void Jeu::distribution()
 void Jeu::actionCroupier()
 {
 	mainCroupier.tirer(deuxiemeCarteCroupier);
-	while(mainCroupier.getSommeValeur()<17)
+	if(joueurSolo.getCrame()==0)
 	{
-		Carte carteTiree = unDeck.distribuerCarte();
-		mainCroupier.tirer(carteTiree);
+		while(mainCroupier.getSommeValeur()<17)
+		{
+			Carte carteTiree = unDeck.distribuerCarte();
+			mainCroupier.tirer(carteTiree);
+		}
 	}
 	mainCroupier.rester();
 }
 
 void Jeu::resultat() 
 {
-	
+	if(joueurSolo.mainJoueur.verifBlackJack())
+	{
+		if(mainCroupier.verifBlackJack())
+		{
+			joueurSolo.setBudget(mise);
+		}
+		else
+		{
+			joueurSolo.setBudget((2.5)*mise);
+		}
+	}
+	if(!joueurSolo.mainJoueur.getCrame())
+	{
+		if(mainCroupier.getCrame())
+		{
+			joueurSolo.setBudget(2*mise);
+		}
+		else
+		{
+			if(joueurSolo.mainJoueur.getSommeValeur() > mainCroupier.getSommeValeur())
+			{
+				joueurSolo.setBudget(2*mise);	
+			}
+			else if(joueurSolo.mainJoueur.getSommeValeur() == mainCroupier.getSommeValeur())
+			{
+				joueurSolo.setBudget(mise);	
+			}
+		}
+	}
 }

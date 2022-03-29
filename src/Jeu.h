@@ -13,17 +13,18 @@ class Jeu
 {
 	public :
 
+	unsigned int mise;
 	Jeu();
-	void boucleJeu ();
+	void actionCroupier();
     void actionClavier(const char touche);
-	void distribution();   
+	void initialisation();  
+	void resultat(); 
 
 
 	private :
 
 	Deck unDeck;
 	Joueur joueurSolo; 
-	MainDeCarte mainJoueurSolo;
 	MainDeCarte mainCroupier;
 	Carte deuxiemeCarteCroupier 
 

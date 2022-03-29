@@ -1,9 +1,5 @@
 var searchData=
 [
-<<<<<<< HEAD
-  ['afficherdeck_0',['afficherDeck',['../class_deck.html#ac9796a067bc20e731cc84e5f59bf1491',1,'Deck']]]
-=======
-  ['afficherdeck_64',['afficherDeck',['../class_deck.html#ac9796a067bc20e731cc84e5f59bf1491',1,'Deck']]],
-  ['ajoutermaindecartes_65',['ajouterMainDeCartes',['../class_joueur.html#a5cf94d4e77f65e78cfe52c77cb7a4532',1,'Joueur']]]
->>>>>>> 1138e7c1850b7c5114b812db3353095d1ccf523b
+  ['actionclavier_0',['actionClavier',['../class_jeu.html#ab27fb1db9e2ae2a0c19a90ecc838319f',1,'Jeu']]],
+  ['afficherdeck_1',['afficherDeck',['../class_deck.html#ac9796a067bc20e731cc84e5f59bf1491',1,'Deck']]]
 ];
