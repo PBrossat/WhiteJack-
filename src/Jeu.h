@@ -24,14 +24,11 @@ class Jeu
 	void actionClavier(const char touche);
 	void actionCroupier();
 	void resultat(); 
-
-
-	private :
-
+	
 	Deck unDeck;
 	Joueur joueurSolo; 
 	MainDeCarte mainCroupier;
-	Carte deuxiemeCarteCroupier 
+	Carte deuxiemeCarteCroupier;
 
 };
 
