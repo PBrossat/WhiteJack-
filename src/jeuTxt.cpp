@@ -55,13 +55,15 @@ do
 
 
 
-
+            do {
             cout<<"Vous pouvez actuellement : rester, tirer ou doubler." <<endl;
             cout<<"Pour rester, appuyer sur la touche R de votre clavier"<<endl;
             cout<<"Pour tirer, appuyer sur la touche T de votre clavier"<<endl;
             cout<<"Pour doubler, appuyer sur la touche D de votre clavier"<<endl;
             cout<<endl;
-
+            cin>>choix1;
+            }while((choix1!='t')||(choix1!='r')||(choix1!='d'));
+            
             do
             {
             switch (choix1)
