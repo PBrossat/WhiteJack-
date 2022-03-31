@@ -1,7 +1,7 @@
 all :  bin/Deck bin/MainDeCarte bin/Carte bin/Joueur bin/JeuTxt #bin/Jeu 
 
-bin/JeuTxt : obj/mainJeuTxt.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o
-	g++ -g -Wall obj/mainJeuTxt.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o -o bin/JeuTxt
+bin/JeuTxt : obj/mainJeuTxt.o obj/JeuTxt.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o
+	g++ -g -Wall obj/mainJeuTxt.o obj/JeuTxt.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o -o bin/JeuTxt
 
 obj/mainJeuTxt.o : src/mainJeuTxt.cpp src/jeuTxt.h src/Jeu.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h
 	g++ -g -Wall -c src/mainJeuTxt.cpp -o obj/mainJeuTxt.o
