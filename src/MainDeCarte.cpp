@@ -214,3 +214,21 @@ void MainDeCarte::testRegression() const
     cout<<"Test de regression passé avec succès"<<endl;
     
 }
+
+
+
+
+//fonction vérifAs à faire à chaque tirage de carte (pour le croupier aussi) et au début du jeu (si jamais deux as)
+
+// boucle parcours la main du joueur
+//     si on rencontre une carte avec un rang de 1 (un as)
+
+//         si la valeur de l'as est 1
+//             si score + 10 <= 21
+//             alors setValeur de as pour passer de 1 à 11
+//             et setSommeValeur(getSommeValeur+10)
+//             sinon rien
+//         si la valeur de l'as est 11
+//             si j'ai cramé alors
+//                 set valeur de as pour passer sa valeur à 1
+//                 et setSommeValeur(getSommeValeur-10)

@@ -198,6 +198,8 @@ do
             cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<endl;
         }
 
+//BOucle if si tjrs budget>0
+
      do 
      {
         cout<<endl<<endl<<"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl<<endl<<endl;
