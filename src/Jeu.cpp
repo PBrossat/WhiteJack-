@@ -54,7 +54,11 @@ void Jeu::initialisationJeu()
 	deuxiemeCarteCroupier = unDeck.distribuerCarte();
 }
 
-
+void Jeu::finJeu()
+{
+	joueurSolo.mainJoueur.vider();
+	mainCroupier.vider();
+}
 
 void Jeu::actionCroupier()
 {

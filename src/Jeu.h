@@ -26,6 +26,7 @@ class Jeu
     
     void initialisationMise();
 	void initialisationJeu();  
+	void finJeu();
 	void actionClavier(const char touche);
 	void actionCroupier();
 	void resultat(); 
