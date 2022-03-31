@@ -63,12 +63,12 @@ do
         {
             do 
             {
-                cout<<"Vous pouvez actuellement : rester, tirer ou doubler." <<endl;
-                cout<<"Pour rester, appuyer sur la touche R de votre clavier"<<endl;
-                cout<<"Pour tirer, appuyer sur la touche T de votre clavier"<<endl;
+                cout<<"Vous pouvez actuellement : " <<endl;
+                cout<<"Rester : appuyer sur la touche R de votre clavier"<<endl;
+                cout<<"Tirer : appuyer sur la touche T de votre clavier"<<endl;
                 if((jeu.joueurSolo.mainJoueur.getNbCartes()==2) && (jeu.joueurSolo.getBudget()>=jeu.mise))
                 {
-                    cout<<"Pour doubler, appuyer sur la touche D de votre clavier"<<endl;
+                    cout<<"Doubler : appuyer sur la touche D de votre clavier"<<endl;
                 }
                 cout<<endl;
                 cin>>choix1;
