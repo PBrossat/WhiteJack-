@@ -33,39 +33,41 @@ do
         {
             cout<<"Bonjour, soyez le bienvenue ! Nous verifions votre carte d'identité ... Tout est bon vous êtes bien majeur"<<endl;
             cout<<"Prenez place sur notre table. Vous jouerez contre Gérard notre meilleur croupier."<<endl;
-            cout<<"Vous avez actuellement"<<jeu.joueurSolo.getBudget()<<"$ de budget, prenez en soins !"<<endl;
+            cout<<"Vous avez actuellement"<<jeu.joueurSolo.getBudget()<<"$ de budget, prenez en soins !"<<endl<<endl;
             cout<<"Combien voulez miser pour cette manche ?"<<endl;
 
 
             jeu.initialisationMise();
             cout<<"Vous avez misé :  "<<jeu.mise<<"$"<<endl;
-            cout<<"Gérard distribue les cartes. "<<endl;
+            cout<<"Gérard distribue les cartes. "<<endl<<endl;
 
 
             jeu.initialisationJeu();
 
-            cout<<"Votre main est la suivante : "<<endl;
+            cout<<"Votre main est la suivante : "<<endl<<endl;
             afficherMainDeCarte(jeu.joueurSolo.mainJoueur);
-            cout<<"Votre score : "<<jeu.joueurSolo.mainJoueur.getSommeValeur()<<endl;
+            cout<<"Votre score : "<<jeu.joueurSolo.mainJoueur.getSommeValeur()<<endl<<endl;
 
 
-            cout<<"La main du croupier est la suivante : "<<endl;
+            cout<<"La main du croupier est la suivante : "<<endl<<endl;
             afficherMainDeCarte(jeu.mainCroupier);
-            cout<<"Score du croupier: "<<jeu.mainCroupier.getSommeValeur()<<endl;
-
-
-
-            do {
-            cout<<"Vous pouvez actuellement : rester, tirer ou doubler." <<endl;
-            cout<<"Pour rester, appuyer sur la touche R de votre clavier"<<endl;
-            cout<<"Pour tirer, appuyer sur la touche T de votre clavier"<<endl;
-            cout<<"Pour doubler, appuyer sur la touche D de votre clavier"<<endl;
-            cout<<endl;
-            cin>>choix1;
-            }while((choix1!='t')||(choix1!='r')||(choix1!='d'));     
+            cout<<"Score du croupier: "<<jeu.mainCroupier.getSommeValeur()<<endl<<endl;
+   
 
             do
             {
+                do {
+                    cout<<"Vous pouvez actuellement : rester, tirer ou doubler." <<endl;
+                    cout<<"Pour rester, appuyer sur la touche R de votre clavier"<<endl;
+                    cout<<"Pour tirer, appuyer sur la touche T de votre clavier"<<endl;
+                    if((jeu.joueurSolo.mainJoueur.getNbCartes()==2) && (jeu.joueurSolo.getBudget()>=jeu.mise))
+                    {
+                        cout<<"Pour doubler, appuyer sur la touche D de votre clavier"<<endl;
+                    }
+                    cout<<endl;
+                    cin>>choix1;
+                    }while((choix1!='t')&&(choix1!='r')&&(choix1!='d'));  
+            
             switch (choix1)
             {
                 case 'r':
@@ -142,7 +144,7 @@ do
      {
         cout<<"Voulez vous refaire une partie? Si oui tapez Y sur votre clavier, sinon tapez N sur votre clavier "<<endl;
         cin>>choix2;
-     }while ((choix2!='y')||(choix2!='n'));
+     }while ((choix2!='y')&&(choix2!='n'));
 
         if (choix2=='n') // si le joueur a appuyé sur n, il ne veut plus jouer et on chnage le booléen, sinon on fait rien.
             {

@@ -56,7 +56,7 @@ unsigned int Joueur::getNiveau() const
 
 void Joueur::miser(unsigned int mise)
 {
-	assert(mise<budget);
+	assert(mise<=budget);
 	budget = budget - mise;
 }
 
