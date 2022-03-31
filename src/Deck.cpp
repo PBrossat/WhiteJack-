@@ -72,7 +72,6 @@ void Deck::testRegression() const
     unDeck.initDeck();
     assert(!unDeck.deck.empty() && unDeck.deck.size()==(4*52));
     cout<<"Deck initialisé OK "<<endl;
-    //unDeck.afficherDeck();
     vector<Carte> AvantMelange;
     AvantMelange = unDeck.deck;
     unDeck.melangerDeck();
@@ -81,7 +80,6 @@ void Deck::testRegression() const
     bool same = ((unDeck.deck[0]==AvantMelange[0]) && (unDeck.deck[1]==AvantMelange[1]) && (unDeck.deck[2]==AvantMelange[2]) && (unDeck.deck[3]==AvantMelange[3]) && (unDeck.deck[4]==AvantMelange[4])); //POUR L'INSTANT J'AI PAS DE MEILLEURES MOYENS DE TESTER == 
     assert(!same);
     cout<<"Deck mélangé OK "<<endl;
-    //unDeck.afficherDeck();
     Carte test1;
     Carte test2;
     test1 = unDeck.deck.back();
@@ -91,7 +89,6 @@ void Deck::testRegression() const
     assert(test1.getSigne()==test2.getSigne());
     assert(unDeck.deck.size()==((4*52)-1));
     cout<<"Distribution de cartes OK"<<endl;
-    //unDeck.afficherDeck();
 
     //TESTER QUAND ON ARRIVE À LA FIN DU DECK ET QU'IL FAUT EN RECREER UN POUR DISTRIBUER
 
@@ -99,19 +96,6 @@ void Deck::testRegression() const
 }
     
 
-// À METTRE DANS JEU TXT
-
-void Deck::afficherDeck() const
-{
-  if(!deck.empty())
-  {
-    for (int i = 0; i < deck.size(); i++) 
-    {
-      cout << deck[i] <<endl;
-    }
-      cout << endl;
-  }
-}
 
 
 //Toutes les données en privé quasiment --> ce qui intéresse c'est juste les fonctionnalités, ce qu'on peut faire

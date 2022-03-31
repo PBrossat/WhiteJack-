@@ -6,6 +6,52 @@
 using namespace std; 
 
 
+ostream& operator << (ostream& flux, const Carte& carteAffichee)
+{
+    flux<<endl<<endl<<"======"<<endl;
+    flux<<"|";
+    if(carteAffichee.rang == 11) flux<<"J ";
+    else if (carteAffichee.rang == 12) flux<<"Q ";
+    else if(carteAffichee.rang == 13) flux<<"K ";
+    else if(carteAffichee.rang == 1) flux<<"A ";
+    else if(carteAffichee.rang == 2) flux<<"2 ";
+    else if(carteAffichee.rang == 3) flux<<"3 ";
+    else if(carteAffichee.rang == 4) flux<<"4 ";
+    else if(carteAffichee.rang == 5) flux<<"5 ";
+    else if(carteAffichee.rang == 6) flux<<"6 ";
+    else if(carteAffichee.rang == 7) flux<<"7 ";
+    else if(carteAffichee.rang == 8) flux<<"8 ";
+    else if(carteAffichee.rang == 9) flux<<"9 ";
+    else if(carteAffichee.rang == 10) flux<<"10";
+    if(carteAffichee.signe == 1) flux<<"♠";
+    else if (carteAffichee.signe == 2) flux<<"♥";
+    else if(carteAffichee.signe == 3) flux<<"♣";
+    else if(carteAffichee.signe == 4) flux<<"♦";
+    flux<<"  |"<<endl;
+    flux<<"|     |"<<endl;
+    flux<<"|     |"<<endl;
+    flux<<"|  ";
+    if(carteAffichee.rang == 11) flux<<" J";
+    else if (carteAffichee.rang == 12) flux<<" Q";
+    else if(carteAffichee.rang == 13) flux<<" K";
+    else if(carteAffichee.rang == 1) flux<<" A";
+    else if(carteAffichee.rang == 2) flux<<" 2";
+    else if(carteAffichee.rang == 3) flux<<" 3";
+    else if(carteAffichee.rang == 4) flux<<" 4";
+    else if(carteAffichee.rang == 5) flux<<" 5";
+    else if(carteAffichee.rang == 6) flux<<" 6";
+    else if(carteAffichee.rang == 7) flux<<" 7";
+    else if(carteAffichee.rang == 8) flux<<" 8";
+    else if(carteAffichee.rang == 9) flux<<" 9";
+    else if(carteAffichee.rang == 10) flux<<"10";
+    if(carteAffichee.signe == 1) flux<<"♠";
+    else if (carteAffichee.signe == 2) flux<<"♥";
+    else if(carteAffichee.signe == 3) flux<<"♣";
+    else if(carteAffichee.signe == 4) flux<<"♦";
+    flux<<"|"<<endl;
+    flux<<"======";
+    return flux;
+}
 
 
 
@@ -146,9 +192,15 @@ do
             cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<endl;
         }
 
+        if (jeu.gain==jeu.mise)
+        {
+            cout<<" Vous avez fait le même score que le croupier, vous récurperez votre mise !!"<<endl;
+            cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<endl;
+        }
+
      do 
      {
-        cout<<"--------------------------------------------------------------------------"<<endl<<endl;
+        cout<<endl<<endl<<"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl<<endl<<endl;
         cout<<"Voulez vous refaire une partie? Si oui tapez Y sur votre clavier, sinon tapez N sur votre clavier "<<endl;
         cin>>choix2;
      }while ((choix2!='y')&&(choix2!='n')); 
@@ -163,6 +215,8 @@ do
     }
 
     jeu.finJeu();
+
+    cout<<endl<<endl<<"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl<<endl<<endl;
 
 }while ((veutJouer==1)&&(jeu.joueurSolo.testArgentJoueur()==1));
 
