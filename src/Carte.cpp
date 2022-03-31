@@ -96,15 +96,24 @@ bool Carte::operator == (const Carte& operandeDroite)
 
 ostream& operator << (ostream& flux, const Carte& carteAffichee)
 {
-    if(carteAffichee.rang == 11) flux<<"Rang : Valet  /  ";
-    else if (carteAffichee.rang == 12) flux<<"Rang : Dame  /  ";
-    else if(carteAffichee.rang == 13) flux<<"Rang : Roi  /  ";
-    else flux<<"Rang : "<<carteAffichee.rang<<"  /  ";
-    flux<<"Valeur : "<<carteAffichee.valeur<<"  /  ";
-    if(carteAffichee.signe == 1) flux<<"Signe : Pique "<<endl;
-    else if (carteAffichee.signe == 2) flux<<"Signe : Coeur "<<endl;
-    else if(carteAffichee.signe == 3) flux<<"Signe : Trèfles "<<endl;
-    else if(carteAffichee.signe == 4) flux<<"Signe : Carreau "<<endl;
+    if(carteAffichee.rang == 11) flux<<"J ";
+    else if (carteAffichee.rang == 12) flux<<"Q ";
+    else if(carteAffichee.rang == 13) flux<<"K ";
+    else if(carteAffichee.rang == 1) flux<<"A ";
+    else if(carteAffichee.rang == 2) flux<<"2 ";
+    else if(carteAffichee.rang == 3) flux<<"3 ";
+    else if(carteAffichee.rang == 4) flux<<"4 ";
+    else if(carteAffichee.rang == 5) flux<<"5 ";
+    else if(carteAffichee.rang == 6) flux<<"6 ";
+    else if(carteAffichee.rang == 7) flux<<"7 ";
+    else if(carteAffichee.rang == 8) flux<<"8 ";
+    else if(carteAffichee.rang == 9) flux<<"9 ";
+    else if(carteAffichee.rang == 10) flux<<"10 ";
+    flux<<"de";
+    if(carteAffichee.signe == 1) flux<<" ♠  "<<endl;
+    else if (carteAffichee.signe == 2) flux<<" ♥  "<<endl;
+    else if(carteAffichee.signe == 3) flux<<" ♣  "<<endl;
+    else if(carteAffichee.signe == 4) flux<<" ♦  "<<endl;
 
     return flux;
 }

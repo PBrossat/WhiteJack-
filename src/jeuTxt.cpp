@@ -131,6 +131,17 @@ do
             cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<endl;
         }
 
+<<<<<<< HEAD
+     do 
+     {
+        cout<<"Voulez vous refaire une partie? Si oui tapez Y sur votre clavier, sinon tapez N sur votre clavier "<<endl;
+        cin>>choix2;
+     }while ((choix2!='y')&&(choix2!='n')); 
+        if (choix2=='n') // si le joueur a appuyé sur n, il ne veut plus jouer et on chnage le booléen, sinon on fait rien.
+            {
+                veutJouer=0;
+            }
+=======
         if (jeu.gain==jeu.mise)
         {
             cout<<" Vous n'avez ni perdu, ni gagné contre la banque. Vous avez exactement le même score qu'elle, vous êtes remboursé de votre mise !!"<<endl;
@@ -142,6 +153,7 @@ do
             cout<<"Voulez vous refaire une partie? Si oui tapez Y sur votre clavier, sinon tapez N sur votre clavier "<<endl;
             cin>>choix2;
         }while((choix2!='y')&&(choix2!='n'));
+>>>>>>> d702fc5c965babdfe0e5fb2c8348ba97af76107f
 
     if (choix2=='n') // si le joueur a appuyé sur n, il ne veut plus jouer et on chnage le booléen, sinon on fait rien.
     {
