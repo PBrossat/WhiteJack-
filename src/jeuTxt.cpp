@@ -24,14 +24,16 @@ void afficherMainDeCarte(MainDeCarte mainJoueur)
 
 void txtBoucle (Jeu& jeu)
 {
-veutJouer==1; //initilaisation du booléen à vrai. 
+bool veutJouer=1; //initilaisation du booléen à vrai. 
+char choix1;
+char choix2;
 do
     {
         
         {
             cout<<"Bonjour, soyez le bienvenue ! Nous verifions votre carte d'identité ... Tout est bon vous êtes bien majeur"<<endl;
             cout<<"Prenez place sur notre table. Vous jouerez contre Gérard notre meilleur croupier."<<endl;
-            cout<<"Vous avez actuellement"<<joueurSolo.getBudget()<<"$ de budget, prenez en soins !"<<endl;
+            cout<<"Vous avez actuellement"<<jeujoueurSolo.getBudget()<<"$ de budget, prenez en soins !"<<endl;
             cout<<"Combien voulez miser pour cette manche ?"<<endl;
 
 
@@ -48,7 +50,7 @@ do
 
 
             cout<<"La main du croupier est la suivante : "<<endl;
-            afficherMainDeCarte(mainCroupier);
+            afficherMainDeCarte(jeu.mainCroupier);
             cout<<"Score du croupier: "<<jeu.mainCroupier.getSommeValeur()<<endl;
 
 
@@ -92,7 +94,7 @@ do
                     cout<<"Au tour du croupier de jouer, bonne chance! "<<endl;
                 break;
             }
-            }while (jeu.joueurSolo.getJoueToujours());
+            }while (jeu.joueurSolo.mainJoueur.getJoueToujours());
 
 
             cout<<"Petit rappel, voici la main du croupier avant qu'il joue : "<<endl;
@@ -107,30 +109,30 @@ do
 
             jeu.resultat();
 
-            if (gain==0)
-            {
-                cout<<" Vous venez de perdre contre le croupier, retentez votre chance !"<<endl;
+            if (jeu.gain==0)
+                {
+                    cout<<" Vous venez de perdre contre le croupier, retentez votre chance !"<<endl;
+                    cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<endl;
+                }
+
+
+            if (jeu.gain==2*jeu.mise)
+                {
+                cout<<" Bravo vous avez battu le croupier, vous remportez 2 fois votre mise !!"<<endl;
                 cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<endl;
-            }
+                }
 
+            if (jeu.gain==(2.5)*jeu.mise)
+                {
+                cout<<" Bravo vous avez battu le croupier avec un BlackJack, vous remportez 2 fois et demie votre mise !!"<<endl;
+                cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<endl;
+                }
 
-            if (gain==2*mise)
-            {
-            cout<<" Bravo vous avez battu le croupier, vous remportez 2 fois votre mise !!"<<endl;
-            cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<endl;
-            }
-
-            if (gain==(2.5)*mise)
-            {
-            cout<<" Bravo vous avez battu le croupier avec un BlackJack, vous remportez 2 fois et demie votre mise !!"<<endl;
-            cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<endl;
-            }
-
-            if (gain==mise)
-            {
-            cout<<" Vous n'avez ni perdu, ni gagné contre la banque. Vous avez exactement le même score qu'elle, vous êtes remboursé de votre mise !!"<<endl;
-            cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<endl;
-            }
+            if (jeu.gain==jeu.mise)
+                {
+                cout<<" Vous n'avez ni perdu, ni gagné contre la banque. Vous avez exactement le même score qu'elle, vous êtes remboursé de votre mise !!"<<endl;
+                cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<endl;
+                }
 
         }
 
@@ -141,11 +143,11 @@ do
      }while ((choix2!='y')||(choix2!='n'));
 
         if (choix2=='n') // si le joueur a appuyé sur n, il ne veut plus jouer et on chnage le booléen, sinon on fait rien.
-        {
-            veutJouer==0;
-        }
+            {
+                veutJouer==0;
+            }
 
-    }while ((veutJoueur==1)&&(joueurSolo.testArgentJoueur()==1));
+    }while ((veutJoueur==1)&&(jeu.joueurSolo.testArgentJoueur()==1));
 
 
 
