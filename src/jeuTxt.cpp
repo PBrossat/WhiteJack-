@@ -58,8 +58,7 @@ ostream& operator << (ostream& flux, const Carte& carteAffichee)
 void afficherMainDeCarte(MainDeCarte mainJoueur)
 {
 
-    int i;
-    for (i=0; i<mainJoueur.getNbCartes(); i++)
+    for (unsigned int i=0; i<mainJoueur.getNbCartes(); i++)
     {
         cout<<mainJoueur.getIemeCarte(i)<<endl;
     }
