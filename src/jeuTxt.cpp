@@ -27,12 +27,12 @@ void txtBoucle (Jeu& jeu)
 bool veutJouer=1; //initilaisation du booléen à vrai. 
 char choix1;
 char choix2;
-cout<<"Bonjour, soyez le bienvenue ! Nous verifions votre carte d'identité ... Tout est bon vous êtes bien majeur"<<endl;
+cout<<"Bonjour, soyez le bienvenue ! Nous verifions votre carte d'identité ... Tout est bon vous êtes bien majeur"<<endl<<endl;
 cout<<"Prenez place sur notre table. Vous jouerez contre Gérard notre meilleur croupier."<<endl;
 do 
 {
          
-        cout<<"Vous avez actuellement"<<jeu.joueurSolo.getBudget()<<"$ de budget, prenez en soins !"<<endl<<endl;
+        cout<<"Vous avez actuellement:  "<<jeu.joueurSolo.getBudget()<<"$ de budget, prenez en soins !"<<endl<<endl;
         cout<<"Combien voulez miser pour cette manche ?"<<endl;
 
 
@@ -44,13 +44,19 @@ do
         jeu.initialisationJeu();
 
         cout<<"Votre main est la suivante : "<<endl<<endl;
+        cout<<"--------------------------------------------------------------------------"<<endl<<endl;
         afficherMainDeCarte(jeu.joueurSolo.mainJoueur);
-        cout<<"Votre score : "<<jeu.joueurSolo.mainJoueur.getSommeValeur()<<endl<<endl;
+        cout<<endl<<endl;
+        cout<<"Votre score : "<<jeu.joueurSolo.mainJoueur.getSommeValeur()<<endl<<endl<<endl;
+        cout<<"--------------------------------------------------------------------------"<<endl<<endl;
 
 
         cout<<"La main du croupier est la suivante : "<<endl<<endl;
+        cout<<"--------------------------------------------------------------------------"<<endl<<endl;
         afficherMainDeCarte(jeu.mainCroupier);
+        cout<<endl<<endl;
         cout<<"Score du croupier: "<<jeu.mainCroupier.getSommeValeur()<<endl<<endl;
+        cout<<"--------------------------------------------------------------------------"<<endl<<endl;
        
 
         do
@@ -131,7 +137,6 @@ do
             cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<endl;
         }
 
-<<<<<<< HEAD
      do 
      {
         cout<<"Voulez vous refaire une partie? Si oui tapez Y sur votre clavier, sinon tapez N sur votre clavier "<<endl;
@@ -141,19 +146,6 @@ do
             {
                 veutJouer=0;
             }
-=======
-        if (jeu.gain==jeu.mise)
-        {
-            cout<<" Vous n'avez ni perdu, ni gagné contre la banque. Vous avez exactement le même score qu'elle, vous êtes remboursé de votre mise !!"<<endl;
-            cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<endl;
-        }
-
-        do
-        {
-            cout<<"Voulez vous refaire une partie? Si oui tapez Y sur votre clavier, sinon tapez N sur votre clavier "<<endl;
-            cin>>choix2;
-        }while((choix2!='y')&&(choix2!='n'));
->>>>>>> d702fc5c965babdfe0e5fb2c8348ba97af76107f
 
     if (choix2=='n') // si le joueur a appuyé sur n, il ne veut plus jouer et on chnage le booléen, sinon on fait rien.
     {
