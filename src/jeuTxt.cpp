@@ -33,7 +33,7 @@ do
         {
             cout<<"Bonjour, soyez le bienvenue ! Nous verifions votre carte d'identité ... Tout est bon vous êtes bien majeur"<<endl;
             cout<<"Prenez place sur notre table. Vous jouerez contre Gérard notre meilleur croupier."<<endl;
-            cout<<"Vous avez actuellement"<<jeujoueurSolo.getBudget()<<"$ de budget, prenez en soins !"<<endl;
+            cout<<"Vous avez actuellement"<<jeu.joueurSolo.getBudget()<<"$ de budget, prenez en soins !"<<endl;
             cout<<"Combien voulez miser pour cette manche ?"<<endl;
 
 
@@ -144,10 +144,10 @@ do
 
         if (choix2=='n') // si le joueur a appuyé sur n, il ne veut plus jouer et on chnage le booléen, sinon on fait rien.
             {
-                veutJouer==0;
+                veutJouer=0;
             }
 
-    }while ((veutJoueur==1)&&(jeu.joueurSolo.testArgentJoueur()==1));
+    }while ((veutJouer==1)&&(jeu.joueurSolo.testArgentJoueur()==1));
 
 
 
