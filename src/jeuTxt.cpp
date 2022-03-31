@@ -140,14 +140,22 @@ do
         cin>>choix2;
      }while ((choix2!='y')||(choix2!='n'));
 
-        if (choix2=='n') // si le joueur a appuyer sur n, il ne veut plus jouer et on chnage le booléen, sinon on fait rien.
+        if (choix2=='n') // si le joueur a appuyé sur n, il ne veut plus jouer et on chnage le booléen, sinon on fait rien.
         {
             veutJouer==0;
         }
 
-    }while ((veutJoueur==1)&&(joueurSolo.testArgentJoueur()==1);
+    }while ((veutJoueur==1)&&(joueurSolo.testArgentJoueur()==1));
+
+
+
     cout<<"A bientot !!"<<endl;
+
+
+
 }
+
+
 
 
 
