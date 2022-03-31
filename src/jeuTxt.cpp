@@ -148,6 +148,8 @@ do
         veutJouer=0;
     }
 
+    jeu.finJeu();
+
 }while ((veutJouer==1)&&(jeu.joueurSolo.testArgentJoueur()==1));
 
 

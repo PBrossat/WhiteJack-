@@ -25,7 +25,7 @@ class MainDeCarte
     * 
     * Exemple d'utilisation :
     * @code
-    * MainDeCarte Main_1(carte1, carte2);
+    * uneMainDeCarte Main_1(carte1, carte2);
     * @endcode
     */
     MainDeCarte (const Carte& carte1, const Carte& carte2);
@@ -40,7 +40,7 @@ class MainDeCarte
     * 
     * Exemple d'utilisation :
     * @code
-    * MainDeCarte.tirerCarte(carteAjoutee);
+    * uneMainDeCarte.tirerCarte(carteAjoutee);
     * @endcode
     */
     void tirerCarte (const Carte& carteAjoutee);
@@ -55,7 +55,7 @@ class MainDeCarte
     * 
     * Exemple d'utilisation :
     * @code
-    * MainDeCarte.doubler(carteAjoutee);
+    * uneMainDeCarte.doubler(carteAjoutee);
     * @endcode
     * @warning Le joueur peut doubler que lors de sa première action (lorsqu'il à deux cartes uniquement)
     */
@@ -87,7 +87,7 @@ class MainDeCarte
     * 
     * Exemple d'utilisation :
     * @code
-    * MainDeCarte.rester();
+    * uneMainDeCarte.rester();
     * @endcode
     */
     void rester ();
@@ -101,7 +101,7 @@ class MainDeCarte
     * 
     * Exemple d'utilisation :
     * @code
-    * MainDeCarte.verifScore();
+    * uneMainDeCarte.verifScore();
     * @endcode
     */
     void verifScore ();
@@ -113,7 +113,7 @@ class MainDeCarte
     * 
     * Exemple d'utilisation :
     * @code
-    * MainDeCarte.verifBlackJack();
+    * uneMainDeCarte.verifBlackJack();
     * @endcode
     */
     bool verifBlackJack ();
@@ -129,7 +129,7 @@ class MainDeCarte
 
     * Exemple d'utilisation :
     * @code
-    * MainDeCarte.getIemeCarte(1);
+    * uneMainDeCarte.getIemeCarte(1);
     * @endcode
     * @warning Le tableau de carte ne doit pas être vide
     * @warning L'indice en paramètre doit être inférieur à la taille du tableau de Carte
@@ -144,7 +144,7 @@ class MainDeCarte
      * 
      * Exemple d'utilisation :
      * @code
-     * unsigned char sommeValeur = MainDeCarte.getSommeValeur();
+     * unsigned char sommeValeur = uneMainDeCarte.getSommeValeur();
      * @endcode       
      */   
     unsigned int getSommeValeur () const;
@@ -158,8 +158,8 @@ class MainDeCarte
     * 
     * Exemple d'utilisation :
     * @code
-    * MainDeCarte.setSommeValeur(6);
-    * MainDeCarte.setSommeValeur(12);
+    * uneMainDeCarte.setSommeValeur(6);
+    * uneMainDeCarte.setSommeValeur(12);
     * @endcode  
     */ 
     void setSommeValeur (int SommeValeur);
@@ -173,7 +173,7 @@ class MainDeCarte
      * 
      * Exemple d'utilisation :
      * @code
-     * unsigned int NbCarte = MainDeCarte.getNbCarte();
+     * unsigned int NbCarte = uneMainDeCarte.getNbCarte();
      * @endcode       
      */   
     unsigned int getNbCartes () const;
@@ -187,7 +187,7 @@ class MainDeCarte
      * 
      * Exemple d'utilisation :
      * @code
-     * MainDeCarte.getJoueToujours();
+     * uneMainDeCarte.getJoueToujours();
      * @endcode       
      */   
     bool getJoueToujours () const;
@@ -201,11 +201,23 @@ class MainDeCarte
      * 
      * Exemple d'utilisation :
      * @code
-     * MainDeCarte.getCrame();
+     * uneMainDeCarte.getCrame();
      * @endcode       
      */   
     bool getCrame () const;
 
+
+
+     /**
+     * @brief Vide la main de carte du joueur (la réinitialise)
+     * @return  void
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * uneMainDeCarte.vider();
+     * @endcode       
+     */   
+    void vider();
 
 
 
@@ -215,7 +227,7 @@ class MainDeCarte
     * 
     * Exemple d'utilisation :
     * @code
-    * MainDeCarte.testRegression();
+    * uneMainDeCarte.testRegression();
     * @endcode     
     */ 
     void testRegression() const;

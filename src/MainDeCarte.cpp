@@ -150,6 +150,14 @@ bool MainDeCarte::getCrame () const
 }
 
 
+void MainDeCarte::vider()
+{
+    mainDeJoueur.clear();
+    nbCartes=0;
+    crame=0;
+    sommeValeur=0;
+    joueToujours=1;
+}
 
 
 void MainDeCarte::testRegression() const
