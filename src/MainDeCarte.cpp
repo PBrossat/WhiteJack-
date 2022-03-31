@@ -83,14 +83,12 @@ void MainDeCarte::doubler (const Carte& carteAjoutee)
         {
             nbCartes++; // son nb de carte augmente de 1 
             mainDeJoueur.push_back (carteAjoutee); // on ajoute la carte tirée à sa main 
-            sommeValeur=sommeValeur+ carteAjoutee.getValeur(); // MAJ de la sommeValeur
-            
+            sommeValeur=sommeValeur+ carteAjoutee.getValeur(); // MAJ de la sommeValeur    
+            verifScore(); // permet de changer les booléens crame et joueToujours en fonction du score du joueur
+            rester (); // reste si le joueur n'as pas cramé
 
         }
 
-        verifScore(); // permet de changer les booléens crame et joueToujours en fonction du score du joueur
-
-        rester (); // reste si le joueur n'as pas cramé
 }   
 
 
