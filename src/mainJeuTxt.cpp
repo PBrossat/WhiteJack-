@@ -3,7 +3,7 @@
 using namespace std;
 
 
-int main ( int argc, char** argv ) {
+int main () {
 	Jeu jeu;
 	txtBoucle(jeu);
 	return 0;
