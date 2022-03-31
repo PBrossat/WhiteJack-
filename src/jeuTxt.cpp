@@ -62,8 +62,8 @@ do
             cout<<"Pour doubler, appuyer sur la touche D de votre clavier"<<endl;
             cout<<endl;
             cin>>choix1;
-            }while((choix1!='t')||(choix1!='r')||(choix1!='d'));
-            
+            }while((choix1!='t')||(choix1!='r')||(choix1!='d'));     
+
             do
             {
             switch (choix1)
