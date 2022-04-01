@@ -137,8 +137,11 @@ void Jeu::resultat()
 }
 
 
+
+
+
+
 void Jeu::testRegression() const
 {
 
 }
-
