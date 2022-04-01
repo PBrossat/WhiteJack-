@@ -99,6 +99,17 @@ class Jeu
     */
 	void resultat(); 
 
+	/**
+    * @brief Procédure permettant de tester les fonctionnalités de la classe
+    * @return void
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * unJeu.testRegression();
+    * @endcode
+    */
+	void testRegression() const; 
+
 };
 
 #endif
