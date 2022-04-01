@@ -1,15 +1,19 @@
 all :  bin/Deck bin/MainDeCarte bin/Carte bin/Joueur bin/JeuTxt #bin/Jeu 
 
-bin/JeuTxt : obj/mainJeuTxt.o obj/JeuTxt.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o
-	g++ -g -Wall obj/mainJeuTxt.o obj/JeuTxt.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o -o bin/JeuTxt
+bin/JeuTxt : obj/mainJeuTxt.o obj/JeuTxt.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o
+	g++ -g -Wall obj/mainJeuTxt.o obj/JeuTxt.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o -o bin/JeuTxt
 
-obj/mainJeuTxt.o : src/mainJeuTxt.cpp src/jeuTxt.h src/Jeu.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h
+obj/mainJeuTxt.o : src/mainJeuTxt.cpp src/jeuTxt.h src/Jeu.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h src/winTxt.h
 	g++ -g -Wall -c src/mainJeuTxt.cpp -o obj/mainJeuTxt.o
 
-obj/JeuTxt.o : src/jeuTxt.h src/jeuTxt.cpp src/Jeu.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h
+obj/JeuTxt.o : src/jeuTxt.h src/jeuTxt.cpp src/Jeu.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h src/winTxt.h
 	g++ -g -Wall -c src/jeuTxt.cpp -o obj/JeuTxt.o
 
 
+
+
+obj/winTxt.o : src/winTxt.cpp src/winTxt.h
+	g++ -g -Wall -c src/winTxt.cpp -o obj/winTxt.o
 
 
 # bin/Jeu : obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o
