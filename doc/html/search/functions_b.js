@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['testargentjoueur_0',['testArgentJoueur',['../class_joueur.html#a8715338d676dc9cb5fbfbc81451c0fc6',1,'Joueur']]],
-  ['testregression_1',['testRegression',['../class_carte.html#a5e4f814e87215790a5bf1a5e0963f64a',1,'Carte::testRegression()'],['../class_deck.html#adab56dfd75deee446023e04853cf9eed',1,'Deck::testRegression()'],['../class_jeu.html#a6c92aea2d97cb7a1467a4edfc041b372',1,'Jeu::testRegression()'],['../class_joueur.html#a57881ee998684e2ed4c7d2e05b405a6a',1,'Joueur::testRegression()'],['../class_main_de_carte.html#a30ed8e57979e78a32fbdc9efa123e4c5',1,'MainDeCarte::testRegression() const']]],
-  ['tirercarte_2',['tirerCarte',['../class_main_de_carte.html#acee7303f071bffe5573876af30f4f9a3',1,'MainDeCarte']]],
-  ['txtboucle_3',['txtBoucle',['../jeu_txt_8cpp.html#ab3f2d41e9167ea56b6bc113635e67782',1,'txtBoucle(Jeu &amp;jeu):&#160;jeuTxt.cpp'],['../jeu_txt_8h.html#ab3f2d41e9167ea56b6bc113635e67782',1,'txtBoucle(Jeu &amp;jeu):&#160;jeuTxt.cpp']]]
+  ['setbudget_0',['setBudget',['../class_joueur.html#aba5c5a18a9f52bdd00e5ae76625d5eb8',1,'Joueur']]],
+  ['setsommevaleur_1',['setSommeValeur',['../class_main_de_carte.html#a40e554adc5bba6bc8e860cfcb8013746',1,'MainDeCarte']]],
+  ['setvaleur_2',['setValeur',['../class_carte.html#a32a60ac4130db24746d2d442966c3459',1,'Carte']]]
 ];

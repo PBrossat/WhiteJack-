@@ -77,9 +77,9 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:acc5795ee00edf75516d3dfe65be3e6d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#acc5795ee00edf75516d3dfe65be3e6d6">Jeu</a> ()</td></tr>
 <tr class="memdesc:acc5795ee00edf75516d3dfe65be3e6d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur sans paramètres de <a class="el" href="class_jeu.html">Jeu</a>.  <a href="class_jeu.html#acc5795ee00edf75516d3dfe65be3e6d6">Plus de détails...</a><br /></td></tr>
 <tr class="separator:acc5795ee00edf75516d3dfe65be3e6d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add013604a07722ccb99fdafd92c27ae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#add013604a07722ccb99fdafd92c27ae3">initialisationMise</a> ()</td></tr>
-<tr class="memdesc:add013604a07722ccb99fdafd92c27ae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procédure permettant de saisir la mise de départ.  <a href="class_jeu.html#add013604a07722ccb99fdafd92c27ae3">Plus de détails...</a><br /></td></tr>
-<tr class="separator:add013604a07722ccb99fdafd92c27ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7000dc393aa925db80a233ef09bc5af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#ae7000dc393aa925db80a233ef09bc5af">initialisationMise</a> (const char touche)</td></tr>
+<tr class="memdesc:ae7000dc393aa925db80a233ef09bc5af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procédure permettant de saisir la mise de départ.  <a href="class_jeu.html#ae7000dc393aa925db80a233ef09bc5af">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae7000dc393aa925db80a233ef09bc5af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bc9d7f905572db5abe5b17869707504"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#a1bc9d7f905572db5abe5b17869707504">initialisationJeu</a> ()</td></tr>
 <tr class="memdesc:a1bc9d7f905572db5abe5b17869707504"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procédure permettant d'initialiser le jeu (distribution des premières cartes)  <a href="class_jeu.html#a1bc9d7f905572db5abe5b17869707504">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a1bc9d7f905572db5abe5b17869707504"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,6 +154,12 @@ Attributs publics</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Procédure permettant d'adapter les actions suivant les touches pressées par l'utilisateur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">touche</td><td>: la touche saisie par l'utilisateur </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Renvoie</dt><dd>void</dd></dl>
 <p>Exemple d'utilisation : </p><div class="fragment"><div class="line">unJeu.actionClavier();</div>
 </div><!-- fragment --> 
@@ -223,8 +229,8 @@ Attributs publics</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="add013604a07722ccb99fdafd92c27ae3" name="add013604a07722ccb99fdafd92c27ae3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add013604a07722ccb99fdafd92c27ae3">&#9670;&nbsp;</a></span>initialisationMise()</h2>
+<a id="ae7000dc393aa925db80a233ef09bc5af" name="ae7000dc393aa925db80a233ef09bc5af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7000dc393aa925db80a233ef09bc5af">&#9670;&nbsp;</a></span>initialisationMise()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -232,13 +238,20 @@ Attributs publics</h2></td></tr>
         <tr>
           <td class="memname">void Jeu::initialisationMise </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>touche</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Procédure permettant de saisir la mise de départ. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">touche</td><td>: la touche saisie par l'utilisateur </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Renvoie</dt><dd>void</dd></dl>
 <p>Exemple d'utilisation : </p><div class="fragment"><div class="line">unJeu.initialisationMise();</div>
 </div><!-- fragment --> <dl class="section warning"><dt>Avertissement</dt><dd>La mise saisie doit être inférieur au budget du joueur (2000) </dd></dl>

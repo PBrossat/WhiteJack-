@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>WhiteJack: Référence du fichier src/mainJeuTxt.cpp</title>
+<title>WhiteJack: Référence du fichier src/winTxt.cpp</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -68,41 +68,73 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#func-members">Fonctions</a>  </div>
-  <div class="headertitle"><div class="title">Référence du fichier mainJeuTxt.cpp</div></div>
+  <div class="headertitle"><div class="title">Référence du fichier winTxt.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
-<code>#include &quot;<a class="el" href="jeu_txt_8h_source.html">jeuTxt.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="win_txt_8h_source.html">winTxt.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="win_txt_8h_source.html">winTxt.h</a>&quot;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdarg.h&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;termios.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_jeu_txt_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
-<tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfddca010a6ceb2c5292c98247a434ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="win_txt_8cpp.html#abfddca010a6ceb2c5292c98247a434ce">termClear</a> ()</td></tr>
+<tr class="separator:abfddca010a6ceb2c5292c98247a434ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67191e6d920e10b82b0868cb240228ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="win_txt_8cpp.html#a67191e6d920e10b82b0868cb240228ae">termInit</a> ()</td></tr>
+<tr class="separator:a67191e6d920e10b82b0868cb240228ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5451da499ab9d3907da8dd7060ab677"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="win_txt_8cpp.html#ad5451da499ab9d3907da8dd7060ab677">kbhit</a> ()</td></tr>
+<tr class="separator:ad5451da499ab9d3907da8dd7060ab677"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a3c04138a5bfe5d72780bb7e82a18e627" name="a3c04138a5bfe5d72780bb7e82a18e627"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c04138a5bfe5d72780bb7e82a18e627">&#9670;&nbsp;</a></span>main()</h2>
+<a id="ad5451da499ab9d3907da8dd7060ab677" name="ad5451da499ab9d3907da8dd7060ab677"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5451da499ab9d3907da8dd7060ab677">&#9670;&nbsp;</a></span>kbhit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int main </td>
+          <td class="memname">int kbhit </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>argv</em>&#160;</td>
         </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abfddca010a6ceb2c5292c98247a434ce" name="abfddca010a6ceb2c5292c98247a434ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfddca010a6ceb2c5292c98247a434ce">&#9670;&nbsp;</a></span>termClear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
         <tr>
+          <td class="memname">void termClear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a67191e6d920e10b82b0868cb240228ae" name="a67191e6d920e10b82b0868cb240228ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67191e6d920e10b82b0868cb240228ae">&#9670;&nbsp;</a></span>termInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void termInit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">

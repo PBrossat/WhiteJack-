@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['operator_3c_3c_0',['operator&lt;&lt;',['../class_carte.html#aa319ef76270da1a21f58a0ff3c35a9a2',1,'Carte::operator&lt;&lt;()'],['../jeu_txt_8cpp.html#aa319ef76270da1a21f58a0ff3c35a9a2',1,'operator&lt;&lt;():&#160;jeuTxt.cpp']]],
-  ['operator_3d_1',['operator=',['../class_carte.html#a917692eb67c3a6c114825c0050e5eaec',1,'Carte']]],
-  ['operator_3d_3d_2',['operator==',['../class_carte.html#a63a3d65a99366ed2b1be332115f4bd9f',1,'Carte']]]
+  ['nom_0',['nom',['../class_joueur.html#a251a7192f61dae541f80cbff3914f208',1,'Joueur']]]
 ];

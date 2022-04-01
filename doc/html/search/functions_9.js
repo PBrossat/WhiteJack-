@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['rester_0',['rester',['../class_main_de_carte.html#a46bfdb90e2b75f8412f89b53ed0e0625',1,'MainDeCarte']]],
-  ['resultat_1',['resultat',['../class_jeu.html#a3110a559fefa957f5861de5be094e777',1,'Jeu']]]
+  ['operator_3c_3c_0',['operator&lt;&lt;',['../jeu_txt_8cpp.html#aa319ef76270da1a21f58a0ff3c35a9a2',1,'jeuTxt.cpp']]],
+  ['operator_3d_1',['operator=',['../class_carte.html#a917692eb67c3a6c114825c0050e5eaec',1,'Carte']]],
+  ['operator_3d_3d_2',['operator==',['../class_carte.html#a63a3d65a99366ed2b1be332115f4bd9f',1,'Carte']]]
 ];

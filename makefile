@@ -76,5 +76,5 @@ obj/Carte.o : src/Carte.cpp src/Carte.h
 
 
 
-doc : src/Carte.h src/Deck.h src/MainDeCarte.h src/Joueur.h
+doc : src/Carte.h src/Deck.h src/MainDeCarte.h src/Joueur.h src/Jeu.h #src/winTxt.h src/jeuTxt.h
 	doxygen doc/whitejack.doxy
