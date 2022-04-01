@@ -113,7 +113,6 @@ void Jeu::resultat()
 		}
 	}
 }
-<<<<<<< HEAD
 
 
 
@@ -124,5 +123,3 @@ void Jeu::testRegression() const
 {
 
 }
-=======
->>>>>>> 93d022bf6a3ec33d4b312dab1dff9b0a4eee65a3
