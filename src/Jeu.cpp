@@ -35,13 +35,31 @@ void Jeu::actionClavier(const char touche)
 	}
 }
 
-void Jeu::initialisationMise()
+void Jeu::initialisationMise(const char touche)
 {
 	gain = 0;
-	do
+	switch(touche)
 	{
-		cin>>mise;
-	}while(mise>joueurSolo.getBudget());
+		case 'a' :
+			if(joueurSolo.getBudget()>=100) mise = 100;
+			break;
+
+		case 'z' :
+			if(joueurSolo.getBudget()>=200) mise = 200;
+			break;
+
+		case 'e' :
+			if(joueurSolo.getBudget()>=300) mise = 300;
+			break;
+
+		case 'r' :
+			if(joueurSolo.getBudget()>=500) mise = 500;
+			break;
+
+		case 't' :
+			if(joueurSolo.getBudget()>=1000) mise = 1000;
+			break;
+	}
 }
 
 

@@ -32,6 +32,7 @@ class Jeu
 
 	/**
     * @brief Procédure permettant de saisir la mise de départ
+    * @param[in] touche : la touche saisie par l'utilisateur
     * @return void
     * 
     * Exemple d'utilisation :
@@ -40,7 +41,7 @@ class Jeu
     * @endcode
     * @warning La mise saisie doit être inférieur au budget du joueur (2000)
     */
-    void initialisationMise();
+    void initialisationMise(const char touche);
 
     /**
     * @brief Procédure permettant d'initialiser le jeu (distribution des premières cartes)
@@ -67,6 +68,7 @@ class Jeu
 
 	/**
     * @brief Procédure permettant d'adapter les actions suivant les touches pressées par l'utilisateur
+    * @param[in] touche : la touche saisie par l'utilisateur
     * @return void
     * 
     * Exemple d'utilisation :

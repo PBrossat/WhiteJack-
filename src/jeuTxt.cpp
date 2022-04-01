@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <cassert>
 #include "Jeu.h"
-//#include "jeuTxt.h"
+#include "winTxt.h"
 
 using namespace std; 
 
@@ -69,19 +69,61 @@ void afficherMainDeCarte(MainDeCarte mainJoueur)
 
 void txtBoucle (Jeu& jeu)
 {
-bool veutJouer=1; //initilaisation du booléen à vrai. 
-char choix1;
-char choix2;
-cout<<"Bonjour, soyez le bienvenue ! Nous verifions votre carte d'identité ... Tout est bon vous êtes bien majeur"<<endl<<endl;
-cout<<"Prenez place sur notre table. Vous jouerez contre Gérard notre meilleur croupier."<<endl;
-do 
-{
+    // WinTXT win;
+    bool veutJouer=1; //initilaisation du booléen à vrai. 
+    char choix1;
+    char choix2;
+    char choix3;
+    cout<<"Bonjour, soyez le bienvenue ! Nous verifions votre carte d'identité ... Tout est bon vous êtes bien majeur"<<endl<<endl;
+    cout<<"Prenez place sur notre table. Vous jouerez contre Gérard notre meilleur croupier."<<endl;
+    do 
+    {
          
         cout<<"Vous avez actuellement:  "<<jeu.joueurSolo.getBudget()<<"$ de budget, prenez en soins !"<<endl<<endl;
         cout<<"Combien voulez miser pour cette manche ?"<<endl;
 
+        if(jeu.joueurSolo.getBudget()>=1000)
+        {
+            cout<<"100$ (entrez A)  |   200$ (entrez Z) |   300$ (entrez E) |   500$ (entrez R) |   1000$ (entrez T)"<<endl;
+            do
+            {
+                cin>>choix3;
+            }while((choix3!='a')&&(choix3!='z')&&(choix3!='e')&&(choix3!='r')&&(choix3!='t'));
+        }
+        else if(jeu.joueurSolo.getBudget()>=500)
+        {
+            cout<<"100$ (entrez A)  |   200$ (entrez Z) |   300$ (entrez E) |   500$ (entrez R)"<<endl;
+            do
+            {
+                cin>>choix3;
+            }while((choix3!='a')&&(choix3!='z')&&(choix3!='e')&&(choix3!='r'));
+        }
+        else if(jeu.joueurSolo.getBudget()>=300)
+        {
+            cout<<"100$ (entrez A)  |   200$ (entrez Z) |   300$ (entrez E)"<<endl;
+            do
+            {
+                cin>>choix3;
+            }while((choix3!='a')&&(choix3!='z')&&(choix3!='e'));
+        }
+        else if(jeu.joueurSolo.getBudget()>=200)
+        {
+            cout<<"100$ (entrez A)  |   200$ (entrez Z)"<<endl;
+            do
+            {
+                cin>>choix3;
+            }while((choix3!='a')&&(choix3!='z'));
+        }
+        else
+        {
+            cout<<"100$ (entrez A)"<<endl;
+            do
+            {
+                cin>>choix3;
+            }while((choix3!='a'));
+        }
 
-        jeu.initialisationMise();
+        jeu.initialisationMise(choix3);
         cout<<"Vous avez misé :  "<<jeu.mise<<"$"<<endl;
         cout<<"Gérard distribue les cartes. "<<endl<<endl;
 
@@ -104,18 +146,29 @@ do
 
         do
         {
-            do 
+            if((jeu.joueurSolo.mainJoueur.getNbCartes()==2) && (jeu.joueurSolo.getBudget()>=jeu.mise))
             {
-                cout<<"Vous pouvez actuellement : " <<endl;
-                cout<<" ● Rester : appuyer sur la touche R de votre clavier"<<endl;
-                cout<<" ● Tirer : appuyer sur la touche T de votre clavier"<<endl;
-                if((jeu.joueurSolo.mainJoueur.getNbCartes()==2) && (jeu.joueurSolo.getBudget()>=jeu.mise))
+                do
                 {
+                    cout<<"Vous pouvez actuellement : " <<endl;
+                    cout<<" ● Rester : appuyer sur la touche R de votre clavier"<<endl;
+                    cout<<" ● Tirer : appuyer sur la touche T de votre clavier"<<endl;
                     cout<<" ● Doubler : appuyer sur la touche D de votre clavier"<<endl;
-                }
-                cin>>choix1;
-                cout<<endl;
-            }while((choix1!='t')&&(choix1!='r')&&(choix1!='d'));  
+                    cin>>choix1;
+                    cout<<endl;
+                }while((choix1!='t')&&(choix1!='r')&&(choix1!='d')); 
+            }
+            else
+            {
+                do
+                {
+                    cout<<"Vous pouvez actuellement : " <<endl;
+                    cout<<" ● Rester : appuyer sur la touche R de votre clavier"<<endl;
+                    cout<<" ● Tirer : appuyer sur la touche T de votre clavier"<<endl;
+                    cin>>choix1;
+                    cout<<endl;
+                }while((choix1!='t')&&(choix1!='r'));  
+            }
                 
             switch (choix1)
             {
@@ -173,55 +226,50 @@ do
         if (jeu.gain==0)
         {
             cout<<" Vous venez de perdre contre le croupier, retentez votre chance !"<<endl;
-            cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<endl;
+            cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<"$"<<endl;
         }
 
 
         if (jeu.gain==2*jeu.mise)
         {
             cout<<" Bravo vous avez battu le croupier, vous remportez 2 fois votre mise !!"<<endl;
-            cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<endl;
+            cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<"$"<<endl;
         }
 
         if (jeu.gain==(2.5)*jeu.mise)
         {
             cout<<" Bravo vous avez battu le croupier avec un BlackJack, vous remportez 2 fois et demie votre mise !!"<<endl;
-            cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<endl;
+            cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<"$"<<endl;
         }
 
         if (jeu.gain==jeu.mise)
         {
-            cout<<" Vous avez fait le même score que le croupier, vous récurperez votre mise !!"<<endl;
-            cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<endl;
+            cout<<" Vous avez fait le même score que le croupier, vous récupérez votre mise !!"<<endl;
+            cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<"$"<<endl;
         }
 
-//BOucle if si tjrs budget>0
-
-     do 
-     {
-        cout<<endl<<endl<<"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl<<endl<<endl;
-        cout<<"Voulez vous refaire une partie? Si oui tapez Y sur votre clavier, sinon tapez N sur votre clavier "<<endl;
-        cin>>choix2;
-     }while ((choix2!='y')&&(choix2!='n')); 
-        if (choix2=='n') // si le joueur a appuyé sur n, il ne veut plus jouer et on chnage le booléen, sinon on fait rien.
+        if(jeu.joueurSolo.testArgentJoueur())
+        {
+            cout<<endl<<endl<<"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl<<endl<<endl;
+            cout<<"Voulez vous refaire une partie? Si oui tapez O sur votre clavier, sinon tapez N sur votre clavier "<<endl;
+            do
+            {
+                cin>>choix2;
+            }while((choix2!='o') && (choix2!='n'));
+            if (choix2=='n') // si le joueur a appuyé sur n, il ne veut plus jouer et on chnage le booléen, sinon on fait rien.
             {
                 veutJouer=0;
             }
+        }
+        jeu.finJeu();
 
-    if (choix2=='n') // si le joueur a appuyé sur n, il ne veut plus jouer et on chnage le booléen, sinon on fait rien.
-    {
-        veutJouer=0;
-    }
+        cout<<endl<<endl<<"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl<<endl<<endl;
 
-    jeu.finJeu();
-
-    cout<<endl<<endl<<"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl<<endl<<endl;
-
-}while ((veutJouer==1)&&(jeu.joueurSolo.testArgentJoueur()==1));
+    }while ((veutJouer==1)&&(jeu.joueurSolo.testArgentJoueur()==1));
 
 
 
-cout<<endl<<endl<<endl<<"A bientot !!"<<endl<<endl<<endl;
+    cout<<endl<<endl<<endl<<"A bientot !!"<<endl<<endl<<endl;
 
 }
 
