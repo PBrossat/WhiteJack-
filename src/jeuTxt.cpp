@@ -88,20 +88,18 @@ do
 
         jeu.initialisationJeu();
 
-        cout<<"Votre main est la suivante : "<<endl<<endl;
-        cout<<"--------------------------------------------------------------------------"<<endl<<endl;
+        cout<<"Votre main est la suivante : "<<endl;
+        cout<<"--------------------------------------------------------------------------"<<endl;
         afficherMainDeCarte(jeu.joueurSolo.mainJoueur);
-        cout<<endl;
-        cout<<"Votre score : "<<jeu.joueurSolo.mainJoueur.getSommeValeur()<<endl;
-        cout<<"--------------------------------------------------------------------------"<<endl<<endl;
+        cout<<endl<<"Votre score : "<<jeu.joueurSolo.mainJoueur.getSommeValeur()<<endl;
+        cout<<"--------------------------------------------------------------------------"<<endl;
 
 
-        cout<<"La main du croupier est la suivante : "<<endl<<endl;
-        cout<<"--------------------------------------------------------------------------"<<endl<<endl;
+        cout<<"La main du croupier est la suivante : "<<endl;
+        cout<<"--------------------------------------------------------------------------"<<endl;
         afficherMainDeCarte(jeu.mainCroupier);
-        cout<<endl;
-        cout<<"Score du croupier: "<<jeu.mainCroupier.getSommeValeur()<<endl;
-        cout<<"--------------------------------------------------------------------------"<<endl<<endl;
+        cout<<endl<<"Score du croupier: "<<jeu.mainCroupier.getSommeValeur()<<endl;
+        cout<<"--------------------------------------------------------------------------"<<endl;
        
 
         do
@@ -124,51 +122,51 @@ do
                 case 'r':
                     
                     jeu.actionClavier('r');
-                    cout<<"vous avez choisi de rester"<<endl;
+                    cout<<"Vous avez choisi de rester"<<endl;
                     cout<<"Votre score ne change pas il est toujours égal à : "<<jeu.joueurSolo.mainJoueur.getSommeValeur()<<endl;
+                    cout<<"--------------------------------------------------------------------------"<<endl;
                     cout<<"Au tour du croupier de jouer, bonne chance! "<<endl;
                 break;
 
                 case 't':
                     
-                    cout<<"vous avez choisi de tirer"<<endl;
+                    cout<<"Vous avez choisi de tirer"<<endl;
                     cout<<"Voici votre nouvelle main de cartes : "<<endl; 
-                    cout<<"--------------------------------------------------------------------------"<<endl<<endl;
+                    cout<<"--------------------------------------------------------------------------"<<endl;
                     jeu.actionClavier('t');
                     afficherMainDeCarte(jeu.joueurSolo.mainJoueur);
-                    cout<<endl;
-                    cout<<"Votre nouveau score : "<<jeu.joueurSolo.mainJoueur.getSommeValeur()<<endl;
-                    cout<<"--------------------------------------------------------------------------"<<endl<<endl;
+                    cout<<endl<<"Votre nouveau score : "<<jeu.joueurSolo.mainJoueur.getSommeValeur()<<endl;
+                    cout<<"--------------------------------------------------------------------------"<<endl;
                     break;
 
                 case 'd':
                     
-                    cout<<"vous avez choisi de doubler"<<endl;
+                    cout<<"Vous avez choisi de doubler"<<endl;
                     cout<<"Voici votre nouvelle main de cartes : "<<endl; 
-                    cout<<"--------------------------------------------------------------------------"<<endl<<endl;
+                    cout<<"--------------------------------------------------------------------------"<<endl;
                     jeu.actionClavier('d');
                     afficherMainDeCarte(jeu.joueurSolo.mainJoueur);
-                    cout<<endl;
-                    cout<<"Votre nouveau score : "<<jeu.joueurSolo.mainJoueur.getSommeValeur()<<endl;
-                    cout<<"--------------------------------------------------------------------------"<<endl<<endl;
-                    cout<<"Au tour du croupier de jouer, bonne chance! "<<endl<<endl;
+                    cout<<endl<<"Votre nouveau score : "<<jeu.joueurSolo.mainJoueur.getSommeValeur()<<endl;
+                    cout<<"--------------------------------------------------------------------------"<<endl;
+                    cout<<"Au tour du croupier de jouer, bonne chance! "<<endl;
                     break;
             }
         }while (jeu.joueurSolo.mainJoueur.getJoueToujours());
 
 
-        cout<<"Petit rappel, voici la main du croupier avant qu'il joue : "<<endl;
-        cout<<"--------------------------------------------------------------------------"<<endl<<endl;
-        afficherMainDeCarte(jeu.mainCroupier);
-        cout<<endl;
-        cout<<"Score du croupier: "<<jeu.mainCroupier.getSommeValeur()<<endl;
+        // cout<<"Petit rappel, voici la main du croupier avant qu'il joue : "<<endl;
+        // cout<<"--------------------------------------------------------------------------"<<endl<<endl;
+        // afficherMainDeCarte(jeu.mainCroupier);
+        // cout<<endl;
+        // cout<<"Score du croupier: "<<jeu.mainCroupier.getSommeValeur()<<endl;
+        
         jeu.actionCroupier();
 
         cout<<"Voici la nouvelle main du croupier : "<<endl;
         afficherMainDeCarte(jeu.mainCroupier);
-        cout<<endl;
-        cout<<"Score du croupier: "<<jeu.mainCroupier.getSommeValeur()<<endl;
-        cout<<"--------------------------------------------------------------------------"<<endl<<endl;
+
+        cout<<endl<<"Score du croupier: "<<jeu.mainCroupier.getSommeValeur()<<endl;
+        cout<<"--------------------------------------------------------------------------"<<endl;
 
         jeu.resultat();
 

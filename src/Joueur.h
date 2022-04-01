@@ -97,7 +97,7 @@ class Joueur
      * unJoueur.testRegression();
      * @endcode     
     */ 
-    void testRegression();
+    void testRegression() const;
 
 
     /**

@@ -61,7 +61,7 @@ void Joueur::miser(unsigned int mise)
 }
 
 
-void Joueur::testRegression()
+void Joueur::testRegression() const
 {
 	Joueur unJoueur("Kirikou", 2, 1000);
 	assert(unJoueur.nom=="Kirikou");

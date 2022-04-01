@@ -1,7 +1,11 @@
 #include <iostream>
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#endif // WIN32
+#include "winTxt.h"
 #include "Jeu.h"
-#include "MainDeCarte.h"
-#include <cassert>
 
 using namespace std;
 
