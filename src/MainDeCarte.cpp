@@ -71,6 +71,7 @@ void MainDeCarte::tirerCarte (const Carte& carteAjoutee)
                 sommeValeur=sommeValeur+ carteAjoutee.getValeur(); // MAJ de la sommeValeur
 
             }
+    //verifAs();
     verifScore(); // permet de changer les booléen en fonction du score du joueur 
 }
    
@@ -84,8 +85,9 @@ void MainDeCarte::doubler (const Carte& carteAjoutee)
             nbCartes++; // son nb de carte augmente de 1 
             mainDeJoueur.push_back (carteAjoutee); // on ajoute la carte tirée à sa main 
             sommeValeur=sommeValeur+ carteAjoutee.getValeur(); // MAJ de la sommeValeur    
+            //verifAs();
             verifScore(); // permet de changer les booléens crame et joueToujours en fonction du score du joueur
-            rester (); // reste si le joueur n'as pas cramé
+            rester (); // reste si le joueur n'as pas craméhttps://forge.univ-lyon1.fr/p2020351/whitejack
 
         }
 
@@ -160,6 +162,38 @@ void MainDeCarte::vider()
 }
 
 
+
+void MainDeCarte::verifAs()
+{
+for (int i=0; i<=getNbCartes (); i++) //parcours de la main de cartes
+	{
+		if (mainDeJoueur[i].getRang()==1) // si la carte est un as (rang=1)
+		{
+			if (mainDeJoueur[i].getValeur()==1) //si l'as à une valeur de 1 alors
+			{
+				if ((getSommeValeur()+10)<=21) // si la somme des valuers des cartes +10 est inf ou egal à 21 alors
+					{
+					mainDeJoueur[i].setValeur(11); //on passe la valeur de l'as à 11
+					setSommeValeur(getSommeValeur()+10); // on passe la somme des valeurs des cartes à (getSommeValeur()+10) 
+					} // sinon on fair rien 
+			}
+			if (mainDeJoueur[i].getValeur()==11) //si l'as à une valeur de 11 alors
+			{
+				if ((getSommeValeur()+10)>21) // si la somme des valuers des cartes +10 est sup à 21 (joueur a cramé)  alors
+					{
+					mainDeJoueur[i].setValeur(1); //on passe la valeur de l'as à 1
+					setSommeValeur(getSommeValeur()-10); // on passe la somme des valeurs des cartes à (getSommeValeur()-10) 
+					} // sinon on fair rien 
+			}
+		}
+	}	
+}
+
+
+
+
+
+
 void MainDeCarte::testRegression() const
 {
     MainDeCarte main1; //creation d'une main de base main1
@@ -232,3 +266,10 @@ void MainDeCarte::testRegression() const
 //             si j'ai cramé alors
 //                 set valeur de as pour passer sa valeur à 1
 //                 et setSommeValeur(getSommeValeur-10)
+
+
+
+
+
+
+

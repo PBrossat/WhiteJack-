@@ -96,6 +96,20 @@ class MainDeCarte
 
 
     /**
+    * @brief Permet de gérer la valeur de l'as (1 ou 11) 
+    * @return void  
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * uneMainDeCarte.verifAs();
+    * @endcode
+    */
+    void verifAs();
+
+
+
+
+    /**
     * @brief Permet de verifier si le score du joueur est inferieur ou egal à 21  
     * @return void  
     * 
