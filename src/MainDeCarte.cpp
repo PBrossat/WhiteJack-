@@ -43,14 +43,19 @@ void MainDeCarte::verifScore()
 
 bool MainDeCarte::verifBlackJack ()
 {
- if ((nbCartes==2)&&(sommeValeur==21)) // si on a deux cartes et que la somme des valeurs des deux cartes est = 21 (BlackJack)
+    if ((nbCartes==2)&&(sommeValeur==21)) // si on a deux cartes et que la somme des valeurs des deux cartes est = 21 (BlackJack)
     {
         joueToujours=0; // le joueur ne peut plus jouer
+        return true;
+    }
+    else
+    {
+        return false;
     }
 }
 
 
-Carte MainDeCarte::getIemeCarte(unsigned int indice)
+Carte MainDeCarte::getIemeCarte(unsigned int indice) const
 {
  if ((indice< mainDeJoueur.size())&&(mainDeJoueur.size()!=0))
     {
@@ -71,7 +76,7 @@ void MainDeCarte::tirerCarte (const Carte& carteAjoutee)
                 sommeValeur=sommeValeur+ carteAjoutee.getValeur(); // MAJ de la sommeValeur
 
             }
-    //verifAs();
+    verifAs();
     verifScore(); // permet de changer les booléen en fonction du score du joueur 
 }
    
@@ -85,9 +90,9 @@ void MainDeCarte::doubler (const Carte& carteAjoutee)
             nbCartes++; // son nb de carte augmente de 1 
             mainDeJoueur.push_back (carteAjoutee); // on ajoute la carte tirée à sa main 
             sommeValeur=sommeValeur+ carteAjoutee.getValeur(); // MAJ de la sommeValeur    
-            //verifAs();
+            verifAs();
             verifScore(); // permet de changer les booléens crame et joueToujours en fonction du score du joueur
-            rester (); // reste si le joueur n'as pas craméhttps://forge.univ-lyon1.fr/p2020351/whitejack
+            rester (); // reste si le joueur n'as pas cramé
 
         }
 
@@ -165,25 +170,25 @@ void MainDeCarte::vider()
 
 void MainDeCarte::verifAs()
 {
-for (int i=0; i<=getNbCartes (); i++) //parcours de la main de cartes
+for (int i=0; i<getNbCartes (); i++) //parcours de la main de cartes
 	{
 		if (mainDeJoueur[i].getRang()==1) // si la carte est un as (rang=1)
 		{
 			if (mainDeJoueur[i].getValeur()==1) //si l'as à une valeur de 1 alors
 			{
-				if ((getSommeValeur()+10)<=21) // si la somme des valuers des cartes +10 est inf ou egal à 21 alors
+				if ((sommeValeur+10)<=21) // si la somme des valeurs des cartes +10 est inf ou egal à 21 alors
 					{
 					mainDeJoueur[i].setValeur(11); //on passe la valeur de l'as à 11
-					setSommeValeur(getSommeValeur()+10); // on passe la somme des valeurs des cartes à (getSommeValeur()+10) 
-					} // sinon on fair rien 
+					setSommeValeur(sommeValeur+10); // on passe la somme des valeurs des cartes à (getSommeValeur()+10) 
+					} // sinon on fait rien 
 			}
 			if (mainDeJoueur[i].getValeur()==11) //si l'as à une valeur de 11 alors
 			{
-				if ((getSommeValeur()+10)>21) // si la somme des valuers des cartes +10 est sup à 21 (joueur a cramé)  alors
+				if (sommeValeur>21) // si la somme des valeurs des cartes est sup à 21 (joueur a cramé)  alors
 					{
 					mainDeJoueur[i].setValeur(1); //on passe la valeur de l'as à 1
-					setSommeValeur(getSommeValeur()-10); // on passe la somme des valeurs des cartes à (getSommeValeur()-10) 
-					} // sinon on fair rien 
+					setSommeValeur(sommeValeur-10); // on passe la somme des valeurs des cartes à (getSommeValeur()-10) 
+					} // sinon on fait rien 
 			}
 		}
 	}	
@@ -192,7 +197,7 @@ for (int i=0; i<=getNbCartes (); i++) //parcours de la main de cartes
 
 
 
-
+//TESTER VERIFAS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 void MainDeCarte::testRegression() const
 {

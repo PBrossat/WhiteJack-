@@ -148,7 +148,7 @@ class MainDeCarte
     * @warning Le tableau de carte ne doit pas être vide
     * @warning L'indice en paramètre doit être inférieur à la taille du tableau de Carte
     */
-    Carte getIemeCarte(unsigned int indice);
+    Carte getIemeCarte(unsigned int indice) const;
 
     
 

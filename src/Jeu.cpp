@@ -9,7 +9,7 @@
 
 using namespace std;
 
-Jeu::Jeu():joueurSolo("JoueurSOLO", 0, 2000),unDeck()
+Jeu::Jeu():unDeck(),joueurSolo("JoueurSOLO", 0, 2000)
 {
 	unDeck.initDeck();
 	unDeck.melangerDeck();
@@ -80,6 +80,8 @@ void Jeu::finJeu()
 {
 	joueurSolo.mainJoueur.vider();
 	mainCroupier.vider();
+	mise=0;
+	gain=0;
 }
 
 void Jeu::actionCroupier()
@@ -91,6 +93,7 @@ void Jeu::actionCroupier()
 		{
 			Carte carteTiree = unDeck.distribuerCarte();
 			mainCroupier.tirerCarte(carteTiree);
+
 		}
 	}
 	mainCroupier.rester();
@@ -113,7 +116,7 @@ void Jeu::resultat()
 			gain = (2.5)*mise;
 		}
 	}
-	if(!joueurSolo.mainJoueur.getCrame())
+	else if(!joueurSolo.mainJoueur.getCrame())
 	{
 		if(mainCroupier.getCrame())
 		{
