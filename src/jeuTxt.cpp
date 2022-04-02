@@ -74,7 +74,7 @@ void txtBoucle (Jeu& jeu)
     char choix1;
     char choix2;
     char choix3;
-    cout<<"Bonjour, soyez le bienvenue ! Nous verifions votre carte d'identité ... Tout est bon vous êtes bien majeur"<<endl<<endl;
+    cout<<"Bonjour, soyez le,la bienvenu(e) ! Nous verifions votre carte d'identité ... Tout est bon vous êtes bien majeur(e)"<<endl<<endl;
     cout<<"Prenez place sur notre table. Vous jouerez contre Gérard notre meilleur croupier."<<endl;
     do 
     {
