@@ -8,14 +8,20 @@ using namespace std;
 
 MainDeCarte::MainDeCarte ()
 {
+    vector<Carte>mainDeJoueur;
+
     nbCartes=0; // le nombre de carte est initialisé à 0
     sommeValeur=0; //la somme des valeurs est initialisé à 0
+    joueToujours=1; // initialisation du booléen à VRAI (1)
+    crame=0; //le joueur à moins de 22
 }
 
 
 
 MainDeCarte::MainDeCarte (const Carte& carte1, const Carte& carte2)
 {   
+    
+    vector<Carte>mainDeJoueur;
 
     mainDeJoueur.push_back (carte1);// ajoute carte 1 à la main 
     mainDeJoueur.push_back (carte2);// ajoute carte 2 à la main 

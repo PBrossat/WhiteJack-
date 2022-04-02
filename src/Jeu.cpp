@@ -15,25 +15,6 @@ Jeu::Jeu():unDeck(),joueurSolo("JoueurSOLO", 0, 2000)
 	unDeck.melangerDeck();
 }
 
-void Jeu::actionClavier(const char touche)
-{
-	switch(touche) 
-	{
-		case 't' :{
-			Carte carteTiree = unDeck.distribuerCarte();
-			joueurSolo.mainJoueur.tirerCarte(carteTiree);
-			break;}
-		case 'd' :{
-			joueurSolo.miser(mise);
-			mise=mise*2;
-			Carte carteTiree = unDeck.distribuerCarte();
-			joueurSolo.mainJoueur.doubler(carteTiree);
-			break;}
-		case 'r' :{
-			joueurSolo.mainJoueur.rester();
-			break;}
-	}
-}
 
 void Jeu::initialisationMise(const char touche)
 {
@@ -76,6 +57,7 @@ void Jeu::initialisationJeu()
 	deuxiemeCarteCroupier = unDeck.distribuerCarte();
 }
 
+
 void Jeu::finJeu()
 {
 	joueurSolo.mainJoueur.vider();
@@ -83,6 +65,36 @@ void Jeu::finJeu()
 	mise=0;
 	gain=0;
 }
+
+
+void Jeu::actionClavier(const char touche)
+{
+	switch(touche) 
+	{
+		case 't' :
+		{
+			Carte carteTiree = unDeck.distribuerCarte();
+			joueurSolo.mainJoueur.tirerCarte(carteTiree);
+			break;
+		}
+		case 'd' :
+		{
+			assert((joueurSolo.mainJoueur.getNbCartes()==2) && (joueurSolo.getBudget()>=mise));
+			joueurSolo.miser(mise);
+			mise=mise*2;
+			Carte carteTiree = unDeck.distribuerCarte();
+			joueurSolo.mainJoueur.doubler(carteTiree);
+			break;
+		}
+		case 'r' :
+		{
+			joueurSolo.mainJoueur.rester();
+			break;
+		}
+	}
+}
+
+
 
 void Jeu::actionCroupier()
 {
@@ -146,5 +158,31 @@ void Jeu::resultat()
 
 void Jeu::testRegression() const
 {
+	Jeu unJeu;
+	unJeu.initialisationMise('a');
+	assert((unJeu.gain==0)&&(unJeu.mise==100));
+	unJeu.initialisationMise('z');
+	assert((unJeu.gain==0)&&(unJeu.mise==200));
+	unJeu.initialisationMise('e');
+	assert((unJeu.gain==0)&&(unJeu.mise==300));
+	unJeu.initialisationMise('r');
+	assert((unJeu.gain==0)&&(unJeu.mise==500));
+	unJeu.initialisationMise('t');
+	assert((unJeu.gain==0)&&(unJeu.mise==1000));
+	cout<<"Initialisation de la mise OK"<<endl;
+	unJeu.initialisationJeu();
+	assert(unJeu.joueurSolo.getBudget()==1000);
+	assert(unJeu.joueurSolo.mainJoueur.getNbCartes()==2);
+	assert(unJeu.mainCroupier.getNbCartes()==1);
+	assert(unJeu.deuxiemeCarteCroupier.getValeur()!=0);
+	cout<<"Initialisation du jeu OK"<<endl;
+	unJeu.finJeu();
+	assert(unJeu.joueurSolo.mainJoueur.getNbCartes()==0);
+	assert(unJeu.mainCroupier.getNbCartes()==0);
+	assert((unJeu.mise==0)&&(unJeu.gain==0));
+	cout<<"Fin de jeu OK"<<endl;
+
+
+
 
 }

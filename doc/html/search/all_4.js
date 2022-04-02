@@ -4,7 +4,7 @@ var searchData=
   ['getbudget_1',['getBudget',['../class_joueur.html#a4f0185d6991c2ad84bded3e6cf6ed64c',1,'Joueur']]],
   ['getch_2',['getCh',['../class_win_t_x_t.html#a418c66475403586ac57a80eceb409166',1,'WinTXT']]],
   ['getcrame_3',['getCrame',['../class_main_de_carte.html#ae8b595035ec874656c7565b1e04a466e',1,'MainDeCarte']]],
-  ['getiemecarte_4',['getIemeCarte',['../class_main_de_carte.html#ab54f53e5b3729993ed509a434094560e',1,'MainDeCarte']]],
+  ['getiemecarte_4',['getIemeCarte',['../class_main_de_carte.html#a87995a6664bc36520f21c1059b06a2c0',1,'MainDeCarte']]],
   ['getjouetoujours_5',['getJoueToujours',['../class_main_de_carte.html#af1f2e831f3b68ca2483b6fece1361468',1,'MainDeCarte']]],
   ['getnbcartes_6',['getNbCartes',['../class_main_de_carte.html#a3ddf5ab836443e13eda5f07ccf26bad7',1,'MainDeCarte']]],
   ['getniveau_7',['getNiveau',['../class_joueur.html#abec464c3958916f951e19ba5e12d0dbc',1,'Joueur']]],
