@@ -181,6 +181,8 @@ void Jeu::testRegression() const
 	assert(unJeu.mainCroupier.getNbCartes()==0);
 	assert((unJeu.mise==0)&&(unJeu.gain==0));
 	cout<<"Fin de jeu OK"<<endl;
+	Carte dix(10,10,1);
+
 
 
 

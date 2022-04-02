@@ -200,7 +200,7 @@ for (int i=0; i<getNbCartes (); i++) //parcours de la main de cartes
 
 
 
-//TESTER VERIFAS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//TESTER VERIFAS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! DOUBLER 
 
 void MainDeCarte::testRegression() const
 {
