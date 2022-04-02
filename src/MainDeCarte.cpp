@@ -57,11 +57,8 @@ bool MainDeCarte::verifBlackJack ()
 
 Carte MainDeCarte::getIemeCarte(unsigned int indice) const
 {
- if ((indice< mainDeJoueur.size())&&(mainDeJoueur.size()!=0))
-    {
-        return mainDeJoueur[indice];
-    }
-    
+    assert((indice< mainDeJoueur.size())&&(mainDeJoueur.size()!=0));
+    return mainDeJoueur[indice];
 }
 
 
