@@ -13,11 +13,34 @@ class Jeu
 {
 	public :
 
+    /**
+    * @brief Le deck du jeu
+    */
 	Deck unDeck;
+
+    /**
+    * @brief Le joueur 
+    */
 	Joueur joueurSolo; 
+
+    /**
+    * @brief La main de carte du croupier
+    */
 	MainDeCarte mainCroupier;
+
+    /**
+    * @brief La deuxième carte du croupier  
+    */
 	Carte deuxiemeCarteCroupier;
+
+    /**
+    * @brief La mise du joueur
+    */
 	unsigned int mise;
+
+    /**
+    * @brief L'éventuel gain du joueur 
+    */
 	unsigned int gain;
 
 	/**

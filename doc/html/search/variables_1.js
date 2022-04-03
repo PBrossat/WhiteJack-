@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deuxiemecartecroupier_0',['deuxiemeCarteCroupier',['../class_jeu.html#a3eb90fd222b30e523ff95c9d3d9f970b',1,'Jeu']]]
+  ['gain_0',['gain',['../class_jeu.html#aaa19de4d7a538d33f72f92b9185dc3d5',1,'Jeu']]]
 ];

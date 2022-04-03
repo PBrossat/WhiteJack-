@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['choix1_0',['choix1',['../jeu_txt_8h.html#acd1838b179456084670008f63b55929a',1,'jeuTxt.h']]],
-  ['choix2_1',['choix2',['../jeu_txt_8h.html#aa8a4831289964f24aa9b598b673da5d4',1,'jeuTxt.h']]]
+  ['deuxiemecartecroupier_0',['deuxiemeCarteCroupier',['../class_jeu.html#a3eb90fd222b30e523ff95c9d3d9f970b',1,'Jeu']]]
 ];
