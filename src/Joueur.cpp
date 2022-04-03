@@ -63,6 +63,8 @@ void Joueur::miser(unsigned int mise)
 
 void Joueur::testRegression() const
 {
+	cout<<endl;
+
 	Joueur unJoueur("Kirikou", 2, 10000);
 	assert(unJoueur.nom=="Kirikou");
 	assert(unJoueur.niveauJoueur == 2);
@@ -92,7 +94,7 @@ void Joueur::testRegression() const
 	assert(unJoueur.getNiveau()==2);
 	cout<<"Accesseur de niveau OK"<<endl;
 
-	cout<<"Test de regression passé avec succès !"<<endl;
+	cout<<"Test de regression passé avec succès !"<<endl<<endl;
 }
 
 

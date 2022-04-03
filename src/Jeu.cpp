@@ -159,6 +159,8 @@ void Jeu::resultat()
 
 void Jeu::testRegression() const
 {
+	cout<<endl;
+
 	Jeu unJeu;
 	unJeu.initialisationMise('a');
 	assert((unJeu.gain==0)&&(unJeu.mise==100));
@@ -181,11 +183,6 @@ void Jeu::testRegression() const
 	assert(unJeu.joueurSolo.mainJoueur.getNbCartes()==0);
 	assert(unJeu.mainCroupier.getNbCartes()==0);
 	assert((unJeu.mise==0)&&(unJeu.gain==0));
-	cout<<"Fin de jeu OK"<<endl;
-	Carte dix(10,10,1);
-
-
-
-
+	cout<<"Fin de jeu OK"<<endl<<endl;
 
 }
