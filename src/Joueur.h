@@ -48,7 +48,7 @@ class Joueur
      * unJoueur.testArgentJoueur();
      * @endcode     
     */ 
-    bool testArgentJoueur();
+    bool testArgentJoueur() const;
 
 
     /**
