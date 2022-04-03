@@ -13,7 +13,13 @@ class MainDeCarte
 
 
     /**
-    * @brief Constructeur de la classe (sommeValeur=0 et nbCarte=0)
+    * @brief Constructeur de la classe sans paramètres
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * MainDeCarte uneMain;
+    * @endcode
+    * @warning initialise nbCartes, sommeValeur, crame à 0 et joueToujours à 1
     */
     MainDeCarte();
 
@@ -22,10 +28,12 @@ class MainDeCarte
 
     /**
     * @brief Constructeur avec parametres de la classe MainDeCarte
+    * @param[in,out] carte1 la première carte de la main (mode donnée-résultat mais CONST)
+    * @param[in,out] carte2 la deuxième carte de la main (mode donnée-résultat mais CONST)
     * 
     * Exemple d'utilisation :
     * @code
-    * uneMainDeCarte Main_1(carte1, carte2);
+    * MainDeCarte uneMain(carte1, carte2);
     * @endcode
     */
     MainDeCarte (const Carte& carte1, const Carte& carte2);
@@ -35,7 +43,7 @@ class MainDeCarte
 
     /**
     * @brief Permet de tirer une nouvelle carte
-    * @param[in] carteAjoutee La carte que le croupier tire pour le joueur  
+    * @param[in,out] carteAjoutee La carte que le croupier tire pour le joueur  (mode donnée-résultat mais CONST)
     * @return void  
     * 
     * Exemple d'utilisation :
@@ -50,7 +58,7 @@ class MainDeCarte
 
     /**
     * @brief Permet de demander une unique nouvelle carte au croupier 
-    * @param[in] carteAjoutee La carte a ajouter
+    * @param[in] carteAjoutee La carte à ajouter (mode donnée-résultat mais CONST)
     * @return void  
     * 
     * Exemple d'utilisation :
@@ -138,8 +146,8 @@ class MainDeCarte
 
     /**
     * @brief Permet d'obtenir la carte d'indice I dans la main.  
-    * @return Carte 
     * @param[in] indice L'indice de la carte que l'on veut 
+    * @return Carte 
 
     * Exemple d'utilisation :
     * @code
@@ -158,7 +166,7 @@ class MainDeCarte
      * 
      * Exemple d'utilisation :
      * @code
-     * unsigned char sommeValeur = uneMainDeCarte.getSommeValeur();
+     * unsigned int sommeValeur = uneMainDeCarte.getSommeValeur();
      * @endcode       
      */   
     unsigned int getSommeValeur () const;
@@ -176,7 +184,7 @@ class MainDeCarte
     * uneMainDeCarte.setSommeValeur(12);
     * @endcode  
     */ 
-    void setSommeValeur (int SommeValeur);
+    void setSommeValeur (unsigned int SommeValeur);
 
 
 
@@ -249,37 +257,23 @@ class MainDeCarte
 
     private : 
     
-    /**
-    * @brief   sommeValeur est la somme des valeurs des cartes de la main de cartes
-    */
+    //sommeValeur est la somme des valeurs des cartes de la main de cartes
     unsigned int sommeValeur;
 
 
-    /**
-    * @brief  tableau de Carte
-    */
+    //tableau de Carte
     vector<Carte>mainDeJoueur;
 
 
-
-    /**
-    * @brief   nbCartes désigne le nombre de cartes qu'a le joueur dans sa main 
-    */
+    //nbCartes désigne le nombre de cartes qu'a le joueur dans sa main 
     unsigned int nbCartes;
 
 
-
-    /**
-    * @brief  Booléen permettant de savoir si le joueur joue encore.
-    */
+    //Booléen permettant de savoir si le joueur joue encore.
     bool joueToujours;
 
 
-
-
-    /**
-    * @brief  Booléen permettant de savoir si la valeur de la somme de ses cartes est supérieur à 21 (0= pas cramé, 1= il a cramé)
-    */
+    //Booléen permettant de savoir si la valeur de la somme de ses cartes est supérieur à 21 (0= pas cramé, 1= il a cramé)
     bool crame;
     
 

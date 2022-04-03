@@ -130,7 +130,7 @@ unsigned int MainDeCarte::getSommeValeur () const
 
 
 
-void MainDeCarte::setSommeValeur (int SommeValeur) 
+void MainDeCarte::setSommeValeur (unsigned int SommeValeur) 
 {
     sommeValeur=SommeValeur;
 }
