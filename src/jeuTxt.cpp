@@ -253,6 +253,7 @@ void txtBoucle (Jeu& jeu)
             {
                 veutJouer=0;
             }
+            termClear();
         }
         jeu.finJeu();
 
