@@ -205,7 +205,7 @@ void MainDeCarte::testRegression() const
     assert (mainVide.getSommeValeur()==0);
     assert (mainVide.getJoueToujours()==1);
     assert (mainVide.getCrame()==0);
-    cout<<"Création de la main par défaut OK"<<endl;
+    cout<<"Création de la mainVide OK"<<endl;
 
 
     Carte carte1(2,2,1); //creation de deux cartes (carte1 et carte2)
@@ -219,8 +219,7 @@ void MainDeCarte::testRegression() const
     assert (carte2==main.mainDeJoueur[1]); // test si carte2 est bien la même carte que la carte d'indice 1 du tableau de la main de joueur.
     assert (carte1.getSigne()==1); // test si le signe de la nouvelle carte est bien celui attribué 
     assert (carte2.getSigne()==2); // test si le signe de la nouvelle carte est bien celui attribué  
-    cout<<"Création de main2 réaliser avec succès"<<endl;
-
+    cout<<"Création de main2 OK"<<endl;
 
 
     Carte carteAjoutee(8,8,4); //création d'une carte à ajouter
@@ -231,8 +230,7 @@ void MainDeCarte::testRegression() const
     assert (main.getCrame()==0); // test du booléen crame
     assert (carteAjoutee==main.mainDeJoueur[2]); // test si carteAjoutee est bien la même carte que la carte d'indice 2 du tableau de la main de joueur.
     assert (carteAjoutee.getSigne()==4); // test si le signe de la nouvelle carte est bien celui attribué 
-    cout<<"Ajout d'une carte réaliser avec succès"<<endl;
-
+    cout<<"Test de la procédure tirerCarte(carte) réalisé avec succès"<<endl;
 
 
     Carte carteAjoutee2(11,10,1);
@@ -243,7 +241,7 @@ void MainDeCarte::testRegression() const
     assert (main.getCrame()==1); // test du booléen crame qui doit être =1 car 23>21
     assert (carteAjoutee2==main.mainDeJoueur[3]); // test si carteAjoutee2 est bien la même carte que la carte d'indice 3 du tableau de la main de joueur.
     assert (carteAjoutee2.getSigne()==1); // test si le signe de la nouvelle carte est bien celui attribué
-    cout<<"La carte ajoutée a fait cramer le joueur avec succès"<<endl;
+    cout<<"La carte ajoutée a fait cramer le joueur "<<endl;
 
 
     Carte carte3 (7,7,3); // création de deux nouvelles cartes (carte3 et carte4)
@@ -261,20 +259,24 @@ void MainDeCarte::testRegression() const
     assert (main3.getSommeValeur()==21);// test de la somme des valeur
     assert (main3.getJoueToujours()==0); //test du booléen joueToujours qui doit être =1 car 21<=21
     assert (main3.getCrame()==0); // test du booléen crame qui doit être =0 car la joueur n'a pas cramé
-    cout <<"Teste de la procédure doubler réaliser avec succès"<<endl;
+    cout <<"Test de la procédure doubler(carte) réalisé avec succès"<<endl;
+
 
     Carte carteAs (1,1,1); // création de deux nouvelles cartes (carteAs et carteBuche)
     Carte carteBuche (13,10,1); 
     MainDeCarte mainBlackJack(carteAs, carteBuche); // création d'une main BlackJack (10 et as)
     assert (carteAs.getValeur()==1); // test si la valeur de l'as est bien passé à 1 (valeur de base d'un as)   
     assert (mainBlackJack.getSommeValeur()==11); // test de la somme des valeur égal à 11 car l'as n'est pas encore égal à 11
-    assert(mainBlackJack.verifBlackJack ()==0); // vérifie que la main n'est pas un BlackJack 
+    assert(mainBlackJack.verifBlackJack ()==0); // vérifie que la main n'est pas un BlackJack     
+    assert(mainBlackJack.getIemeCarte(0)==carteAs); //verifie que la premiere carte du tableau est bien l'as 
+    assert(mainBlackJack.getIemeCarte(1)==carteBuche);//verifie que la premiere carte du tableau est bien la buche 
+    cout<<"Test de la procédure getIemeCarte(indice) réalisé avec succès"<<endl;
+
+
     mainBlackJack.verifAs();
     assert (mainBlackJack.mainDeJoueur[0].getValeur()==11); // test si la valeur de l'as est bien passé à 11 
     assert(mainBlackJack.verifBlackJack ()==1); // vérifie si la main est bien un BlackJack
-    cout<<"Teste de la procédure verifAs() et verifBlackJack() réaliser avec succès"<<endl;
-
-
+    cout<<"Test de la procédure verifAs() et verifBlackJack() réalisé avec succès"<<endl;
     cout<<"Test de regression passé avec succès"<<endl;
     
 }
