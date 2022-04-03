@@ -63,15 +63,17 @@ void Joueur::miser(unsigned int mise)
 
 void Joueur::testRegression() const
 {
-	Joueur unJoueur("Kirikou", 2, 1000);
+	Joueur unJoueur("Kirikou", 2, 10000);
 	assert(unJoueur.nom=="Kirikou");
-	assert(unJoueur.getNiveau() == 2);
-	assert(budget == 1000);
+	assert(unJoueur.niveauJoueur == 2);
+	assert(unJoueur.budget == 10000);
 	cout<<"Constructeur avec paramètres OK"<<endl;
+
 	unJoueur.setBudget(-100);
-	assert(unJoueur.getBudget() == 900);
+	assert(unJoueur.budget == 900);
 	unJoueur.setBudget(-1000);
-	assert(unJoueur.getBudget() == 0);
+	assert(unJoueur.budget == 0);
+	cout<<"Mutateur de budget OK"<<endl;
 	unJoueur.setBudget(100);
 	assert(unJoueur.getBudget() == 100);
 	unJoueur.miser(50);

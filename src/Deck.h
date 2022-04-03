@@ -17,7 +17,6 @@ class Deck
     * 
     * Exemple d'utilisation :
     * @code
-    * Deck unDeck;
     * unDeck.initDeck();
     * @endcode
     * @warning Initialisez bien le deck une fois au tout début 
@@ -31,7 +30,6 @@ class Deck
     * 
     * Exemple d'utilisation :
     * @code
-    * Deck unDeck;
     * unDeck.melangerDeck();
     * @endcode
     * @warning Initialisez le deck avant de le mélanger
@@ -58,32 +56,15 @@ class Deck
     * 
     * Exemple d'utilisation :
     * @code
-    * Deck unDeck;
     * unDeck.testRegression();
     * @endcode
     */
 	void testRegression() const;
 
 
-// À METTRE DANS JEU TXT
-
-	/**
-    * @brief Procédure affichant le deck
-    * @return void
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * unDeck.afficherDeck();
-    * @endcode
-    * @warning Initialisez au moins le deck avant de l'afficher
-    */
-	void afficherDeck() const;
-
-	private :	//DOXYGEN INUTILE SI PRIVATE
-
-	/**
-    * @brief  Tableau dynamique représentant le deck de cartes
-    */ 
+	private :	
+	
+    //Tableau dynamique représentant le deck de cartes 
 	vector<Carte> deck;
 
 };

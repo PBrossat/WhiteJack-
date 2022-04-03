@@ -12,20 +12,20 @@ class Joueur
 	public :
 
 	/**
-	 * @brief nom : une chaîne de caractères décrivant le nom du joueur 
+	 * @brief nom une chaîne de caractères décrivant le nom du joueur 
 	*/
 	string nom;
 
 	/**
-	 * @brief hand : main de carte du joueur
+	 * @brief mainJoueur main de cartes du joueur
 	*/
 	MainDeCarte mainJoueur;
 
 	 /**
      * @brief  Constructeur de joueur
-     * @param[in] nomJ : une chaîne de caractères décrivant le nom du joueur 
-     * @param[in] nivJoueur: un entier entre 0 et 3 définissant le niveau du joueur 
-     * @param[in] budgetJ: un réel > 0 représentant le budget du joueur 
+     * @param[in] nomJ une chaîne de caractères décrivant le nom du joueur 
+     * @param[in] nivJoueur un entier entre 0 et 3 définissant le niveau du joueur 
+     * @param[in] budgetJ un réel > 0 représentant le budget du joueur 
      * 
      * Exemple d'utilisation :
      * @code
@@ -65,7 +65,7 @@ class Joueur
 
      /**
      * @brief Mutateur de budget
-     * @param[in] gain : l'argent que le joueur a gagné (ou perdu)
+     * @param[in] gain l'argent que le joueur a gagné (ou perdu)
      * @return void 
      * 
      * Exemple d'utilisation :
@@ -78,7 +78,7 @@ class Joueur
 
     /**
      * @brief Accesseur du niveau de joueur 
-     * @return usigned int 
+     * @return unsigned int 
      * 
      * Exemple d'utilisation :
      * @code
@@ -89,7 +89,7 @@ class Joueur
 
 
     /**
-     * @brief Tester la classe et ses fonctionnalités
+     * @brief Procédure testant les fonctionnalités de la classe
      * @return void
      * 
      * Exemple d'utilisation :
@@ -102,7 +102,7 @@ class Joueur
 
     /**
      * @brief Fonction permettant au joueur de miser 
-     * @param[in] mise : la mise du joueur 
+     * @param[in] mise la mise du joueur 
      * @return void
      * 
      * Exemple d'utilisation :
@@ -115,30 +115,19 @@ class Joueur
 
     private :
 
-    /**
-     * @brief budget : un réel décrivant le budget du joueur 
-    */
+    //un réel décrivant le budget du joueur 
     float budget;
 
-    /**
-     * @brief niveauJoueur: un entier entre 0 et 3 définissant le niveau du joueur 
-     * @warning 0 : le joueur est humain
-     * @warning 1 : le joueur est amateur
-     * @warning 2 : le joueur est intermédiaire
-     * @warning 3 : le joueur est expert
-    */
+    //un entier entre 0 et 3 définissant le niveau du joueur 
+    //0 : le joueur est humain
+    //1 : le joueur est amateur
+    //2 : le joueur est intermédiaire
+    //3 : le joueur est expert
     unsigned int niveauJoueur;
-
-    //  *
-    //  * @brief nbMainDeCartes : entier positif représentant le nombre de mains de cartes que le joueur est en train de jouer 
-    
-    // unsigned int nbMainDeCartes;
-
 
 
 };
 
-//fonction splitter pour joeur qui appel splitter de main de cartes
 
 #endif
 

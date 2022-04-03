@@ -10,7 +10,7 @@ Carte::Carte(unsigned int Rang, unsigned int Valeur, unsigned int Signe )
     signe=Signe;
 }
 
-Carte::Carte()
+Carte::Carte()  //initialise les données à 0
 {
     rang=0;
     valeur=0;
@@ -44,29 +44,35 @@ void Carte::setValeur(unsigned int Valeur)
 
 void Carte::testRegression() const
 {
+    //Test du constructeur avec paramètres
     Carte card1(5,5,2);
     assert(card1.rang==5);
     assert(card1.valeur==5);
     assert(card1.signe==2);
     cout<<"Constructeur avec paramètres OK"<<endl;
+    //Test du constructeur sans paramètres
     Carte card2;
     assert(card2.rang==0);
     assert(card2.valeur==0);
     assert(card2.signe==0);
     cout<<"Constructeur sans paramètres OK"<<endl;
+    //Test de l'opérateur =
     card2 = card1;
     assert(card2.rang==5);
     assert(card2.valeur==5);
     assert(card2.signe==2);
     cout<<"Opérateur = OK"<<endl;
+    //Test des accesseurs
     assert(card2.getRang()==5);
     assert(card2.getValeur()==5);
     assert(card2.getSigne()==2);
     cout<<"Accesseurs OK"<<endl;
+    //Test du mutateur
     Carte card3(1,1,1);
     card3.setValeur(11);
     assert(card3.getValeur()==11);
     cout<<"Mutateur OK"<<endl;
+    //Test de l'opérateur ==
     Carte card4(1,11,2);
     assert(card3==card4);
     assert(!(card2==card4));

@@ -97,8 +97,7 @@ class Carte
     * 
     * Exemple d'utilisation :
     * @code
-    * Carte carte1;
-    * carte1.testRegression();
+    * uneCarte.testRegression();
     * @endcode
     */
     void testRegression() const;
@@ -134,7 +133,7 @@ class Carte
     bool operator == (const Carte& operandeDroite); 
 
     /**
-    * @brief Permet d'aaficher une carte à l'écran (rang / valeur / signe)
+    * @brief Permet d'aficher une carte à l'écran (rang / valeur / signe)
     * 
     * Exemple d'utilisation :
     * @code
@@ -145,24 +144,20 @@ class Carte
     friend ostream& operator << (ostream& flux, const Carte& carteAffichee);    //À METTRE DANS MODULE JEU TXT
 
 
-    private :   //DOXYGEN INUTILE SI PRIVATE
+    private :   
 
-    /**
-    * @brief  Représente la valeur de la carte 
-    * @warning Ce valeur est obligatoirement comprise entre 1 et 11
-    */    
+    //Représente la valeur de la carte 
+    // Ce valeur est obligatoirement comprise entre 1 et 11    
     unsigned int valeur;
 
-    /**
-    * @brief  Représente la signe de la carte (pique=1 , coeur =2, trèfle=3, carreau=4) 
-    * @warning Ce valeur est obligatoirement comprise entre 1 et 4 
-    */    
+    
+    //Représente la signe de la carte (pique=1 , coeur =2, trèfle=3, carreau=4) 
+    //Ce valeur est obligatoirement comprise entre 1 et 4   
     unsigned int signe;
 
-    /**
-    * @brief  Représente le rang de la carte (ace=1; deux=2; ... valet=11; dame=12; roi=13) 
-    * @warning Ce valeur est obligatoirement comprise entre 1 et 13 
-    */    
+    
+    //Représente le rang de la carte (ace=1; deux=2; ... valet=11; dame=12; roi=13) 
+    //Ce valeur est obligatoirement comprise entre 1 et 13     
     unsigned int rang;
 
 };
