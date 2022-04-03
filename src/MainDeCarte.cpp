@@ -8,7 +8,7 @@ using namespace std;
 
 MainDeCarte::MainDeCarte ()
 {
-    vector<Carte>mainDeJoueur(0);
+    //vector<Carte>mainDeJoueur(0);
 
     nbCartes=0; // le nombre de carte est initialisé à 0
     sommeValeur=0; //la somme des valeurs est initialisé à 0
@@ -21,7 +21,7 @@ MainDeCarte::MainDeCarte ()
 MainDeCarte::MainDeCarte (const Carte& carte1, const Carte& carte2)
 {   
     
-    vector<Carte>mainDeJoueur(0);
+    //vector<Carte>mainDeJoueur(0);
 
     mainDeJoueur.push_back (carte1);// ajoute carte 1 à la main 
     mainDeJoueur.push_back (carte2);// ajoute carte 2 à la main 
@@ -219,8 +219,8 @@ void MainDeCarte::testRegression() const
     assert (main.getSommeValeur()==5);// test de la somme des valeur 
     assert (main.getJoueToujours()==1); //test du booléen joueToujours?
     assert (main.getCrame()==0); // test du booléen crame
-    //assert (carte1==main.mainDeJoueur[0]); // test si carte1 est bien la même carte que la carte d'indice 0 du tableau de la main de joueur.
-   // assert (carte2==main.mainDeJoueur[1]); // test si carte2 est bien la même carte que la carte d'indice 1 du tableau de la main de joueur.
+    assert (carte1==main.mainDeJoueur[0]); // test si carte1 est bien la même carte que la carte d'indice 0 du tableau de la main de joueur.
+    assert (carte2==main.mainDeJoueur[1]); // test si carte2 est bien la même carte que la carte d'indice 1 du tableau de la main de joueur.
     assert (carte1.getSigne()==1); // test si le signe de la nouvelle carte est bien celui attribué 
     assert (carte2.getSigne()==2); // test si le signe de la nouvelle carte est bien celui attribué  
     cout<<"Création de main2 réaliser avec succès"<<endl;
@@ -233,7 +233,7 @@ void MainDeCarte::testRegression() const
     assert (main.getSommeValeur()==13);// test de la somme des valeur 
     assert (main.getJoueToujours()==1); //test du booléen joueToujours
     assert (main.getCrame()==0); // test du booléen crame
-    //assert (carteAjoutee==main.mainDeJoueur[2]); // test si carteAjoutee est bien la même carte que la carte d'indice 2 du tableau de la main de joueur.
+    assert (carteAjoutee==main.mainDeJoueur[2]); // test si carteAjoutee est bien la même carte que la carte d'indice 2 du tableau de la main de joueur.
     assert (carteAjoutee.getSigne()==4); // test si le signe de la nouvelle carte est bien celui attribué 
     cout<<"Ajout d'une carte réaliser avec succès"<<endl;
 
@@ -245,7 +245,7 @@ void MainDeCarte::testRegression() const
     assert (main.getSommeValeur()==23);// test de la somme des valeur
     assert (main.getJoueToujours()==0); //test du booléen joueToujours qui doit être =0 car 23>21
     assert (main.getCrame()==1); // test du booléen crame qui doit être =1 car 23>21
-   // assert (carteAjoutee2==main.mainDeJoueur[3]); // test si carteAjoutee2 est bien la même carte que la carte d'indice 3 du tableau de la main de joueur.
+    assert (carteAjoutee2==main.mainDeJoueur[3]); // test si carteAjoutee2 est bien la même carte que la carte d'indice 3 du tableau de la main de joueur.
     assert (carteAjoutee2.getSigne()==1); // test si le signe de la nouvelle carte est bien celui attribué
     cout<<"La carte ajoutée a fait cramer le joueur avec succès"<<endl;
 
@@ -270,15 +270,11 @@ void MainDeCarte::testRegression() const
     Carte carteAs (1,1,1); // création de deux nouvelles cartes (carteAs et carteBuche)
     Carte carteBuche (13,10,1); 
     MainDeCarte mainBlackJack(carteAs, carteBuche); // création d'une main BlackJack (10 et as)
-    cout<<"ok"<<endl;
     assert (carteAs.getValeur()==1); // test si la valeur de l'as est bien passé à 1 (valeur de base d'un as)   
     assert (mainBlackJack.getSommeValeur()==11); // test de la somme des valeur égal à 11 car l'as n'est pas encore égal à 11
     assert(mainBlackJack.verifBlackJack ()==0); // vérifie que la main n'est pas un BlackJack 
-    cout<<"ok"<<endl;
-    cout<<mainBlackJack.mainDeJoueur.size()<<endl;
     mainBlackJack.verifAs();
     assert (mainBlackJack.mainDeJoueur[0].getValeur()==11); // test si la valeur de l'as est bien passé à 11 
-    cout<<"ok"<<endl;
     assert(mainBlackJack.verifBlackJack ()==1); // vérifie si la main est bien un BlackJack
     cout<<"Teste de la procédure verifAs() et verifBlackJack() réaliser avec succès"<<endl;
 
