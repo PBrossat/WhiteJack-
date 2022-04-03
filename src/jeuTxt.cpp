@@ -122,7 +122,6 @@ void txtBoucle (Jeu& jeu)
                 cin>>choix3;
             }while((choix3!='a'));
         }
-
         jeu.initialisationMise(choix3);
         cout<<"Vous avez misé :  "<<jeu.mise<<"$"<<endl;
         cout<<"Gérard distribue les cartes. "<<endl<<endl;
@@ -206,12 +205,6 @@ void txtBoucle (Jeu& jeu)
             }
         }while (jeu.joueurSolo.mainJoueur.getJoueToujours());
 
-
-        // cout<<"Petit rappel, voici la main du croupier avant qu'il joue : "<<endl;
-        // cout<<"--------------------------------------------------------------------------"<<endl<<endl;
-        // afficherMainDeCarte(jeu.mainCroupier);
-        // cout<<endl;
-        // cout<<"Score du croupier: "<<jeu.mainCroupier.getSommeValeur()<<endl;
         
         jeu.actionCroupier();
 
