@@ -8,7 +8,6 @@ using namespace std;
 
 MainDeCarte::MainDeCarte ()
 {
-    //vector<Carte>mainDeJoueur(0);
 
     nbCartes=0; // le nombre de carte est initialisé à 0
     sommeValeur=0; //la somme des valeurs est initialisé à 0
@@ -21,8 +20,6 @@ MainDeCarte::MainDeCarte ()
 MainDeCarte::MainDeCarte (const Carte& carte1, const Carte& carte2)
 {   
     
-    //vector<Carte>mainDeJoueur(0);
-
     mainDeJoueur.push_back (carte1);// ajoute carte 1 à la main 
     mainDeJoueur.push_back (carte2);// ajoute carte 2 à la main 
     nbCartes=2; // le nombre de carte est initialisé à 2 
@@ -200,7 +197,6 @@ for (unsigned int i=0; i<getNbCartes (); i++) //parcours de la main de cartes
 
 
 
-//TESTER VERIFAS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! DOUBLER 
 
 void MainDeCarte::testRegression() const
 {
