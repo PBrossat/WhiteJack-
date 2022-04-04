@@ -267,6 +267,6 @@ void Jeu::testRegression() const
 	jeu2.actionCroupier();
 	assert (jeu2.mainCroupier.getNbCartes()==2);
 	cout<<"Test de actionCroupier() quand le joueur crame OK"<<endl;
-	cout<<"Test de régression passé avec succès"<<endl;
+	cout<<"Test de régression passé avec succès"<<endl<<endl;
 
 }
