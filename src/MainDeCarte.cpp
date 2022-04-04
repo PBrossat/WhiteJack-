@@ -200,6 +200,8 @@ for (unsigned int i=0; i<getNbCartes (); i++) //parcours de la main de cartes
 
 void MainDeCarte::testRegression() const
 {
+    cout<<endl;
+
     MainDeCarte mainVide; //creation d'une main de base main1
     assert (mainVide.getNbCartes()==0);
     assert (mainVide.getSommeValeur()==0);
@@ -277,7 +279,7 @@ void MainDeCarte::testRegression() const
     assert (mainBlackJack.mainDeJoueur[0].getValeur()==11); // test si la valeur de l'as est bien passé à 11 
     assert(mainBlackJack.verifBlackJack ()==1); // vérifie si la main est bien un BlackJack
     cout<<"Test de la procédure verifAs() et verifBlackJack() réalisé avec succès"<<endl;
-    cout<<"Test de regression passé avec succès"<<endl;
+    cout<<"Test de regression passé avec succès"<<endl<<endl;
     
 }
 

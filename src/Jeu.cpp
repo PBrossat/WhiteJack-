@@ -160,6 +160,8 @@ void Jeu::resultat()
 
 void Jeu::testRegression() const
 {
+	cout<<endl;
+
 	Jeu unJeu;
 	unJeu.initialisationMise('a');
 	assert((unJeu.gain==0)&&(unJeu.mise==100));
@@ -265,8 +267,6 @@ void Jeu::testRegression() const
 	jeu2.actionCroupier();
 	assert (jeu2.mainCroupier.getNbCartes()==2);
 	cout<<"Test de actionCroupier() quand le joueur crame OK"<<endl;
-
-
 	cout<<"Test de régression passé avec succès"<<endl;
 
 }

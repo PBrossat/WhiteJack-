@@ -5,8 +5,11 @@
 
 Carte::Carte(unsigned int Rang, unsigned int Valeur, unsigned int Signe )
 {
+    assert((Rang>=1)&&(Rang<=13));
     rang=Rang;
+    assert((Valeur>=1)&&(Valeur<=11));
     valeur=Valeur;
+    assert((Signe>=1)&&(Signe<=4));
     signe=Signe;
 }
 
@@ -35,15 +38,14 @@ unsigned int Carte::getValeur() const
 
 void Carte::setValeur(unsigned int Valeur)
 {
-    if(Valeur>=1 && Valeur<=11)
-    {
-        valeur = Valeur;
-    }
+    assert((Valeur>=1)&&(Valeur<=11));
+    valeur = Valeur;
 }
 
 
 void Carte::testRegression() const
 {
+    cout<<endl;
     //Test du constructeur avec paramètres
     Carte card1(5,5,2);
     assert(card1.rang==5);
@@ -77,7 +79,7 @@ void Carte::testRegression() const
     assert(card3==card4);
     assert(!(card2==card4));
     cout<<"Opérateur == OK"<<endl;
-    cout<<"Test regression passé avec succès"<<endl;
+    cout<<"Test regression passé avec succès"<<endl<<endl;
 }
 
 

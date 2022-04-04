@@ -69,40 +69,41 @@ Carte Deck::distribuerCarte()
 
 void Deck::testRegression() const
 {
-    Deck unDeck;
-    unDeck.initDeck();
-    assert(!unDeck.deck.empty() && unDeck.deck.size()==(4*52));
-    cout<<"Deck initialisé OK "<<endl;
+  cout<<endl;
+  Deck unDeck;
+  unDeck.initDeck();
+  assert(!unDeck.deck.empty() && unDeck.deck.size()==(4*52));
+  cout<<"Deck initialisé OK "<<endl;
 
-    vector<Carte> AvantMelange;
-    AvantMelange = unDeck.deck;
-    unDeck.melangerDeck();
-    bool taille = (unDeck.deck.size()==AvantMelange.size());
-    assert(taille);
-    bool egaux = ((unDeck.deck[0]==AvantMelange[0]) && (unDeck.deck[1]==AvantMelange[1]) && (unDeck.deck[2]==AvantMelange[2]) && (unDeck.deck[3]==AvantMelange[3]) && (unDeck.deck[4]==AvantMelange[4])); //POUR L'INSTANT J'AI PAS DE MEILLEURES MOYENS DE TESTER == 
-    assert(!egaux);
-    cout<<"Deck mélangé OK "<<endl;
+  vector<Carte> AvantMelange;
+  AvantMelange = unDeck.deck;
+  unDeck.melangerDeck();
+  bool taille = (unDeck.deck.size()==AvantMelange.size());
+  assert(taille);
+  bool egaux = ((unDeck.deck[0]==AvantMelange[0]) && (unDeck.deck[1]==AvantMelange[1]) && (unDeck.deck[2]==AvantMelange[2]) && (unDeck.deck[3]==AvantMelange[3]) && (unDeck.deck[4]==AvantMelange[4])); //POUR L'INSTANT J'AI PAS DE MEILLEURES MOYENS DE TESTER == 
+  assert(!egaux);
+  cout<<"Deck mélangé OK "<<endl;
 
-    Carte test1;
-    Carte test2;
-    test1 = unDeck.deck.back();
-    test2 = unDeck.distribuerCarte();
-    assert(test1==test2);
-    assert(test1.getSigne()==test2.getSigne());
-    assert(unDeck.deck.size()==((4*52)-1));
-    cout<<"Distribution de cartes OK"<<endl;
+  Carte test1;
+  Carte test2;
+  test1 = unDeck.deck.back();
+  test2 = unDeck.distribuerCarte();
+  assert(test1==test2);
+  assert(test1.getSigne()==test2.getSigne());
+  assert(unDeck.deck.size()==((4*52)-1));
+  cout<<"Distribution de cartes OK"<<endl;
 
-    //TESTER QUAND ON ARRIVE À LA FIN DU DECK ET QU'IL FAUT EN RECREER UN POUR DISTRIBUER
+  //TESTER QUAND ON ARRIVE À LA FIN DU DECK ET QU'IL FAUT EN RECREER UN POUR DISTRIBUER
 
-    for(unsigned int i=0; i<=208; i++)
-    {
-      unDeck.distribuerCarte();
-    }
-    Carte test3;
-    test3 = unDeck.distribuerCarte();
-    assert(test3.getValeur()!=0);
-    cout<<"Reconstruction d'un deck"<<endl;
+  for(unsigned int i=0; i<=208; i++)
+  {
+    unDeck.distribuerCarte();
+  }
+  Carte test3;
+  test3 = unDeck.distribuerCarte();
+  assert(test3.getValeur()!=0);
+  cout<<"Reconstruction d'un deck OK"<<endl;
 
-    cout<<"Le test de regression a été passé avec succès"<<endl;
+  cout<<"Le test de regression a été passé avec succès"<<endl<<endl;
 }
     
