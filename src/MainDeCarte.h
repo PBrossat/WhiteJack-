@@ -147,7 +147,7 @@ class MainDeCarte
     /**
     * @brief Permet d'obtenir la carte d'indice I dans la main.  
     * @param[in] indice L'indice de la carte que l'on veut 
-    * @return Carte 
+    * @return Carte La carte d'indice "indice" 
 
     * Exemple d'utilisation :
     * @code
