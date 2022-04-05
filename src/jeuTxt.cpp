@@ -92,7 +92,7 @@ void txtBoucle (Jeu& jeu)
         }
         else if(jeu.joueurSolo.getBudget()>=500)
         {
-            cout<<"100$ (entrez A)  |   200$ (entrez Z) |   300$ (entrez E) |   500$ (entrez R)"<<endl;
+            cout<<"100$ (entrez 'a')  |   200$ (entrez 'z') |   300$ (entrez 'e') |   500$ (entrez 'r')"<<endl;
             do
             {
                 cin>>choix3;
@@ -100,7 +100,7 @@ void txtBoucle (Jeu& jeu)
         }
         else if(jeu.joueurSolo.getBudget()>=300)
         {
-            cout<<"100$ (entrez A)  |   200$ (entrez Z) |   300$ (entrez E)"<<endl;
+            cout<<"100$ (entrez 'a')  |   200$ (entrez 'z') |   300$ (entrez 'e')"<<endl;
             do
             {
                 cin>>choix3;
@@ -108,7 +108,7 @@ void txtBoucle (Jeu& jeu)
         }
         else if(jeu.joueurSolo.getBudget()>=200)
         {
-            cout<<"100$ (entrez A)  |   200$ (entrez Z)"<<endl;
+            cout<<"100$ (entrez 'a')  |   200$ (entrez 'z')"<<endl;
             do
             {
                 cin>>choix3;
@@ -116,7 +116,7 @@ void txtBoucle (Jeu& jeu)
         }
         else
         {
-            cout<<"100$ (entrez A)"<<endl;
+            cout<<"100$ (entrez 'a')"<<endl;
             do
             {
                 cin>>choix3;
