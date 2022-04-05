@@ -90,6 +90,10 @@ obj/Carte.o : src/Carte.cpp src/Carte.h
 
 
 
+clean : 
+	rm -f obj/*
+	rm -f bin/*
+
 
 
 doc : src/Carte.h src/Deck.h src/MainDeCarte.h src/Joueur.h src/Jeu.h #src/winTxt.h src/jeuTxt.h
