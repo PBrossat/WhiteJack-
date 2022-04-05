@@ -1,4 +1,16 @@
-all :  bin/Deck bin/MainDeCarte bin/Carte bin/Joueur bin/JeuTxt bin/Jeu 
+all :  bin/Deck bin/MainDeCarte bin/Carte bin/Joueur bin/JeuTxt bin/Jeu bin/JeuSdl
+
+bin/JeuSdl : obj/mainJeuSdl.o obj/JeuSdl.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o
+	g++ -g -Wall obj/mainJeuSdl.o obj/JeuSdl.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o -o bin/JeuSdl -lSDL2 -lSDL2_image 
+
+obj/mainJeuSdl.o : src/mainJeuSdl.cpp src/jeuSdl.h src/Jeu.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h src/winTxt.h
+	g++ -g -Wall -c src/mainJeuSdl.cpp -o obj/mainJeuSdl.o -I/usr/include/SDL2 
+
+obj/JeuSdl.o : src/jeuSdl.h src/jeuSdl.cpp src/Jeu.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h src/winTxt.h
+	g++ -g -Wall -c src/jeuSdl.cpp -o obj/JeuSdl.o -I/usr/include/SDL2 
+
+
+
 
 bin/JeuTxt : obj/mainJeuTxt.o obj/JeuTxt.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o
 	g++ -g -Wall obj/mainJeuTxt.o obj/JeuTxt.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o -o bin/JeuTxt
