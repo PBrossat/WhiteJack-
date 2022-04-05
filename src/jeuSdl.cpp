@@ -93,7 +93,7 @@ void Image::afficherInit()
         exit(1);
     }
 
-    window = SDL_CreateWindow("Blackjack", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 950, 392, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+    window = SDL_CreateWindow("Blackjack", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 950/13, 392/4, SDL_WINDOW_SHOWN );
     if (window == NULL) 
     {
         cout << "Erreur lors de la creation de la fenetre : " << SDL_GetError() << endl; 
@@ -113,8 +113,8 @@ void Image::afficherBoucle()
     bool stop = false;
     SDL_Event events;
     int h,w;
-    h=392;
-    w=950;
+    h=392;  //total 392 pour 4 signes
+    w=950;  //total 950 pour 13 cartes 
     while (!stop)
     {
         while (SDL_PollEvent(&events)) 
