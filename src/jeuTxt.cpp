@@ -84,7 +84,7 @@ void txtBoucle (Jeu& jeu)
 
         if(jeu.joueurSolo.getBudget()>=1000)
         {
-            cout<<"100$ (entrez A)  |   200$ (entrez Z) |   300$ (entrez E) |   500$ (entrez R) |   1000$ (entrez T)"<<endl;
+            cout<<"100$ (entrez 'a')  |   200$ (entrez 'z') |   300$ (entrez 'e') |   500$ (entrez 'r') |   1000$ (entrez 't')"<<endl;
             do
             {
                 cin>>choix3;
@@ -244,7 +244,7 @@ void txtBoucle (Jeu& jeu)
         if(jeu.joueurSolo.testArgentJoueur())
         {
             cout<<endl<<endl<<"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl<<endl<<endl;
-            cout<<"Voulez vous refaire une partie? Si oui tapez O sur votre clavier, sinon tapez N sur votre clavier "<<endl;
+            cout<<"Voulez vous refaire une partie? Si oui tapez 'o' sur votre clavier, sinon tapez 'n' sur votre clavier "<<endl;
             do
             {
                 cin>>choix2;
