@@ -1,6 +1,8 @@
 ﻿#include <vector>
 #include <iostream> 
 #include "Jeu.h"
+#include <time.h> 
+#include <stdlib.h>
 using namespace std; 
 
 
@@ -8,7 +10,7 @@ vector<Joueur>tabJoueur(4);
 
 
 
-void eliminationJoueur(unsigned int nbPartie) //procédure permettant d'eliminer un joueur si : soit il n'as plus de budget, soit il a le moins d'argent à la partie n={3,6,9}
+void jeuMulti::eliminationJoueur(unsigned int nbPartie) //procédure permettant d'eliminer un joueur si : soit il n'as plus de budget, soit il a le moins d'argent à la partie n={3,6,9}
 {
 unsigned int nbJoueurs=tabJoueur.size(); //nbJoueur= à la taille du tableau 
     for (unsigned int i=0; i<tabJoueur.size(); i++) //pour i parcourant tout le tableau 
@@ -21,7 +23,7 @@ unsigned int nbJoueurs=tabJoueur.size(); //nbJoueur= à la taille du tableau
 
     }
 
-    if ( ((nbJoueurs==4)&&(nbPartie==3)) || ((nbJoueurs==3)&&(nbPartie==6))   ||((nbJoueurs==2)&&(nbPartie==9))) //si toute les conditions sont réspectées 
+    if ( ((nbJoueurs==4)&&(nbPartie==3)) || ((nbJoueurs==3)&&(nbPartie==6))  || ((nbJoueurs==2)&&(nbPartie==9))) //si toute les conditions sont réspectées 
         {
             tabJoueur[0].getBudget()=min; //initialisation de min à la valeur du budget du joueur d'indice 0 
             unsigned int indiceMinimum=0; // initialisation d'indiceMinimum à l'indice 0 par défaut
@@ -37,3 +39,71 @@ unsigned int nbJoueurs=tabJoueur.size(); //nbJoueur= à la taille du tableau
             nbJoueurs--; // le nombre de joueur est mis à jour (-1)
         }
 }
+
+
+
+void Jeu::initialisationMiseMulti()
+{
+    for (unsigned int i=0; i<tabJoueur.size(); i++) //parcours du tableau de joueurs
+    {
+        tabJoueur[i].gain=0;//initialisation des gaisnde tout les joueurs à 0
+    }
+
+    vector<unsigned int>misePossible; //création d'un tableau avec les valeurs des mises possibles dedans
+    misePossible[0]=100;
+    misePossible[1]=200;
+    misePossible[2]=300;   
+    misePossible[3]=500;
+    misePossible[4]=1000;
+    srand (time(NULL));
+    unsigned int aleatoire = rand() % 5; //on tire un nombre entre 0 et 4 compris qui correspond a l'indice du tab que l'on vient de créer 
+
+	for (unsigned int i=0; i<tabJoueur.size(); i++) //parcours du tableau de joueurs
+    {
+        if(tabJoueur[i].nivJoueur!=0) //si le niveau du joueur est different de 0 (c'est une IA)
+        {
+            do
+            {
+                tabJoueur[i].mise=misePossible[aleatoire]; //mise aléatoire 
+            }while (MainDeCarte.tabJoueur[i].getBudget()>=Jeu.tabJoueur[i].mise) //tant que c'est possible (par rapport à budget)
+        }
+        // else Jeu.tabJoueur[i].initialisationMise(touche);               cas du joueur reel (Attention à comment rentrer la mise que l'on veut avec la version graphique)
+
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+void jeuMulti::initialisationJeuMulti()
+{   
+    for (unsigned int i=0; i<tabJoueur.size(); i++) //distribution d'un carte à chaque joueur 
+        {
+            tabJoueur[i].miser();
+            carteTiree = unDeck.distribuerCarte();
+            tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
+        }
+
+   	carteTiree = unDeck.distribuerCarte(); //distribution d'une carte au croupier 
+	mainCroupier.tirerCarte(carteTiree);
+
+    for (unsigned int i=0; i<tabJoueur.size(); i++) //distribution d'une deuxième carte à chaque joueur 
+        {
+            carteTiree = unDeck.distribuerCarte();
+            tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
+        }
+
+     deuxiemeCarteCroupier = unDeck.distribuerCarte(); //création d'une deuxième carte pour le croupier (invisible à cet instant précis)
+}
+
+
+
+
