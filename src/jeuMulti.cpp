@@ -1,23 +1,21 @@
 ﻿#include <vector>
 #include <iostream> 
-#include "Jeu.h"
+#include "jeuMulti.h"
 #include <time.h> 
 #include <stdlib.h>
 using namespace std; 
 
 
-vector<Joueur>tabJoueur(4);
 
 
-
-void jeuMulti::eliminationJoueur(unsigned int nbPartie) //procédure permettant d'eliminer un joueur si : soit il n'as plus de budget, soit il a le moins d'argent à la partie n={3,6,9}
+void JeuMulti::eliminationJoueur(unsigned int nbPartie) //procédure permettant d'eliminer un joueur si : soit il n'as plus de budget, soit il a le moins d'argent à la partie n={3,6,9}
 {
 unsigned int nbJoueurs=tabJoueur.size(); //nbJoueur= à la taille du tableau 
     for (unsigned int i=0; i<tabJoueur.size(); i++) //pour i parcourant tout le tableau 
     {
         if(tabJoueur[i].getBudget()==0) // si le joueur à l'indice i à 0 de budget 
         {
-            tabJoueur.erase(tabJoueur.begin+i); //on supprime ce joueur 
+            tabJoueur.erase(tabJoueur.begin()+i); //on supprime ce joueur 
             nbJoueurs--; // le nombre de joueur est mis à jour (-1)
         }
 
@@ -25,7 +23,7 @@ unsigned int nbJoueurs=tabJoueur.size(); //nbJoueur= à la taille du tableau
 
     if ( ((nbJoueurs==4)&&(nbPartie==3)) || ((nbJoueurs==3)&&(nbPartie==6))  || ((nbJoueurs==2)&&(nbPartie==9))) //si toute les conditions sont réspectées 
         {
-            tabJoueur[0].getBudget()=min; //initialisation de min à la valeur du budget du joueur d'indice 0 
+            min=tabJoueur[0].getBudget() ; //initialisation de min à la valeur du budget du joueur d'indice 0 
             unsigned int indiceMinimum=0; // initialisation d'indiceMinimum à l'indice 0 par défaut
             for (unsigned int j=1; j<tabJoueur.size() ; j++) //on commence la boucle à 1 pour eviter de tester avec j=0 (inutile)
                 {
@@ -35,14 +33,14 @@ unsigned int nbJoueurs=tabJoueur.size(); //nbJoueur= à la taille du tableau
                             indiceMinimum= j; //MAJ de indiceMinimum avec l'indice du joueur 
                         }
                 }
-            tabJoueur.erase(tabJoueur.begin+indiceMinimum); //on supprime le joueur avec le budget le plus bas
+            tabJoueur.erase(tabJoueur.begin()+indiceMinimum); //on supprime le joueur avec le budget le plus bas
             nbJoueurs--; // le nombre de joueur est mis à jour (-1)
         }
 }
 
 
 
-void Jeu::initialisationMiseMulti()
+void JeuMulti::initialisationMiseMulti()
 {
     for (unsigned int i=0; i<tabJoueur.size(); i++) //parcours du tableau de joueurs
     {
@@ -65,7 +63,7 @@ void Jeu::initialisationMiseMulti()
             do
             {
                 tabJoueur[i].mise=misePossible[aleatoire]; //mise aléatoire 
-            }while (MainDeCarte.tabJoueur[i].getBudget()>=Jeu.tabJoueur[i].mise) //tant que c'est possible (par rapport à budget)
+            }while (MainDeCarte.tabJoueur[i].getBudget()>=Jeu.tabJoueur[i].mise); //tant que c'est possible (par rapport à budget)
         }
         // else Jeu.tabJoueur[i].initialisationMise(touche);               cas du joueur reel (Attention à comment rentrer la mise que l'on veut avec la version graphique)
 
@@ -83,7 +81,7 @@ void Jeu::initialisationMiseMulti()
 
 
 
-void jeuMulti::initialisationJeuMulti()
+void JeuMulti::initialisationJeuMulti()
 {   
     for (unsigned int i=0; i<tabJoueur.size(); i++) //distribution d'un carte à chaque joueur 
         {

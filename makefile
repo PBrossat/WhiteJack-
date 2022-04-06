@@ -1,4 +1,4 @@
-all :  bin/Deck bin/MainDeCarte bin/Carte bin/Joueur bin/JeuTxt bin/Jeu bin/JeuSdl
+all :  bin/Deck bin/MainDeCarte bin/Carte bin/Joueur bin/JeuTxt bin/Jeu bin/JeuSdl bin/jeuMulti
 
 bin/JeuSdl : obj/mainJeuSdl.o obj/JeuSdl.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o
 	g++ -g -Wall obj/mainJeuSdl.o obj/JeuSdl.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o -o bin/JeuSdl -lSDL2 -lSDL2_image 
@@ -37,6 +37,17 @@ obj/mainTestJeu.o : src/mainTestJeu.cpp src/Jeu.h src/Joueur.h src/Carte.h src/D
 
 obj/Jeu.o : src/Jeu.cpp src/Jeu.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h
 	g++ -g -Wall -c src/Jeu.cpp -o obj/Jeu.o
+
+
+
+bin/jeuMulti : obj/mainTestJeuMulti.o obj/jeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o 
+	g++ -g -Wall obj/mainTestJeuMulti.o obj/jeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o -o bin/jeuMulti
+
+obj/mainTestJeuMulti.o : src/mainTestJeuMulti.cpp src/jeuMulti.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h
+	g++ -g -Wall -c src/mainTestJeuMulti.cpp -o obj/mainTestJeuMulti.o
+
+obj/jeuMulti.o: src/jeuMulti.cpp src/jeuMulti.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h
+	g++ -g -Wall -c src/jeuMulti.cpp -o obj/jeuMulti.o
 
 
 
