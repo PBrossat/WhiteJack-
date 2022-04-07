@@ -594,12 +594,12 @@ void sfmlJeu::sfmlBoucle () {
     //         clock.restart();
     //     }
 
-    Event event;
+        // Event event;
 
-    while (window->pollEvent(event))
-    {
-        if (event.type == Event::Closed)
-            window->close();
+        // // while (window->pollEvent(event))
+        // // {
+        //     if (event.type == Event::Closed)
+        //     window->close();
 
     //         if (event.type == Event::KeyPressed) {
     //             bool mangePastille = false;
@@ -617,9 +617,9 @@ void sfmlJeu::sfmlBoucle () {
 
     //             if (mangePastille) m_sound.play();
     //         }
-     }
+        //  }
 
-    sfmlAff();
+        sfmlAff();
     }
 
 }
