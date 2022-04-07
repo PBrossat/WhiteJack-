@@ -379,117 +379,117 @@ void sfmlJeu::sfmlInit() {
 
     //Chargement images Trefles
 
-    if (!t1deTrefles.loadFromFile("data/1_Trefles.png")) 
+    if (!t1deTrefles.loadFromFile("data/1_Trèfles.png")) 
     {
-        cout << "Error data/1_Trefles.png non found" << endl;
+        cout << "Error data/1_Trèfles.png non found" << endl;
     }
     else 
     {
         s1deTrefles.setTexture(t1deTrefles);
     }
     
-    if (!t2deTrefles.loadFromFile("data/2_Trefles.png")) 
+    if (!t2deTrefles.loadFromFile("data/2_Trèfles.png")) 
     {
-        cout << "Error data/2_Trefles.png non found" << endl;
+        cout << "Error data/2_Trèfles.png non found" << endl;
     }
     else 
     {
         s2deTrefles.setTexture(t2deTrefles);
     }
     
-    if (!t3deTrefles.loadFromFile("data/3_Trefles.png")) 
+    if (!t3deTrefles.loadFromFile("data/3_Trèfles.png")) 
     {
-        cout << "Error data/3_Trefles.png non found" << endl;
+        cout << "Error data/3_Trèfles.png non found" << endl;
     }
     else 
     {
         s3deTrefles.setTexture(t3deTrefles);
     }
     
-    if (!t4deTrefles.loadFromFile("data/4_Trefles.png")) 
+    if (!t4deTrefles.loadFromFile("data/4_Trèfles.png")) 
     {
-        cout << "Error data/4_Trefles.png non found" << endl;
+        cout << "Error data/4_Trèfles.png non found" << endl;
     }
     else 
     {
         s4deTrefles.setTexture(t4deTrefles);
     }
     
-    if (!t5deTrefles.loadFromFile("data/5_Trefles.png")) 
+    if (!t5deTrefles.loadFromFile("data/5_Trèfles.png")) 
     {
-        cout << "Error data/5_Trefles.png non found" << endl;
+        cout << "Error data/5_Trèfles.png non found" << endl;
     }
     else 
     {
         s5deTrefles.setTexture(t5deTrefles);
     }
     
-    if (!t6deTrefles.loadFromFile("data/6_Trefles.png")) 
+    if (!t6deTrefles.loadFromFile("data/6_Trèfles.png")) 
     {
-        cout << "Error data/6_Trefles.png non found" << endl;
+        cout << "Error data/6_Trèfles.png non found" << endl;
     }
     else 
     {
         s6deTrefles.setTexture(t6deTrefles);
     }
     
-    if (!t7deTrefles.loadFromFile("data/7_Trefles.png")) 
+    if (!t7deTrefles.loadFromFile("data/7_Trèfles.png")) 
     {
-        cout << "Error data/7_Trefles.png non found" << endl;
+        cout << "Error data/7_Trèfles.png non found" << endl;
     }
     else 
     {
         s7deTrefles.setTexture(t7deTrefles);
     }
     
-    if (!t8deTrefles.loadFromFile("data/8_Trefles.png")) 
+    if (!t8deTrefles.loadFromFile("data/8_Trèfles.png")) 
     {
-        cout << "Error data/8_Trefles.png non found" << endl;
+        cout << "Error data/8_Trèfles.png non found" << endl;
     }
     else 
     {
         s8deTrefles.setTexture(t8deTrefles);
     }
     
-    if (!t9deTrefles.loadFromFile("data/9_Trefles.png")) 
+    if (!t9deTrefles.loadFromFile("data/9_Trèfles.png")) 
     {
-        cout << "Error data/9_Trefles.png non found" << endl;
+        cout << "Error data/9_Trèfles.png non found" << endl;
     }
     else 
     {
         s9deTrefles.setTexture(t9deTrefles);
     }
     
-    if (!t10deTrefles.loadFromFile("data/10_Trefles.png")) 
+    if (!t10deTrefles.loadFromFile("data/10_Trèfles.png")) 
     {
-        cout << "Error data/10_Trefles.png non found" << endl;
+        cout << "Error data/10_Trèfles.png non found" << endl;
     }
     else 
     {
         s10deTrefles.setTexture(t10deTrefles);
     }
     
-    if (!t11deTrefles.loadFromFile("data/11_Trefles.png")) 
+    if (!t11deTrefles.loadFromFile("data/11_Trèfles.png")) 
     {
-        cout << "Error data/11_Trefles.png non found" << endl;
+        cout << "Error data/11_Trèfles.png non found" << endl;
     }
     else 
     {
         s11deTrefles.setTexture(t11deTrefles);
     }
     
-    if (!t12deTrefles.loadFromFile("data/12_Trefles.png")) 
+    if (!t12deTrefles.loadFromFile("data/12_Trèfles.png")) 
     {
-        cout << "Error data/12_Trefles.png non found" << endl;
+        cout << "Error data/12_Trèfles.png non found" << endl;
     }
     else 
     {
         s12deTrefles.setTexture(t12deTrefles);
     }
     
-    if (!t13deTrefles.loadFromFile("data/13_Trefles.png")) 
+    if (!t13deTrefles.loadFromFile("data/13_Trèfles.png")) 
     {
-        cout << "Error data/13_Trefles.png non found" << endl;
+        cout << "Error data/13_Trèfles.png non found" << endl;
     }
     else 
     {
