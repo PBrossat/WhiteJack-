@@ -1,37 +1,176 @@
-#ifndef _SDLJEU_H
-#define _SDLJEU_H
-
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+#ifndef _SFMLJEU_H
+#define _SFMLJEU_H
 
 #include "Jeu.h"
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include <vector>
 
-//! \brief Pour g�rer une image avec SDL2
-class Image {
+/**
+    La classe gérant le jeu avec un affichage SFML
+*/
 
-private:
+class sfmlJeu {
 
-    SDL_Surface * m_surface;
-    SDL_Texture * m_texture;
-    bool m_hasChanged;
-    SDL_Window * window;
-    SDL_Renderer * renderer;
+private :
 
-public:
-    Image () ;
-    ~Image();
-    void loadFromFile (const char* filename, SDL_Renderer * renderer);
-    void loadFromCurrentSurface (SDL_Renderer * renderer);
-    void draw (SDL_Renderer * renderer, int x, int y, int w=-1, int h=-1);
-    SDL_Texture * getTexture() const;
-    void setSurface(SDL_Surface * surf);
-    void afficherInit();
-    void afficherBoucle();
-    void afficherDetruit();
+	Jeu jeu;
+	sf::RenderWindow * m_window;
+
+    sf::Texture t1deCoeur;
+    sf::Texture t1deCarreau;
+    sf::Texture t1dePiques;
+    sf::Texture t1deTrefles;
+
+    sf::Texture t2deCoeur;
+    sf::Texture t2deCarreau;
+    sf::Texture t2dePiques;
+    sf::Texture t2deTrefles;
+
+    sf::Texture t3deCoeur;
+    sf::Texture t3deCarreau;
+    sf::Texture t3dePiques;
+    sf::Texture t3deTrefles;
+
+    sf::Texture t4deCoeur;
+    sf::Texture t4deCarreau;
+    sf::Texture t4dePiques;
+    sf::Texture t4deTrefles;
+
+    sf::Texture t5deCoeur;
+    sf::Texture t5deCarreau;
+    sf::Texture t5dePiques;
+    sf::Texture t5deTrefles;
+
+    sf::Texture t6deCoeur;
+    sf::Texture t6deCarreau;
+    sf::Texture t6dePiques;
+    sf::Texture t6deTrefles;
+
+    sf::Texture t7deCoeur;
+    sf::Texture t7deCarreau;
+    sf::Texture t7dePiques;
+    sf::Texture t7deTrefles;
+
+    sf::Texture t8deCoeur;
+    sf::Texture t8deCarreau;
+    sf::Texture t8dePiques;
+    sf::Texture t8deTrefles;
+
+    sf::Texture t9deCoeur;
+    sf::Texture t9deCarreau;
+    sf::Texture t9dePiques;
+    sf::Texture t9deTrefles;
+
+    sf::Texture t10deCoeur;
+    sf::Texture t10deCarreau;
+    sf::Texture t10dePiques;
+    sf::Texture t10deTrefles;
+
+    sf::Texture t11deCoeur;
+    sf::Texture t11deCarreau;
+    sf::Texture t11dePiques;
+    sf::Texture t11deTrefles;
+  
+    sf::Texture t12deCoeur;
+    sf::Texture t12deCarreau;
+    sf::Texture t12dePiques;
+    sf::Texture t12deTrefles;
+  
+    sf::Texture t13deCoeur;
+    sf::Texture t13deCarreau;
+    sf::Texture t13dePiques;
+    sf::Texture t13deTrefles;
+
+    sf::Texture tCardBack;
+    sf::Texture tDeck;
+  
+
+
+
+    sf::Sprite s1deCoeur;
+    sf::Sprite s1deCarreau;
+    sf::Sprite s1dePiques;
+    sf::Sprite s1deTrefles;
+
+    sf::Sprite s2deCoeur;
+    sf::Sprite s2deCarreau;
+    sf::Sprite s2dePiques;
+    sf::Sprite s2deTrefles;
+
+    sf::Sprite s3deCoeur;
+    sf::Sprite s3deCarreau;
+    sf::Sprite s3dePiques;
+    sf::Sprite s3deTrefles;
+    sf::Sprite s4deCoeur;
+    sf::Sprite s4deCarreau;
+    sf::Sprite s4dePiques;
+    sf::Sprite s4deTrefles;
+
+    sf::Sprite s5deCoeur;
+    sf::Sprite s5deCarreau;
+    sf::Sprite s5dePiques;
+    sf::Sprite s5deTrefles;
+
+    sf::Sprite s6deCoeur;
+    sf::Sprite s6deCarreau;
+    sf::Sprite s6dePiques;
+    sf::Sprite s6deTrefles;
+
+    sf::Sprite s7deCoeur;
+    sf::Sprite s7deCarreau;
+    sf::Sprite s7dePiques;
+    sf::Sprite s7deTrefles;
+
+    sf::Sprite s8deCoeur;
+    sf::Sprite s8deCarreau;
+    sf::Sprite s8dePiques;
+    sf::Sprite s8deTrefles;
+
+    sf::Sprite s9deCoeur;
+    sf::Sprite s9deCarreau;
+    sf::Sprite s9dePiques;
+    sf::Sprite s9deTrefles;
+
+
+    sf::Sprite s10deCoeur;
+    sf::Sprite s10deCarreau;
+    sf::Sprite s10dePiques;
+    sf::Sprite s10deTrefles;
+
+    sf::Sprite s11deCoeur;
+    sf::Sprite s11deCarreau;
+    sf::Sprite s11dePiques;
+    sf::Sprite s11deTrefles;
+  
+    sf::Sprite s12deCoeur;
+    sf::Sprite s12deCarreau;
+    sf::Sprite s12dePiques;
+    sf::Sprite s12deTrefles;
+  
+    sf::Sprite s13deCoeur;
+    sf::Sprite s13deCarreau;
+    sf::Sprite s13dePiques;
+    sf::Sprite s13deTrefles;
+
+    sf::Sprite sCardBack;
+    sf::Sprite sDeck;
+
+    // sf::Font m_font;
+    // sf::Text m_text;
+
+    // sf::SoundBuffer m_soundbuffer;
+    // sf::Sound m_sound;
+
+public :
+
+    sfmlJeu ();
+    ~sfmlJeu ();
+
+    void sfmlInit();
+    void sfmlBoucle();
+    void sfmlAff();
+
 };
-
-
-
-
 
 #endif
