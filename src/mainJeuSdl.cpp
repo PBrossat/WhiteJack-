@@ -6,11 +6,7 @@ using namespace std;
 
 int main ( int argc, char** argv ) 
 {
-
-	Image imCarte;
-	imCarte.afficherInit();
-	imCarte.afficherBoucle();
-	imCarte.afficherDetruit();
-
+	sfmlJeu jeu;
+	jeu.sfmlInit();
 	return 0;
 }
