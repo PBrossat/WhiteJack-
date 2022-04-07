@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['wintxt_2ecpp_96',['winTxt.cpp',['../win_txt_8cpp.html',1,'']]],
-  ['wintxt_2eh_97',['winTxt.h',['../win_txt_8h.html',1,'']]]
+  ['_7esfmljeu_93',['~sfmlJeu',['../classsfml_jeu.html#a22446d3645360d379b963471e85eb989',1,'sfmlJeu']]]
 ];

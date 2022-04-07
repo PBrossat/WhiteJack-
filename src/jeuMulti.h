@@ -16,7 +16,7 @@ class jeuMulti{
 
 
     jeuMulti ();
-    
+
     
     jeuMulti(unsigned int NiveauJoueur);
 
@@ -42,7 +42,7 @@ class jeuMulti{
     
     void initialisationNiveau (unsigned int NiveauJoueur);
 
-    void eliminationJoueur(unsigned int nbPartie);
+    void eliminationJoueur();
 
     void initialisationMiseMulti();
 

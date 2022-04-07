@@ -5,6 +5,7 @@
 #include "Deck.h"
 #include <time.h> 
 #include <stdlib.h>
+#include <cassert>
 using namespace std; 
 
 
@@ -12,28 +13,31 @@ using namespace std;
 
 jeuMulti::jeuMulti ()
 {
+
     unDeck.initDeck();
 	unDeck.melangerDeck();
-
+    nbPartie=1;
+    
 }
 
 
 jeuMulti::jeuMulti (unsigned int NiveauJoueur)
 {
+
 	unDeck.initDeck();
 	unDeck.melangerDeck();
-    tabJoueur.push_back (Joueur("moi",0,2000));
-    for (unsigned int i=1; i<tabJoueur.size(); i++)
-    {
-        tabJoueur.push_back  (Joueur("IA",NiveauJoueur,2000));
-    }
+    tabJoueur.push_back(Joueur("moi",0,2000));
+    tabJoueur.push_back(Joueur("IA1",NiveauJoueur,2000));
+    tabJoueur.push_back(Joueur("IA2",NiveauJoueur,2000));
+    tabJoueur.push_back(Joueur("IA3",NiveauJoueur,2000));
+    nbPartie=1;
 }
 
 
 
-void jeuMulti::eliminationJoueur(unsigned int nbPartie) //procédure permettant d'eliminer un joueur si : soit il n'as plus de budget, soit il a le moins d'argent à la partie n={3,6,9}
+void jeuMulti::eliminationJoueur() //procédure permettant d'eliminer un joueur si : soit il n'as plus de budget, soit il a le moins d'argent à la partie n={3,6,9}
 {
-unsigned int nbJoueurs=tabJoueur.size(); //nbJoueur= à la taille du tableau 
+unsigned int nbJoueurs=tabJoueur.size(); // nbJoueur= à la taille du tableau 
     for (unsigned int i=0; i<tabJoueur.size(); i++) //pour i parcourant tout le tableau 
     {
         if(tabJoueur[i].getBudget()==0) // si le joueur à l'indice i à 0 de budget 
@@ -59,6 +63,7 @@ unsigned int nbJoueurs=tabJoueur.size(); //nbJoueur= à la taille du tableau
             tabJoueur.erase(tabJoueur.begin()+indiceMinimum); //on supprime le joueur avec le budget le plus bas
             nbJoueurs--; // le nombre de joueur est mis à jour (-1)
         }
+    nbPartie++;
 }
 
 
@@ -131,5 +136,41 @@ void jeuMulti::initialisationJeuMulti()
 
 void jeuMulti::testRegression() const
 {
+
+    jeuMulti unJeuMultiParDefaut; // création d'un jeu multi par défaut 
+    assert (unJeuMultiParDefaut.tabJoueur.size()==0); // taille =0   
+    assert(unJeuMultiParDefaut.nbPartie==1);
+    Joueur joueurParDefaut; //création d'un joueur par défaut
+    unJeuMultiParDefaut.tabJoueur.push_back(joueurParDefaut); //on ajoute ce joueur au jeu
+    assert (unJeuMultiParDefaut.tabJoueur.size()==1); // taille =1
+    cout<<"Test constructeur par défaut OK"<<endl;
     
+    jeuMulti unJeuMulti(3);
+    assert (unJeuMulti.tabJoueur.size()==4); // taille =4
+    assert (unJeuMulti.tabJoueur[0].nom=="moi"); //test sur le joueur reel
+    assert (unJeuMulti.tabJoueur[0].getNiveau() ==0);
+    assert (unJeuMulti.tabJoueur[0].getBudget()==2000);
+    assert (unJeuMulti.tabJoueur[1].nom=="IA1");
+    assert (unJeuMulti.tabJoueur[2].nom=="IA2");
+    assert (unJeuMulti.tabJoueur[3].nom=="IA3");
+    for (int i=1; i<4; i++) //test sur les IA
+    {
+    assert (unJeuMulti.tabJoueur[i].getNiveau() ==3);
+    assert (unJeuMulti.tabJoueur[i].getBudget()==2000);
+    }
+    cout<<"Test du constructeur avec paramètre OK"<<endl;
+
+
+    unJeuMulti.tabJoueur[1].setBudget(-2000);
+    unJeuMulti.tabJoueur[2].setBudget(1);
+    unJeuMulti.tabJoueur[3].setBudget(2);
+    unJeuMulti.eliminationJoueur();
+    assert (unJeuMulti.tabJoueur.size()==3);
+    for (unsigned int i=0; i<unJeuMulti.tabJoueur.size(); i++)
+    {
+        cout<<unJeuMulti.tabJoueur[i].nom<<endl;
+    }
+
+
+
 }
