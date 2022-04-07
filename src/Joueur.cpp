@@ -5,6 +5,17 @@
 
 using namespace std;
 
+Joueur::Joueur()
+{
+	nom = " ";
+	niveauJoueur = 0;
+	budget = 0;
+	gain=0;
+	mise=0;
+}
+
+
+
 Joueur::Joueur(string nomJ, unsigned int nivJoueur, float budgetJ)
 {
 	assert(budgetJ>0);

@@ -1,21 +1,32 @@
 ﻿#include <vector>
 #include <iostream> 
 #include "jeuMulti.h"
+#include "Joueur.h"
+#include "Deck.h"
 #include <time.h> 
 #include <stdlib.h>
 using namespace std; 
 
 
 
-void jeuMulti::initialisationNiveau (unsigned int NiveauJoueur)
+
+jeuMulti::jeuMulti ()
 {
+    unDeck.initDeck();
+	unDeck.melangerDeck();
+
+}
+
+
+jeuMulti::jeuMulti (unsigned int NiveauJoueur)
+{
+	unDeck.initDeck();
+	unDeck.melangerDeck();
     tabJoueur.push_back (Joueur("moi",0,2000));
     for (unsigned int i=1; i<tabJoueur.size(); i++)
     {
         tabJoueur.push_back  (Joueur("IA",NiveauJoueur,2000));
     }
-
-
 }
 
 
@@ -35,7 +46,7 @@ unsigned int nbJoueurs=tabJoueur.size(); //nbJoueur= à la taille du tableau
 
     if ( ((nbJoueurs==4)&&(nbPartie==3)) || ((nbJoueurs==3)&&(nbPartie==6))  || ((nbJoueurs==2)&&(nbPartie==9))) //si toute les conditions sont réspectées 
         {
-            min=tabJoueur[0].getBudget() ; //initialisation de min à la valeur du budget du joueur d'indice 0 
+            float min=tabJoueur[0].getBudget(); //initialisation de min à la valeur du budget du joueur d'indice 0 
             unsigned int indiceMinimum=0; // initialisation d'indiceMinimum à l'indice 0 par défaut
             for (unsigned int j=1; j<tabJoueur.size() ; j++) //on commence la boucle à 1 pour eviter de tester avec j=0 (inutile)
                 {
@@ -58,7 +69,7 @@ void jeuMulti::initialisationMiseMulti()
 
     for (unsigned int i=0; i<tabJoueur.size(); i++) //parcours du tableau de joueurs
     {
-        tabJoueur[i].gain=0;//initialisation des gais de tout les joueurs à 0
+        tabJoueur[i].setGain(0);//initialisation des gais de tout les joueurs à 0
     }
 
     vector<unsigned int>misePossible; //création d'un tableau avec les valeurs des mises possibles dedans
@@ -72,12 +83,12 @@ void jeuMulti::initialisationMiseMulti()
 
 	for (unsigned int i=0; i<tabJoueur.size(); i++) //parcours du tableau de joueurs
     {
-        if(tabJoueur[i].nivJoueur!=0) //si le niveau du joueur est different de 0 (c'est une IA)
+        if(tabJoueur[i].getNiveau()!=0) //si le niveau du joueur est different de 0 (c'est une IA)
         {
             do
             {
-                tabJoueur[i].mise=misePossible[aleatoire]; //mise aléatoire 
-            }while (MainDeCarte.tabJoueur[i].getBudget()>=Jeu.tabJoueur[i].mise); //tant que c'est possible (par rapport à budget)
+                tabJoueur[i].setMise(misePossible[aleatoire]); //mise aléatoire 
+            }while (tabJoueur[i].getBudget()>=tabJoueur[i].getMise()); //tant que c'est possible (par rapport à budget)
         }
         // else Jeu.tabJoueur[i].initialisationMise(touche);               cas du joueur reel (Attention à comment rentrer la mise que l'on veut avec la version graphique)
 
@@ -92,14 +103,14 @@ void jeuMulti::initialisationMiseMulti()
 
 
 
-
-
-
 void jeuMulti::initialisationJeuMulti()
 {   
+
+    Carte carteTiree;
     for (unsigned int i=0; i<tabJoueur.size(); i++) //distribution d'un carte à chaque joueur 
-        {
-            tabJoueur[i].miser();
+        {   
+
+            tabJoueur[i].miser(tabJoueur[i].getMise());
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
@@ -118,4 +129,7 @@ void jeuMulti::initialisationJeuMulti()
 
 
 
-
+void jeuMulti::testRegression() const
+{
+    
+}

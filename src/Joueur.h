@@ -22,7 +22,19 @@ class Joueur
 	*/
 	MainDeCarte mainJoueur;
 
-	 /**
+	/**
+     * @brief  Constructeur par défaut de joueur
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * Joueur unJoueur();
+     * @endcode     
+    */ 
+    Joueur();
+
+
+
+	/**
      * @brief  Constructeur de joueur
      * @param[in] nomJ une chaîne de caractères décrivant le nom du joueur 
      * @param[in] nivJoueur un entier entre 0 et 3 définissant le niveau du joueur 
