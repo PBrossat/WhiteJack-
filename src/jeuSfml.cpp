@@ -1,6 +1,6 @@
 #include <cassert>
 #include <time.h>
-#include "jeuSdl.h"
+#include "jeuSfml.h"
 #include <stdlib.h>
 
 using namespace sf;
@@ -544,9 +544,9 @@ void sfmlJeu::sfmlAff() {
     window->clear(Color(230, 240, 255, 255));
 
     unsigned int position = 260;
-    s3deTrefles.setPosition(position, 630);
+    s1deTrefles.setPosition(position, 630);
 	position += 260;
-	window->draw(s3deTrefles);
+	window->draw(s1deTrefles);
     
 
     // const Terrain& ter = jeu.getConstTerrain();
