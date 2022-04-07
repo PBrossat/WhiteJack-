@@ -161,16 +161,24 @@ void jeuMulti::testRegression() const
     cout<<"Test du constructeur avec paramètre OK"<<endl;
 
 
-    unJeuMulti.tabJoueur[1].setBudget(-2000);
-    unJeuMulti.tabJoueur[2].setBudget(1);
-    unJeuMulti.tabJoueur[3].setBudget(2);
-    unJeuMulti.eliminationJoueur();
-    assert (unJeuMulti.tabJoueur.size()==3);
+    unJeuMulti.tabJoueur[3].setBudget(-2000); //le budget du joueur 4 (indice 3) est nul
+    unJeuMulti.eliminationJoueur(); //elimination du du joueur 4 car il n'a plus d'argent
+    assert (unJeuMulti.tabJoueur.size()==3); //verification qu'il est bien eliminé
+
+    // for (unsigned int i=0; i<unJeuMulti.tabJoueur.size(); i++)
+    // {
+    //     cout<<unJeuMulti.tabJoueur[i].nom<<endl;
+    // }
+    unJeuMulti.tabJoueur[1].setBudget(-200); //budget du joueur 2 = 1800
+    unJeuMulti.tabJoueur[2].setBudget(-300); //budget du joueur 2 = 1700
+    unJeuMulti.nbPartie=6; //6 eme partie
+    unJeuMulti.eliminationJoueur(); //il reste 3 joueur ET nous sommes a la partie n°6
+    assert (unJeuMulti.tabJoueur.size()==2); //elimination du joueur 3 (indice 2)
+
     for (unsigned int i=0; i<unJeuMulti.tabJoueur.size(); i++)
     {
         cout<<unJeuMulti.tabJoueur[i].nom<<endl;
-    }
-
+    }  
 
 
 }

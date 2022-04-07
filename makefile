@@ -1,4 +1,4 @@
-all :  bin/Deck bin/MainDeCarte bin/Carte bin/Joueur bin/JeuTxt bin/Jeu bin/JeuSdl bin/jeuMulti
+all :  bin/Deck bin/MainDeCarte bin/Carte bin/Joueur bin/JeuTxt bin/Jeu bin/JeuSfml bin/jeuMulti
 
 bin/JeuSfml : obj/mainJeuSfml.o obj/JeuSfml.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o
 	g++ -g -Wall obj/mainJeuSfml.o obj/JeuSfml.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o -o bin/JeuSfml -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio 
