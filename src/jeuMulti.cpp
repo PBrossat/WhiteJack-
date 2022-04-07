@@ -80,11 +80,11 @@ void jeuMulti::initialisationMiseMulti()
     }
 
     vector<unsigned int>misePossible; //création d'un tableau avec les valeurs des mises possibles dedans
-    misePossible[0]=100;
-    misePossible[1]=200;
-    misePossible[2]=300;   
-    misePossible[3]=500;
-    misePossible[4]=1000;
+    misePossible.push_back(100);
+    misePossible.push_back(200);
+    misePossible.push_back(300);   
+    misePossible.push_back(500);
+    misePossible.push_back(1000);
     srand (time(NULL));
     unsigned int aleatoire = rand() % 5; //on tire un nombre entre 0 et 4 compris qui correspond a l'indice du tab que l'on vient de créer 
 
@@ -185,7 +185,7 @@ void jeuMulti::testRegression() const
     cout<<"ok"<<endl;
 
     unJeuMulti2.initialisationMiseMulti();
-    
+
     for (unsigned int i=0; i<unJeuMulti2.tabJoueur.size(); i++)
     {
     assert (unJeuMulti2.tabJoueur[i].getGain()==0); //verification que gain = 0 pour tout les joueurs
