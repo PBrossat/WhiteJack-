@@ -9,7 +9,7 @@ using namespace sf;
 using namespace std;
 
 sfmlJeu::sfmlJeu () : jeu() {
-    m_window = new RenderWindow(VideoMode(1300, 900), "BlackJack");
+    window = new RenderWindow(VideoMode(1300, 900), "BlackJack");
 }
 
 void sfmlJeu::sfmlInit() {
@@ -536,11 +536,18 @@ void sfmlJeu::sfmlInit() {
 
 
 sfmlJeu::~sfmlJeu () {
-    if (m_window != NULL) delete m_window;
+    if (window != NULL) delete window;
 }
 
 void sfmlJeu::sfmlAff() {
-    // m_window->clear(Color(230, 240, 255, 255));
+
+    window->clear(Color(230, 240, 255, 255));
+
+    unsigned int position = 260;
+    s3deTrefles.setPosition(position, 630);
+	position += 260;
+	window->draw(s3deTrefles);
+    
 
     // const Terrain& ter = jeu.getConstTerrain();
 	// const Pacman& pac = jeu.getConstPacman();
@@ -571,7 +578,7 @@ void sfmlJeu::sfmlAff() {
     // // Ecrire un titre par dessus
     // m_window->draw(m_text);
 
-    // m_window->display();
+    window->display();
 }
 
 void sfmlJeu::sfmlBoucle () {

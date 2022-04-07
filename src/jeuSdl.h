@@ -3,6 +3,7 @@
 
 #include "Jeu.h"
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 #include <vector>
 
@@ -15,7 +16,7 @@ class sfmlJeu {
 private :
 
 	Jeu jeu;
-	sf::RenderWindow * m_window;
+	sf::RenderWindow * window;
 
     sf::Texture t1deCoeur;
     sf::Texture t1deCarreau;
