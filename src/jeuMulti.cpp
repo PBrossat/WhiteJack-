@@ -7,8 +7,20 @@ using namespace std;
 
 
 
+void jeuMulti::initialisationNiveau (unsigned int NiveauJoueur)
+{
+    tabJoueur.push_back (Joueur("moi",0,2000));
+    for (unsigned int i=1; i<tabJoueur.size(); i++)
+    {
+        tabJoueur.push_back  (Joueur("IA",NiveauJoueur,2000));
+    }
 
-void JeuMulti::eliminationJoueur(unsigned int nbPartie) //procédure permettant d'eliminer un joueur si : soit il n'as plus de budget, soit il a le moins d'argent à la partie n={3,6,9}
+
+}
+
+
+
+void jeuMulti::eliminationJoueur(unsigned int nbPartie) //procédure permettant d'eliminer un joueur si : soit il n'as plus de budget, soit il a le moins d'argent à la partie n={3,6,9}
 {
 unsigned int nbJoueurs=tabJoueur.size(); //nbJoueur= à la taille du tableau 
     for (unsigned int i=0; i<tabJoueur.size(); i++) //pour i parcourant tout le tableau 
@@ -40,11 +52,13 @@ unsigned int nbJoueurs=tabJoueur.size(); //nbJoueur= à la taille du tableau
 
 
 
-void JeuMulti::initialisationMiseMulti()
+void jeuMulti::initialisationMiseMulti()
 {
+
+
     for (unsigned int i=0; i<tabJoueur.size(); i++) //parcours du tableau de joueurs
     {
-        tabJoueur[i].gain=0;//initialisation des gaisnde tout les joueurs à 0
+        tabJoueur[i].gain=0;//initialisation des gais de tout les joueurs à 0
     }
 
     vector<unsigned int>misePossible; //création d'un tableau avec les valeurs des mises possibles dedans
@@ -81,7 +95,7 @@ void JeuMulti::initialisationMiseMulti()
 
 
 
-void JeuMulti::initialisationJeuMulti()
+void jeuMulti::initialisationJeuMulti()
 {   
     for (unsigned int i=0; i<tabJoueur.size(); i++) //distribution d'un carte à chaque joueur 
         {

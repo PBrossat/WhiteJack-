@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <cassert>
 #include "Jeu.h"
+#include "Joueur.h"
 #include "winTxt.h"
 
 using namespace std; 
@@ -123,7 +124,7 @@ void txtBoucle (Jeu& jeu)
             }while((choix3!='a'));
         }
         jeu.initialisationMise(choix3);
-        cout<<"Vous avez misé :  "<<jeu.mise<<"$"<<endl;
+        cout<<"Vous avez misé :  "<<jeu.joueurSolo.getMise()<<"$"<<endl;
         cout<<"Gérard distribue les cartes. "<<endl<<endl;
 
 
@@ -145,7 +146,7 @@ void txtBoucle (Jeu& jeu)
 
         do
         {
-            if((jeu.joueurSolo.mainJoueur.getNbCartes()==2) && (jeu.joueurSolo.getBudget()>=jeu.mise))
+            if((jeu.joueurSolo.mainJoueur.getNbCartes()==2) && (jeu.joueurSolo.getBudget()>=jeu.joueurSolo.getMise()))
             {
                 do
                 {
@@ -216,26 +217,26 @@ void txtBoucle (Jeu& jeu)
 
         jeu.resultat();
 
-        if (jeu.gain==0)
+        if (jeu.joueurSolo.getGain()==0)
         {
             cout<<" Vous venez de perdre contre le croupier, retentez votre chance !"<<endl;
             cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<"$"<<endl;
         }
 
 
-        if (jeu.gain==2*jeu.mise)
+        if (jeu.joueurSolo.getGain()==2*jeu.joueurSolo.getMise())
         {
             cout<<" Bravo vous avez battu le croupier, vous remportez 2 fois votre mise !!"<<endl;
             cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<"$"<<endl;
         }
 
-        if (jeu.gain==(2.5)*jeu.mise)
+        if (jeu.joueurSolo.getGain()==(2.5)*jeu.joueurSolo.getMise())
         {
             cout<<" Bravo vous avez battu le croupier avec un BlackJack, vous remportez 2 fois et demie votre mise !!"<<endl;
             cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<"$"<<endl;
         }
 
-        if (jeu.gain==jeu.mise)
+        if (jeu.joueurSolo.getGain()==jeu.joueurSolo.getMise())
         {
             cout<<" Vous avez fait le même score que le croupier, vous récupérez votre mise !!"<<endl;
             cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<"$"<<endl;

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['rester_55',['rester',['../class_main_de_carte.html#a46bfdb90e2b75f8412f89b53ed0e0625',1,'MainDeCarte']]],
-  ['resultat_56',['resultat',['../class_jeu.html#a3110a559fefa957f5861de5be094e777',1,'Jeu']]]
+  ['nbpartie_72',['nbPartie',['../classjeu_multi.html#ab6d44d99ceeb073a46a92ddae0a6b8d0',1,'jeuMulti']]],
+  ['nom_73',['nom',['../class_joueur.html#a251a7192f61dae541f80cbff3914f208',1,'Joueur']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['nom_51',['nom',['../class_joueur.html#a251a7192f61dae541f80cbff3914f208',1,'Joueur']]]
+  ['loadfromcurrentsurface_53',['loadFromCurrentSurface',['../class_image.html#aee71e67e123b6fdd1d3c91caa2892792',1,'Image']]],
+  ['loadfromfile_54',['loadFromFile',['../class_image.html#aa276b5183099671ddeaf8f083068046c',1,'Image']]]
 ];

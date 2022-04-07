@@ -20,27 +20,27 @@ Jeu::Jeu():unDeck(),joueurSolo("JoueurSOLO", 0, 2000)
 
 void Jeu::initialisationMise(const char touche)
 {
-	gain = 0;
+	joueurSolo.setGain(0);
 	switch(touche)
 	{
 		case 'a' :
-			if(joueurSolo.getBudget()>=100) mise = 100;
+			if(joueurSolo.getBudget()>=100) joueurSolo.setMise(100);
 			break;
 
 		case 'z' :
-			if(joueurSolo.getBudget()>=200) mise = 200;
+			if(joueurSolo.getBudget()>=200) joueurSolo.setMise(200);
 			break;
 
 		case 'e' :
-			if(joueurSolo.getBudget()>=300) mise = 300;
+			if(joueurSolo.getBudget()>=300) joueurSolo.setMise(300);
 			break;
 
 		case 'r' :
-			if(joueurSolo.getBudget()>=500) mise = 500;
+			if(joueurSolo.getBudget()>=500) joueurSolo.setMise(500);
 			break;
 
 		case 't' :
-			if(joueurSolo.getBudget()>=1000) mise = 1000;
+			if(joueurSolo.getBudget()>=1000) joueurSolo.setMise(1000);
 			break;
 	}
 }
@@ -48,7 +48,7 @@ void Jeu::initialisationMise(const char touche)
 
 void Jeu::initialisationJeu()
 {
-	joueurSolo.miser(mise);
+	joueurSolo.miser(joueurSolo.getMise());
 	Carte carteTiree;
 	carteTiree = unDeck.distribuerCarte();
 	joueurSolo.mainJoueur.tirerCarte(carteTiree);
@@ -64,8 +64,8 @@ void Jeu::finJeu()
 {
 	joueurSolo.mainJoueur.vider();
 	mainCroupier.vider();
-	mise=0;
-	gain=0;
+	joueurSolo.setMise(0);
+	joueurSolo.setGain(0);
 }
 
 
@@ -81,9 +81,9 @@ void Jeu::actionClavier(const char touche)
 		}
 		case 'd' :
 		{
-			assert((joueurSolo.mainJoueur.getNbCartes()==2) && (joueurSolo.getBudget()>=mise));
-			joueurSolo.miser(mise);
-			mise=mise*2;
+			assert((joueurSolo.mainJoueur.getNbCartes()==2) && (joueurSolo.getBudget()>=joueurSolo.getMise()));
+			joueurSolo.miser(joueurSolo.getMise());
+			joueurSolo.setMise(joueurSolo.getMise()*2);
 			Carte carteTiree = unDeck.distribuerCarte();
 			joueurSolo.mainJoueur.doubler(carteTiree);
 			break;
@@ -121,33 +121,33 @@ void Jeu::resultat()
 	{
 		if(mainCroupier.verifBlackJack())
 		{
-			joueurSolo.setBudget(mise);
-			gain = mise;
+			joueurSolo.setBudget(joueurSolo.getMise());
+			joueurSolo.setGain(joueurSolo.getMise());
 		}
 		else
 		{
-			joueurSolo.setBudget((2.5)*mise);
-			gain = (2.5)*mise;
+			joueurSolo.setBudget((2.5)*joueurSolo.getMise());
+			joueurSolo.setGain((2.5)*joueurSolo.getMise());
 		}
 	}
 	else if(!joueurSolo.mainJoueur.getCrame())
 	{
 		if(mainCroupier.getCrame())
 		{
-			joueurSolo.setBudget(2*mise);
-			gain = 2*mise;
+			joueurSolo.setBudget(2*joueurSolo.getMise());
+			joueurSolo.setGain(2*joueurSolo.getMise());
 		}
 		else
 		{
 			if(joueurSolo.mainJoueur.getSommeValeur() > mainCroupier.getSommeValeur())
 			{
-				joueurSolo.setBudget(2*mise);	
-				gain = 2*mise;
+				joueurSolo.setBudget(2*joueurSolo.getMise());	
+				joueurSolo.setGain(2*joueurSolo.getMise());
 			}
 			else if(joueurSolo.mainJoueur.getSommeValeur() == mainCroupier.getSommeValeur())
 			{
-				joueurSolo.setBudget(mise);	
-				gain = mise;
+				joueurSolo.setBudget(joueurSolo.getMise());	
+				joueurSolo.setGain(joueurSolo.getMise());
 			}
 		}
 	}
@@ -164,15 +164,15 @@ void Jeu::testRegression() const
 
 	Jeu unJeu;
 	unJeu.initialisationMise('a');
-	assert((unJeu.gain==0)&&(unJeu.mise==100));
+	assert((unJeu.joueurSolo.getGain()==0)&&(unJeu.joueurSolo.getMise()==100));
 	unJeu.initialisationMise('z');
-	assert((unJeu.gain==0)&&(unJeu.mise==200));
+	assert((unJeu.joueurSolo.getGain()==0)&&(unJeu.joueurSolo.getMise()==200));
 	unJeu.initialisationMise('e');
-	assert((unJeu.gain==0)&&(unJeu.mise==300));
+	assert((unJeu.joueurSolo.getGain()==0)&&(unJeu.joueurSolo.getMise()==300));
 	unJeu.initialisationMise('r');
-	assert((unJeu.gain==0)&&(unJeu.mise==500));
+	assert((unJeu.joueurSolo.getGain()==0)&&(unJeu.joueurSolo.getMise()==500));
 	unJeu.initialisationMise('t');
-	assert((unJeu.gain==0)&&(unJeu.mise==1000));
+	assert((unJeu.joueurSolo.getGain()==0)&&(unJeu.joueurSolo.getMise()==1000));
 	cout<<"Initialisation de la mise OK"<<endl;
 
 
@@ -192,7 +192,7 @@ void Jeu::testRegression() const
 	unJeu.finJeu();
 	assert(unJeu.joueurSolo.mainJoueur.getNbCartes()==0);
 	assert(unJeu.mainCroupier.getNbCartes()==0);
-	assert((unJeu.mise==0)&&(unJeu.gain==0));
+	assert((unJeu.joueurSolo.getMise()==0)&&(joueurSolo.getGain()==0));
 	cout<<"Fin de jeu OK"<<endl;
 
 
@@ -217,7 +217,7 @@ void Jeu::testRegression() const
 	Carte caret2(3,3,3);// création d'une carte random pour le croupier (hors as ou dix)
 	jeuBlackJack.mainCroupier.tirerCarte(carte1);
 	jeuBlackJack.resultat();
-	assert (jeuBlackJack.gain==250); //gain = 2,5 fois la mise 
+	assert (jeuBlackJack.joueurSolo.getGain()==250); //gain = 2,5 fois la mise 
 	cout<<"Test résultat sur blackjack OK"<<endl;
 
 
@@ -230,18 +230,18 @@ void Jeu::testRegression() const
 	jeu2.mainCroupier.tirerCarte(carte3);
 	jeu2.mainCroupier.tirerCarte(carte4);
 	jeu2.resultat();
-	assert (jeu2.gain==100); //gain = mise
+	assert (jeu2.joueurSolo.getGain()==100); //gain = mise
 	cout<<"Test résultat sur score identique OK"<<endl;
 
 	jeu2.joueurSolo.mainJoueur.tirerCarte(carte3); //on fait tirer une carte au joueur 
 	jeu2.resultat();
-	assert (jeu2.gain==200); //gain = 2 fois la mise 
+	assert (jeu2.joueurSolo.getGain()==200); //gain = 2 fois la mise 
 	cout<<"Test résultat sur jeu superieur que croupier OK"<<endl;
 
-	jeu2.gain=0; //remise à 0 du gain.
+	jeu2.joueurSolo.setGain(0); //remise à 0 du gain.
 	jeu2.mainCroupier.tirerCarte(carte4); //on fait tirer un nouvelle carte au croupier (carte4>carte3)
 	jeu2.resultat();
-	assert (jeu2.gain==0); //gain = 0 car score croupier > score joueur
+	assert (jeu2.joueurSolo.getGain()==0); //gain = 0 car score croupier > score joueur
 	jeu2.finJeu();//vider jeu2
 	cout<<"Test résultat sur jeu inférieur que croupier OK"<<endl;	
 	cout<<"Test de resultat() OK"<<endl;

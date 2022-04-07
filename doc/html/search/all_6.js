@@ -1,12 +1,10 @@
 var searchData=
 [
-  ['jeu_27',['Jeu',['../class_jeu.html',1,'Jeu'],['../class_jeu.html#acc5795ee00edf75516d3dfe65be3e6d6',1,'Jeu::Jeu()']]],
-  ['jeu_2ecpp_28',['Jeu.cpp',['../_jeu_8cpp.html',1,'']]],
-  ['jeu_2eh_29',['Jeu.h',['../_jeu_8h.html',1,'']]],
-  ['jeutxt_2ecpp_30',['jeuTxt.cpp',['../jeu_txt_8cpp.html',1,'']]],
-  ['jeutxt_2eh_31',['jeuTxt.h',['../jeu_txt_8h.html',1,'']]],
-  ['joueur_32',['Joueur',['../class_joueur.html',1,'Joueur'],['../class_joueur.html#ad4dbf2fd90d352ded476eaef349e85a3',1,'Joueur::Joueur()']]],
-  ['joueur_2ecpp_33',['Joueur.cpp',['../_joueur_8cpp.html',1,'']]],
-  ['joueur_2eh_34',['Joueur.h',['../_joueur_8h.html',1,'']]],
-  ['joueursolo_35',['joueurSolo',['../class_jeu.html#a93b2a40e9ba2a952c4cd53ae69176259',1,'Jeu']]]
+  ['image_32',['Image',['../class_image.html',1,'Image'],['../class_image.html#a58edd1c45b4faeb5f789b0d036d02313',1,'Image::Image()']]],
+  ['initdeck_33',['initDeck',['../class_deck.html#aeda57b97a4217282d85cab6129a4a7df',1,'Deck']]],
+  ['initialisationjeu_34',['initialisationJeu',['../class_jeu.html#a1bc9d7f905572db5abe5b17869707504',1,'Jeu']]],
+  ['initialisationjeumulti_35',['initialisationJeuMulti',['../classjeu_multi.html#a66d63ed0b85a253236dd327340bbfe2e',1,'jeuMulti']]],
+  ['initialisationmise_36',['initialisationMise',['../class_jeu.html#ae7000dc393aa925db80a233ef09bc5af',1,'Jeu']]],
+  ['initialisationmisemulti_37',['initialisationMiseMulti',['../classjeu_multi.html#aa74e2fd0812a380241a82f67f2321331',1,'jeuMulti']]],
+  ['initialisationniveau_38',['initialisationNiveau',['../classjeu_multi.html#ac2bc29a4e16aa62df5683353fe69f29b',1,'jeuMulti']]]
 ];

@@ -5,13 +5,17 @@
 #include "Carte.h"
 #include "Deck.h"
 #include "Joueur.h"
+#include "Jeu.h"
 
-class JeuMulti{
+class jeuMulti{
     public : 
 
     unsigned int nbPartie;
+    
     vector<Joueur>tabJoueur;
     
+    void initialisationNiveau (unsigned int NiveauJoueur);
+
     void eliminationJoueur(unsigned int nbPartie);
 
     void initialisationMiseMulti();

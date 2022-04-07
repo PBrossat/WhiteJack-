@@ -16,6 +16,7 @@ class Joueur
 	*/
 	string nom;
 
+
 	/**
 	 * @brief mainJoueur main de cartes du joueur
 	*/
@@ -88,6 +89,62 @@ class Joueur
     unsigned int getNiveau() const;
 
 
+
+    /**
+     * @brief Accesseur du gain du joueur
+     * @return unsigned int 
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * unJoueur.getGain();
+     * @endcode     
+    */ 
+    unsigned int getGain() const;
+
+
+
+    /**
+    * @brief Mutateur de gain
+    * @param[in] Gain l'argent que le joueur a gagné (ou perdu)
+    * @return void 
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * unJoueur.setGain(100);
+    * unJoueur.setGain(-100);
+    * @endcode     
+    */ 
+    void setGain(unsigned int Gain);
+
+
+
+    /**
+     * @brief Accesseur dz la mise du joueur
+     * @return unsigned int 
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * unJoueur.getMise();
+     * @endcode     
+    */ 
+    unsigned int getMise() const;
+
+
+
+    /**
+    * @brief Mutateur de mise
+    * @param[in] Mise l'argent que le joueur a misé
+    * @return void 
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * unJoueur.setMise(100);
+    * @endcode     
+    */ 
+    void setMise(unsigned int Mise);
+
+
+
     /**
      * @brief Procédure testant les fonctionnalités de la classe
      * @return void
@@ -114,6 +171,10 @@ class Joueur
     void miser(unsigned int mise);
 
     private :
+
+    unsigned int gain;
+
+    unsigned int mise;
 
     //un réel décrivant le budget du joueur 
     float budget;

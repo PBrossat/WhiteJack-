@@ -13,6 +13,8 @@ Joueur::Joueur(string nomJ, unsigned int nivJoueur, float budgetJ)
 	nom = nomJ;
 	niveauJoueur = nivJoueur;
 	budget = budgetJ;
+	gain=0;
+	mise=0;
 }
 
 bool Joueur::testArgentJoueur() const
@@ -48,10 +50,14 @@ void Joueur::setBudget(float gain)
 	}
 }
 
+
+
 unsigned int Joueur::getNiveau() const
 {
 	return niveauJoueur;
 }
+
+
 
 
 void Joueur::miser(unsigned int mise)
@@ -59,6 +65,36 @@ void Joueur::miser(unsigned int mise)
 	assert(mise<=budget);
 	budget = budget - mise;
 }
+
+
+
+
+ unsigned int Joueur::getGain() const
+ {
+	return gain; 
+ }
+
+
+void Joueur::setGain(unsigned int Gain)
+{
+	assert (Gain>=0);
+	gain=Gain;
+}
+
+
+unsigned int Joueur::getMise() const
+{
+	return mise;	
+}
+
+
+void Joueur::setMise(unsigned int Mise)
+{
+	assert(mise<=budget);
+	mise=Mise;
+
+}
+
 
 
 void Joueur::testRegression() const
@@ -94,7 +130,17 @@ void Joueur::testRegression() const
 	assert(unJoueur.getNiveau()==2);
 	cout<<"Accesseur de niveau OK"<<endl;
 
+	unJoueur.setGain(500);
+	assert(unJoueur.getGain()==500);
+	unJoueur.setBudget(100);
+	unJoueur.setMise(10);
+	assert(unJoueur.getMise()==10);	
+	cout<<"Accesseur de Gain et Mise OK"<<endl;	
+
+	
+
 	cout<<"Test de regression passé avec succès !"<<endl<<endl;
 }
+
 
 
