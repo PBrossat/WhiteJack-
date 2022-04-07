@@ -585,8 +585,8 @@ void sfmlJeu::sfmlBoucle () {
 
     // Clock clock;
 
-    // while (m_window->isOpen())
-    // {
+    while (window->isOpen())
+    {
     //     float elapsed = clock.getElapsedTime().asSeconds();
     //     if (elapsed > 0.5) {
     //         // mouvement fantomes
@@ -594,12 +594,12 @@ void sfmlJeu::sfmlBoucle () {
     //         clock.restart();
     //     }
 
-    //     Event event;
+    Event event;
 
-    //     while (m_window->pollEvent(event))
-    //     {
-    //         if (event.type == Event::Closed)
-    //             m_window->close();
+    while (window->pollEvent(event))
+    {
+        if (event.type == Event::Closed)
+            window->close();
 
     //         if (event.type == Event::KeyPressed) {
     //             bool mangePastille = false;
@@ -617,10 +617,10 @@ void sfmlJeu::sfmlBoucle () {
 
     //             if (mangePastille) m_sound.play();
     //         }
-    //     }
+     }
 
-    //     sfmlAff();
-    // }
+    sfmlAff();
+    }
 
 }
 
