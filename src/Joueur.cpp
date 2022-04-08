@@ -101,7 +101,7 @@ unsigned int Joueur::getMise() const
 
 void Joueur::setMise(unsigned int Mise)
 {
-	assert(mise<=budget);
+	assert(Mise<=budget);
 	mise=Mise;
 
 }

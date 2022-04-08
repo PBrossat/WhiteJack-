@@ -26,11 +26,6 @@ class jeuMulti{
 	Deck unDeck;
 
     /**
-    * @brief Le joueur 
-    */
-	Joueur joueurSolo; 
-
-    /**
     * @brief La main de carte du croupier
     */
 	MainDeCarte mainCroupier;
@@ -48,6 +43,15 @@ class jeuMulti{
 
     void initialisationJeuMulti();
 
+    void actionExpert();
+
+    void actionMedium();
+
+    void actionAmateur();
+
+    void actionIA(unsigned int NiveauJoueur);
+
     void testRegression() const; 
+
 };
 #endif

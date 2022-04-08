@@ -3,6 +3,7 @@
 #include "jeuMulti.h"
 #include "Joueur.h"
 #include "Deck.h"
+#include "jeuTxt.h"
 #include <time.h> 
 #include <stdlib.h>
 #include <cassert>
@@ -86,7 +87,7 @@ void jeuMulti::initialisationMiseMulti()
     misePossible.push_back(500);
     misePossible.push_back(1000);
     srand (time(NULL));
-    unsigned int aleatoire = rand() % 5; //on tire un nombre entre 0 et 4 compris qui correspond a l'indice du tab que l'on vient de créer 
+   // unsigned int aleatoire = rand() % 5; //on tire un nombre entre 0 et 4 compris qui correspond a l'indice du tab que l'on vient de créer 
 
 	for (unsigned int i=0; i<tabJoueur.size(); i++) //parcours du tableau de joueurs
     {
@@ -94,8 +95,9 @@ void jeuMulti::initialisationMiseMulti()
         {
             do
             {
+                unsigned int aleatoire = rand() % 5; //on tire un nombre entre 0 et 4 compris qui correspond a l'indice du tab que l'on vient de créer 
                 tabJoueur[i].setMise(misePossible[aleatoire]); //mise aléatoire 
-            }while (tabJoueur[i].getBudget()>=tabJoueur[i].getMise()); //tant que c'est possible (par rapport à budget)
+            }while (tabJoueur[i].getBudget()<=tabJoueur[i].getMise()); //tant que c'est possible (par rapport à budget)
         }
         // else Jeu.tabJoueur[i].initialisationMise(touche);               cas du joueur reel (Attention à comment rentrer la mise que l'on veut avec la version graphique)
 
@@ -109,18 +111,18 @@ void jeuMulti::initialisationMiseMulti()
 
 void jeuMulti::initialisationJeuMulti()
 {   
-
-    Carte carteTiree;
-    for (unsigned int i=0; i<tabJoueur.size(); i++) //distribution d'un carte à chaque joueur 
+    Carte carteTiree; //initilisation des cartes qui vont être tirées
+    Carte carteCroupier;
+    Carte deuxiemeCarteCroupier;
+    for (unsigned int i=0; i<tabJoueur.size(); i++) //distribution d'une carte à chaque joueur 
         {   
-
             tabJoueur[i].miser(tabJoueur[i].getMise());
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
 
-   	carteTiree = unDeck.distribuerCarte(); //distribution d'une carte au croupier 
-	mainCroupier.tirerCarte(carteTiree);
+   	carteCroupier = unDeck.distribuerCarte(); //distribution d'une carte au croupier 
+	mainCroupier.tirerCarte(carteCroupier);
 
     for (unsigned int i=0; i<tabJoueur.size(); i++) //distribution d'une deuxième carte à chaque joueur 
         {
@@ -131,6 +133,118 @@ void jeuMulti::initialisationJeuMulti()
      deuxiemeCarteCroupier = unDeck.distribuerCarte(); //création d'une deuxième carte pour le croupier (invisible à cet instant précis)
 }
 
+
+
+
+void jeuMulti::actionAmateur()
+{
+    Carte carteTiree;  
+    for (unsigned int i=1; i<=tabJoueur.size(); i++)
+    {
+        do{
+        if (tabJoueur[i].mainJoueur.getSommeValeur()<17) 
+        {
+            carteTiree = unDeck.distribuerCarte();
+            tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
+        }
+        else
+        {   
+            tabJoueur[i].mainJoueur.rester();
+        }
+        }while(tabJoueur[i].mainJoueur.getCrame()==0);
+    }
+}
+
+
+void jeuMulti::actionMedium()
+{
+    Carte carteTiree;  
+    for (unsigned int i=1; i<=tabJoueur.size(); i++)
+    {
+
+
+
+
+
+
+
+
+
+    }
+
+}
+
+
+
+
+
+void jueMulti::actionExpert()
+{
+
+    Carte carteTiree;
+    for (unsigned int i=1; i<=tabJoueur.size(); i++)
+    {
+        do 
+        {
+        if (tabJoueur[i].mainJoueur.getSommeValeur()>=17)
+        //si le score du joueur est 17 ou plus alors il reste 
+        {
+            tabJoueur[i].mainJoueur.rester(); 
+        }
+        if ((tabJoueur[i].mainJoueur.getSommeValeur()<=16)&&(tabJoueur[i].mainJoueur.getSommeValeur()>=13)&&(mainCroupier.getSommeValeur()<=6))
+        //si le score du joueur est entre 16 et 13 compris et que le croupier a 6 ou moins alors il reste
+        {
+            tabJoueur[i].mainJoueur.rester();
+        }
+        if ((tabJoueur[i].mainJoueur.getSommeValeur()==12)&&(mainCroupier.getSommeValeur()<=6)&&(mainCroupier.getSommeValeur()>=4))
+        //si le score du joueur est 12 et que le croupier à entre 4 et 6 compris alors il reste 
+        {
+            tabJoueur[i].mainJoueur.rester();
+        }
+        if((tabJoueur[i].mainJoueur.getSommeValeur()<=16)&&(tabJoueur[i].mainJoueur.getSommeValeur()>=13)&&(mainCroupier.getSommeValeur()>=7))
+        //si le score du joueur est entre 16 et 13 compris et que le croupier a 7 ou plus alors il tire
+        {
+            carteTiree = unDeck.distribuerCarte();
+            tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
+        }
+        if ((tabJoueur[i].mainJoueur.getSommeValeur()==12)&&(mainCroupier.getSommeValeur()<=3))
+        //si le score du joueur est de 12 et que le croupier a 3 ou moins alors il tire
+        {
+            carteTiree = unDeck.distribuerCarte();
+            tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
+        }
+        if ((tabJoueur[i].mainJoueur.getSommeValeur()==12)&&(mainCroupier.getSommeValeur()>=7))
+        //si le score du joueur est de 12 et que le croupier a 7 ou plus alors il tire
+        {
+            carteTiree = unDeck.distribuerCarte();
+            tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
+        }
+        if ((tabJoueur[i].mainJoueur.getSommeValeur()==11)&&(mainCroupier.getSommeValeur()<=10))
+        //si le score du joueur est de 11 et que le croupier à 10 ou moins alors il double 
+        {
+            tabJoueur[i].mainJoueur.doubler();
+        }
+        if((tabJoueur[i].mainJoueur.getSommeValeur()==11)&&(mainCroupier.getSommeValeur()==11))
+        //si le score du joueur est de 11 et que le croupier à 11 alors il tire
+        {
+            carteTiree = unDeck.distribuerCarte();
+            tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
+        }
+        if ((tabJoueur[i].mainJoueur.getSommeValeur()==10)&&(mainCroupier.getSommeValeur()<=9))
+        //si le score du joueur est de 10 et que le croupier à 9 ou moins alors il double 
+        {
+            tabJoueur[i].mainJoueur.doubler();
+        }
+         if((tabJoueur[i].mainJoueur.getSommeValeur()==10)&&(mainCroupier.getSommeValeur()>=10))
+        //si le score du joueur est de 10 et que le croupier à 10 ou plus alors il tire
+        {
+            carteTiree = unDeck.distribuerCarte();
+            tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
+        }
+    }
+
+
+}
 
 
 
@@ -182,20 +296,28 @@ void jeuMulti::testRegression() const
 
 
     jeuMulti unJeuMulti2(3); //création d'un nouveau jeuMulti (jeuMulti2)
-    cout<<"ok"<<endl;
-
     unJeuMulti2.initialisationMiseMulti();
-
     for (unsigned int i=0; i<unJeuMulti2.tabJoueur.size(); i++)
     {
     assert (unJeuMulti2.tabJoueur[i].getGain()==0); //verification que gain = 0 pour tout les joueurs
     }
-
-    for (unsigned int i=0; i<unJeuMulti2.tabJoueur.size(); i++)
+   
+    for (unsigned int i=1; i<unJeuMulti2.tabJoueur.size(); i++)
     {
         assert ((unJeuMulti2.tabJoueur[i].getMise()==100)||(unJeuMulti2.tabJoueur[i].getMise()==200)||(unJeuMulti2.tabJoueur[i].getMise()==300)||(unJeuMulti2.tabJoueur[i].getMise()==500)||(unJeuMulti2.tabJoueur[i].getMise()==1000));
         //verification que les mises jouées sont valides (100 ou 200 ou 300 ou 500 ou 1000)
     }
     cout<<"Test de initialisationMiseMulti() OK"<<endl;
+
+
+
+    unJeuMulti2.initialisationJeuMulti();
+    for (unsigned int i=0; i<tabJoueur.size(); i++)
+    {
+        assert (tabJoueur[i].mainJoueur.getNbCartes()==2);
+    }
+    assert(unJeuMulti2.mainCroupier.getNbCartes()==1);
+    cout<<"Test de initialisationJeuMulti() OK"<<endl;
+
 
 }
