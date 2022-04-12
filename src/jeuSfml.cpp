@@ -9,7 +9,7 @@ using namespace sf;
 using namespace std;
 
 sfmlJeu::sfmlJeu () : jeu() {
-    window = new RenderWindow(VideoMode(1300, 900), "BlackJack");
+    window = new RenderWindow(VideoMode(945, 568), "BlackJack");
 }
 
 void sfmlJeu::sfmlInit() {
@@ -507,7 +507,7 @@ void sfmlJeu::sfmlInit() {
     {
         sCardBack.setTexture(tCardBack);
     }
-    
+
     if (!tDeck.loadFromFile("data/Deck.png")) 
     {
         cout << "Error data/Deck.png non found" << endl;
@@ -516,6 +516,78 @@ void sfmlJeu::sfmlInit() {
     {
         sDeck.setTexture(tDeck);
     } 
+
+    if (!tFond.loadFromFile("data/fond.png")) 
+    {
+        cout << "Error data/fond.png non found" << endl;
+    }
+    else 
+    {
+        sFond.setTexture(tFond);
+    }
+
+    if (!t1.loadFromFile("data/1.png")) 
+    {
+        cout << "Error data/1.png non found" << endl;
+    }
+    else 
+    {
+        s1.setTexture(t1);
+    }
+
+    if (!t10.loadFromFile("data/10.png")) 
+    {
+        cout << "Error data/10.png non found" << endl;
+    }
+    else 
+    {
+        s10.setTexture(t10);
+    }
+
+    if (!t100.loadFromFile("data/100.png")) 
+    {
+        cout << "Error data/100.png non found" << endl;
+    }
+    else 
+    {
+        s100.setTexture(t100);
+    }
+
+    if (!t1000.loadFromFile("data/1000.png")) 
+    {
+        cout << "Error data/1000.png non found" << endl;
+    }
+    else 
+    {
+        s1000.setTexture(t1000);
+    }
+
+    if (!tDoubler.loadFromFile("data/double.png")) 
+    {
+        cout << "Error data/double.png non found" << endl;
+    }
+    else 
+    {
+        sDoubler.setTexture(tDoubler);
+    }
+
+    if (!tRester.loadFromFile("data/stand.png")) 
+    {
+        cout << "Error data/stand.png non found" << endl;
+    }
+    else 
+    {
+        sRester.setTexture(tRester);
+    }
+
+    if (!tTirer.loadFromFile("data/hit.png")) 
+    {
+        cout << "Error data/hit.png non found" << endl;
+    }
+    else 
+    {
+        sTirer.setTexture(tTirer);
+    }
 
 
 
@@ -535,45 +607,64 @@ void sfmlJeu::sfmlInit() {
 }
 
 
-sfmlJeu::~sfmlJeu () {
+sfmlJeu::~sfmlJeu () 
+{
     if (window != NULL) delete window;
 }
 
-void sfmlJeu::sfmlAff() {
-
+void sfmlJeu::sfmlAff() 
+{
     window->clear(Color(230, 240, 255, 255));
 
-    unsigned int position = 260;
-    s1deTrefles.setPosition(position, 630);
-	position += 260;
-	window->draw(s1deTrefles);
+    window->draw(sFond);
+
+    if(jeu.joueurSolo.getBudget()>=1000)
+    {
+        s1.setPosition(100,500);
+        window->draw(s1);
+
+        s10.setPosition(150,500);
+        window->draw(s10);
+
+        s100.setPosition(200,500);
+        window->draw(s100);
+
+        s1000.setPosition(250,500);
+        window->draw(s1000);
+    }
+
+    if(jeu.joueurSolo.getBudget()>=100)
+    {
+        s1.setPosition(100,500);
+        window->draw(s1);
+
+        s10.setPosition(150,500);
+        window->draw(s10);
+
+        s100.setPosition(200,500);
+        window->draw(s100);
+    }
+
+    if(jeu.joueurSolo.getBudget()>=10)
+    {
+        s1.setPosition(100,500);
+        window->draw(s1);
+
+        s10.setPosition(150,500);
+        window->draw(s10);
+    }
+
+    if(jeu.joueurSolo.getBudget()>=1)
+    {
+        s1.setPosition(100,500);
+        window->draw(s1);
+    }
+
+    // unsigned int position = 150;
+    // s1deTrefles.setPosition(position, 250);
+	// position += 260;
+	// window->draw(s1deTrefles);
     
-
-    // const Terrain& ter = jeu.getConstTerrain();
-	// const Pacman& pac = jeu.getConstPacman();
-	// const Fantome& fan = jeu.getConstFantome();
-
-    // // Afficher les sprites des murs et des pastilles
-	// for (int x=0;x<ter.getDimX();++x) {
-	// 	for (int y=0;y<ter.getDimY();++y) {
-    //         if (ter.getXY(x,y)=='.') {
-    //             sp_pastille.setPosition(Vector2f(x*TAILLE_SPRITE,y*TAILLE_SPRITE));
-    //             m_window->draw(sp_pastille);
-    //         }
-    //         if (ter.getXY(x,y)=='#') {
-    //             sp_mur.setPosition(Vector2f(x*TAILLE_SPRITE,y*TAILLE_SPRITE));
-    //             m_window->draw(sp_mur);
-    //         }
-	// 	}
-	// }
-
-	// // Afficher le sprite de Pacman
-	// sp_pacman.setPosition(Vector2f(pac.getX()*TAILLE_SPRITE,pac.getY()*TAILLE_SPRITE));
-	// m_window->draw(sp_pacman);
-
-	// // Afficher le sprite du Fantome
-	// sp_fantome.setPosition(Vector2f(fan.getX()*TAILLE_SPRITE,fan.getY()*TAILLE_SPRITE));
-	// m_window->draw(sp_fantome);
 
     // // Ecrire un titre par dessus
     // m_window->draw(m_text);
@@ -581,19 +672,285 @@ void sfmlJeu::sfmlAff() {
     window->display();
 }
 
+
+void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
+{
+    unsigned int position = 150;
+
+    for (unsigned int i=0; i<mainJoueur.getNbCartes(); i++)
+    {
+        Sprite carte;
+            if (mainJoueur.getIemeCarte(i).getRang()== 1)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s1dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s1deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s1deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s1deCarreau;
+				}
+			}
+			if (mainJoueur.getIemeCarte(i).getRang() == 2)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s2dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s2deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s2deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s2deCarreau;
+				}
+			}
+			if (mainJoueur.getIemeCarte(i).getRang() == 3)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s3dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s3deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s3deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s3deCarreau;
+				}
+			}
+			if (mainJoueur.getIemeCarte(i).getRang() == 4)
+			{
+			    if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s4dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s4deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s4deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s4deCarreau;
+				}
+			}
+			if (mainJoueur.getIemeCarte(i).getRang() == 5)
+			{
+                if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s5dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s5deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s5deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s5deCarreau;
+				}
+			}
+			if (mainJoueur.getIemeCarte(i).getRang() == 6)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s6dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s6deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s6deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s6deCarreau;
+				}
+			}
+			if (mainJoueur.getIemeCarte(i).getRang() == 7)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s7dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s7deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s7deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s7deCarreau;
+				}
+			}
+			if (mainJoueur.getIemeCarte(i).getRang() == 8)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s8dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s8deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s8deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s8deCarreau;
+				}
+			}
+			if (mainJoueur.getIemeCarte(i).getRang() == 9)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s9dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s9deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s9deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s9deCarreau;
+				}
+			}
+			if (mainJoueur.getIemeCarte(i).getRang() == 10)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s10dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s10deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s10deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s10deCarreau;
+				}
+			}
+			if (mainJoueur.getIemeCarte(i).getRang() == 11)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s11dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s11deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s11deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s11deCarreau;
+				}
+			}
+			if (mainJoueur.getIemeCarte(i).getRang() == 12)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s12dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s12deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s12deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s12deCarreau;
+				}
+			}
+			if (mainJoueur.getIemeCarte(i).getRang() == 13)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s13dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s13deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s13deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s13deCarreau;
+				}
+			}
+			carte.setPosition(position, 100);
+			position += 150;
+			window->draw(carte);
+    }
+}
+
+
 void sfmlJeu::sfmlBoucle () {
 
-    // Clock clock;
+    bool actionMiser = 0;
+    bool actionJouer = 0;
+    bool actionCarte = 0;
+
+    s1.getGlobalBounds() = s1Rect;
+    s10.getGlobalBounds() = s10Rect;
+    s100.getGlobalBounds() = s100Rect;
+    s1000.getGlobalBounds() = s1000Rect;
+
+    sRester.getGlobalBounds() = sResterRect;
+    sDoubler.getGlobalBounds() = sDoublerRect;
+    sTirer.getGlobalBounds() = sTirerRect;
 
     while (window->isOpen())
     {
-    //     float elapsed = clock.getElapsedTime().asSeconds();
-    //     if (elapsed > 0.5) {
-    //         // mouvement fantomes
-    //         jeu.actionsAutomatiques();
-    //         clock.restart();
-    //     }
-
         Event event;
 
         while (window->pollEvent(event))
@@ -601,25 +958,46 @@ void sfmlJeu::sfmlBoucle () {
             if (event.type == Event::Closed)
             window->close();
 
-    //         if (event.type == Event::KeyPressed) {
-    //             bool mangePastille = false;
-    //             switch (event.key.code) {
-    //             case Keyboard::Up : mangePastille = jeu.actionClavier('b');    // car Y inverse
-	// 				break;
-	// 			case Keyboard::Down : mangePastille = jeu.actionClavier('h');     // car Y inverse
-	// 				break;
-	// 			case Keyboard::Left : mangePastille = jeu.actionClavier('g');
-	// 				break;
-	// 			case Keyboard::Right : mangePastille = jeu.actionClavier('d');
-	// 				break;
-    //             default : break;
+            if (event.type == Event::MouseButtonPressed)
+			{
+
+				if (event.key.code == Mouse::Left)
+				{
+					float x = Mouse::getPosition(window).x;
+					float y = Mouse::getPosition(window).y;
+
+                    if(s1Rect.contains(x,y))
+                    {
+
+                    }	
+
+
+            if (event.type == Event::KeyPressed) 
+            {
+    //             switch (event.key.code) 
+    //             {
+                        actionCarte = 0;
+                        actionMise 
+    //                  case Keyboard::Up : 
+                            //mangePastille = jeu.actionClavier('b');    // car Y inverse
+	// 				        break;
+	// 			        case Keyboard::Down : 
+    //                      mangePastille = jeu.actionClavier('h');     // car Y inverse
+	// 				        break;
+	// 			        case Keyboard::Left : 
+    //                      mangePastille = jeu.actionClavier('g');
+	// 				        break;
+	// 			        case Keyboard::Right : 
+    //                      mangePastille = jeu.actionClavier('d');
+	// 				        break;
+    //                  default : break;
     //             }
 
     //             if (mangePastille) m_sound.play();
-    //         }
+            }
         }
 
-        sfmlAff();
+        //sfmlAff();
     }
 
 }

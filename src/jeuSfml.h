@@ -85,6 +85,14 @@ private :
 
     sf::Texture tCardBack;
     sf::Texture tDeck;
+    sf::Texture tFond;
+    sf::Texture t1;
+    sf::Texture t10;
+    sf::Texture t100;
+    sf::Texture t1000;
+    sf::Texture tTirer;
+    sf::Texture tDoubler;
+    sf::Texture tRester;
   
 
 
@@ -156,6 +164,14 @@ private :
 
     sf::Sprite sCardBack;
     sf::Sprite sDeck;
+    sf::Sprite sFond;
+    sf::Sprite s1;
+    sf::Sprite s10;
+    sf::Sprite s100;
+    sf::Sprite s1000;
+    sf::Sprite sTirer;
+    sf::Sprite sDoubler;
+    sf::Sprite sRester;
 
     // sf::Font m_font;
     // sf::Text m_text;
@@ -168,6 +184,7 @@ public :
     sfmlJeu ();
     ~sfmlJeu ();
 
+    void afficherMainDeCarte(MainDeCarte mainJoueur);
     void sfmlInit();
     void sfmlBoucle();
     void sfmlAff();
