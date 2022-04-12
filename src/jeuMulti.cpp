@@ -178,7 +178,7 @@ void jeuMulti::actionMedium()
 
 
 
-void jueMulti::actionExpert()
+void jeuMulti::actionExpert()
 {
 
     Carte carteTiree;
@@ -241,6 +241,8 @@ void jueMulti::actionExpert()
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
+
+        
     }
 
 
