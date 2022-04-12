@@ -3,6 +3,7 @@
 #include "jeuSfml.h"
 #include <stdlib.h>
 
+
 using namespace sf;
 
 #include <iostream>
@@ -940,14 +941,14 @@ void sfmlJeu::sfmlBoucle () {
     bool actionJouer = 0;
     bool actionCarte = 0;
 
-    s1.getGlobalBounds() = s1Rect;
-    s10.getGlobalBounds() = s10Rect;
-    s100.getGlobalBounds() = s100Rect;
-    s1000.getGlobalBounds() = s1000Rect;
+    Rect s1Rect = s1.getGlobalBounds();
+    Rect s10Rect = s10.getGlobalBounds();
+    Rect s100Rect = s100.getGlobalBounds();
+    Rect s1000Rect = s1000.getGlobalBounds();
 
-    sRester.getGlobalBounds() = sResterRect;
-    sDoubler.getGlobalBounds() = sDoublerRect;
-    sTirer.getGlobalBounds() = sTirerRect;
+    Rect sRester = sRester.getGlobalBounds();
+    Rect sDoublerRect = sDoubler.getGlobalBounds();
+    Rect sTirerRect = sTirer.getGlobalBounds();
 
     while (window->isOpen())
     {
@@ -972,14 +973,12 @@ void sfmlJeu::sfmlBoucle () {
                     }	
 
 
-            if (event.type == Event::KeyPressed) 
-            {
+            // if (event.type == Event::KeyPressed) 
+            // {
     //             switch (event.key.code) 
     //             {
-                        actionCarte = 0;
-                        actionMise 
     //                  case Keyboard::Up : 
-                            //mangePastille = jeu.actionClavier('b');    // car Y inverse
+                            // mangePastille = jeu.actionClavier('b');    // car Y inverse
 	// 				        break;
 	// 			        case Keyboard::Down : 
     //                      mangePastille = jeu.actionClavier('h');     // car Y inverse
@@ -994,12 +993,13 @@ void sfmlJeu::sfmlBoucle () {
     //             }
 
     //             if (mangePastille) m_sound.play();
+                }
             }
-        }
 
         //sfmlAff();
     }
 
+    }
 }
 
 
