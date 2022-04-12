@@ -513,11 +513,10 @@ void jeuMulti::testRegression() const
     jeuMulti jeuIA(1);
     Carte carteAjoutee(8,8,4);
     Carte carteAjoutee2(2,2,1);
+    Carte carteCroupier(10,10,1);
     jeuIA.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee);
     jeuIA.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee2);
-    cout<<"ok"<<endl;
     assert(jeuIA.tabJoueur[1].mainJoueur.getNbCartes()==2);
-    cout<<"ok"<<endl;
     jeuIA.actionAmateur();
     cout<<"ok"<<endl;
     assert(jeuIA.tabJoueur[1].mainJoueur.getNbCartes()>=2);
