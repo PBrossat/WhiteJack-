@@ -10,7 +10,8 @@ using namespace sf;
 using namespace std;
 
 sfmlJeu::sfmlJeu () : jeu() {
-    window = new RenderWindow(VideoMode(945, 568), "BlackJack");
+    sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
+    window = new RenderWindow(desktop, "BlackJack");
 }
 
 void sfmlJeu::sfmlInit() {
@@ -613,15 +614,19 @@ sfmlJeu::~sfmlJeu ()
     if (window != NULL) delete window;
 }
 
+// WinSize / SpriteSize 
+// PosSprite.x = WinSizex / 2 - SpriteSize.x / 2 ; 
+// PosSPrite.y = WinSizey / 2 - SpriteSize.y / 
+
 void sfmlJeu::sfmlAff() 
 {
     window->clear(Color(230, 240, 255, 255));
-
+    sFond.scale(window->getSize().x/945,window->getSize().y/568); 
     window->draw(sFond);
 
     if(jeu.joueurSolo.getBudget()>=1000)
     {
-        s1.setPosition(100,500);
+        s1.setPosition(100,200);
         window->draw(s1);
 
         s10.setPosition(150,500);
@@ -941,14 +946,14 @@ void sfmlJeu::sfmlBoucle () {
     bool actionJouer = 0;
     bool actionCarte = 0;
 
-    Rect s1Rect = s1.getGlobalBounds();
-    Rect s10Rect = s10.getGlobalBounds();
-    Rect s100Rect = s100.getGlobalBounds();
-    Rect s1000Rect = s1000.getGlobalBounds();
+    // Rect(Sprite) s1Rect = s1.getGlobalBounds();
+    // Rect(Sprite) s10Rect = s10.getGlobalBounds();
+    // Rect(Sprite) s100Rect = s100.getGlobalBounds();
+    // Rect(Sprite) s1000Rect = s1000.getGlobalBounds();
 
-    Rect sRester = sRester.getGlobalBounds();
-    Rect sDoublerRect = sDoubler.getGlobalBounds();
-    Rect sTirerRect = sTirer.getGlobalBounds();
+    // Rect(Sprite) sRester = sRester.getGlobalBounds();
+    // Rect(Sprite) sDoublerRect = sDoubler.getGlobalBounds();
+    // Rect(Sprite) sTirerRect = sTirer.getGlobalBounds();
 
     while (window->isOpen())
     {
@@ -964,12 +969,12 @@ void sfmlJeu::sfmlBoucle () {
 
 				if (event.key.code == Mouse::Left)
 				{
-					float x = Mouse::getPosition(window).x;
-					float y = Mouse::getPosition(window).y;
+					float x = Mouse::getPosition(*window).x;
+					float y = Mouse::getPosition(*window).y;
 
-                    if(s1Rect.contains(x,y))
+                    if(s1.getGlobalBounds().contains(x,y))
                     {
-
+                        window->close();
                     }	
 
 
