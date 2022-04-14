@@ -614,14 +614,11 @@ sfmlJeu::~sfmlJeu ()
     if (window != NULL) delete window;
 }
 
-// WinSize / SpriteSize 
-// PosSprite.x = WinSizex / 2 - SpriteSize.x / 2 ; 
-// PosSPrite.y = WinSizey / 2 - SpriteSize.y / 
 
 void sfmlJeu::sfmlAff() 
 {
-    window->clear(Color(230, 240, 255, 255));
-    sFond.scale(window->getSize().x/945,window->getSize().y/568); 
+    window->clear(Color(230, 240, 255, 255)); 
+
     window->draw(sFond);
 
     if(jeu.joueurSolo.getBudget()>=1000)
@@ -629,7 +626,7 @@ void sfmlJeu::sfmlAff()
         s1.setPosition(100,200);
         window->draw(s1);
 
-        s10.setPosition(150,500);
+        s10.setPosition(150,1000);
         window->draw(s10);
 
         s100.setPosition(200,500);
