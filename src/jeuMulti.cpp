@@ -139,7 +139,7 @@ void jeuMulti::initialisationJeuMulti()
 void jeuMulti::actionAmateur()
 {
     Carte carteTiree;  
-    for (unsigned int i=1; i<=tabJoueur.size(); i++)
+    for (unsigned int i=1; i<tabJoueur.size(); i++)
     {
         do{
         if (tabJoueur[i].mainJoueur.getSommeValeur()<17) 
@@ -183,14 +183,15 @@ void jeuMulti::actionExpert()
 {
 
     Carte carteTiree;
-    for (unsigned int i=1; i<=tabJoueur.size(); i++)
+    for (unsigned int i=1; i<tabJoueur.size(); i++)
     {
-        do 
+        while (tabJoueur[i].mainJoueur.getJoueToujours()==1)
         {
         if((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()>=8))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()>=8)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1))))
         //si la main du joueur est As et 8 (ou 9 ou buche) alors il reste quoi qu'il en soit
         {
             tabJoueur[i].mainJoueur.rester();
+
         }
         if((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==7))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==7)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))&&((mainCroupier.getSommeValeur()>=3)&&(mainCroupier.getSommeValeur()<=6))))
         //si la main du joueur est As et 7 et que le croupier à entre 3 et 6 alors il double
@@ -309,6 +310,7 @@ void jeuMulti::actionExpert()
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
+    
         }
 
         if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==5)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==5))&&((mainCroupier.getSommeValeur()<=9))))
@@ -350,13 +352,13 @@ void jeuMulti::actionExpert()
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree); 
+            
         }
         if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==2)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==2))&&(mainCroupier.getSommeValeur()<=7)))
         // main joueur = 2 et 2 et que le croupier à 7 ou moins il splitte
         {
             //splitte
         }
-
         if (tabJoueur[i].mainJoueur.getSommeValeur()>=17)
         //si le score du joueur est 17 ou plus alors il reste 
         {
@@ -391,10 +393,17 @@ void jeuMulti::actionExpert()
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
         if ((tabJoueur[i].mainJoueur.getSommeValeur()==11)&&(mainCroupier.getSommeValeur()<=10))
-        //si le score du joueur est de 11 et que le croupier à 10 ou moins alors il double 
+        //si le score du joueur est de 11 et que le croupier à 10 ou moins alors il double (si il a deux carte) ou il tire
         {
+            if(tabJoueur[i].mainJoueur.getNbCartes()==2)
+            {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.doubler(carteTiree);
+            }else 
+                {
+                carteTiree = unDeck.distribuerCarte();
+                tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
+                }
         }
         if((tabJoueur[i].mainJoueur.getSommeValeur()==11)&&(mainCroupier.getSommeValeur()==11))
         //si le score du joueur est de 11 et que le croupier à 11 alors il tire
@@ -403,10 +412,17 @@ void jeuMulti::actionExpert()
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
         if ((tabJoueur[i].mainJoueur.getSommeValeur()==10)&&(mainCroupier.getSommeValeur()<=9))
-        //si le score du joueur est de 10 et que le croupier à 9 ou moins alors il double 
+        //si le score du joueur est de 10 et que le croupier à 9 ou moins alors il double (si il a deux carte) ou il tire
         {
+            if(tabJoueur[i].mainJoueur.getNbCartes()==2)
+            {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.doubler(carteTiree);
+            }else 
+                {
+                carteTiree = unDeck.distribuerCarte();
+                tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
+                }
         }
         if((tabJoueur[i].mainJoueur.getSommeValeur()==10)&&(mainCroupier.getSommeValeur()>=10))
         //si le score du joueur est de 10 et que le croupier à 10 ou plus alors il tire
@@ -421,10 +437,17 @@ void jeuMulti::actionExpert()
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
         if((tabJoueur[i].mainJoueur.getSommeValeur()==9)&&((mainCroupier.getSommeValeur()>=3)&&(mainCroupier.getSommeValeur()<=5)))
-        //si le score du joueur est de 9 et que le croupier à entre 3 et 5 compris alors il double
+        //si le score du joueur est de 9 et que le croupier à entre 3 et 5 compris alors il double (si il a deux carte) ou il tire
         {
+            if(tabJoueur[i].mainJoueur.getNbCartes()==2)
+            {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.doubler(carteTiree);
+            }else 
+                {
+                carteTiree = unDeck.distribuerCarte();
+                tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
+                }
         }
         if((tabJoueur[i].mainJoueur.getSommeValeur()>=5)&&(tabJoueur[i].mainJoueur.getSommeValeur()<=8))
         //si le joueur à etre 5 et 8 compris il tire quoi qu'il en soit
@@ -432,7 +455,7 @@ void jeuMulti::actionExpert()
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
-        }while (tabJoueur[i].mainJoueur.getJoueToujours());
+        }
     }
 }
 
@@ -517,13 +540,112 @@ void jeuMulti::testRegression() const
     jeuIA.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee);
     jeuIA.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee2);
     assert(jeuIA.tabJoueur[1].mainJoueur.getNbCartes()==2);
+    cout<<"ok"<<endl;
     jeuIA.actionAmateur();
     cout<<"ok"<<endl;
     assert(jeuIA.tabJoueur[1].mainJoueur.getNbCartes()>=2);
     cout<<"Test actionAmateur() OK"<<endl;
 
-    
 
+    jeuMulti jeuIAExpert1(3);
+    jeuIAExpert1.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee);
+    jeuIAExpert1.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee2);//score joueur=10 => le joueur doit tirer
+    Carte carteAjoutee3(8,8,4);
+    Carte carteAjoutee4(9,9,1);// score joueur=17 => le joueur doit rester
+    Carte carteAjoutee5(1,1,4);
+    Carte carteAjoutee6(8,8,1);// main joueur=as et 8 => le joueur doit rester
+    jeuIAExpert1.mainCroupier.tirerCarte(carteCroupier);
+    jeuIAExpert1.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee3);
+    jeuIAExpert1.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee4);
+    jeuIAExpert1.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee5);
+    jeuIAExpert1.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee6);
+    jeuIAExpert1.actionExpert();
+    assert(jeuIAExpert1.tabJoueur[1].mainJoueur.getNbCartes()>=2);
+    assert (jeuIAExpert1.tabJoueur[2].mainJoueur.getNbCartes()==2);
+    assert (jeuIAExpert1.tabJoueur[3].mainJoueur.getNbCartes()==2);
+    cout<<"Test de jeuIAExpert1() OK"<<endl;
+
+
+    jeuMulti jeuIAExpert2(3);
+    Carte carteAjoutee7(10,10,1);
+    Carte carteAjoutee8(10,10,2);//main joueur = double 10 => il doit rester
+    Carte carteAjoutee9(1,1,3);
+    Carte carteAjoutee10(5,5,2);// main joueur= as et 5 => le joueur doit tirer
+    Carte carteAjoutee11(10,10,2);
+    Carte carteAjoutee12(4,4,1);// score joueur=14  => le joueur doit rester tirer
+    Carte carteCroupier2(1,1,4); // le croupier a un as 
+    jeuIAExpert2.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee7);
+    jeuIAExpert2.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee8);
+    jeuIAExpert2.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee9);
+    jeuIAExpert2.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee10);
+    jeuIAExpert2.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee11);
+    jeuIAExpert2.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee12);
+    jeuIAExpert2.mainCroupier.tirerCarte(carteCroupier2);
+    jeuIAExpert2.actionExpert();
+    assert(jeuIAExpert2.tabJoueur[1].mainJoueur.getNbCartes()==2);
+    assert (jeuIAExpert2.tabJoueur[2].mainJoueur.getNbCartes()>=2);
+    assert (jeuIAExpert2.tabJoueur[3].mainJoueur.getNbCartes()>=2);
+    cout<<"Test de jeuIAExpert2() OK"<<endl;
+
+
+    jeuMulti jeuIAExpert3(3);
+    Carte carteAjoutee13(6,6,1);
+    Carte carteAjoutee14(6,6,2);//main joueur = double 6 => il doit tirer
+    Carte carteAjoutee15(2,2,3);
+    Carte carteAjoutee16(2,2,2);// main joueur= double 2 => le joueur doit tirer
+    Carte carteAjoutee17(9,9,2);
+    Carte carteAjoutee18(2,2,1);// score joueur=11  => le joueur doit rester
+    Carte carteCroupier3(9,9,4); // le croupier a un 9
+    jeuIAExpert3.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee13);
+    jeuIAExpert3.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee14);
+    jeuIAExpert3.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee15);
+    jeuIAExpert3.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee16);
+    jeuIAExpert3.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee17);
+    jeuIAExpert3.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee18);
+    jeuIAExpert3.mainCroupier.tirerCarte(carteCroupier3);
+    jeuIAExpert3.actionExpert();
+    assert(jeuIAExpert3.tabJoueur[1].mainJoueur.getNbCartes()>=2);
+    assert (jeuIAExpert3.tabJoueur[2].mainJoueur.getNbCartes()>=2);
+    assert (jeuIAExpert3.tabJoueur[3].mainJoueur.getNbCartes()==3);
+    cout<<"Test de jeuIAExpert3() OK"<<endl;
+
+    jeuMulti jeuIAExpert4(3);
+    Carte carteAjoutee19(5,5,1);
+    Carte carteAjoutee20(5,5,2);//main joueur = double 5 => il doit doubler
+    Carte carteAjoutee21(1,1,3);
+    Carte carteAjoutee22(4,4,2);// main joueur= as et 4 => le joueur doit doubler
+    Carte carteAjoutee23(1,1,2);
+    Carte carteAjoutee24(7,7,1);// main joueur= as et 7  => le joueur doit rester doubler
+    Carte carteCroupier4(6,6,4); // le croupier a un 6
+    jeuIAExpert4.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee19);
+    jeuIAExpert4.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee20);
+    jeuIAExpert4.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee21);
+    jeuIAExpert4.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee22);
+    jeuIAExpert4.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee23);
+    jeuIAExpert4.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee24);
+    jeuIAExpert4.mainCroupier.tirerCarte(carteCroupier4);
+    jeuIAExpert4.actionExpert();
+    assert(jeuIAExpert4.tabJoueur[1].mainJoueur.getNbCartes()==3);
+    assert (jeuIAExpert4.tabJoueur[2].mainJoueur.getNbCartes()==3);
+    assert (jeuIAExpert4.tabJoueur[3].mainJoueur.getNbCartes()==3);
+    cout<<"Test de jeuIAExpert4() OK"<<endl;
+
+
+    jeuMulti jeuIAExpert5(3);
+    jeuIAExpert5.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee13);
+    jeuIAExpert5.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee16);
+    jeuIAExpert5.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee16);//le score du joueur est de 10 avec 3 carte => il doit tirer (pas doubler)
+    jeuIAExpert5.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee9);
+    jeuIAExpert5.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee12);// main du joueur = AS et 4 => il doit tirer 
+    jeuIAExpert5.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee20);
+    jeuIAExpert5.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee13);
+    jeuIAExpert5.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee22);  // le score du joueur 15 => il doit tirer
+    jeuIAExpert5.mainCroupier.tirerCarte(carteAjoutee8); // le croupier a 10
+    jeuIAExpert5.actionExpert();
+    assert(jeuIAExpert5.tabJoueur[1].mainJoueur.getNbCartes()>=3);
+    assert (jeuIAExpert5.tabJoueur[2].mainJoueur.getNbCartes()>=3);
+    assert (jeuIAExpert5.tabJoueur[3].mainJoueur.getNbCartes()>=3);
+    cout<<"Test de jeuIAExpert5() OK"<<endl;
 
 
 }
