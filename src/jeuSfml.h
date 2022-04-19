@@ -164,7 +164,6 @@ private :
 
     sf::Sprite sCardBack;
     sf::Sprite sDeck;
-    sf::Sprite sFond;
     sf::Sprite s1;
     sf::Sprite s10;
     sf::Sprite s100;
@@ -172,6 +171,14 @@ private :
     sf::Sprite sTirer;
     sf::Sprite sDoubler;
     sf::Sprite sRester;
+
+    sf::RectangleShape rsFond;
+
+    unsigned int dimx;
+    unsigned int dimy;
+
+    bool actionMiser;
+    bool actionJouer;
 
     // sf::Font m_font;
     // sf::Text m_text;

@@ -3,6 +3,7 @@
         "ostream": "cpp",
         "cassert": "cpp",
         "atomic": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "__node_handle": "cpp"
     }
 }

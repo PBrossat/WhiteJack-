@@ -12,6 +12,8 @@ using namespace std;
 sfmlJeu::sfmlJeu () : jeu() {
     sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
     window = new RenderWindow(desktop, "BlackJack");
+    dimx = window->getSize().x;
+    dimy = window->getSize().y;
 }
 
 void sfmlJeu::sfmlInit() {
@@ -525,7 +527,7 @@ void sfmlJeu::sfmlInit() {
     }
     else 
     {
-        sFond.setTexture(tFond);
+        rsFond.setTexture(&tFond);
     }
 
     if (!t1.loadFromFile("data/1.png")) 
@@ -618,55 +620,73 @@ sfmlJeu::~sfmlJeu ()
 void sfmlJeu::sfmlAff() 
 {
     window->clear(Color(230, 240, 255, 255)); 
+    rsFond.setSize(Vector2f(dimx,dimy));
+    window->draw(rsFond);
 
-    window->draw(sFond);
+    s1.setScale(1.75,1.75);
+    s10.setScale(1.75,1.75);
+    s100.setScale(1.75,1.75);
+    s1000.setScale(1.75,1.75);
 
     if(jeu.joueurSolo.getBudget()>=1000)
     {
-        s1.setPosition(100,200);
+        s1.setPosition(dimx/2-225,dimy-200);
         window->draw(s1);
 
-        s10.setPosition(150,1000);
+        s10.setPosition(dimx/2-75,dimy-200);
         window->draw(s10);
 
-        s100.setPosition(200,500);
+        s100.setPosition(dimx/2+75,dimy-200);
         window->draw(s100);
 
-        s1000.setPosition(250,500);
+        s1000.setPosition(dimx/2+225,dimy-200);
         window->draw(s1000);
     }
-
-    if(jeu.joueurSolo.getBudget()>=100)
+    else if(jeu.joueurSolo.getBudget()>=100)
     {
-        s1.setPosition(100,500);
+        s1.setPosition(dimx/2-150,dimy-200);
         window->draw(s1);
 
-        s10.setPosition(150,500);
+        s10.setPosition(dimx/2,dimy-200);
         window->draw(s10);
 
-        s100.setPosition(200,500);
+        s100.setPosition(dimx/2+150,dimy-200);
         window->draw(s100);
     }
-
-    if(jeu.joueurSolo.getBudget()>=10)
+    else if(jeu.joueurSolo.getBudget()>=10)
     {
-        s1.setPosition(100,500);
+        s1.setPosition(dimx/2-150,dimy-200);
         window->draw(s1);
 
-        s10.setPosition(150,500);
+        s10.setPosition(dimx/2+150,dimy-200);
         window->draw(s10);
     }
-
-    if(jeu.joueurSolo.getBudget()>=1)
+    else if(jeu.joueurSolo.getBudget()>=1)
     {
-        s1.setPosition(100,500);
+        s1.setPosition(dimx/2,dimy-200);
         window->draw(s1);
     }
 
-    // unsigned int position = 150;
-    // s1deTrefles.setPosition(position, 250);
-	// position += 260;
+
+    if(actionMiser==1)
+    {
+        afficherMainDeCarte(jeu.joueurSolo.mainJoueur);
+    }
+    //Largeur d'une carte = environ 230
+    //Hauteur d'une carte = environ 150
+
+    //Test affichage de deux cartes 
+    // unsigned int positionx = dimx/2-150;
+    // unsigned int positiony = dimy-700;
+    // s1deTrefles.setScale(1.5,1.5);
+    // s1deTrefles.setPosition(positionx, positiony);
+	// positionx += 150;
+    // positiony -= 50;
 	// window->draw(s1deTrefles);
+    // s1deTrefles.setPosition(positionx, positiony);
+    // positionx += 150;
+    // positiony -= 50;
+    // window->draw(s1deTrefles);
     
 
     // // Ecrire un titre par dessus
@@ -678,7 +698,8 @@ void sfmlJeu::sfmlAff()
 
 void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
 {
-    unsigned int position = 150;
+    unsigned int positionx = dimx/2-150;
+    unsigned int positiony = dimy-700;
 
     for (unsigned int i=0; i<mainJoueur.getNbCartes(); i++)
     {
@@ -702,7 +723,7 @@ void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
 					carte = s1deCarreau;
 				}
 			}
-			if (mainJoueur.getIemeCarte(i).getRang() == 2)
+			else if (mainJoueur.getIemeCarte(i).getRang() == 2)
 			{
 				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
 				{
@@ -721,7 +742,7 @@ void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
 					carte = s2deCarreau;
 				}
 			}
-			if (mainJoueur.getIemeCarte(i).getRang() == 3)
+			else if (mainJoueur.getIemeCarte(i).getRang() == 3)
 			{
 				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
 				{
@@ -740,7 +761,7 @@ void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
 					carte = s3deCarreau;
 				}
 			}
-			if (mainJoueur.getIemeCarte(i).getRang() == 4)
+			else if (mainJoueur.getIemeCarte(i).getRang() == 4)
 			{
 			    if (mainJoueur.getIemeCarte(i).getSigne() == 1)
 				{
@@ -759,7 +780,7 @@ void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
 					carte = s4deCarreau;
 				}
 			}
-			if (mainJoueur.getIemeCarte(i).getRang() == 5)
+			else if (mainJoueur.getIemeCarte(i).getRang() == 5)
 			{
                 if (mainJoueur.getIemeCarte(i).getSigne() == 1)
 				{
@@ -778,7 +799,7 @@ void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
 					carte = s5deCarreau;
 				}
 			}
-			if (mainJoueur.getIemeCarte(i).getRang() == 6)
+			else if (mainJoueur.getIemeCarte(i).getRang() == 6)
 			{
 				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
 				{
@@ -797,7 +818,7 @@ void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
 					carte = s6deCarreau;
 				}
 			}
-			if (mainJoueur.getIemeCarte(i).getRang() == 7)
+			else if (mainJoueur.getIemeCarte(i).getRang() == 7)
 			{
 				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
 				{
@@ -816,7 +837,7 @@ void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
 					carte = s7deCarreau;
 				}
 			}
-			if (mainJoueur.getIemeCarte(i).getRang() == 8)
+			else if (mainJoueur.getIemeCarte(i).getRang() == 8)
 			{
 				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
 				{
@@ -835,7 +856,7 @@ void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
 					carte = s8deCarreau;
 				}
 			}
-			if (mainJoueur.getIemeCarte(i).getRang() == 9)
+			else if (mainJoueur.getIemeCarte(i).getRang() == 9)
 			{
 				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
 				{
@@ -854,7 +875,7 @@ void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
 					carte = s9deCarreau;
 				}
 			}
-			if (mainJoueur.getIemeCarte(i).getRang() == 10)
+			else if (mainJoueur.getIemeCarte(i).getRang() == 10)
 			{
 				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
 				{
@@ -873,7 +894,7 @@ void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
 					carte = s10deCarreau;
 				}
 			}
-			if (mainJoueur.getIemeCarte(i).getRang() == 11)
+			else if (mainJoueur.getIemeCarte(i).getRang() == 11)
 			{
 				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
 				{
@@ -892,7 +913,7 @@ void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
 					carte = s11deCarreau;
 				}
 			}
-			if (mainJoueur.getIemeCarte(i).getRang() == 12)
+			else if (mainJoueur.getIemeCarte(i).getRang() == 12)
 			{
 				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
 				{
@@ -911,7 +932,7 @@ void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
 					carte = s12deCarreau;
 				}
 			}
-			if (mainJoueur.getIemeCarte(i).getRang() == 13)
+			else if (mainJoueur.getIemeCarte(i).getRang() == 13)
 			{
 				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
 				{
@@ -930,8 +951,10 @@ void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
 					carte = s13deCarreau;
 				}
 			}
-			carte.setPosition(position, 100);
-			position += 150;
+			carte.setPosition(positionx, positiony);
+            carte.setScale(1.5,1.5);
+			positionx += 150;
+            positiony -= 50;
 			window->draw(carte);
     }
 }
@@ -939,18 +962,8 @@ void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
 
 void sfmlJeu::sfmlBoucle () {
 
-    bool actionMiser = 0;
-    bool actionJouer = 0;
-    bool actionCarte = 0;
-
-    // Rect(Sprite) s1Rect = s1.getGlobalBounds();
-    // Rect(Sprite) s10Rect = s10.getGlobalBounds();
-    // Rect(Sprite) s100Rect = s100.getGlobalBounds();
-    // Rect(Sprite) s1000Rect = s1000.getGlobalBounds();
-
-    // Rect(Sprite) sRester = sRester.getGlobalBounds();
-    // Rect(Sprite) sDoublerRect = sDoubler.getGlobalBounds();
-    // Rect(Sprite) sTirerRect = sTirer.getGlobalBounds();
+    actionMiser = 0;
+    actionJouer = 0;
 
     while (window->isOpen())
     {
@@ -969,10 +982,41 @@ void sfmlJeu::sfmlBoucle () {
 					float x = Mouse::getPosition(*window).x;
 					float y = Mouse::getPosition(*window).y;
 
-                    if(s1.getGlobalBounds().contains(x,y))
+                    // si le joueur n'a pas misé 
+                    if(actionMiser==0)
                     {
-                        window->close();
-                    }	
+                            if(s1.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 1 
+                            {
+                                jeu.initialisationMise('a');    //correspond pour l'instant à une mise de 100
+                                actionMiser=1;
+                            }
+                            else if(s10.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 10 
+                            {
+                                jeu.initialisationMise('z');    //correspond pour l'instant à une mise de 200
+                                actionMiser=1;
+                            }
+                            else if(s100.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 100 
+                            {
+                                jeu.initialisationMise('r');    //correspond pour l'instant à une mise de 500
+                                actionMiser=1;
+                            }
+                            else if(s1000.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 1000 
+                            {
+                                jeu.initialisationMise('t');    //correspond pour l'instant à une mise de 1000
+                                actionMiser=1;
+                            }
+                    }
+
+                    // si le joueur a misé alors on initialise le jeu
+                    
+                    if(actionMiser==1)
+                    {
+                        jeu.initialisationJeu();
+                    }
+    
+            
+
+
 
 
             // if (event.type == Event::KeyPressed) 
@@ -998,7 +1042,7 @@ void sfmlJeu::sfmlBoucle () {
                 }
             }
 
-        //sfmlAff();
+        sfmlAff();
     }
 
     }
