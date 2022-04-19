@@ -87,7 +87,6 @@ void jeuMulti::initialisationMiseMulti()
     misePossible.push_back(500);
     misePossible.push_back(1000);
     srand (time(NULL));
-   // unsigned int aleatoire = rand() % 5; //on tire un nombre entre 0 et 4 compris qui correspond a l'indice du tab que l'on vient de créer 
 
 	for (unsigned int i=0; i<tabJoueur.size(); i++) //parcours du tableau de joueurs
     {
@@ -149,6 +148,7 @@ void jeuMulti::actionAmateur()
         }
         else
         {   
+            
             tabJoueur[i].mainJoueur.rester();
         }
         }while(tabJoueur[i].mainJoueur.getJoueToujours()==1);
@@ -157,25 +157,22 @@ void jeuMulti::actionAmateur()
 
 
 
-void jeuMulti::actionMedium()
+void jeuMulti::actionIntermediaire()
 {
     Carte carteTiree;  
-    for (unsigned int i=1; i<=tabJoueur.size(); i++)
+    for (unsigned int i=1; i<tabJoueur.size(); i++)
     {
-
-
-
-
-
-
-
-
-
+        srand (time(NULL));
+        nvHasard= rand() % 100+1; //nb au hasard entre 1 et 100 qui permettra de definir si l'IA jouera avec un niveau amateur ou expert (55 % de chance de jouer en mode amateur) 
+        if (nvHasard<=55)
+        {
+            actionAmateur();
+        } else 
+        {
+            actionExpert();
+        }
     }
-
 }
-
-
 
 
 
@@ -362,6 +359,7 @@ void jeuMulti::actionExpert()
         if (tabJoueur[i].mainJoueur.getSommeValeur()>=17)
         //si le score du joueur est 17 ou plus alors il reste 
         {
+        
             tabJoueur[i].mainJoueur.rester(); 
         }
         if ((tabJoueur[i].mainJoueur.getSommeValeur()<=16)&&(tabJoueur[i].mainJoueur.getSommeValeur()>=13)&&(mainCroupier.getSommeValeur()<=6))
@@ -501,11 +499,11 @@ void jeuMulti::testRegression() const
     unJeuMulti.nbPartie=6; //6 eme partie
     unJeuMulti.eliminationJoueur(); //il reste 3 joueur ET nous sommes a la partie n°6
     assert (unJeuMulti.tabJoueur.size()==2); //elimination du joueur 3 (indice 2)
-
     unJeuMulti.nbPartie=9; //9 eme partie
     unJeuMulti.eliminationJoueur(); //il reste 2 joueur ET nous sommes a la partie n°9
     assert (unJeuMulti.tabJoueur.size()==1); //elimination du joueur 2(indice 1) car il à 1800 contre 2000 pour le joueur 1 (indice 0)
     cout<<"Test de eliminationJoueur() OK"<<endl;
+
 
 
     jeuMulti unJeuMulti2(3); //création d'un nouveau jeuMulti (jeuMulti2)
@@ -533,32 +531,57 @@ void jeuMulti::testRegression() const
     cout<<"Test de initialisationJeuMulti() OK"<<endl;
 
 
-    jeuMulti jeuIA(1);
-    Carte carteAjoutee(8,8,4);
+
+    Carte carteAjouteeAs(1,1,1);
     Carte carteAjoutee2(2,2,1);
-    Carte carteCroupier(10,10,1);
-    jeuIA.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee);
+    Carte carteAjoutee3(3,3,2);
+    Carte carteAjoutee4(4,4,1);
+    Carte carteAjoutee5(5,5,4);
+    Carte carteAjoutee6(6,6,3);
+    Carte carteAjoutee7(7,7,3);
+    Carte carteAjoutee8(8,8,1);
+    Carte carteAjoutee9(9,9,2);
+    Carte carteAjoutee10(10,10,3); // definition de chaque carte (de l'as au 10)
+
+
+    jeuMulti jeuIA(1);
+    jeuIA.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee8); // test score <17
     jeuIA.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee2);
     assert(jeuIA.tabJoueur[1].mainJoueur.getNbCartes()==2);
-    cout<<"ok"<<endl;
     jeuIA.actionAmateur();
-    cout<<"ok"<<endl;
     assert(jeuIA.tabJoueur[1].mainJoueur.getNbCartes()>=2);
     cout<<"Test actionAmateur() OK"<<endl;
 
 
+
+    jeuMulti jeuIA2(1);
+    jeuIA2.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee10); //test score >17
+    jeuIA2.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee8);
+    assert(jeuIA2.tabJoueur[1].mainJoueur.getNbCartes()==2);
+    jeuIA.actionAmateur();
+    assert(jeuIA2.tabJoueur[1].mainJoueur.getNbCartes()==2);
+    cout<<"Test actionAmateur() OK"<<endl;
+
+
+
+    jeuMulti jeuIA3(1);
+    jeuIA3.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee10); //test score =17
+    jeuIA3.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee7);
+    assert(jeuIA3.tabJoueur[1].mainJoueur.getNbCartes()==2);
+    jeuIA.actionAmateur();
+    assert(jeuIA3.tabJoueur[1].mainJoueur.getNbCartes()==2);
+    cout<<"Test actionAmateur() OK"<<endl;
+
+
+
     jeuMulti jeuIAExpert1(3);
-    jeuIAExpert1.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee);
+    jeuIAExpert1.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee8);
     jeuIAExpert1.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee2);//score joueur=10 => le joueur doit tirer
-    Carte carteAjoutee3(8,8,4);
-    Carte carteAjoutee4(9,9,1);// score joueur=17 => le joueur doit rester
-    Carte carteAjoutee5(1,1,4);
-    Carte carteAjoutee6(8,8,1);// main joueur=as et 8 => le joueur doit rester
-    jeuIAExpert1.mainCroupier.tirerCarte(carteCroupier);
-    jeuIAExpert1.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee3);
-    jeuIAExpert1.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee4);
-    jeuIAExpert1.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee5);
-    jeuIAExpert1.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee6);
+    jeuIAExpert1.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee8);
+    jeuIAExpert1.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee9);// score joueur=17 => le joueur doit rester
+    jeuIAExpert1.tabJoueur[3].mainJoueur.tirerCarte(carteAjouteeAs);
+    jeuIAExpert1.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee8);// main joueur=as et 8 => le joueur doit rester
+    jeuIAExpert1.mainCroupier.tirerCarte(carteAjoutee10); // le croupier à 10 
     jeuIAExpert1.actionExpert();
     assert(jeuIAExpert1.tabJoueur[1].mainJoueur.getNbCartes()>=2);
     assert (jeuIAExpert1.tabJoueur[2].mainJoueur.getNbCartes()==2);
@@ -566,21 +589,15 @@ void jeuMulti::testRegression() const
     cout<<"Test de jeuIAExpert1() OK"<<endl;
 
 
+
     jeuMulti jeuIAExpert2(3);
-    Carte carteAjoutee7(10,10,1);
-    Carte carteAjoutee8(10,10,2);//main joueur = double 10 => il doit rester
-    Carte carteAjoutee9(1,1,3);
-    Carte carteAjoutee10(5,5,2);// main joueur= as et 5 => le joueur doit tirer
-    Carte carteAjoutee11(10,10,2);
-    Carte carteAjoutee12(4,4,1);// score joueur=14  => le joueur doit rester tirer
-    Carte carteCroupier2(1,1,4); // le croupier a un as 
-    jeuIAExpert2.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee7);
-    jeuIAExpert2.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee8);
-    jeuIAExpert2.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee9);
-    jeuIAExpert2.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee10);
-    jeuIAExpert2.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee11);
-    jeuIAExpert2.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee12);
-    jeuIAExpert2.mainCroupier.tirerCarte(carteCroupier2);
+    jeuIAExpert2.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee10);
+    jeuIAExpert2.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee10);//main joueur = double 10 => il doit rester
+    jeuIAExpert2.tabJoueur[2].mainJoueur.tirerCarte(carteAjouteeAs);
+    jeuIAExpert2.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee5);// main joueur= as et 5 => le joueur doit tirer
+    jeuIAExpert2.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee10);
+    jeuIAExpert2.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee4);// score joueur=14  => le joueur doit rester tirer
+    jeuIAExpert2.mainCroupier.tirerCarte(carteAjouteeAs);// le croupier a un as 
     jeuIAExpert2.actionExpert();
     assert(jeuIAExpert2.tabJoueur[1].mainJoueur.getNbCartes()==2);
     assert (jeuIAExpert2.tabJoueur[2].mainJoueur.getNbCartes()>=2);
@@ -588,42 +605,31 @@ void jeuMulti::testRegression() const
     cout<<"Test de jeuIAExpert2() OK"<<endl;
 
 
+
     jeuMulti jeuIAExpert3(3);
-    Carte carteAjoutee13(6,6,1);
-    Carte carteAjoutee14(6,6,2);//main joueur = double 6 => il doit tirer
-    Carte carteAjoutee15(2,2,3);
-    Carte carteAjoutee16(2,2,2);// main joueur= double 2 => le joueur doit tirer
-    Carte carteAjoutee17(9,9,2);
-    Carte carteAjoutee18(2,2,1);// score joueur=11  => le joueur doit rester
-    Carte carteCroupier3(9,9,4); // le croupier a un 9
-    jeuIAExpert3.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee13);
-    jeuIAExpert3.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee14);
-    jeuIAExpert3.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee15);
-    jeuIAExpert3.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee16);
-    jeuIAExpert3.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee17);
-    jeuIAExpert3.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee18);
-    jeuIAExpert3.mainCroupier.tirerCarte(carteCroupier3);
+    jeuIAExpert3.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee6);
+    jeuIAExpert3.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee6);//main joueur = double 6 => il doit tirer
+    jeuIAExpert3.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee2);
+    jeuIAExpert3.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee2);// main joueur= double 2 => le joueur doit tirer
+    jeuIAExpert3.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee9);
+    jeuIAExpert3.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee2);// score joueur=11  => le joueur doit rester
+    jeuIAExpert3.mainCroupier.tirerCarte(carteAjoutee9);// le croupier a un 9
     jeuIAExpert3.actionExpert();
     assert(jeuIAExpert3.tabJoueur[1].mainJoueur.getNbCartes()>=2);
     assert (jeuIAExpert3.tabJoueur[2].mainJoueur.getNbCartes()>=2);
     assert (jeuIAExpert3.tabJoueur[3].mainJoueur.getNbCartes()==3);
     cout<<"Test de jeuIAExpert3() OK"<<endl;
 
+
+
     jeuMulti jeuIAExpert4(3);
-    Carte carteAjoutee19(5,5,1);
-    Carte carteAjoutee20(5,5,2);//main joueur = double 5 => il doit doubler
-    Carte carteAjoutee21(1,1,3);
-    Carte carteAjoutee22(4,4,2);// main joueur= as et 4 => le joueur doit doubler
-    Carte carteAjoutee23(1,1,2);
-    Carte carteAjoutee24(7,7,1);// main joueur= as et 7  => le joueur doit rester doubler
-    Carte carteCroupier4(6,6,4); // le croupier a un 6
-    jeuIAExpert4.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee19);
-    jeuIAExpert4.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee20);
-    jeuIAExpert4.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee21);
-    jeuIAExpert4.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee22);
-    jeuIAExpert4.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee23);
-    jeuIAExpert4.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee24);
-    jeuIAExpert4.mainCroupier.tirerCarte(carteCroupier4);
+    jeuIAExpert4.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee5);
+    jeuIAExpert4.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee5);//main joueur = double 5 => il doit doubler
+    jeuIAExpert4.tabJoueur[2].mainJoueur.tirerCarte(carteAjouteeAs);
+    jeuIAExpert4.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee4);// main joueur= as et 4 => le joueur doit doubler
+    jeuIAExpert4.tabJoueur[3].mainJoueur.tirerCarte(carteAjouteeAs);
+    jeuIAExpert4.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee7);// main joueur= as et 7  => le joueur doit rester doubler
+    jeuIAExpert4.mainCroupier.tirerCarte(carteAjoutee6);// le croupier a un 6
     jeuIAExpert4.actionExpert();
     assert(jeuIAExpert4.tabJoueur[1].mainJoueur.getNbCartes()==3);
     assert (jeuIAExpert4.tabJoueur[2].mainJoueur.getNbCartes()==3);
@@ -631,21 +637,148 @@ void jeuMulti::testRegression() const
     cout<<"Test de jeuIAExpert4() OK"<<endl;
 
 
+
     jeuMulti jeuIAExpert5(3);
-    jeuIAExpert5.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee13);
-    jeuIAExpert5.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee16);
-    jeuIAExpert5.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee16);//le score du joueur est de 10 avec 3 carte => il doit tirer (pas doubler)
-    jeuIAExpert5.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee9);
-    jeuIAExpert5.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee12);// main du joueur = AS et 4 => il doit tirer 
-    jeuIAExpert5.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee20);
-    jeuIAExpert5.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee13);
-    jeuIAExpert5.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee22);  // le score du joueur 15 => il doit tirer
-    jeuIAExpert5.mainCroupier.tirerCarte(carteAjoutee8); // le croupier a 10
+    jeuIAExpert5.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee3);
+    jeuIAExpert5.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee4);
+    jeuIAExpert5.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee3);//le score du joueur est de 10 avec 3 carte => il doit tirer (pas doubler)
+    jeuIAExpert5.tabJoueur[2].mainJoueur.tirerCarte(carteAjouteeAs);
+    jeuIAExpert5.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee4);// main du joueur = AS et 4 => il doit tirer 
+    jeuIAExpert5.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee10);
+    jeuIAExpert5.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee2);
+    jeuIAExpert5.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee3);  // le score du joueur 15 => il doit tirer
+    jeuIAExpert5.mainCroupier.tirerCarte(carteAjoutee10); // le croupier a 10
     jeuIAExpert5.actionExpert();
     assert(jeuIAExpert5.tabJoueur[1].mainJoueur.getNbCartes()>=3);
     assert (jeuIAExpert5.tabJoueur[2].mainJoueur.getNbCartes()>=3);
     assert (jeuIAExpert5.tabJoueur[3].mainJoueur.getNbCartes()>=3);
     cout<<"Test de jeuIAExpert5() OK"<<endl;
+    
+
+
+    jeuMulti jeuIAIntermediaire(2);
+    jeuIAIntermediaire.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee10);
+    jeuIAIntermediaire.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee7);//score joueur=17
+    jeuIAIntermediaire.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee9);
+    jeuIAIntermediaire.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee2);// score joueur=11 
+    jeuIAIntermediaire.tabJoueur[3].mainJoueur.tirerCarte(carteAjouteeAs);
+    jeuIAIntermediaire.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee8);// main joueur=as et 8 
+    jeuIAIntermediaire.mainCroupier.tirerCarte(carteAjoutee10); // le croupier à 10 
+    jeuIAIntermediaire.actionIntermediaire();
+    assert (jeuIAIntermediaire.tabJoueur[1].mainJoueur.getNbCartes()==2); // dans tout les cas il doit rester (que ce soit en amateur ou en expert)
+    if (jeuIAIntermediaire.nvHasard<=55) // si l'IA2 est en mode amateur alors elle tire (moins de 17) sinon elle double 
+    {
+        assert (jeuIAIntermediaire.tabJoueur[2].mainJoueur.getNbCartes()>=3); // mode amateur 
+    }else 
+    {
+        assert (jeuIAIntermediaire.tabJoueur[2].mainJoueur.getNbCartes()==3); // mode expert
+    }
+    assert (jeuIAIntermediaire.tabJoueur[3].mainJoueur.getNbCartes()==2); // dans tout les cas il doit rester (que ce soit en amateur ou en expert)
+    cout<<"Test de jeuIAIntermediaire() OK"<<endl;
+
+
+
+    jeuMulti jeuIAIntermediaire2(2);
+    jeuIAIntermediaire2.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee4);
+    jeuIAIntermediaire2.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee6);//score joueur=10
+    jeuIAIntermediaire2.tabJoueur[2].mainJoueur.tirerCarte(carteAjouteeAs);
+    jeuIAIntermediaire2.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee7);// main du joueur= As et 7 
+    jeuIAIntermediaire2.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee5);
+    jeuIAIntermediaire2.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee5);// main joueur= double 5
+    jeuIAIntermediaire2.mainCroupier.tirerCarte(carteAjoutee2); // le croupier à 10 
+    jeuIAIntermediaire2.actionIntermediaire();
+    if (jeuIAIntermediaire2.nvHasard<=55) // si l'IA1 est en mode amateur alors elle tire (moins de 17) sinon il double 
+    {
+        assert (jeuIAIntermediaire2.tabJoueur[1].mainJoueur.getNbCartes()>=3); // mode amateur 
+    }else 
+    {
+        assert (jeuIAIntermediaire2.tabJoueur[1].mainJoueur.getNbCartes()==3); // mode expert
+    }
+
+    assert (jeuIAIntermediaire2.tabJoueur[2].mainJoueur.getNbCartes()==2); // dans tout les cas l'IA2 reste
+
+    if (jeuIAIntermediaire2.nvHasard<=55) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle double 
+    {
+        assert (jeuIAIntermediaire2.tabJoueur[1].mainJoueur.getNbCartes()>=3); // mode amateur 
+    }else 
+    {
+        assert (jeuIAIntermediaire2.tabJoueur[1].mainJoueur.getNbCartes()==3); // mode expert
+    }
+    cout<<"Test de jeuIAIntermediaire2() OK"<<endl;
+
+
+
+    jeuMulti jeuIAIntermediaire3(2);
+    jeuIAIntermediaire3.tabJoueur[1].mainJoueur.tirerCarte(carteAjouteeAs);
+    jeuIAIntermediaire3.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee2);//main joueur = As et deux 
+    jeuIAIntermediaire3.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee7);
+    jeuIAIntermediaire3.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee4); // score du joueur = 11 avec 2 cartes
+    jeuIAIntermediaire3.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee7);
+    jeuIAIntermediaire3.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee2);
+    jeuIAIntermediaire3.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee2);  // score du joueur= 11 avec 3 cartes
+    jeuIAIntermediaire3.mainCroupier.tirerCarte(carteAjoutee10); // le croupier à 10 
+    jeuIAIntermediaire3.actionIntermediaire();
+    assert (jeuIAIntermediaire3.tabJoueur[1].mainJoueur.getNbCartes()>=3); // dans tout les cas l'IA tire
+
+    if (jeuIAIntermediaire3.nvHasard<=55) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle double 
+    {
+        assert (jeuIAIntermediaire3.tabJoueur[2].mainJoueur.getNbCartes()>=3); // mode amateur 
+    }else 
+    {
+        assert (jeuIAIntermediaire3.tabJoueur[2].mainJoueur.getNbCartes()==3); // mode expert
+    }
+    
+    assert  (jeuIAIntermediaire3.tabJoueur[3].mainJoueur.getNbCartes()>=3); // dans tout les cas l'IA tire
+    cout<<"Test de jeuIAIntermediaire3() OK"<<endl;
+    
+
+    jeuMulti jeuIAIntermediaire4(2);
+    // toute les IA ont le même jeu mais n'auront pas toute le même comportement selon leur niveau
+    jeuIAIntermediaire4.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee10);
+    jeuIAIntermediaire4.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee4);//score du joueur= 14 
+    jeuIAIntermediaire4.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee10);
+    jeuIAIntermediaire4.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee4); // score du joueur = 14
+    jeuIAIntermediaire4.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee10);
+    jeuIAIntermediaire4.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee4); // score du joueur = 14
+    jeuIAIntermediaire4.mainCroupier.tirerCarte(carteAjoutee6); // le croupier à 6
+    jeuIAIntermediaire4.actionIntermediaire();
+        if (jeuIAIntermediaire4.nvHasard<=55) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle reste
+        {
+            assert (jeuIAIntermediaire4.tabJoueur[1].mainJoueur.getNbCartes()>=3); // mode amateur
+            cout<<"coucou"<<endl; 
+        }else 
+        {
+            assert (jeuIAIntermediaire4.tabJoueur[1].mainJoueur.getNbCartes()==2); // mode expert
+            cout<<"hey"<<endl;
+        }
+
+
+
+        if (jeuIAIntermediaire4.nvHasard<=55) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle reste
+        {
+            assert (jeuIAIntermediaire4.tabJoueur[2].mainJoueur.getNbCartes()>=3); // mode amateur
+            cout<<"salut"<<endl; 
+        }else 
+        {
+            assert (jeuIAIntermediaire4.tabJoueur[2].mainJoueur.getNbCartes()==2); // mode expert
+            cout<<"bonjour"<<endl;
+        }
+
+
+
+        if (jeuIAIntermediaire4.nvHasard<=55) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle reste
+        {
+            assert (jeuIAIntermediaire4.tabJoueur[3].mainJoueur.getNbCartes()>=3); // mode amateur
+            cout<<"hello"<<endl; 
+        }else 
+        {
+            assert (jeuIAIntermediaire4.tabJoueur[3].mainJoueur.getNbCartes()==2); // mode expert
+            cout<<"hehe"<<endl;
+        }
+        
+    cout<<"Test de jeuIAIntermediaire4() OK"<<endl;
+    
 
 
 }
+

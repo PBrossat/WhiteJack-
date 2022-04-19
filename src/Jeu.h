@@ -44,7 +44,7 @@ class Jeu
 	unsigned int gain;
 
 	/**
-    * @brief Constructeur sans paramètres de Jeu 
+    * @brief Constructeur sans paramètre de Jeu 
     * 
     * Exemple d'utilisation :
     * @code
