@@ -14,32 +14,32 @@ class jeuMulti{
     vector<Joueur>tabJoueur;
 
     /**
-    * @brief Le nombre de partie effectué
+    * @brief Le nombre de partie effectué.
     */
     unsigned int nbPartie;
 
 
     /**
-    * @brief Le niveau choisi au hasard dans la fonction actionIntermediaire()
+    * @brief Le niveau choisi au hasard dans la fonction actionIntermediaire().
     */
     unsigned int nvHasard;
     
 	
     /**
-    * @brief Le deck du jeu
+    * @brief Le deck du jeu.
     */
 	Deck unDeck;
 
 
     /**
-    * @brief La main de carte du croupier
+    * @brief La main de carte du croupier.
     */
 	MainDeCarte mainCroupier;
 
 
 
     /**
-    * @brief Constructeur sans paramètres de jeuMulti
+    * @brief Constructeur sans paramètres de jeuMulti.
     * 
     * Exemple d'utilisation :
     * @code
@@ -51,8 +51,8 @@ class jeuMulti{
 
 
     /**
-    * @brief Constructeur avec paramètre de jeuMulti
-    * @param[in] NiveauJoueur : le niveau des IA avec lesquelles le joueur jouera sa partie 
+    * @brief Constructeur avec paramètre de jeuMulti.
+    * @param[in] NiveauJoueur : le niveau des IA avec lesquelles le joueur jouera sa partie.
     *  
     * Exemple d'utilisation :
     * @code
@@ -60,7 +60,7 @@ class jeuMulti{
     * jeuMulti unJeuMulti(2);
     * jeuMulti unJeuMulti(3);
     * @endcode
-    * @warning NiveauJoueur doit être compris entre 1 et 3 compris (1=amateur ; 2=intermédiaire ; 3=expert)
+    * @warning NiveauJoueur doit être compris entre 1 et 3 compris (1=amateur ; 2=intermédiaire ; 3=expert).
     */
     jeuMulti(unsigned int NiveauJoueur);
 
@@ -92,7 +92,7 @@ class jeuMulti{
 
 
     /**
-    * @brief Procédure permettant de distribuer 2 cartes aux joueurs (le joueur physique derrière son écran et les IA) et 1 carte au croupier
+    * @brief Procédure permettant de distribuer 2 cartes aux joueurs (le joueur physique derrière son écran et les IA) et 1 carte au croupier.
     * @return void
     * 
     * Exemple d'utilisation :
@@ -104,7 +104,7 @@ class jeuMulti{
 
 
     /**
-    * @brief Procédure permettant d'effectuer les actions des IAs si NiveauJoueur est égal à 3 
+    * @brief Procédure permettant d'effectuer les actions des IAs si NiveauJoueur est égal à 3.
     * @return void
     * 
     * Exemple d'utilisation :
@@ -116,7 +116,7 @@ class jeuMulti{
 
 
     /**
-    * @brief Procédure permettant d'effectuer les actions des IAs si NiveauJoueur est égal à 2 
+    * @brief Procédure permettant d'effectuer les actions des IAs si NiveauJoueur est égal à 2.
     * @return void
     * 
     * Exemple d'utilisation :
@@ -127,7 +127,7 @@ class jeuMulti{
     void actionIntermediaire();
 
     /**
-    * @brief Procédure permettant d'effectuer les actions des IAs si NiveauJoueur est égal à 1 
+    * @brief Procédure permettant d'effectuer les actions des IAs si NiveauJoueur est égal à 1. 
     * @return void
     * 
     * Exemple d'utilisation :
@@ -140,9 +140,9 @@ class jeuMulti{
 
 
     /**
-    * @brief Procédure permettant d'effectuer les actions des IAs selon NiveauJoueur
+    * @brief Procédure permettant d'effectuer les actions des IAs selon NiveauJoueur.
     * @return void
-    * @param[in] NiveauJoueur : le niveau des IA avec lesquelles le joueur jouera sa partie 
+    * @param[in] NiveauJoueur : le niveau des IA avec lesquelles le joueur jouera sa partie.
     * 
     * Exemple d'utilisation :
     * @code
@@ -150,14 +150,14 @@ class jeuMulti{
     * unJeuMulti.actionIA(2);
     * unJeuMulti.actionIA(3);
     * @endcode
-    * @warning NiveauJoueur doit être compris entre 1 et 3 compris (1=amateur ; 2=intermédiaire ; 3=expert)
+    * @warning NiveauJoueur doit être compris entre 1 et 3 compris (1=amateur ; 2=intermédiaire ; 3=expert).
     */      
     void actionIA(unsigned int NiveauJoueur);
 
 
 
     /**
-    * @brief Procédure permettant de tester les fonctionnalités de la classe
+    * @brief Procédure permettant de tester les fonctionnalités de la classe.
     * @return void
     * 
     * Exemple d'utilisation :
