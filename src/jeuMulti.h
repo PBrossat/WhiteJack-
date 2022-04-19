@@ -19,12 +19,8 @@ class jeuMulti{
     unsigned int nbPartie;
 
 
-    /**
-    * @brief Le niveau choisi au hasard dans la fonction actionIntermediaire().
-    */
-    unsigned int nvHasard;
-    
-	
+
+
     /**
     * @brief Le deck du jeu.
     */
@@ -167,5 +163,17 @@ class jeuMulti{
     */
     void testRegression() const; 
 
+
+    private:
+
+    /**
+    * @brief Le niveau choisi au hasard dans la fonction actionIntermediaire().
+    */
+    unsigned int nvHasard;
+
+    /**
+    * @brief Le pourcentage (entre 40 et 60) pour determiner le ratio/le niveau du joueur.
+    */
+	unsigned int randPourcentage;
 };
 #endif

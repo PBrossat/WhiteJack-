@@ -160,19 +160,18 @@ void jeuMulti::actionAmateur()
 void jeuMulti::actionIntermediaire()
 {
     Carte carteTiree;  
-    for (unsigned int i=1; i<tabJoueur.size(); i++)
+    srand (time(NULL));
+    randPourcentage=rand() % 21+40; // création d'une variable aléatoire qui permet de changer le pourcentage de chance de jouer en amateur ou en expert (entre 40 et 60)
+    nvHasard= rand() % 100+1; //nb au hasard entre 1 et 100 qui permettra de definir si l'IA jouera avec un niveau amateur ou expert (55 % de chance de jouer en mode amateur) 
+    // cout<<nvHasard<<"         "<<randPourcentage<<endl;
+    if (nvHasard<=randPourcentage)
     {
-        srand (time(NULL));
-        nvHasard= rand() % 100+1; //nb au hasard entre 1 et 100 qui permettra de definir si l'IA jouera avec un niveau amateur ou expert (55 % de chance de jouer en mode amateur) 
-        if (nvHasard<=55)
-        {
-            actionAmateur();
-        } else 
-        {
-            actionExpert();
-        }
+        actionAmateur();
+    } else 
+    {
+        actionExpert();
     }
-}
+}// si on veut que chaque IA est un nv different on doit passer en parametre l'indice du joueur dans les fonction actionExpert et actionAmateur
 
 
 
@@ -666,7 +665,7 @@ void jeuMulti::testRegression() const
     jeuIAIntermediaire.mainCroupier.tirerCarte(carteAjoutee10); // le croupier à 10 
     jeuIAIntermediaire.actionIntermediaire();
     assert (jeuIAIntermediaire.tabJoueur[1].mainJoueur.getNbCartes()==2); // dans tout les cas il doit rester (que ce soit en amateur ou en expert)
-    if (jeuIAIntermediaire.nvHasard<=55) // si l'IA2 est en mode amateur alors elle tire (moins de 17) sinon elle double 
+    if (jeuIAIntermediaire.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA2 est en mode amateur alors elle tire (moins de 17) sinon elle double 
     {
         assert (jeuIAIntermediaire.tabJoueur[2].mainJoueur.getNbCartes()>=3); // mode amateur 
     }else 
@@ -687,7 +686,7 @@ void jeuMulti::testRegression() const
     jeuIAIntermediaire2.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee5);// main joueur= double 5
     jeuIAIntermediaire2.mainCroupier.tirerCarte(carteAjoutee2); // le croupier à 10 
     jeuIAIntermediaire2.actionIntermediaire();
-    if (jeuIAIntermediaire2.nvHasard<=55) // si l'IA1 est en mode amateur alors elle tire (moins de 17) sinon il double 
+    if (jeuIAIntermediaire2.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA1 est en mode amateur alors elle tire (moins de 17) sinon il double 
     {
         assert (jeuIAIntermediaire2.tabJoueur[1].mainJoueur.getNbCartes()>=3); // mode amateur 
     }else 
@@ -697,7 +696,7 @@ void jeuMulti::testRegression() const
 
     assert (jeuIAIntermediaire2.tabJoueur[2].mainJoueur.getNbCartes()==2); // dans tout les cas l'IA2 reste
 
-    if (jeuIAIntermediaire2.nvHasard<=55) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle double 
+    if (jeuIAIntermediaire2.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle double 
     {
         assert (jeuIAIntermediaire2.tabJoueur[1].mainJoueur.getNbCartes()>=3); // mode amateur 
     }else 
@@ -720,7 +719,7 @@ void jeuMulti::testRegression() const
     jeuIAIntermediaire3.actionIntermediaire();
     assert (jeuIAIntermediaire3.tabJoueur[1].mainJoueur.getNbCartes()>=3); // dans tout les cas l'IA tire
 
-    if (jeuIAIntermediaire3.nvHasard<=55) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle double 
+    if (jeuIAIntermediaire3.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle double 
     {
         assert (jeuIAIntermediaire3.tabJoueur[2].mainJoueur.getNbCartes()>=3); // mode amateur 
     }else 
@@ -742,38 +741,29 @@ void jeuMulti::testRegression() const
     jeuIAIntermediaire4.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee4); // score du joueur = 14
     jeuIAIntermediaire4.mainCroupier.tirerCarte(carteAjoutee6); // le croupier à 6
     jeuIAIntermediaire4.actionIntermediaire();
-        if (jeuIAIntermediaire4.nvHasard<=55) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle reste
+        if (jeuIAIntermediaire4.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle reste
         {
-            assert (jeuIAIntermediaire4.tabJoueur[1].mainJoueur.getNbCartes()>=3); // mode amateur
-            cout<<"coucou"<<endl; 
+            assert (jeuIAIntermediaire4.tabJoueur[1].mainJoueur.getNbCartes()>=3); // mode amateur 
         }else 
         {
             assert (jeuIAIntermediaire4.tabJoueur[1].mainJoueur.getNbCartes()==2); // mode expert
-            cout<<"hey"<<endl;
+            
         }
 
-
-
-        if (jeuIAIntermediaire4.nvHasard<=55) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle reste
+        if (jeuIAIntermediaire4.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle reste
         {
             assert (jeuIAIntermediaire4.tabJoueur[2].mainJoueur.getNbCartes()>=3); // mode amateur
-            cout<<"salut"<<endl; 
         }else 
         {
             assert (jeuIAIntermediaire4.tabJoueur[2].mainJoueur.getNbCartes()==2); // mode expert
-            cout<<"bonjour"<<endl;
         }
 
-
-
-        if (jeuIAIntermediaire4.nvHasard<=55) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle reste
+        if (jeuIAIntermediaire4.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle reste
         {
             assert (jeuIAIntermediaire4.tabJoueur[3].mainJoueur.getNbCartes()>=3); // mode amateur
-            cout<<"hello"<<endl; 
         }else 
         {
             assert (jeuIAIntermediaire4.tabJoueur[3].mainJoueur.getNbCartes()==2); // mode expert
-            cout<<"hehe"<<endl;
         }
         
     cout<<"Test de jeuIAIntermediaire4() OK"<<endl;
