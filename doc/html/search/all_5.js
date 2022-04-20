@@ -8,9 +8,10 @@ var searchData=
   ['getjouetoujours_23',['getJoueToujours',['../class_main_de_carte.html#af1f2e831f3b68ca2483b6fece1361468',1,'MainDeCarte']]],
   ['getmise_24',['getMise',['../class_joueur.html#a6dc641dddca9882f51e419422909d16d',1,'Joueur']]],
   ['getnbcartes_25',['getNbCartes',['../class_main_de_carte.html#a3ddf5ab836443e13eda5f07ccf26bad7',1,'MainDeCarte']]],
-  ['getniveau_26',['getNiveau',['../class_joueur.html#abec464c3958916f951e19ba5e12d0dbc',1,'Joueur']]],
-  ['getrang_27',['getRang',['../class_carte.html#a2b518bcdda87f9ff1c3140ecdd040ee5',1,'Carte']]],
-  ['getsigne_28',['getSigne',['../class_carte.html#a8fa62e9f7ebf2187c7c2963c4d432754',1,'Carte']]],
-  ['getsommevaleur_29',['getSommeValeur',['../class_main_de_carte.html#ae2d3767fc6b1ac040daeda8de180037a',1,'MainDeCarte']]],
-  ['getvaleur_30',['getValeur',['../class_carte.html#a0815484cba86e7781e9bf2c5d5fc856d',1,'Carte']]]
+  ['getnbjeu_26',['getNbJeu',['../class_main_de_carte.html#af3f304473d755676498af8a8031716b6',1,'MainDeCarte']]],
+  ['getniveau_27',['getNiveau',['../class_joueur.html#abec464c3958916f951e19ba5e12d0dbc',1,'Joueur']]],
+  ['getrang_28',['getRang',['../class_carte.html#a2b518bcdda87f9ff1c3140ecdd040ee5',1,'Carte']]],
+  ['getsigne_29',['getSigne',['../class_carte.html#a8fa62e9f7ebf2187c7c2963c4d432754',1,'Carte']]],
+  ['getsommevaleur_30',['getSommeValeur',['../class_main_de_carte.html#ae2d3767fc6b1ac040daeda8de180037a',1,'MainDeCarte']]],
+  ['getvaleur_31',['getValeur',['../class_carte.html#a0815484cba86e7781e9bf2c5d5fc856d',1,'Carte']]]
 ];

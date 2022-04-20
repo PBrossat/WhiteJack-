@@ -112,6 +112,12 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a3ddf5ab836443e13eda5f07ccf26bad7"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_de_carte.html#a3ddf5ab836443e13eda5f07ccf26bad7">getNbCartes</a> () const</td></tr>
 <tr class="memdesc:a3ddf5ab836443e13eda5f07ccf26bad7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesseur : récupère le nombre de cartes du joueur.  <a href="class_main_de_carte.html#a3ddf5ab836443e13eda5f07ccf26bad7">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a3ddf5ab836443e13eda5f07ccf26bad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3f304473d755676498af8a8031716b6"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_de_carte.html#af3f304473d755676498af8a8031716b6">getNbJeu</a> () const</td></tr>
+<tr class="memdesc:af3f304473d755676498af8a8031716b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesseur : récupère le nombre de jeux du joueur.  <a href="class_main_de_carte.html#af3f304473d755676498af8a8031716b6">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af3f304473d755676498af8a8031716b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3d91a079193516afe1d302e06f6bc56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_de_carte.html#af3d91a079193516afe1d302e06f6bc56">setNbJeu</a> (unsigned int nbJeu)</td></tr>
+<tr class="memdesc:af3d91a079193516afe1d302e06f6bc56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutateur : permet de changer le nombre de jeux du joueur.  <a href="class_main_de_carte.html#af3d91a079193516afe1d302e06f6bc56">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af3d91a079193516afe1d302e06f6bc56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1f2e831f3b68ca2483b6fece1361468"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_de_carte.html#af1f2e831f3b68ca2483b6fece1361468">getJoueToujours</a> () const</td></tr>
 <tr class="memdesc:af1f2e831f3b68ca2483b6fece1361468"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesseur : récupère le booléen permettant de savoir si le joueur joue toujours.  <a href="class_main_de_carte.html#af1f2e831f3b68ca2483b6fece1361468">Plus de détails...</a><br /></td></tr>
 <tr class="separator:af1f2e831f3b68ca2483b6fece1361468"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -311,6 +317,27 @@ L'indice en paramètre doit être inférieur à la taille du tableau de <a class
 </div><!-- fragment --> 
 </div>
 </div>
+<a id="af3f304473d755676498af8a8031716b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3f304473d755676498af8a8031716b6">&#9670;&nbsp;</a></span>getNbJeu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int MainDeCarte::getNbJeu </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Accesseur : récupère le nombre de jeux du joueur. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>unsigned int</dd></dl>
+<p>Exemple d'utilisation : </p><div class="fragment"><div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> NbJeu = uneMainDeCarte.getNbJeu();</div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a id="ae2d3767fc6b1ac040daeda8de180037a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae2d3767fc6b1ac040daeda8de180037a">&#9670;&nbsp;</a></span>getSommeValeur()</h2>
 
@@ -362,6 +389,29 @@ L'indice en paramètre doit être inférieur à la taille du tableau de <a class
  </p><dl class="section return"><dt>Renvoie</dt><dd>void <br  />
 </dd></dl>
 <p>Exemple d'utilisation : </p><div class="fragment"><div class="line">uneMainDeCarte.rester();</div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="af3d91a079193516afe1d302e06f6bc56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3d91a079193516afe1d302e06f6bc56">&#9670;&nbsp;</a></span>setNbJeu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainDeCarte::setNbJeu </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>nbJeu</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mutateur : permet de changer le nombre de jeux du joueur. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>void <br  />
+</dd></dl>
+<p>Exemple d'utilisation : </p><div class="fragment"><div class="line">uneMainDeCarte.setNbJeu(2);</div>
 </div><!-- fragment --> 
 </div>
 </div>

@@ -190,16 +190,39 @@ class MainDeCarte
 
 
     /**
-     * @brief   Accesseur : récupère le nombre de cartes du joueur 
-     * @return  unsigned int 
-     * 
-     * Exemple d'utilisation :
-     * @code
-     * unsigned int NbCarte = uneMainDeCarte.getNbCarte();
-     * @endcode       
-     */   
+    * @brief   Accesseur : récupère le nombre de cartes du joueur 
+    * @return  unsigned int 
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * unsigned int NbCarte = uneMainDeCarte.getNbCarte();
+    * @endcode       
+    */   
     unsigned int getNbCartes () const;
 
+
+    /**
+    * @brief   Accesseur : récupère le nombre de jeux du joueur 
+    * @return  unsigned int 
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * unsigned int NbJeu = uneMainDeCarte.getNbJeu();
+    * @endcode       
+    */ 
+    unsigned int getNbJeu() const;
+
+
+    /**
+    * @brief   Mutateur : permet de changer le nombre de jeux du joueur 
+    * @return  void  
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * uneMainDeCarte.setNbJeu(2);
+    * @endcode  
+    */    
+    void setNbJeu(unsigned int nbJeu);
 
 
 
@@ -267,6 +290,9 @@ class MainDeCarte
 
     //nbCartes désigne le nombre de cartes qu'a le joueur dans sa main 
     unsigned int nbCartes;
+
+    //nbJeu désigne le nombre de jeux qu'a le joueur dans sa main
+    unsigned int nbJeu; 
 
 
     //Booléen permettant de savoir si le joueur joue encore.

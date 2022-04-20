@@ -746,10 +746,8 @@ void jeuMulti::testRegression() const
             assert (jeuIAIntermediaire4.tabJoueur[1].mainJoueur.getNbCartes()>=3); // mode amateur 
         }else 
         {
-            assert (jeuIAIntermediaire4.tabJoueur[1].mainJoueur.getNbCartes()==2); // mode expert
-            
+            assert (jeuIAIntermediaire4.tabJoueur[1].mainJoueur.getNbCartes()==2); // mode expert  
         }
-
         if (jeuIAIntermediaire4.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle reste
         {
             assert (jeuIAIntermediaire4.tabJoueur[2].mainJoueur.getNbCartes()>=3); // mode amateur
@@ -757,7 +755,6 @@ void jeuMulti::testRegression() const
         {
             assert (jeuIAIntermediaire4.tabJoueur[2].mainJoueur.getNbCartes()==2); // mode expert
         }
-
         if (jeuIAIntermediaire4.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle reste
         {
             assert (jeuIAIntermediaire4.tabJoueur[3].mainJoueur.getNbCartes()>=3); // mode amateur

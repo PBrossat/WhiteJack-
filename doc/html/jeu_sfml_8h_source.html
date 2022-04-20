@@ -231,44 +231,51 @@ $(function() {
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    sf::Sprite sCardBack;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    sf::Sprite sDeck;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    sf::Sprite sFond;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    sf::Sprite s1;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    sf::Sprite s10;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    sf::Sprite s100;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    sf::Sprite s1000;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    sf::Sprite sTirer;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    sf::Sprite sDoubler;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    sf::Sprite sRester;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="comment">// sf::Font m_font;</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="comment">// sf::Text m_text;</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="comment">// sf::SoundBuffer m_soundbuffer;</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="comment">// sf::Sound m_sound;</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;public :</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <a class="code" href="classsfml_jeu.html#a9fc77ecdf5bae6cffe983027799732b4">sfmlJeu</a> ();</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <a class="code" href="classsfml_jeu.html#a22446d3645360d379b963471e85eb989">~sfmlJeu</a> ();</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classsfml_jeu.html#a56f4388033e4632993158c26a3cb1943">afficherMainDeCarte</a>(<a class="code" href="class_main_de_carte.html">MainDeCarte</a> mainJoueur);</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classsfml_jeu.html#a461d610070ec6875ff2a8350211c3d9c">sfmlInit</a>();</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classsfml_jeu.html#a96d99ba77d78f5015127062168179863">sfmlBoucle</a>();</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classsfml_jeu.html#a489729aba87e3775c0ebe5fc1340382b">sfmlAff</a>();</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;};</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    sf::Sprite s1;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    sf::Sprite s10;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    sf::Sprite s100;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    sf::Sprite s1000;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    sf::Sprite sTirer;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    sf::Sprite sDoubler;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    sf::Sprite sRester;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    sf::RectangleShape rsFond;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dimx;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dimy;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordtype">bool</span> actionMiser;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordtype">bool</span> actionJouer;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="comment">// sf::Font m_font;</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="comment">// sf::Text m_text;</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="comment">// sf::SoundBuffer m_soundbuffer;</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="comment">// sf::Sound m_sound;</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;public :</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <a class="code" href="classsfml_jeu.html#a9fc77ecdf5bae6cffe983027799732b4">sfmlJeu</a> ();</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <a class="code" href="classsfml_jeu.html#a22446d3645360d379b963471e85eb989">~sfmlJeu</a> ();</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classsfml_jeu.html#a56f4388033e4632993158c26a3cb1943">afficherMainDeCarte</a>(<a class="code" href="class_main_de_carte.html">MainDeCarte</a> mainJoueur);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classsfml_jeu.html#a461d610070ec6875ff2a8350211c3d9c">sfmlInit</a>();</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classsfml_jeu.html#a96d99ba77d78f5015127062168179863">sfmlBoucle</a>();</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classsfml_jeu.html#a489729aba87e3775c0ebe5fc1340382b">sfmlAff</a>();</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;};</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclasssfml_jeu_html_a22446d3645360d379b963471e85eb989"><div class="ttname"><a href="classsfml_jeu.html#a22446d3645360d379b963471e85eb989">sfmlJeu::~sfmlJeu</a></div><div class="ttdeci">~sfmlJeu()</div><div class="ttdef"><b>Definition:</b> jeuSfml.cpp:612</div></div>
-<div class="ttc" id="aclasssfml_jeu_html_a489729aba87e3775c0ebe5fc1340382b"><div class="ttname"><a href="classsfml_jeu.html#a489729aba87e3775c0ebe5fc1340382b">sfmlJeu::sfmlAff</a></div><div class="ttdeci">void sfmlAff()</div><div class="ttdef"><b>Definition:</b> jeuSfml.cpp:618</div></div>
+<div class="ttc" id="aclasssfml_jeu_html_a22446d3645360d379b963471e85eb989"><div class="ttname"><a href="classsfml_jeu.html#a22446d3645360d379b963471e85eb989">sfmlJeu::~sfmlJeu</a></div><div class="ttdeci">~sfmlJeu()</div><div class="ttdef"><b>Definition:</b> jeuSfml.cpp:614</div></div>
+<div class="ttc" id="aclasssfml_jeu_html_a489729aba87e3775c0ebe5fc1340382b"><div class="ttname"><a href="classsfml_jeu.html#a489729aba87e3775c0ebe5fc1340382b">sfmlJeu::sfmlAff</a></div><div class="ttdeci">void sfmlAff()</div><div class="ttdef"><b>Definition:</b> jeuSfml.cpp:620</div></div>
 <div class="ttc" id="aclass_main_de_carte_html"><div class="ttname"><a href="class_main_de_carte.html">MainDeCarte</a></div><div class="ttdef"><b>Definition:</b> MainDeCarte.h:9</div></div>
 <div class="ttc" id="a_jeu_8h_html"><div class="ttname"><a href="_jeu_8h.html">Jeu.h</a></div></div>
-<div class="ttc" id="aclasssfml_jeu_html_a461d610070ec6875ff2a8350211c3d9c"><div class="ttname"><a href="classsfml_jeu.html#a461d610070ec6875ff2a8350211c3d9c">sfmlJeu::sfmlInit</a></div><div class="ttdeci">void sfmlInit()</div><div class="ttdef"><b>Definition:</b> jeuSfml.cpp:17</div></div>
+<div class="ttc" id="aclasssfml_jeu_html_a461d610070ec6875ff2a8350211c3d9c"><div class="ttname"><a href="classsfml_jeu.html#a461d610070ec6875ff2a8350211c3d9c">sfmlJeu::sfmlInit</a></div><div class="ttdeci">void sfmlInit()</div><div class="ttdef"><b>Definition:</b> jeuSfml.cpp:19</div></div>
 <div class="ttc" id="aclasssfml_jeu_html_a9fc77ecdf5bae6cffe983027799732b4"><div class="ttname"><a href="classsfml_jeu.html#a9fc77ecdf5bae6cffe983027799732b4">sfmlJeu::sfmlJeu</a></div><div class="ttdeci">sfmlJeu()</div><div class="ttdef"><b>Definition:</b> jeuSfml.cpp:12</div></div>
-<div class="ttc" id="aclasssfml_jeu_html_a96d99ba77d78f5015127062168179863"><div class="ttname"><a href="classsfml_jeu.html#a96d99ba77d78f5015127062168179863">sfmlJeu::sfmlBoucle</a></div><div class="ttdeci">void sfmlBoucle()</div><div class="ttdef"><b>Definition:</b> jeuSfml.cpp:940</div></div>
+<div class="ttc" id="aclasssfml_jeu_html_a96d99ba77d78f5015127062168179863"><div class="ttname"><a href="classsfml_jeu.html#a96d99ba77d78f5015127062168179863">sfmlJeu::sfmlBoucle</a></div><div class="ttdeci">void sfmlBoucle()</div><div class="ttdef"><b>Definition:</b> jeuSfml.cpp:963</div></div>
 <div class="ttc" id="aclass_jeu_html"><div class="ttname"><a href="class_jeu.html">Jeu</a></div><div class="ttdef"><b>Definition:</b> Jeu.h:12</div></div>
-<div class="ttc" id="aclasssfml_jeu_html_a56f4388033e4632993158c26a3cb1943"><div class="ttname"><a href="classsfml_jeu.html#a56f4388033e4632993158c26a3cb1943">sfmlJeu::afficherMainDeCarte</a></div><div class="ttdeci">void afficherMainDeCarte(MainDeCarte mainJoueur)</div><div class="ttdef"><b>Definition:</b> jeuSfml.cpp:679</div></div>
+<div class="ttc" id="aclasssfml_jeu_html_a56f4388033e4632993158c26a3cb1943"><div class="ttname"><a href="classsfml_jeu.html#a56f4388033e4632993158c26a3cb1943">sfmlJeu::afficherMainDeCarte</a></div><div class="ttdeci">void afficherMainDeCarte(MainDeCarte mainJoueur)</div><div class="ttdef"><b>Definition:</b> jeuSfml.cpp:699</div></div>
 <div class="ttc" id="aclasssfml_jeu_html"><div class="ttname"><a href="classsfml_jeu.html">sfmlJeu</a></div><div class="ttdef"><b>Definition:</b> jeuSfml.h:14</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

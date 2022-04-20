@@ -13,6 +13,7 @@ MainDeCarte::MainDeCarte ()
     sommeValeur=0; //la somme des valeurs est initialisé à 0
     joueToujours=1; // initialisation du booléen à VRAI (1)
     crame=0; //le joueur à moins de 22
+    nbJeu=1;
 }
 
 
@@ -26,6 +27,7 @@ MainDeCarte::MainDeCarte (const Carte& carte1, const Carte& carte2)
     sommeValeur=carte1.getValeur()+carte2.getValeur(); // somme des valeur mise à jour 
     joueToujours=1; // initialisation du booléen à VRAI (1)
     crame=0; //le joueur à moins de 22
+    nbJeu=1;
 
 }
 
@@ -142,6 +144,16 @@ unsigned int MainDeCarte::getNbCartes () const
 }
 
 
+unsigned int MainDeCarte::getNbJeu() const 
+{
+    return nbJeu;
+}
+
+
+void MainDeCarte::setNbJeu(unsigned int NbJeu)
+{
+    nbJeu=NbJeu;
+}
 
 
 bool MainDeCarte::getJoueToujours () const
@@ -207,6 +219,9 @@ void MainDeCarte::testRegression() const
     assert (mainVide.getSommeValeur()==0);
     assert (mainVide.getJoueToujours()==1);
     assert (mainVide.getCrame()==0);
+    assert (mainVide.getNbJeu()==1);
+    mainVide.setNbJeu(2);
+    assert (mainVide.getNbJeu()==2);
     cout<<"Création de la mainVide OK"<<endl;
 
 
@@ -221,6 +236,7 @@ void MainDeCarte::testRegression() const
     assert (carte2==main.mainDeJoueur[1]); // test si carte2 est bien la même carte que la carte d'indice 1 du tableau de la main de joueur.
     assert (carte1.getSigne()==1); // test si le signe de la nouvelle carte est bien celui attribué 
     assert (carte2.getSigne()==2); // test si le signe de la nouvelle carte est bien celui attribué  
+    assert (main.getNbJeu()==1);
     cout<<"Création de main2 OK"<<endl;
 
 
