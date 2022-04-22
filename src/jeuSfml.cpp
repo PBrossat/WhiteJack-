@@ -14,6 +14,8 @@ sfmlJeu::sfmlJeu () : jeu() {
     window = new RenderWindow(desktop, "BlackJack");
     dimx = window->getSize().x;
     dimy = window->getSize().y;
+    actionMiser=0;
+    finJeu=0;
 }
 
 void sfmlJeu::sfmlInit() {
@@ -617,86 +619,275 @@ sfmlJeu::~sfmlJeu ()
 }
 
 
-void sfmlJeu::sfmlAff() 
+
+
+
+//ATTENTION AFFICHAGE DE CERTAINES CARTES NE FONCTIONNE PAS
+
+void sfmlJeu::afficherMainDeCarteCroupier(MainDeCarte mainJoueur)
 {
-    window->clear(Color(230, 240, 255, 255)); 
-    rsFond.setSize(Vector2f(dimx,dimy));
-    window->draw(rsFond);
+    unsigned int positionx = dimx/2-150;
+    unsigned int positiony = dimy/2-230;
 
-    s1.setScale(1.75,1.75);
-    s10.setScale(1.75,1.75);
-    s100.setScale(1.75,1.75);
-    s1000.setScale(1.75,1.75);
-
-    if(jeu.joueurSolo.getBudget()>=1000)
+    for (unsigned int i=0; i<mainJoueur.getNbCartes(); i++)
     {
-        s1.setPosition(dimx/2-225,dimy-200);
-        window->draw(s1);
-
-        s10.setPosition(dimx/2-75,dimy-200);
-        window->draw(s10);
-
-        s100.setPosition(dimx/2+75,dimy-200);
-        window->draw(s100);
-
-        s1000.setPosition(dimx/2+225,dimy-200);
-        window->draw(s1000);
+        Sprite carte;
+            if (mainJoueur.getIemeCarte(i).getRang()== 1)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s1dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s1deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s1deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s1deCarreau;
+				}
+			}
+			else if (mainJoueur.getIemeCarte(i).getRang() == 2)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s2dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s2deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s2deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s2deCarreau;
+				}
+			}
+			else if (mainJoueur.getIemeCarte(i).getRang() == 3)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s3dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s3deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s3deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s3deCarreau;
+				}
+			}
+			else if (mainJoueur.getIemeCarte(i).getRang() == 4)
+			{
+			    if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s4dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s4deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s4deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s4deCarreau;
+				}
+			}
+			else if (mainJoueur.getIemeCarte(i).getRang() == 5)
+			{
+                if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s5dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s5deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s5deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s5deCarreau;
+				}
+			}
+			else if (mainJoueur.getIemeCarte(i).getRang() == 6)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s6dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s6deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s6deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s6deCarreau;
+				}
+			}
+			else if (mainJoueur.getIemeCarte(i).getRang() == 7)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s7dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s7deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s7deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s7deCarreau;
+				}
+			}
+			else if (mainJoueur.getIemeCarte(i).getRang() == 8)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s8dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s8deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s8deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s8deCarreau;
+				}
+			}
+			else if (mainJoueur.getIemeCarte(i).getRang() == 9)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s9dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s9deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s9deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s9deCarreau;
+				}
+			}
+			else if (mainJoueur.getIemeCarte(i).getRang() == 10)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s10dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s10deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s10deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s10deCarreau;
+				}
+			}
+			else if (mainJoueur.getIemeCarte(i).getRang() == 11)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s11dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s11deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s11deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s11deCarreau;
+				}
+			}
+			else if (mainJoueur.getIemeCarte(i).getRang() == 12)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s12dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s12deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s12deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s12deCarreau;
+				}
+			}
+			else if (mainJoueur.getIemeCarte(i).getRang() == 13)
+			{
+				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
+				{
+					carte = s13dePiques;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
+				{
+					carte = s13deCoeur;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
+				{
+					carte = s13deTrefles;
+				}
+				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
+				{
+					carte = s13deCarreau;
+				}
+			}
+			carte.setPosition(positionx, positiony);
+            carte.setScale(1.5,1.5);
+			positionx += 150;
+            positiony -= 50;
+			window->draw(carte);
     }
-    else if(jeu.joueurSolo.getBudget()>=100)
-    {
-        s1.setPosition(dimx/2-150,dimy-200);
-        window->draw(s1);
-
-        s10.setPosition(dimx/2,dimy-200);
-        window->draw(s10);
-
-        s100.setPosition(dimx/2+150,dimy-200);
-        window->draw(s100);
-    }
-    else if(jeu.joueurSolo.getBudget()>=10)
-    {
-        s1.setPosition(dimx/2-150,dimy-200);
-        window->draw(s1);
-
-        s10.setPosition(dimx/2+150,dimy-200);
-        window->draw(s10);
-    }
-    else if(jeu.joueurSolo.getBudget()>=1)
-    {
-        s1.setPosition(dimx/2,dimy-200);
-        window->draw(s1);
-    }
-
-
-    if(actionMiser==1)
-    {
-        afficherMainDeCarte(jeu.joueurSolo.mainJoueur);
-    }
-    //Largeur d'une carte = environ 230
-    //Hauteur d'une carte = environ 150
-
-    //Test affichage de deux cartes 
-    // unsigned int positionx = dimx/2-150;
-    // unsigned int positiony = dimy-700;
-    // s1deTrefles.setScale(1.5,1.5);
-    // s1deTrefles.setPosition(positionx, positiony);
-	// positionx += 150;
-    // positiony -= 50;
-	// window->draw(s1deTrefles);
-    // s1deTrefles.setPosition(positionx, positiony);
-    // positionx += 150;
-    // positiony -= 50;
-    // window->draw(s1deTrefles);
-    
-
-    // // Ecrire un titre par dessus
-    // m_window->draw(m_text);
-
-    window->display();
 }
 
-
-void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
+void sfmlJeu::afficherMainDeCarteJoueur(MainDeCarte mainJoueur)
 {
     unsigned int positionx = dimx/2-150;
     unsigned int positiony = dimy-700;
@@ -960,97 +1151,206 @@ void sfmlJeu::afficherMainDeCarte(MainDeCarte mainJoueur)
 }
 
 
-void sfmlJeu::sfmlBoucle () {
 
-    actionMiser = 0;
-    actionJouer = 0;
 
-    while (window->isOpen())
+void sfmlJeu::sfmlAff() 
+{
+    window->clear(Color(230, 240, 255, 255)); 
+    rsFond.setSize(Vector2f(dimx,dimy));
+    window->draw(rsFond);
+
+    s1.setScale(1.75,1.75);
+    s10.setScale(1.75,1.75);
+    s100.setScale(1.75,1.75);
+    s1000.setScale(1.75,1.75);
+
+
+    if(actionMiser==1)
+    {
+        afficherMainDeCarteCroupier(jeu.mainCroupier);
+        afficherMainDeCarteJoueur(jeu.joueurSolo.mainJoueur);
+        sRester.setPosition(dimx-200,dimy-100);
+        window->draw(sRester);
+        sTirer.setPosition(dimx-200,dimy-200);
+        window->draw(sTirer);
+        if((jeu.joueurSolo.mainJoueur.getNbCartes()==2) && (jeu.joueurSolo.getBudget()>=jeu.joueurSolo.getMise())) //si le joueur peut doubler (2 cartes et peut doubler sa mise)
+        {
+            sDoubler.setPosition(dimx-200,dimy-300);
+            window->draw(sDoubler);
+        }
+        else    //on déplace le sprite de doubler hors de la fenetre pour s'assurer que le joueur ne puisse doubler
+        {
+            sDoubler.setPosition(dimx+1,dimy+1);
+            window->draw(sDoubler);
+        }
+    }
+    else if(jeu.joueurSolo.getBudget()>=1000)
+    {
+        s1.setPosition(dimx/2-225,dimy-200);
+        window->draw(s1);
+
+        s10.setPosition(dimx/2-75,dimy-200);
+        window->draw(s10);
+
+        s100.setPosition(dimx/2+75,dimy-200);
+        window->draw(s100);
+
+        s1000.setPosition(dimx/2+225,dimy-200);
+        window->draw(s1000);
+    }
+    else if(jeu.joueurSolo.getBudget()>=100)
+    {
+        s1.setPosition(dimx/2-150,dimy-200);
+        window->draw(s1);
+
+        s10.setPosition(dimx/2,dimy-200);
+        window->draw(s10);
+
+        s100.setPosition(dimx/2+150,dimy-200);
+        window->draw(s100);
+    }
+    else if(jeu.joueurSolo.getBudget()>=10)
+    {
+        s1.setPosition(dimx/2-150,dimy-200);
+        window->draw(s1);
+
+        s10.setPosition(dimx/2+150,dimy-200);
+        window->draw(s10);
+    }
+    else if(jeu.joueurSolo.getBudget()>=1)
+    {
+        s1.setPosition(dimx/2,dimy-200);
+        window->draw(s1);
+    }
+    // if(actionMiser==1)
+    // {
+    //     afficherMainDeCarteCroupier(jeu.mainCroupier);
+    //     afficherMainDeCarteJoueur(jeu.joueurSolo.mainJoueur);
+    //     sRester.setPosition(dimx-200,dimy-100);
+    //     window->draw(sRester);
+    //     sTirer.setPosition(dimx-200,dimy-200);
+    //     window->draw(sTirer);
+    //     if((jeu.joueurSolo.mainJoueur.getNbCartes()==2) && (jeu.joueurSolo.getBudget()>=jeu.joueurSolo.getMise())) //si le joueur peut doubler (2 cartes et peut doubler sa mise)
+    //     {
+    //         sDoubler.setPosition(dimx-200,dimy-300);
+    //         window->draw(sDoubler);
+    //     }
+    //     else    //on déplace le sprite de doubler hors de la fenetre pour s'assurer que le joueur ne puisse doubler
+    //     {
+    //         sDoubler.setPosition(dimx+1,dimy+1);
+    //         window->draw(sDoubler);
+    //     }
+    // }
+
+
+    //Largeur d'une carte = environ 230
+    //Hauteur d'une carte = environ 150
+
+    // Test affichage de deux cartes 
+    // unsigned int positionx = dimx/2-150;
+    // unsigned int positiony = dimy-700;
+    // s1deTrefles.setScale(1.5,1.5);
+    // s1deTrefles.setPosition(positionx, positiony);
+	// positionx += 150;
+    // positiony -= 50;
+	// window->draw(s1deTrefles);
+    // s1deTrefles.setPosition(positionx, positiony);
+    // positionx += 150;
+    // positiony -= 50;
+    // window->draw(s1deTrefles);
+    
+
+    // // Ecrire un titre par dessus
+    // m_window->draw(m_text);
+
+    window->display();
+}
+
+
+
+void sfmlJeu::sfmlBoucle() {
+
+    while ((window->isOpen())&&(jeu.joueurSolo.testArgentJoueur()))
     {
         Event event;
 
-        while (window->pollEvent(event))
+        while(window->pollEvent(event))
         {
-            if (event.type == Event::Closed)
+            if (event.type == Event::Closed)   
             window->close();
 
-            if (event.type == Event::MouseButtonPressed)
-			{
+            if(event.type == Event::MouseButtonPressed)
+            {
+                if(event.key.code == Mouse::Left)
+                {
+                    float x = Mouse::getPosition(*window).x;
+                    float y = Mouse::getPosition(*window).y;
 
-				if (event.key.code == Mouse::Left)
-				{
-					float x = Mouse::getPosition(*window).x;
-					float y = Mouse::getPosition(*window).y;
-
-                    // si le joueur n'a pas misé 
-                    if(actionMiser==0)
+                    switch(actionMiser)
                     {
+                        case 0 :
                             if(s1.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 1 
                             {
                                 jeu.initialisationMise('a');    //correspond pour l'instant à une mise de 100
+                                jeu.initialisationJeu();
                                 actionMiser=1;
                             }
                             else if(s10.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 10 
                             {
                                 jeu.initialisationMise('z');    //correspond pour l'instant à une mise de 200
+                                jeu.initialisationJeu();
                                 actionMiser=1;
                             }
                             else if(s100.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 100 
                             {
                                 jeu.initialisationMise('r');    //correspond pour l'instant à une mise de 500
+                                jeu.initialisationJeu();
                                 actionMiser=1;
                             }
                             else if(s1000.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 1000 
                             {
                                 jeu.initialisationMise('t');    //correspond pour l'instant à une mise de 1000
+                                jeu.initialisationJeu();
                                 actionMiser=1;
                             }
+                            break;
+                        case 1 :
+                            if(jeu.joueurSolo.mainJoueur.getJoueToujours())
+                            {
+                                if(sDoubler.getGlobalBounds().contains(x,y))  //on appuie sur le bouton doubler
+                                {
+                                    jeu.actionClavier('d');    //on double
+                                }
+                                else if(sTirer.getGlobalBounds().contains(x,y))  //on appuie sur le bouton tirer
+                                {
+                                    jeu.actionClavier('t');    //on tire
+                                }
+                                else if(sRester.getGlobalBounds().contains(x,y))  //on appuie sur le bouton rester
+                                {
+                                    jeu.actionClavier('r');    //on reste
+                                }
+                            }
+                            else
+                            {
+                                jeu.actionCroupier();
+                                finJeu=1;
+                            }
+                            break;
                     }
 
-                    // si le joueur a misé alors on initialise le jeu
-                    
-                    if(actionMiser==1)
+                    if(finJeu==1)
                     {
-                        jeu.initialisationJeu();
+                        jeu.resultat();
+                        jeu.finJeu();
+                        actionMiser=0;
+                        finJeu=0;
                     }
-    
-            
-
-
-
-
-            // if (event.type == Event::KeyPressed) 
-            // {
-    //             switch (event.key.code) 
-    //             {
-    //                  case Keyboard::Up : 
-                            // mangePastille = jeu.actionClavier('b');    // car Y inverse
-	// 				        break;
-	// 			        case Keyboard::Down : 
-    //                      mangePastille = jeu.actionClavier('h');     // car Y inverse
-	// 				        break;
-	// 			        case Keyboard::Left : 
-    //                      mangePastille = jeu.actionClavier('g');
-	// 				        break;
-	// 			        case Keyboard::Right : 
-    //                      mangePastille = jeu.actionClavier('d');
-	// 				        break;
-    //                  default : break;
-    //             }
-
-    //             if (mangePastille) m_sound.play();
                 }
             }
-
-        sfmlAff();
-    }
-
+            sfmlAff();
+        }
     }
 }
-
-
-
-
 
 
 

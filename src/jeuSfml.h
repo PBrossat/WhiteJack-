@@ -178,7 +178,7 @@ private :
     unsigned int dimy;
 
     bool actionMiser;
-    bool actionJouer;
+    bool finJeu;
 
     // sf::Font m_font;
     // sf::Text m_text;
@@ -188,10 +188,13 @@ private :
 
 public :
 
+//AJOUTER LES CONST
+
     sfmlJeu ();
     ~sfmlJeu ();
 
-    void afficherMainDeCarte(MainDeCarte mainJoueur);
+    void afficherMainDeCarteJoueur(MainDeCarte mainJoueur);
+    void afficherMainDeCarteCroupier(MainDeCarte mainJoueur);
     void sfmlInit();
     void sfmlBoucle();
     void sfmlAff();

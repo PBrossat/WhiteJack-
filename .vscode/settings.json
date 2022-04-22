@@ -4,6 +4,7 @@
         "cassert": "cpp",
         "atomic": "cpp",
         "ios": "cpp",
-        "__node_handle": "cpp"
+        "__node_handle": "cpp",
+        "iostream": "cpp"
     }
 }
