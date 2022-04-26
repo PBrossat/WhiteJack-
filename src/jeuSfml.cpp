@@ -11,6 +11,7 @@ using namespace std;
 
 sfmlJeu::sfmlJeu () : jeu() {
     sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
+    
     window = new RenderWindow(desktop, "BlackJack");
     dimx = window->getSize().x;
     dimy = window->getSize().y;
