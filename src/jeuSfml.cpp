@@ -2,11 +2,9 @@
 #include <time.h>
 #include "jeuSfml.h"
 #include <stdlib.h>
-
+#include <iostream>
 
 using namespace sf;
-
-#include <iostream>
 using namespace std;
 
 sfmlJeu::sfmlJeu () : jeu() {
@@ -1222,25 +1220,7 @@ void sfmlJeu::sfmlAff()
         s1.setPosition(dimx/2,dimy-200);
         window->draw(s1);
     }
-    // if(actionMiser==1)
-    // {
-    //     afficherMainDeCarteCroupier(jeu.mainCroupier);
-    //     afficherMainDeCarteJoueur(jeu.joueurSolo.mainJoueur);
-    //     sRester.setPosition(dimx-200,dimy-100);
-    //     window->draw(sRester);
-    //     sTirer.setPosition(dimx-200,dimy-200);
-    //     window->draw(sTirer);
-    //     if((jeu.joueurSolo.mainJoueur.getNbCartes()==2) && (jeu.joueurSolo.getBudget()>=jeu.joueurSolo.getMise())) //si le joueur peut doubler (2 cartes et peut doubler sa mise)
-    //     {
-    //         sDoubler.setPosition(dimx-200,dimy-300);
-    //         window->draw(sDoubler);
-    //     }
-    //     else    //on déplace le sprite de doubler hors de la fenetre pour s'assurer que le joueur ne puisse doubler
-    //     {
-    //         sDoubler.setPosition(dimx+1,dimy+1);
-    //         window->draw(sDoubler);
-    //     }
-    // }
+   
 
 
     //Largeur d'une carte = environ 230
@@ -1327,7 +1307,7 @@ void sfmlJeu::sfmlBoucle() {
                                 }
                                 else if(sRester.getGlobalBounds().contains(x,y))  //on appuie sur le bouton rester
                                 {
-                                    jeu.actionClavier('r');    //on reste
+                                    jeu.actionClavier('r');    
                                 }
                             }
                             else
