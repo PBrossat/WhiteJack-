@@ -89,10 +89,12 @@ private :
     sf::Texture t1;
     sf::Texture t10;
     sf::Texture t100;
-    sf::Texture t1000;
+    sf::Texture t250;
+    sf::Texture t500;
     sf::Texture tTirer;
     sf::Texture tDoubler;
     sf::Texture tRester;
+    sf::Texture tChanger;
   
 
 
@@ -167,10 +169,12 @@ private :
     sf::Sprite s1;
     sf::Sprite s10;
     sf::Sprite s100;
-    sf::Sprite s1000;
+    sf::Sprite s250;
+    sf::Sprite s500;
     sf::Sprite sTirer;
     sf::Sprite sDoubler;
     sf::Sprite sRester;
+    sf::Sprite sChanger;
 
     sf::RectangleShape rsFond;
 

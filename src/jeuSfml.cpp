@@ -558,42 +558,59 @@ void sfmlJeu::sfmlInit() {
         s100.setTexture(t100);
     }
 
-    if (!t1000.loadFromFile("data/1000.png")) 
+    if (!t250.loadFromFile("data/250.png")) 
     {
-        cout << "Error data/1000.png non found" << endl;
+        cout << "Error data/250.png non found" << endl;
     }
     else 
     {
-        s1000.setTexture(t1000);
+        s250.setTexture(t250);
     }
 
-    if (!tDoubler.loadFromFile("data/double.png")) 
+    if (!t500.loadFromFile("data/500.png")) 
     {
-        cout << "Error data/double.png non found" << endl;
+        cout << "Error data/500.png non found" << endl;
+    }
+    else 
+    {
+        s500.setTexture(t500);
+    }
+
+    if (!tDoubler.loadFromFile("data/doubler.png")) 
+    {
+        cout << "Error data/doubler.png non found" << endl;
     }
     else 
     {
         sDoubler.setTexture(tDoubler);
     }
 
-    if (!tRester.loadFromFile("data/stand.png")) 
+    if (!tRester.loadFromFile("data/rester.png")) 
     {
-        cout << "Error data/stand.png non found" << endl;
+        cout << "Error data/rester.png non found" << endl;
     }
     else 
     {
         sRester.setTexture(tRester);
     }
 
-    if (!tTirer.loadFromFile("data/hit.png")) 
+    if (!tTirer.loadFromFile("data/tirer.png")) 
     {
-        cout << "Error data/hit.png non found" << endl;
+        cout << "Error data/tirer.png non found" << endl;
     }
     else 
     {
         sTirer.setTexture(tTirer);
     }
 
+    if (!tChanger.loadFromFile("data/changer.png")) 
+    {
+        cout << "Error data/changer.png non found" << endl;
+    }
+    else 
+    {
+        sChanger.setTexture(tChanger);
+    }
 
 
     // if (!m_font.loadFromFile("data/DejaVuSansCondensed.ttf")) {cout << "Error data/DejaVuSansCondensed.ttf non found" << endl;}
@@ -1161,7 +1178,8 @@ void sfmlJeu::sfmlAff()
     s1.setScale(1.75,1.75);
     s10.setScale(1.75,1.75);
     s100.setScale(1.75,1.75);
-    s1000.setScale(1.75,1.75);
+    s250.setScale(1.75,1.75);
+    s500.setScale(1.75,1.75);
 
 
     if(actionMiser==1)
@@ -1176,14 +1194,18 @@ void sfmlJeu::sfmlAff()
         {
             sDoubler.setPosition(dimx-200,dimy-300);
             window->draw(sDoubler);
+            sChanger.setPosition(dimx-200,dimy-400);
+            window->draw(sChanger);
         }
         else    //on déplace le sprite de doubler hors de la fenetre pour s'assurer que le joueur ne puisse doubler
         {
             sDoubler.setPosition(dimx+1,dimy+1);
+            sChanger.setPosition(dimx+1,dimy+1);
             window->draw(sDoubler);
+            window->draw(sChanger);
         }
     }
-    else if(jeu.joueurSolo.getBudget()>=1000)
+    else if(jeu.joueurSolo.getBudget()>=500)
     {
         s1.setPosition(dimx/2-225,dimy-200);
         window->draw(s1);
@@ -1194,8 +1216,25 @@ void sfmlJeu::sfmlAff()
         s100.setPosition(dimx/2+75,dimy-200);
         window->draw(s100);
 
-        s1000.setPosition(dimx/2+225,dimy-200);
-        window->draw(s1000);
+        s250.setPosition(dimx/2+225,dimy-200);
+        window->draw(s250);
+
+        s500.setPosition(dimx/2+375,dimy-200);
+        window->draw(s500);
+    }
+    else if(jeu.joueurSolo.getBudget()>=250)
+    {
+        s1.setPosition(dimx/2-150,dimy-200);
+        window->draw(s1);
+
+        s10.setPosition(dimx/2-75,dimy-200);
+        window->draw(s10);
+
+        s100.setPosition(dimx/2+75,dimy-200);
+        window->draw(s100);
+
+        s250.setPosition(dimx/2+225,dimy-200);
+        window->draw(s250);
     }
     else if(jeu.joueurSolo.getBudget()>=100)
     {
@@ -1251,7 +1290,7 @@ void sfmlJeu::sfmlAff()
 
 void sfmlJeu::sfmlBoucle() {
 
-    while ((window->isOpen())&&(jeu.joueurSolo.testArgentJoueur()))
+    while ((window->isOpen())&&(jeu.joueurSolo.testArgentJoueur())) //jeu.joueurSolo.getBudget()>=1
     {
         Event event;
 
@@ -1266,6 +1305,14 @@ void sfmlJeu::sfmlBoucle() {
                 {
                     float x = Mouse::getPosition(*window).x;
                     float y = Mouse::getPosition(*window).y;
+
+                      if(finJeu==1)
+                    {
+                        jeu.resultat();
+                        jeu.finJeu();
+                        actionMiser=0;
+                        finJeu=0;
+                    }
 
                     switch(actionMiser)
                     {
@@ -1284,47 +1331,65 @@ void sfmlJeu::sfmlBoucle() {
                             }
                             else if(s100.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 100 
                             {
-                                jeu.initialisationMise('r');    //correspond pour l'instant à une mise de 500
+                                jeu.initialisationMise('e');    //correspond pour l'instant à une mise de 500
                                 jeu.initialisationJeu();
                                 actionMiser=1;
                             }
-                            else if(s1000.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 1000 
+                            else if(s250.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 1000 
+                            {
+                                jeu.initialisationMise('r');    //correspond pour l'instant à une mise de 1000
+                                jeu.initialisationJeu();
+                                actionMiser=1;
+                            }
+                            else if(s500.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 1000 
                             {
                                 jeu.initialisationMise('t');    //correspond pour l'instant à une mise de 1000
                                 jeu.initialisationJeu();
                                 actionMiser=1;
                             }
                             break;
+                        
                         case 1 :
                             if(jeu.joueurSolo.mainJoueur.getJoueToujours())
                             {
                                 if(sDoubler.getGlobalBounds().contains(x,y))  //on appuie sur le bouton doubler
                                 {
                                     jeu.actionClavier('d');    //on double
+                                    if(!jeu.joueurSolo.mainJoueur.getJoueToujours())
+                                    {
+                                        jeu.actionCroupier();
+                                        finJeu=1;
+                                    }
                                 }
                                 else if(sTirer.getGlobalBounds().contains(x,y))  //on appuie sur le bouton tirer
                                 {
                                     jeu.actionClavier('t');    //on tire
+                                    if(!jeu.joueurSolo.mainJoueur.getJoueToujours())
+                                    {
+                                        jeu.actionCroupier();
+                                        finJeu=1;
+                                    }
                                 }
                                 else if(sRester.getGlobalBounds().contains(x,y))  //on appuie sur le bouton rester
                                 {
-                                    jeu.actionClavier('r');    
+                                    jeu.actionClavier('r'); 
+                                    if(!jeu.joueurSolo.mainJoueur.getJoueToujours())
+                                    {
+                                        jeu.actionCroupier();
+                                        finJeu=1;
+                                    } 
                                 }
-                            }
-                            else
-                            {
-                                jeu.actionCroupier();
-                                finJeu=1;
+                                // else if(sChanger.getGlobalBounds().contains(x,y))  //on appuie sur le bouton rester
+                                // {
+                                //     jeu.actionClavier('r'); 
+                                //     if(!jeu.joueurSolo.mainJoueur.getJoueToujours())
+                                //     {
+                                //         jeu.actionCroupier();
+                                //         finJeu=1;
+                                //     } 
+                                // }
                             }
                             break;
-                    }
-
-                    if(finJeu==1)
-                    {
-                        jeu.resultat();
-                        jeu.finJeu();
-                        actionMiser=0;
-                        finJeu=0;
                     }
                 }
             }
@@ -1333,5 +1398,5 @@ void sfmlJeu::sfmlBoucle() {
     }
 }
 
-
+//une classe application qui contient un menu (classe) et un jeu (une classe)
 

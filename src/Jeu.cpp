@@ -24,15 +24,15 @@ void Jeu::initialisationMise(const char touche)
 	switch(touche)
 	{
 		case 'a' :
-			if(joueurSolo.getBudget()>=100) joueurSolo.setMise(100);
+			if(joueurSolo.getBudget()>=50) joueurSolo.setMise(50);
 			break;
 
 		case 'z' :
-			if(joueurSolo.getBudget()>=200) joueurSolo.setMise(200);
+			if(joueurSolo.getBudget()>=100) joueurSolo.setMise(100);
 			break;
 
 		case 'e' :
-			if(joueurSolo.getBudget()>=300) joueurSolo.setMise(300);
+			if(joueurSolo.getBudget()>=250) joueurSolo.setMise(250);
 			break;
 
 		case 'r' :
@@ -91,6 +91,15 @@ void Jeu::actionClavier(const char touche)
 		case 'r' :
 		{
 			joueurSolo.mainJoueur.rester();
+			break;
+		}
+		case 'c' :
+		{
+			assert((joueurSolo.mainJoueur.getNbCartes()==2) && (joueurSolo.getBudget()>=joueurSolo.getMise()));	//+ condiiton deux cartes de mêmes valeurs ou deux as
+			joueurSolo.miser(joueurSolo.getMise());
+			joueurSolo.setMise(joueurSolo.getMise()*2);
+			Carte carteTiree = unDeck.distribuerCarte();
+			joueurSolo.mainJoueur.changeCarte(carteTiree);
 			break;
 		}
 	}
