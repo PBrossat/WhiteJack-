@@ -324,7 +324,6 @@ void MainDeCarte::testRegression() const
     mainChange.veutChanger=1;
     mainChange.changeCarte(carteAjouteeChange);
     assert (mainChange.getSommeValeur()==17);
-    cout<<mainChange.mainDeJoueur.size()<<endl;
     assert (mainChange.getNbCartes()==2);
     //assert(mainChange.getIemeCarte(0)==carteAsChange); //verifie que la premiere carte du tableau est bien l'as 
     assert(mainChange.getIemeCarte(1)==carteAjouteeChange);
