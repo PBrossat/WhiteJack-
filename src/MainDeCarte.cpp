@@ -320,7 +320,10 @@ void MainDeCarte::testRegression() const
 
     Carte carteAjouteeChange (6,6,1);
     Carte carteAsChange (1,1,1);
-    MainDeCarte mainChange(carteAsChange, carteAsChange); // création d'une main avec deux as
+    // MainDeCarte mainChange(carteAsChange, carteAsChange); // création d'une main avec deux as
+    MainDeCarte mainChange;
+    mainChange.tirerCarte(carteAsChange);
+    mainChange.tirerCarte(carteAsChange);
     mainChange.veutChanger=1;
     mainChange.changeCarte(carteAjouteeChange);
     assert (mainChange.getSommeValeur()==17);
