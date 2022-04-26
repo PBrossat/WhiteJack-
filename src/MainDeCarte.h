@@ -71,6 +71,8 @@ class MainDeCarte
 
 
 
+    void changeCarte(const Carte& carteAjoutee, bool veutChanger);
+
 
     /**
     * @brief Permet de splitter son jeu lorsque le joueur à deux carte d'une même valeur
@@ -201,28 +203,28 @@ class MainDeCarte
     unsigned int getNbCartes () const;
 
 
-    /**
-    * @brief   Accesseur : récupère le nombre de jeux du joueur 
-    * @return  unsigned int 
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * unsigned int NbJeu = uneMainDeCarte.getNbJeu();
-    * @endcode       
-    */ 
-    unsigned int getNbJeu() const;
+    // /**
+    // * @brief   Accesseur : récupère le nombre de jeux du joueur 
+    // * @return  unsigned int 
+    // * 
+    // * Exemple d'utilisation :
+    // * @code
+    // * unsigned int NbJeu = uneMainDeCarte.getNbJeu();
+    // * @endcode       
+    // */ 
+    // unsigned int getNbJeu() const;
 
 
-    /**
-    * @brief   Mutateur : permet de changer le nombre de jeux du joueur 
-    * @return  void  
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * uneMainDeCarte.setNbJeu(2);
-    * @endcode  
-    */    
-    void setNbJeu(unsigned int nbJeu);
+    // /**
+    // * @brief   Mutateur : permet de changer le nombre de jeux du joueur 
+    // * @return  void  
+    // * 
+    // * Exemple d'utilisation :
+    // * @code
+    // * uneMainDeCarte.setNbJeu(2);
+    // * @endcode  
+    // */    
+    // void setNbJeu(unsigned int nbJeu);
 
 
 
@@ -239,7 +241,6 @@ class MainDeCarte
 
 
 
-
     /**
      * @brief   Accesseur : récupère le booléen permettant de savoir si le joueur a cramé.
      * @return  bool
@@ -250,6 +251,33 @@ class MainDeCarte
      * @endcode       
      */   
     bool getCrame () const;
+
+
+
+    /**
+     * @brief   Accesseur : récupère le booléen permettant de savoir si le joueur veut changer une carte si il a deux cartes identiques.
+     * @return  bool
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * uneMainDeCarte.getVeuChanger();
+     * @endcode   
+     * @warning Le joueur ne peut changer sa carte que si il a deux cartes identiques lorsque le croupier lui a distribué ses deux cartes.  
+     */   
+    bool getVeutChanger()const;
+
+
+
+    /**
+    * @brief   Mutateur : permet de changer l'état du booléen. 
+    * @return  void  
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * uneMainDeCarte.setVeutChanger();
+    * @endcode  
+    */ 
+    void setVeutChanger();
 
 
 
@@ -291,16 +319,21 @@ class MainDeCarte
     //nbCartes désigne le nombre de cartes qu'a le joueur dans sa main 
     unsigned int nbCartes;
 
-    //nbJeu désigne le nombre de jeux qu'a le joueur dans sa main
-    unsigned int nbJeu; 
+
+    // nbJeu désigne le nombre de jeux qu'a le joueur dans sa main
+    // unsigned int nbJeu; 
 
 
     //Booléen permettant de savoir si le joueur joue encore.
     bool joueToujours;
 
 
-    //Booléen permettant de savoir si la valeur de la somme de ses cartes est supérieur à 21 (0= pas cramé, 1= il a cramé)
+    //Booléen permettant de savoir si la valeur de la somme de ses cartes est supérieur à 21 (0= pas cramé, 1= il a cramé).
     bool crame;
+
+
+    //Booléen permettant de savoir si le joueur veut changer si il a deux cartes identiques.
+    bool veutChanger;
     
 
 
