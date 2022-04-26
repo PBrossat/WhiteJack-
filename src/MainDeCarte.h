@@ -71,7 +71,7 @@ class MainDeCarte
 
 
 
-    void changeCarte(const Carte& carteAjoutee, bool veutChanger);
+    void changeCarte(const Carte& carteAjoutee);
 
 
     /**

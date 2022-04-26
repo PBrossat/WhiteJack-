@@ -5,6 +5,7 @@
         "atomic": "cpp",
         "ios": "cpp",
         "__node_handle": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "vector": "cpp"
     }
 }
