@@ -8,6 +8,12 @@ using namespace sf;
 using namespace std;
 
 sfmlJeu::sfmlJeu () : jeu() { 
+
+    // sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
+    
+    // window = new RenderWindow(desktop, "BlackJack");
+
+
     window = new RenderWindow(VideoMode(1400,750), "BlackJack");
     dimx = window->getSize().x;
     dimy = window->getSize().y;
@@ -1173,11 +1179,11 @@ void sfmlJeu::sfmlAff()
     rsFond.setSize(Vector2f(dimx,dimy));
     window->draw(rsFond);
 
-    // s1.setScale(1.75,1.75);
-    // s10.setScale(1.75,1.75);
-    // s100.setScale(1.75,1.75);
-    // s250.setScale(1.75,1.75);
-    // s500.setScale(1.75,1.75);
+    s1.setScale(1.75,1.75);
+    s10.setScale(1.75,1.75);
+    s100.setScale(1.75,1.75);
+    s250.setScale(1.75,1.75);
+    s500.setScale(1.75,1.75);
 
 
     if(actionMiser==1)
@@ -1211,7 +1217,7 @@ void sfmlJeu::sfmlAff()
         s10.setPosition(dimx/2-75,dimy-200);
         window->draw(s10);
 
-        s100.setPosition(dimx/2+75,dimy-200);
+        s100.setPosition(dimx/2,dimy-100);
         window->draw(s100);
 
         s250.setPosition(dimx/2+225,dimy-200);
