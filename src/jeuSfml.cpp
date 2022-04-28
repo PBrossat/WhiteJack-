@@ -894,7 +894,7 @@ void sfmlJeu::afficherMainDeCarteCroupier(MainDeCarte mainJoueur)
 				}
 			}
 			carte.setPosition(positionx, positiony);
-            carte.setScale(1.5,1.5);
+            //carte.setScale(1.5,1.5);
 			positionx += 150;
             positiony -= 50;
 			window->draw(carte);
@@ -1157,7 +1157,7 @@ void sfmlJeu::afficherMainDeCarteJoueur(MainDeCarte mainJoueur)
 				}
 			}
 			carte.setPosition(positionx, positiony);
-            carte.setScale(1.5,1.5);
+            //carte.setScale(1.5,1.5);
 			positionx += 150;
             positiony -= 50;
 			window->draw(carte);
@@ -1173,11 +1173,11 @@ void sfmlJeu::sfmlAff()
     rsFond.setSize(Vector2f(dimx,dimy));
     window->draw(rsFond);
 
-    s1.setScale(1.75,1.75);
-    s10.setScale(1.75,1.75);
-    s100.setScale(1.75,1.75);
-    s250.setScale(1.75,1.75);
-    s500.setScale(1.75,1.75);
+    // s1.setScale(1.75,1.75);
+    // s10.setScale(1.75,1.75);
+    // s100.setScale(1.75,1.75);
+    // s250.setScale(1.75,1.75);
+    // s500.setScale(1.75,1.75);
 
 
     if(actionMiser==1)
