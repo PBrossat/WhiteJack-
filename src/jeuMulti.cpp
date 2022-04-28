@@ -784,7 +784,7 @@ void jeuMulti::testRegression() const
     assert (jeuIAExpert5.tabJoueur[2].mainJoueur.getNbCartes()>=2);
     assert (jeuIAExpert5.tabJoueur[2].mainJoueur.getIemeCarte(0).getValeur()==9);
     assert (jeuIAExpert5.tabJoueur[3].mainJoueur.getNbCartes()>=2);
-     assert (jeuIAExpert5.tabJoueur[3].mainJoueur.getIemeCarte(0).getValeur()==2);
+    assert (jeuIAExpert5.tabJoueur[3].mainJoueur.getIemeCarte(0).getValeur()==2);
 
     
     cout<<"Test de jeuIAIntermediaire4() OK"<<endl;

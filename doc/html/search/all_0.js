@@ -6,5 +6,7 @@ var searchData=
   ['actionexpert_3',['actionExpert',['../classjeu_multi.html#aa886e4041247153c09b996b5850d922e',1,'jeuMulti']]],
   ['actionia_4',['actionIA',['../classjeu_multi.html#a4ddc7d1abbd4ab7ba3e65756a6f8d2f5',1,'jeuMulti']]],
   ['actionintermediaire_5',['actionIntermediaire',['../classjeu_multi.html#acab71701608fb1168651a00e817adfe4',1,'jeuMulti']]],
-  ['affichermaindecarte_6',['afficherMainDeCarte',['../classsfml_jeu.html#a56f4388033e4632993158c26a3cb1943',1,'sfmlJeu::afficherMainDeCarte()'],['../jeu_txt_8cpp.html#a4bc47ff6c2aaf7dd45d8e2387fa38f49',1,'afficherMainDeCarte(MainDeCarte mainJoueur):&#160;jeuTxt.cpp'],['../jeu_txt_8h.html#a2ddef95e802acd23d56a0dad039f4e69',1,'afficherMainDeCarte(const MainDeCarte &amp;mainJoueur):&#160;jeuTxt.h']]]
+  ['affichermaindecarte_6',['afficherMainDeCarte',['../jeu_txt_8cpp.html#a4bc47ff6c2aaf7dd45d8e2387fa38f49',1,'afficherMainDeCarte(MainDeCarte mainJoueur):&#160;jeuTxt.cpp'],['../jeu_txt_8h.html#a2ddef95e802acd23d56a0dad039f4e69',1,'afficherMainDeCarte(const MainDeCarte &amp;mainJoueur):&#160;jeuTxt.h']]],
+  ['affichermaindecartecroupier_7',['afficherMainDeCarteCroupier',['../classsfml_jeu.html#abef4de8889b60f1d696f4d59bb4bce2e',1,'sfmlJeu']]],
+  ['affichermaindecartejoueur_8',['afficherMainDeCarteJoueur',['../classsfml_jeu.html#ada4433f8dc5640d0839cc2b211caa357',1,'sfmlJeu']]]
 ];
