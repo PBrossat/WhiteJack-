@@ -7,10 +7,8 @@
 using namespace sf;
 using namespace std;
 
-sfmlJeu::sfmlJeu () : jeu() {
-    sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
-    
-    window = new RenderWindow(desktop, "BlackJack");
+sfmlJeu::sfmlJeu () : jeu() { 
+    window = new RenderWindow(VideoMode(3000,1500), "BlackJack");
     dimx = window->getSize().x;
     dimy = window->getSize().y;
     actionMiser=0;
