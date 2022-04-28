@@ -254,32 +254,6 @@ class MainDeCarte
 
 
 
-    /**
-     * @brief   Accesseur : récupère le booléen permettant de savoir si le joueur veut changer une carte si il a deux cartes identiques.
-     * @return  bool
-     * 
-     * Exemple d'utilisation :
-     * @code
-     * uneMainDeCarte.getVeuChanger();
-     * @endcode   
-     * @warning Le joueur ne peut changer sa carte que si il a deux cartes identiques lorsque le croupier lui a distribué ses deux cartes.  
-     */   
-    bool getVeutChanger()const;
-
-
-
-    /**
-    * @brief   Mutateur : permet de changer l'état du booléen. 
-    * @return  void  
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * uneMainDeCarte.setVeutChanger();
-    * @endcode  
-    */ 
-    void setVeutChanger();
-
-
 
      /**
      * @brief Vide la main de carte du joueur (la réinitialise)
@@ -330,12 +304,6 @@ class MainDeCarte
 
     //Booléen permettant de savoir si la valeur de la somme de ses cartes est supérieur à 21 (0= pas cramé, 1= il a cramé).
     bool crame;
-
-
-    //Booléen permettant de savoir si le joueur veut changer si il a deux cartes identiques.
-    bool veutChanger;
-    
-
 
 };
 

@@ -108,16 +108,10 @@ void MainDeCarte::changeCarte (const Carte& carteAjoutee)
 {
     if ((nbCartes==2)&&((getIemeCarte(0).getValeur()==getIemeCarte(1).getValeur())||((getIemeCarte(0).getRang()==1)&&(getIemeCarte(1).getRang()==1))))
     {
-        if (veutChanger==1)
-        {   
-            
             sommeValeur=sommeValeur-getIemeCarte(1).getValeur(); //maj de sommeValeur
             mainDeJoueur.pop_back(); //on supprime la deuxieme carte de la main
             nbCartes--;
             tirerCarte(carteAjoutee); // on obtient une nouvelle carte
-            veutChanger=0;
-
-        }
     }
 }
 
@@ -151,18 +145,6 @@ unsigned int MainDeCarte::getNbCartes () const
 }
 
 
-// unsigned int MainDeCarte::getNbJeu() const 
-// {
-//     return nbJeu;
-// }
-
-
-// void MainDeCarte::setNbJeu(unsigned int NbJeu)
-// {
-//     nbJeu=NbJeu;
-// }
-
-
 bool MainDeCarte::getJoueToujours () const
 {
     return joueToujours;
@@ -174,19 +156,6 @@ bool MainDeCarte::getCrame () const
 {
     return crame;
 }
-
-bool MainDeCarte::getVeutChanger()const
-{
-    return veutChanger;
-}
-
-
-
-void MainDeCarte::setVeutChanger()
-{
-    veutChanger=!veutChanger;
-}
-
 
 
 void MainDeCarte::vider()
@@ -321,7 +290,6 @@ void MainDeCarte::testRegression() const
     MainDeCarte mainChange;
     mainChange.tirerCarte(carteAsChange);
     mainChange.tirerCarte(carteAsChange);// création d'une main avec deux as
-    mainChange.veutChanger=1;
     mainChange.changeCarte(carteAjouteeChange);
     assert (mainChange.getSommeValeur()==17);
     assert (mainChange.getNbCartes()==2);
@@ -329,23 +297,20 @@ void MainDeCarte::testRegression() const
     assert(mainChange.getIemeCarte(1)==carteAjouteeChange);
     //assert (carteAsChange==mainChange.mainDeJoueur[0]); // test si carte1 est bien la même carte que la carte d'indice 0 du tableau de la main de joueur.
     assert (carteAjouteeChange==mainChange.mainDeJoueur[1]); // test si carte2 est bien la même carte que la carte d'indice 1 du tableau de la main de joueur.
-    assert (mainChange.veutChanger==0);    
+    
     
 
 
     Carte carteAjouteeChange2 (7,7,1);
     Carte  carteDouble2(2,2,1);
     MainDeCarte mainChange2(carteDouble2,carteDouble2);
-    // mainChange2.tirerCarte(carteDouble2);
-    // mainChange2.tirerCarte(carteDouble2);
+ 
     
-    mainChange2.veutChanger=1;
     mainChange2.changeCarte(carteAjouteeChange2);
     assert (mainChange2.getSommeValeur()==9);
     assert (mainChange2.getNbCartes()==2);
     assert(mainChange2.getIemeCarte(1)==carteAjouteeChange2);
     assert (carteAjouteeChange2==mainChange2.mainDeJoueur[1]); // test si carteAjouteeChange2 est bien la même carte que la carte d'indice 1 du tableau de la main de joueur.
-    assert (mainChange2.veutChanger==0);
     cout<<"Test de la procédure changeCarte() réalisé avec succès"<<endl;
 
 

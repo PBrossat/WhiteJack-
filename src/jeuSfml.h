@@ -187,8 +187,8 @@ private :
     // sf::Font m_font;
     // sf::Text m_text;
 
-    // sf::SoundBuffer m_soundbuffer;
-    // sf::Sound m_sound;
+    sf::SoundBuffer m_soundbuffer;
+    sf::Sound sonMise;
 
 public :
 
