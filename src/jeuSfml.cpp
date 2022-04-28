@@ -8,7 +8,7 @@ using namespace sf;
 using namespace std;
 
 sfmlJeu::sfmlJeu () : jeu() { 
-    window = new RenderWindow(VideoMode(1900,1000), "BlackJack");
+    window = new RenderWindow(VideoMode(1400,750), "BlackJack");
     dimx = window->getSize().x;
     dimy = window->getSize().y;
     actionMiser=0;
