@@ -268,7 +268,8 @@ void jeuMulti::actionExpert()
         }
         if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==8)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==8))))
         {
-            //splitte
+            carteTiree = unDeck.distribuerCarte();
+            tabJoueur[i].mainJoueur.changeCarte(carteTiree);
         }
         if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==10)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==10)))
         //main joueur = 10 et 10 alors il reste
@@ -283,12 +284,14 @@ void jeuMulti::actionExpert()
         if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==9)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==9))&&((mainCroupier.getSommeValeur()<=6)||((mainCroupier.getSommeValeur()>=8)&&(mainCroupier.getSommeValeur()<=9)))))
         // main joueur = 9 et 9 et que le croupier à 6 ou moins ou 8 ou 9 alors il splitte
         {
-            //splitte
+            carteTiree = unDeck.distribuerCarte();
+            tabJoueur[i].mainJoueur.changeCarte(carteTiree);
         }   
         if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==7)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==7))&&((mainCroupier.getSommeValeur()<=7))))
         // main joueur = 7 et 7 et que le croupier à 7 ou moins alors il splitte
         {
-            //splitte
+            carteTiree = unDeck.distribuerCarte();
+            tabJoueur[i].mainJoueur.changeCarte(carteTiree);
         }
         if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==7)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==7))&&((mainCroupier.getSommeValeur()>=8))))
         // main joueur = 7 et 7 et que le croupier à 8 ou plus alors il tire
@@ -299,7 +302,8 @@ void jeuMulti::actionExpert()
         if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==6)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==6))&&((mainCroupier.getSommeValeur()<=6))))
         // main joueur = 6 et 6 et que le croupier à 6 ou moins alors il splitte
         {
-            //splitte
+            carteTiree = unDeck.distribuerCarte();
+            tabJoueur[i].mainJoueur.changeCarte(carteTiree);
         }
         if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==6)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==6))&&((mainCroupier.getSommeValeur()>=7))))
         // main joueur = 6 et 6 et que le croupier à 7 ou plus alors il tire
@@ -330,7 +334,8 @@ void jeuMulti::actionExpert()
         if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==4)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==4))&&((mainCroupier.getSommeValeur()>=5)&&(mainCroupier.getSommeValeur()<=6))))
         // main joueur = 4 et 4 et que le croupier à 5 ou 6 alors il splitte
         {
-            //splitte
+            carteTiree = unDeck.distribuerCarte();
+            tabJoueur[i].mainJoueur.changeCarte(carteTiree);
         }
         if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==3)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==3))&&(mainCroupier.getSommeValeur()>=8)))
         // main joueur = 3 et 3 et que le croupier à 8 ou plus alors il tire 
@@ -341,7 +346,8 @@ void jeuMulti::actionExpert()
         if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==3)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==3))&&(mainCroupier.getSommeValeur()<=7)))
         // main joueur = 3 et 3 et que le croupier à 7 ou moins il splitte
         {
-            //splitte
+            carteTiree = unDeck.distribuerCarte();
+            tabJoueur[i].mainJoueur.changeCarte(carteTiree);
         }
         if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==2)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==2))&&(mainCroupier.getSommeValeur()>=8)))
         // main joueur = 2 et 2 et que le croupier à 8 ou plus alors il tire 
@@ -353,7 +359,8 @@ void jeuMulti::actionExpert()
         if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==2)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==2))&&(mainCroupier.getSommeValeur()<=7)))
         // main joueur = 2 et 2 et que le croupier à 7 ou moins il splitte
         {
-            //splitte
+            carteTiree = unDeck.distribuerCarte();
+            tabJoueur[i].mainJoueur.changeCarte(carteTiree);
         }
         if (tabJoueur[i].mainJoueur.getSommeValeur()>=17)
         //si le score du joueur est 17 ou plus alors il reste 
@@ -763,6 +770,23 @@ void jeuMulti::testRegression() const
             assert (jeuIAIntermediaire4.tabJoueur[3].mainJoueur.getNbCartes()==2); // mode expert
         }
         
+    jeuMulti jeuIAIntermediaire5(2);
+    jeuIAIntermediaire5.tabJoueur[1].mainJoueur.tirerCarte(carteAjouteeAs);
+    jeuIAIntermediaire5.tabJoueur[1].mainJoueur.tirerCarte(carteAjouteeAs);//main du joueur = double as
+    jeuIAIntermediaire5.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee9);
+    jeuIAIntermediaire5.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee9); // main du joueur = double neuf
+    jeuIAIntermediaire5.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee2);
+    jeuIAIntermediaire5.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee2); // main du joueur = double deux
+    jeuIAIntermediaire5.mainCroupier.tirerCarte(carteAjoutee2); // le croupier à 2
+    jeuIAExpert5.actionExpert();
+    assert (jeuIAExpert5.tabJoueur[1].mainJoueur.getNbCartes()>=2);
+    assert (jeuIAExpert5.tabJoueur[1].mainJoueur.getIemeCarte(0).getRang()==1);
+    assert (jeuIAExpert5.tabJoueur[2].mainJoueur.getNbCartes()>=2);
+    assert (jeuIAExpert5.tabJoueur[2].mainJoueur.getIemeCarte(0).getValeur()==9);
+    assert (jeuIAExpert5.tabJoueur[3].mainJoueur.getNbCartes()>=2);
+     assert (jeuIAExpert5.tabJoueur[3].mainJoueur.getIemeCarte(0).getValeur()==2);
+
+    
     cout<<"Test de jeuIAIntermediaire4() OK"<<endl;
     
 
