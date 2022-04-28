@@ -12,6 +12,9 @@ obj/JeuSfml.o : src/jeuSfml.h src/jeuSfml.cpp src/Jeu.h src/Joueur.h src/Carte.h
 
 
 
+
+
+
 bin/JeuTxt : obj/mainJeuTxt.o obj/JeuTxt.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o
 	g++ -g -Wall obj/mainJeuTxt.o obj/JeuTxt.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o -o bin/JeuTxt
 

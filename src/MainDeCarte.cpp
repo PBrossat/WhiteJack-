@@ -19,15 +19,12 @@ MainDeCarte::MainDeCarte ()
 
 MainDeCarte::MainDeCarte (const Carte& carte1, const Carte& carte2)
 {   
-    
-    mainDeJoueur.push_back (carte1);// ajoute carte 1 à la main 
-    mainDeJoueur.push_back (carte2);// ajoute carte 2 à la main 
-    nbCartes=2; // le nombre de carte est initialisé à 2 
-    verifAs();
-    sommeValeur=carte1.getValeur()+carte2.getValeur(); // somme des valeur mise à jour 
     joueToujours=1; // initialisation du booléen à VRAI (1)
     crame=0; //le joueur à moins de 22
-
+    nbCartes=0; // le nombre de carte est initialisé à 0
+    sommeValeur=0; //initialisation de sommeValeur à 0
+    tirerCarte(carte1);// ajoute carte 1 à la main 
+    tirerCarte(carte2);// ajoute carte 2 à la main 
 
 }
 
@@ -234,13 +231,13 @@ void MainDeCarte::testRegression() const
 {
 
 
+
     MainDeCarte mainVide; //creation d'une main de base main1
     assert (mainVide.getNbCartes()==0);
     assert (mainVide.getSommeValeur()==0);
     assert (mainVide.getJoueToujours()==1);
     assert (mainVide.getCrame()==0);
     cout<<"Création de la mainVide OK"<<endl;
-
 
 
 
@@ -258,6 +255,7 @@ void MainDeCarte::testRegression() const
     cout<<"Création de main2 OK"<<endl;
 
 
+
     Carte carteAjoutee(8,8,4); //création d'une carte à ajouter
     main.tirerCarte(carteAjoutee); 
     assert (main.getNbCartes()==3); // test du nombre de cartes 
@@ -269,6 +267,7 @@ void MainDeCarte::testRegression() const
     cout<<"Test de la procédure tirerCarte(carte) réalisé avec succès"<<endl;
 
 
+
     Carte carteAjoutee2(11,10,1);
     main.tirerCarte(carteAjoutee2);
     assert (main.getNbCartes()==4); // test du nombre de cartes 
@@ -278,6 +277,7 @@ void MainDeCarte::testRegression() const
     assert (carteAjoutee2==main.mainDeJoueur[3]); // test si carteAjoutee2 est bien la même carte que la carte d'indice 3 du tableau de la main de joueur.
     assert (carteAjoutee2.getSigne()==1); // test si le signe de la nouvelle carte est bien celui attribué
     cout<<"La carte ajoutée a fait cramer le joueur "<<endl;
+
 
 
     Carte carte3 (7,7,3); // création de deux nouvelles cartes (carte3 et carte4)
@@ -298,15 +298,17 @@ void MainDeCarte::testRegression() const
     cout <<"Test de la procédure doubler(carte) réalisé avec succès"<<endl;
 
 
+
     Carte carteAs (1,1,1); // création de deux nouvelles cartes (carteAs et carteBuche)
     Carte carteBuche (13,10,1); 
     MainDeCarte mainBlackJack(carteAs, carteBuche); // création d'une main BlackJack (10 et as)
     assert (carteAs.getValeur()==1); // test si la valeur de l'as est bien passé à 1 (valeur de base d'un as)   
-    assert (mainBlackJack.getSommeValeur()==11); // test de la somme des valeur égal à 11 car l'as n'est pas encore égal à 11
-    assert(mainBlackJack.verifBlackJack ()==0); // vérifie que la main n'est pas un BlackJack     
-    assert(mainBlackJack.getIemeCarte(0)==carteAs); //verifie que la premiere carte du tableau est bien l'as 
+    assert (mainBlackJack.getSommeValeur()==21); // test de la somme des valeur égal à 11 car l'as n'est pas encore égal à 11
+    assert(mainBlackJack.verifBlackJack ()==1); // vérifie que la main n'est pas un BlackJack     
+    assert(mainBlackJack.getIemeCarte(0).getValeur()==11); //verifie que la premiere carte du tableau est bien l'as 
     assert(mainBlackJack.getIemeCarte(1)==carteBuche);//verifie que la premiere carte du tableau est bien la buche 
     cout<<"Test de la procédure getIemeCarte(indice) réalisé avec succès"<<endl;
+
 
 
     mainBlackJack.verifAs();
@@ -336,9 +338,6 @@ void MainDeCarte::testRegression() const
     Carte carteAjouteeChange2 (7,7,1);
     Carte  carteDouble2(2,2,1);
     MainDeCarte mainChange2(carteDouble2,carteDouble2);
-    // mainChange2.tirerCarte(carteDouble2);
-    // mainChange2.tirerCarte(carteDouble2);
-    
     mainChange2.veutChanger=1;
     mainChange2.changeCarte(carteAjouteeChange2);
     assert (mainChange2.getSommeValeur()==9);
@@ -347,10 +346,6 @@ void MainDeCarte::testRegression() const
     assert (carteAjouteeChange2==mainChange2.mainDeJoueur[1]); // test si carteAjouteeChange2 est bien la même carte que la carte d'indice 1 du tableau de la main de joueur.
     assert (mainChange2.veutChanger==0);
     cout<<"Test de la procédure changeCarte() réalisé avec succès"<<endl;
-
-
-
-
 
 
 
