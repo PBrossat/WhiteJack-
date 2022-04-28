@@ -24,23 +24,23 @@ void Jeu::initialisationMise(const char touche)
 	switch(touche)
 	{
 		case 'a' :
-			if(joueurSolo.getBudget()>=50) joueurSolo.setMise(50);
+			if(joueurSolo.getBudget()>=1) joueurSolo.setMise(1);
 			break;
 
 		case 'z' :
-			if(joueurSolo.getBudget()>=100) joueurSolo.setMise(100);
+			if(joueurSolo.getBudget()>=10) joueurSolo.setMise(10);
 			break;
 
 		case 'e' :
-			if(joueurSolo.getBudget()>=250) joueurSolo.setMise(250);
+			if(joueurSolo.getBudget()>=100) joueurSolo.setMise(100);
 			break;
 
 		case 'r' :
-			if(joueurSolo.getBudget()>=500) joueurSolo.setMise(500);
+			if(joueurSolo.getBudget()>=250) joueurSolo.setMise(250);
 			break;
 
 		case 't' :
-			if(joueurSolo.getBudget()>=1000) joueurSolo.setMise(1000);
+			if(joueurSolo.getBudget()>=500) joueurSolo.setMise(500);
 			break;
 	}
 }
@@ -173,15 +173,15 @@ void Jeu::testRegression() const
 
 	Jeu unJeu;
 	unJeu.initialisationMise('a');
-	assert((unJeu.joueurSolo.getGain()==0)&&(unJeu.joueurSolo.getMise()==100));
+	assert((unJeu.joueurSolo.getGain()==0)&&(unJeu.joueurSolo.getMise()==1));
 	unJeu.initialisationMise('z');
-	assert((unJeu.joueurSolo.getGain()==0)&&(unJeu.joueurSolo.getMise()==200));
+	assert((unJeu.joueurSolo.getGain()==0)&&(unJeu.joueurSolo.getMise()==10));
 	unJeu.initialisationMise('e');
-	assert((unJeu.joueurSolo.getGain()==0)&&(unJeu.joueurSolo.getMise()==300));
+	assert((unJeu.joueurSolo.getGain()==0)&&(unJeu.joueurSolo.getMise()==100));
 	unJeu.initialisationMise('r');
-	assert((unJeu.joueurSolo.getGain()==0)&&(unJeu.joueurSolo.getMise()==500));
+	assert((unJeu.joueurSolo.getGain()==0)&&(unJeu.joueurSolo.getMise()==250));
 	unJeu.initialisationMise('t');
-	assert((unJeu.joueurSolo.getGain()==0)&&(unJeu.joueurSolo.getMise()==1000));
+	assert((unJeu.joueurSolo.getGain()==0)&&(unJeu.joueurSolo.getMise()==500));
 	cout<<"Initialisation de la mise OK"<<endl;
 
 
@@ -219,7 +219,7 @@ void Jeu::testRegression() const
 	Jeu jeuBlackJack;
 	Carte carteAs(1,11,2);
 	Carte carte10(10,10,2);
-	jeuBlackJack.initialisationMise('a');//choix d'une mise arbitraire (ici 100$)
+	jeuBlackJack.initialisationMise('e');//choix d'une mise arbitraire (ici 100$)
 	jeuBlackJack.joueurSolo.mainJoueur.tirerCarte(carteAs);
 	jeuBlackJack.joueurSolo.mainJoueur.tirerCarte(carte10);
 	Carte carte1(2,2,2); //création d'une carte random pour le croupier (hors as ou dix)
@@ -233,7 +233,7 @@ void Jeu::testRegression() const
 	Jeu jeu2; //création d'un jeu pour faire les test de resultat()
 	Carte carte3(2,2,2);
 	Carte carte4(3,3,3);
-	jeu2.initialisationMise('a');//choix d'une mise arbitraire (ici 100$)
+	jeu2.initialisationMise('e');//choix d'une mise arbitraire (ici 100$)
 	jeu2.joueurSolo.mainJoueur.tirerCarte(carte3);//meme main pour le joueur et pour le croupier 
 	jeu2.joueurSolo.mainJoueur.tirerCarte(carte4);
 	jeu2.mainCroupier.tirerCarte(carte3);

@@ -6,6 +6,7 @@
 
 using namespace std; 
 
+//ATTENTION LES PELOS IL FAUT REMETTRE A JOUR LE CODE CAR CERTAINES CHOSES COMME LES MONTANTS DES MISES ONT CHANGÉES
 
 ostream& operator << (ostream& flux, const Carte& carteAffichee)
 {

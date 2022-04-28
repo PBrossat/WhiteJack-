@@ -910,7 +910,7 @@ void sfmlJeu::afficherMainDeCarteCroupier(MainDeCarte mainJoueur)
 void sfmlJeu::afficherMainDeCarteJoueur(MainDeCarte mainJoueur)
 {
     unsigned int positionx = dimx/2-150;
-    unsigned int positiony = dimy-700;
+    unsigned int positiony = dimy-300;
 
     for (unsigned int i=0; i<mainJoueur.getNbCartes(); i++)
     {
@@ -1163,9 +1163,9 @@ void sfmlJeu::afficherMainDeCarteJoueur(MainDeCarte mainJoueur)
 				}
 			}
 			carte.setPosition(positionx, positiony);
-            //carte.setScale(1.5,1.5);
-			positionx += 150;
-            positiony -= 50;
+            carte.setScale(0.75,0.75);
+			positionx += 100;
+            positiony -= 2;
 			window->draw(carte);
     }
 }
@@ -1179,11 +1179,11 @@ void sfmlJeu::sfmlAff()
     rsFond.setSize(Vector2f(dimx,dimy));
     window->draw(rsFond);
 
-    s1.setScale(1.75,1.75);
-    s10.setScale(1.75,1.75);
-    s100.setScale(1.75,1.75);
-    s250.setScale(1.75,1.75);
-    s500.setScale(1.75,1.75);
+    s1.setScale(0.75,0.75);
+    s10.setScale(0.75,0.75);
+    s100.setScale(0.75,0.75);
+    s250.setScale(0.75,0.75);
+    s500.setScale(0.75,0.75);
 
 
     if(actionMiser==1)
@@ -1211,61 +1211,62 @@ void sfmlJeu::sfmlAff()
     }
     else if(jeu.joueurSolo.getBudget()>=500)
     {
-        s1.setPosition(dimx/2-225,dimy-200);
+        s1.setPosition(dimx/2-205,dimy-90);
         window->draw(s1);
 
-        s10.setPosition(dimx/2-75,dimy-200);
+        s10.setPosition(dimx/2-120,dimy-90);
         window->draw(s10);
 
-        s100.setPosition(dimx/2,dimy-100);
+        s100.setPosition(dimx/2-35,dimy-90);
         window->draw(s100);
 
-        s250.setPosition(dimx/2+225,dimy-200);
+        s250.setPosition(dimx/2+50,dimy-90);
         window->draw(s250);
 
-        s500.setPosition(dimx/2+375,dimy-200);
+        s500.setPosition(dimx/2+135,dimy-90);
         window->draw(s500);
     }
     else if(jeu.joueurSolo.getBudget()>=250)
     {
-        s1.setPosition(dimx/2-150,dimy-200);
+        s1.setPosition(dimx/2-155,dimy-90);
         window->draw(s1);
 
-        s10.setPosition(dimx/2-75,dimy-200);
+        s10.setPosition(dimx/2-70,dimy-90);
         window->draw(s10);
 
-        s100.setPosition(dimx/2+75,dimy-200);
+        s100.setPosition(dimx/2+70,dimy-90);
         window->draw(s100);
 
-        s250.setPosition(dimx/2+225,dimy-200);
+        s250.setPosition(dimx/2+155,dimy-90);
         window->draw(s250);
     }
     else if(jeu.joueurSolo.getBudget()>=100)
     {
-        s1.setPosition(dimx/2-150,dimy-200);
+        s1.setPosition(dimx/2-120,dimy-90);
         window->draw(s1);
 
-        s10.setPosition(dimx/2,dimy-200);
+        s10.setPosition(dimx/2-35,dimy-90);
         window->draw(s10);
 
-        s100.setPosition(dimx/2+150,dimy-200);
+        s100.setPosition(dimx/2+50,dimy-90);
         window->draw(s100);
     }
     else if(jeu.joueurSolo.getBudget()>=10)
     {
-        s1.setPosition(dimx/2-150,dimy-200);
+        s1.setPosition(dimx/2-70,dimy-90);
         window->draw(s1);
 
-        s10.setPosition(dimx/2+150,dimy-200);
+        s10.setPosition(dimx/2+70,dimy-90);
         window->draw(s10);
     }
     else if(jeu.joueurSolo.getBudget()>=1)
     {
-        s1.setPosition(dimx/2,dimy-200);
+        s1.setPosition(dimx/2-35,dimy-90);
         window->draw(s1);
     }
    
 
+    //Largeur d'un jeton = environ 70
 
     //Largeur d'une carte = environ 230
     //Hauteur d'une carte = environ 150
