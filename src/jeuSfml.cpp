@@ -1195,6 +1195,7 @@ void sfmlJeu::sfmlAff()
 
 
     if(actionMiser==1)
+    //faire un test sur getJoueToujours() pour effacer les boutons quand tu as joué.
     {
         afficherMainDeCarteCroupier(jeu.mainCroupier);
         afficherMainDeCarteJoueur(jeu.joueurSolo.mainJoueur);
