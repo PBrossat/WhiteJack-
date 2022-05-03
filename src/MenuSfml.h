@@ -1,9 +1,12 @@
 ﻿#ifndef MENUSFML_H
 #define MENUSFML_H
 #pragma once
-#include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Jeu.h"
+#include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/Audio.hpp>
 using namespace std;
 using namespace sf;
 
@@ -27,14 +30,14 @@ public :
     void sfmlInit();
     sf::RectangleShape rsFond;
     sf::Texture tFond;
+    sf::SoundBuffer m_soundbuffer;
+    sf::Sound sonMise;
+
 
 private :
 
     int menuPrincipalSelection;
     Font police;
-    // sf::RectangleShape rsFond;
-    // sf::Texture tFond;
-
     Text menu[Max_menu_principal];
 
 
