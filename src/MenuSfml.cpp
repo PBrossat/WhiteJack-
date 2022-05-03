@@ -5,9 +5,9 @@ using namespace std;
 
 Menu::Menu()
 {
-    if (!police.loadFromFile("data/BLACKJAC.ttf"))
+    if (!police.loadFromFile("data/Casino3D.ttf"))
     {
-        cout<<"pas de police BLACKJAC dans data"<<endl;
+        cout<<"pas de police Casino3D dans data"<<endl;
     }
 
     menu[0].setFont(police);
@@ -35,7 +35,7 @@ Menu::Menu()
 
 Menu :: ~Menu ()
 {
-
+    
 }
 
 

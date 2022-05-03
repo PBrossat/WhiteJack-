@@ -618,7 +618,7 @@ void sfmlJeu::sfmlInit() {
     }
 
 
-    if (!m_font.loadFromFile("data/BLACKJAC.TTF")) {cout << "Error data/BLACKJAC.TTF non found" << endl;}
+    if (!m_font.loadFromFile("data/CasinoFlat.ttf")) {cout << "Error data/CasinoFlat.ttf non found" << endl;}
     else {
         txtScoreJoueur.setFont(m_font);
         txtScoreCroupier.setFont(m_font);
@@ -630,13 +630,13 @@ void sfmlJeu::sfmlInit() {
         txtMise.setCharacterSize(30);
         txtBudget.setCharacterSize(30);
         
-        txtScoreJoueur.setFillColor(Color::White);
-        txtScoreCroupier.setFillColor(Color::White);
+        txtScoreJoueur.setFillColor(Color::Black);
+        txtScoreCroupier.setFillColor(Color::Black);
         txtMise.setFillColor(Color::White);
         txtBudget.setFillColor(Color::White);
         
-        txtScoreJoueur.setPosition(Vector2f(50,30));
-        txtScoreCroupier.setPosition(Vector2f(50,330));
+        txtScoreJoueur.setPosition(Vector2f(dimx/2-35,dimy-80));
+        txtScoreCroupier.setPosition(Vector2f(dimx/4+20,dimy/7));
         txtMise.setPosition(Vector2f(50,130));
         txtBudget.setPosition(Vector2f(50,230));
     }
