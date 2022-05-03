@@ -29,7 +29,7 @@ Menu::Menu(float longueur, float largeur )
     menu[2].setPosition(800, 500);
 
 
-    MenuPrincipalSelection= -1;
+    menuPrincipalSelection= 0;
 }
 
 
@@ -51,30 +51,40 @@ void Menu::dessiner(RenderWindow & fenetre)
 
 void Menu::monter()
 {
-    if (MenuPrincipalSelection-1>=0)
+    if (menuPrincipalSelection-1>=0)
     {
-        menu[MenuPrincipalSelection].setFillColor(Color::White);
-        MenuPrincipalSelection --;
-        if (MenuPrincipalSelection ==-1)
-        {
-            MenuPrincipalSelection=2;
-        }
-        menu[MenuPrincipalSelection].setFillColor(Color::Red);
+        menu[menuPrincipalSelection].setFillColor(Color::White);
+        menuPrincipalSelection --;
+        menu[menuPrincipalSelection].setFillColor(Color::Red);
+    }else if (menuPrincipalSelection==0)
+    {
+        menu[menuPrincipalSelection].setFillColor(Color::White);
+        menuPrincipalSelection=2;
+        menu[menuPrincipalSelection].setFillColor(Color::Red);
     }
+    
+    
 }
 
 
 void Menu::descendre()
 {
-    if (MenuPrincipalSelection+1<=Max_menu_principal)
+
+    if (menuPrincipalSelection+1<Max_menu_principal)
     {
-        menu[MenuPrincipalSelection].setFillColor(Color::White);
-        MenuPrincipalSelection ++;
-        if (MenuPrincipalSelection ==4)
-        {
-            MenuPrincipalSelection=0;
-        }
-        menu[MenuPrincipalSelection].setFillColor(Color::Red);
+        
+        menu[menuPrincipalSelection].setFillColor(Color::White);
+        menuPrincipalSelection ++;
+        menu[menuPrincipalSelection].setFillColor(Color::Red);
+        
+    }else if (menuPrincipalSelection==2)
+    {
+        menu[menuPrincipalSelection].setFillColor(Color::White);  
+        menuPrincipalSelection=0;
+        menu[menuPrincipalSelection].setFillColor(Color::Red);
     }
+    
 }
+
+
 

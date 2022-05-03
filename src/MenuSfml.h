@@ -19,16 +19,19 @@ public :
     void dessiner (RenderWindow& window);
     void monter();
     void descendre();
-    // int MenuPrincipalAppuyer()
-    // {
-    //     return MenuPrincipalSelection;
-    // }
 
+    int menuPrincipalAppuyer()
+    {
+        return menuPrincipalSelection;
+    }
+ 
 
 private :
-    int MenuPrincipalSelection;
+
+    int menuPrincipalSelection;
     Font police;
     Text menu[Max_menu_principal];
+
 
 };
 #endif
