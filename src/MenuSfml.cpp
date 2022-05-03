@@ -3,7 +3,7 @@
 using namespace std;
 
 
-Menu::Menu(float longueur, float largeur )
+Menu::Menu()
 {
     if (!police.loadFromFile("data/BLACKJAC.ttf"))
     {
@@ -38,6 +38,76 @@ Menu :: ~Menu ()
 
 }
 
+
+void Menu::boucleMenu()
+{
+    sf::RenderWindow fenetre (VideoMode(1400,750), "Menu Principal" , Style::Default);
+    rsFond.setSize(Vector2f(fenetre.getSize().x, fenetre.getSize().y));
+    fenetre.draw(rsFond);
+
+    sonAmbiance.play();
+
+
+    while (fenetre.isOpen())
+    {
+        Event evenement; 
+        while (fenetre.pollEvent(evenement))
+        {
+            switch (evenement.type)
+            {
+                case sf::Event::KeyReleased:
+
+                switch (evenement.key.code)
+                {
+                    case sf::Keyboard::Up:
+                    monter();
+                    break;
+
+                    case sf::Keyboard::Left:
+                    monter();
+                    break;
+
+                    case sf::Keyboard::Down:
+                    descendre();
+                    break;
+
+                    case sf::Keyboard::Right:
+                    descendre();
+                    break;
+
+                    case sf::Keyboard::Return:
+                    sonAmbiance.stop();
+                    sonMise.play();
+                    switch (menuPrincipalAppuyer())
+                    {
+                        case 0:
+                        cout<<"Jeu Solo selectionné"<<endl;
+                        break;
+
+                        case 1:
+                        cout<<"Jeu Multi selectionné"<<endl;
+                        break;
+
+                        case 2:
+                        cout<<"Règles selectionné"<<endl;
+                        break;
+
+                    }
+                }
+                
+
+                break;
+                case sf::Event::Closed:
+                fenetre.close();
+                break;
+            }
+        }
+
+        fenetre.clear();
+        dessiner(fenetre);
+        fenetre.display();
+    }
+}
 
 
 void Menu::dessiner(RenderWindow & fenetre)
@@ -89,7 +159,7 @@ void Menu::descendre()
 }
 
 
-void Menu::sfmlInit()
+void Menu::initMenu()
 {
     if (!tFond.loadFromFile("data/imageMenu.png")) 
     {

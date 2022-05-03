@@ -17,17 +17,18 @@ class Menu
 
 public :
 
-    Menu(float longueur, float largeur);
+    
+    Menu();
     ~Menu();
     void dessiner (RenderWindow& window);
     void monter();
     void descendre();
-
+    void boucleMenu();
     int menuPrincipalAppuyer()
     {
         return menuPrincipalSelection;
     }
-    void sfmlInit();
+    void initMenu();
     sf::RectangleShape rsFond;
     sf::Texture tFond;
     sf::SoundBuffer m1_soundbuffer;
