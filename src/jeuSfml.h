@@ -184,8 +184,10 @@ private :
     bool actionMiser;
     bool finJeu;
 
-    // sf::Font m_font;
-    // sf::Text m_text;
+    sf::Font m_font;
+    sf::Text txtScore;
+    sf::Text txtMise;
+    sf::Text txtBudget;
 
     sf::SoundBuffer m_soundbuffer;
     sf::Sound sonMise;

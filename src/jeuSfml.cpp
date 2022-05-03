@@ -517,7 +517,7 @@ void sfmlJeu::sfmlInit() {
         sCardBack.setTexture(tCardBack);
     }
 
-    if (!tDeck.loadFromFile("data/Deck.png")) 
+    if (!tDeck.loadFromFile("data/deck.png")) 
     {
         cout << "Error data/Deck.png non found" << endl;
     }
@@ -617,14 +617,24 @@ void sfmlJeu::sfmlInit() {
     }
 
 
-    // if (!m_font.loadFromFile("data/DejaVuSansCondensed.ttf")) {cout << "Error data/DejaVuSansCondensed.ttf non found" << endl;}
-    // else {
-    //     m_text.setFont(m_font);
-    //     m_text.setString("Pacman");
-    //     m_text.setCharacterSize(30);
-    //     m_text.setFillColor(Color::Blue);
-    //     m_text.setPosition(Vector2f(270,30));
-    // }
+    if (!m_font.loadFromFile("data/BLACKJAC.TTF")) {cout << "Error data/BLACKJAC.TTF non found" << endl;}
+    else {
+        txtScore.setFont(m_font);
+        txtMise.setFont(m_font);
+        txtBudget.setFont(m_font);
+
+        txtScore.setCharacterSize(30);
+        txtMise.setCharacterSize(30);
+        txtBudget.setCharacterSize(30);
+        
+        txtScore.setFillColor(Color::Blue);
+        txtMise.setFillColor(Color::Blue);
+        txtBudget.setFillColor(Color::Blue);
+        
+        txtScore.setPosition(Vector2f(50,30));
+        txtMise.setPosition(Vector2f(50,50));
+        txtBudget.setPosition(Vector2f(50,70));
+    }
 
     if (!m_soundbuffer.loadFromFile("data/SonMise.wav")) 
     {
@@ -1189,6 +1199,9 @@ void sfmlJeu::sfmlAff()
     sTirer.setScale(0.75,0.75);
     sChanger.setScale(0.75,0.75);
     sDoubler.setScale(0.75,0.75);
+
+    txtBudget.setString("zebiiiiiii");
+    window->draw(txtBudget);
 
     if(actionMiser==1)
     //faire un test sur getJoueToujours() pour effacer les boutons quand tu as joué.
