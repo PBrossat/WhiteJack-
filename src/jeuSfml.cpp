@@ -261,7 +261,7 @@ void sfmlJeu::sfmlInit() {
     }
     else 
     {
-        s13deCoeur.setTexture(t13deCarreau);
+        s13deCarreau.setTexture(t13deCarreau);
     }
   
 
@@ -644,9 +644,6 @@ sfmlJeu::~sfmlJeu ()
 
 
 
-
-
-//ATTENTION AFFICHAGE DE CERTAINES CARTES NE FONCTIONNE PAS
 
 void sfmlJeu::afficherMainDeCarteCroupier(MainDeCarte mainJoueur)
 {
@@ -1192,7 +1189,6 @@ void sfmlJeu::sfmlAff()
     sTirer.setScale(0.75,0.75);
     sChanger.setScale(0.75,0.75);
     sDoubler.setScale(0.75,0.75);
-
 
     if(actionMiser==1)
     //faire un test sur getJoueToujours() pour effacer les boutons quand tu as joué.
