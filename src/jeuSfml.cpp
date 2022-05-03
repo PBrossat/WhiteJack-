@@ -617,6 +617,17 @@ void sfmlJeu::sfmlInit() {
         sChanger.setTexture(tChanger);
     }
 
+    if (!tBlackjack.loadFromFile("data/BlackJack.png")) 
+    {
+        cout << "Error data/BlackJack.png non found" << endl;
+    }
+    else 
+    {
+        sBlackjack.setTexture(tBlackjack);
+        sBlackjack.setScale(1.25,1.25);
+        sBlackjack.setPosition(dimx/2-218.75,dimy/2-109.375);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+    }
+
 
     if (!m_font.loadFromFile("data/CasinoFlatShadow.ttf")) {cout << "Error data/CasinoFlatShadow.ttf non found" << endl;}
     else {
@@ -641,12 +652,28 @@ void sfmlJeu::sfmlInit() {
         txtBudget.setPosition(Vector2f(50,230));
     }
 
-    if (!m_soundbuffer.loadFromFile("data/SonMise.wav")) 
+    if (!m1_soundbuffer.loadFromFile("data/SonMise.wav")) 
     {
         cout << "Error data/SonMise.wav non found" << endl;
     }
     else {
-        sonMise.setBuffer(m_soundbuffer);
+        sonMise.setBuffer(m1_soundbuffer);
+    }
+
+    if (!m2_soundbuffer.loadFromFile("data/SonJackpot.wav")) 
+    {
+        cout << "Error data/SonJackpot.wav non found" << endl;
+    }
+    else {
+        sonJackpot.setBuffer(m2_soundbuffer);
+    }
+
+    if (!m3_soundbuffer.loadFromFile("data/SonCarte.wav")) 
+    {
+        cout << "Error data/SonCarte.wav non found" << endl;
+    }
+    else {
+        sonCarte.setBuffer(m3_soundbuffer);
     }
 
 }
@@ -1226,9 +1253,9 @@ void sfmlJeu::sfmlAff()
     if(actionMiser==1)
     //faire un test sur getJoueToujours() pour effacer les boutons quand tu as joué.
     {
-        string mise = to_string(jeu.joueurSolo.getMise());
-        txtMise.setString("Mise : "+ mise);
-        window->draw(txtMise);
+
+        afficherMainDeCarteCroupier(jeu.mainCroupier);
+        afficherMainDeCarteJoueur(jeu.joueurSolo.mainJoueur);
 
         string scoreJoueur = to_string(jeu.joueurSolo.mainJoueur.getSommeValeur());
         txtScoreJoueur.setString("Score : "+ scoreJoueur);
@@ -1238,28 +1265,50 @@ void sfmlJeu::sfmlAff()
         txtScoreCroupier.setString("Score Croupier : "+ scoreCroupier);
         window->draw(txtScoreCroupier);
 
-        afficherMainDeCarteCroupier(jeu.mainCroupier);
-        afficherMainDeCarteJoueur(jeu.joueurSolo.mainJoueur);
-        sRester.setPosition(dimx-100,dimy-80);
-        window->draw(sRester);
-        sTirer.setPosition(dimx-100,dimy-160);
-        window->draw(sTirer);
-        if((jeu.joueurSolo.mainJoueur.getNbCartes()==2) && (jeu.joueurSolo.getBudget()>=jeu.joueurSolo.getMise())) //si le joueur peut doubler (2 cartes et peut doubler sa mise)
-        {
-            sDoubler.setPosition(dimx-100,dimy-240);
-            window->draw(sDoubler);
-            if((jeu.joueurSolo.mainJoueur.getIemeCarte(0).getValeur()==jeu.joueurSolo.mainJoueur.getIemeCarte(1).getValeur())||(jeu.joueurSolo.mainJoueur.getIemeCarte(0).getRang()==jeu.joueurSolo.mainJoueur.getIemeCarte(1).getRang()))
+        if(finJeu==1)
+        {   
+            switch(res)
             {
-                sChanger.setPosition(dimx-100,dimy-320);
-                window->draw(sChanger);
+                case 0:
+                    window->draw(sBlackjack);
+                    break;
+                case 1:
+                    window->draw(sBlackjack);
+                    break;
+                case 2:
+                    window->draw(sBlackjack);
+                    break;
+                case 3:
+                    window->draw(sBlackjack);
+                    break;
             }
         }
-        else    //on déplace le sprite de doubler hors de la fenetre pour s'assurer que le joueur ne puisse doubler
+        else
         {
-            sDoubler.setPosition(dimx+1,dimy+1);
-            sChanger.setPosition(dimx+1,dimy+1);
-            window->draw(sDoubler);
-            window->draw(sChanger);
+            string mise = to_string(jeu.joueurSolo.getMise());
+            txtMise.setString("Mise : "+ mise);
+            window->draw(txtMise);
+            sRester.setPosition(dimx-100,dimy-80);
+            window->draw(sRester);
+            sTirer.setPosition(dimx-100,dimy-160);
+            window->draw(sTirer);
+            if((jeu.joueurSolo.mainJoueur.getNbCartes()==2) && (jeu.joueurSolo.getBudget()>=jeu.joueurSolo.getMise())) //si le joueur peut doubler (2 cartes et peut doubler sa mise)
+            {
+                sDoubler.setPosition(dimx-100,dimy-240);
+                window->draw(sDoubler);
+                if((jeu.joueurSolo.mainJoueur.getIemeCarte(0).getValeur()==jeu.joueurSolo.mainJoueur.getIemeCarte(1).getValeur())||(jeu.joueurSolo.mainJoueur.getIemeCarte(0).getRang()==jeu.joueurSolo.mainJoueur.getIemeCarte(1).getRang()))
+                {
+                    sChanger.setPosition(dimx-100,dimy-320);
+                    window->draw(sChanger);
+                }
+            }
+            else    //on déplace le sprite de doubler hors de la fenetre pour s'assurer que le joueur ne puisse doubler
+            {
+                sDoubler.setPosition(dimx+1,dimy+1);
+                sChanger.setPosition(dimx+1,dimy+1);
+                window->draw(sDoubler);
+                window->draw(sChanger);
+            }
         }
     }
     else if(jeu.joueurSolo.getBudget()>=500)
@@ -1349,7 +1398,6 @@ void sfmlJeu::sfmlBoucle() {
 
                     if(finJeu==1)
                     {
-                        jeu.resultat();
                         jeu.finJeu();
                         actionMiser=0;
                         finJeu=0;
@@ -1365,6 +1413,7 @@ void sfmlJeu::sfmlBoucle() {
                                 jeu.initialisationMise('a');    //correspond pour l'instant à une mise de 100
                                 sonMise.play();
                                 jeu.initialisationJeu();
+                                sonCarte.play();
                                 actionMiser=1;
                             }
                             else if(s10.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 10 
@@ -1372,6 +1421,7 @@ void sfmlJeu::sfmlBoucle() {
                                 jeu.initialisationMise('z');    //correspond pour l'instant à une mise de 200
                                 sonMise.play();
                                 jeu.initialisationJeu();
+                                sonCarte.play();
                                 actionMiser=1;
                             }
                             else if(s100.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 100 
@@ -1379,6 +1429,7 @@ void sfmlJeu::sfmlBoucle() {
                                 jeu.initialisationMise('e');    //correspond pour l'instant à une mise de 500
                                 sonMise.play();
                                 jeu.initialisationJeu();
+                                sonCarte.play();
                                 actionMiser=1;
                             }
                             else if(s250.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 1000 
@@ -1386,6 +1437,7 @@ void sfmlJeu::sfmlBoucle() {
                                 jeu.initialisationMise('r');    //correspond pour l'instant à une mise de 1000
                                 sonMise.play();
                                 jeu.initialisationJeu();
+                                sonCarte.play();
                                 actionMiser=1;
                             }
                             else if(s500.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 1000 
@@ -1393,6 +1445,7 @@ void sfmlJeu::sfmlBoucle() {
                                 jeu.initialisationMise('t');    //correspond pour l'instant à une mise de 1000
                                 sonMise.play();
                                 jeu.initialisationJeu();
+                                sonCarte.play();
                                 actionMiser=1;
                             }
                             break;
@@ -1403,19 +1456,56 @@ void sfmlJeu::sfmlBoucle() {
                                 if(sDoubler.getGlobalBounds().contains(x,y))  //on appuie sur le bouton doubler
                                 {
                                     jeu.actionClavier('d');    //on double
+                                    sonMise.play();
+                                    sonCarte.play();
                                     if(!jeu.joueurSolo.mainJoueur.getJoueToujours())
                                     {
                                         jeu.actionCroupier();
+                                        sonCarte.play();
                                         finJeu=1;
+                                        res = jeu.resultat();
+                                        switch(res)
+                                        {
+                                            case 0:
+                                                sonJackpot.play();
+                                                break;
+                                            case 1:
+                                                sonJackpot.play();
+                                                break;
+                                            case 2:
+                                                sonJackpot.play();
+                                                break;
+                                            case 3:
+                                                sonJackpot.play();
+                                                break;
+                                        }
                                     }
                                 }
                                 else if(sTirer.getGlobalBounds().contains(x,y))  //on appuie sur le bouton tirer
                                 {
                                     jeu.actionClavier('t');    //on tire
+                                    sonCarte.play();
                                     if(!jeu.joueurSolo.mainJoueur.getJoueToujours())
                                     {
                                         jeu.actionCroupier();
+                                        sonCarte.play();
                                         finJeu=1;
+                                        res = jeu.resultat();
+                                        switch(res)
+                                        {
+                                            case 0:
+                                                sonJackpot.play();
+                                                break;
+                                            case 1:
+                                                sonJackpot.play();
+                                                break;
+                                            case 2:
+                                                sonJackpot.play();
+                                                break;
+                                            case 3:
+                                                sonJackpot.play();
+                                                break;
+                                        }
                                     }
                                 }
                                 else if(sRester.getGlobalBounds().contains(x,y))  //on appuie sur le bouton rester
@@ -1424,16 +1514,52 @@ void sfmlJeu::sfmlBoucle() {
                                     if(!jeu.joueurSolo.mainJoueur.getJoueToujours())
                                     {
                                         jeu.actionCroupier();
+                                        sonCarte.play();
                                         finJeu=1;
+                                        res = jeu.resultat();
+                                        switch(res)
+                                        {
+                                            case 0:
+                                                sonJackpot.play();
+                                                break;
+                                            case 1:
+                                                sonJackpot.play();
+                                                break;
+                                            case 2:
+                                                sonJackpot.play();
+                                                break;
+                                            case 3:
+                                                sonJackpot.play();
+                                                break;
+                                        }
                                     } 
                                 }
                                 else if(sChanger.getGlobalBounds().contains(x,y))  //on appuie sur le bouton rester
                                 {
                                     jeu.actionClavier('c'); //on change
+                                    sonMise.play();
+                                    sonCarte.play();
                                     if(!jeu.joueurSolo.mainJoueur.getJoueToujours())
                                     {
                                         jeu.actionCroupier();
+                                        sonCarte.play();
                                         finJeu=1;
+                                        res = jeu.resultat();
+                                        switch(res)
+                                        {
+                                            case 0:
+                                                sonJackpot.play();
+                                                break;
+                                            case 1:
+                                                sonJackpot.play();
+                                                break;
+                                            case 2:
+                                                sonJackpot.play();
+                                                break;
+                                            case 3:
+                                                sonJackpot.play();
+                                                break;
+                                        }
                                     } 
                                 }
                             }

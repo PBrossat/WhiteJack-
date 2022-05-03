@@ -125,7 +125,7 @@ void Jeu::actionCroupier()
 
 
 
-void Jeu::resultat() 
+unsigned int Jeu::resultat() 
 {
 	if(joueurSolo.mainJoueur.verifBlackJack())
 	{
@@ -133,13 +133,13 @@ void Jeu::resultat()
 		{
 			joueurSolo.setBudget(joueurSolo.getMise());
 			joueurSolo.setGain(joueurSolo.getMise());
-			//return égalité
+			return 1;
 		}
 		else
 		{
 			joueurSolo.setBudget((2.5)*joueurSolo.getMise());
 			joueurSolo.setGain((2.5)*joueurSolo.getMise());
-			//return blackjack
+			return 3;
 		}
 	}
 	else if(!joueurSolo.mainJoueur.getCrame())
@@ -148,7 +148,7 @@ void Jeu::resultat()
 		{
 			joueurSolo.setBudget(2*joueurSolo.getMise());
 			joueurSolo.setGain(2*joueurSolo.getMise());
-			//return gagné
+			return 2;
 		}
 		else
 		{
@@ -156,17 +156,20 @@ void Jeu::resultat()
 			{
 				joueurSolo.setBudget(2*joueurSolo.getMise());	
 				joueurSolo.setGain(2*joueurSolo.getMise());
-				//return gagné
+				return 2;
 			}
 			else if(joueurSolo.mainJoueur.getSommeValeur() == mainCroupier.getSommeValeur())
 			{
 				joueurSolo.setBudget(joueurSolo.getMise());	
 				joueurSolo.setGain(joueurSolo.getMise());
-				//return égalité
+				return 1;
 			}
 		}
 	}
-	//else return perdu
+	else
+	{
+		return 0;
+	}
 	
 }
 

@@ -95,6 +95,7 @@ private :
     sf::Texture tDoubler;
     sf::Texture tRester;
     sf::Texture tChanger;
+    sf::Texture tBlackjack;
   
 
 
@@ -175,6 +176,7 @@ private :
     sf::Sprite sDoubler;
     sf::Sprite sRester;
     sf::Sprite sChanger;
+    sf::Sprite sBlackjack;
 
     sf::RectangleShape rsFond;
 
@@ -184,14 +186,20 @@ private :
     bool actionMiser;
     bool finJeu;
 
+    unsigned int res;
+
     sf::Font m_font;
     sf::Text txtScoreJoueur;
     sf::Text txtMise;
     sf::Text txtBudget;
     sf::Text txtScoreCroupier;
 
-    sf::SoundBuffer m_soundbuffer;
+    sf::SoundBuffer m1_soundbuffer;
+    sf::SoundBuffer m2_soundbuffer;
+    sf::SoundBuffer m3_soundbuffer;
     sf::Sound sonMise;
+    sf::Sound sonCarte;
+    sf::Sound sonJackpot;
 
 public :
 

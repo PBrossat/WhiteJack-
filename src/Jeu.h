@@ -113,8 +113,8 @@ class Jeu
 	void actionCroupier();
 
 	/**
-    * @brief Procédure permettant de déterminer les gains du joueur
-    * @return void
+    * @brief Fonction permettant de déterminer les gains du joueur et renvoyant un entier déterminant le résultat (gagné,perdu,blackjack...)
+    * @return unsigned int : 0 pour perdu, 1 pour égalité, 2 pour gagné, 3 piur blackjack
     * 
     * Exemple d'utilisation :
     * @code
@@ -122,7 +122,7 @@ class Jeu
     * @endcode
     * @warning À faire qu'à la fin de la partie
     */
-	void resultat(); 
+	unsigned int resultat(); 
 
 	/**
     * @brief Procédure permettant de tester les fonctionnalités de la classe

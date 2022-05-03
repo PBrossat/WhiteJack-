@@ -216,28 +216,28 @@ void txtBoucle (Jeu& jeu)
         cout<<endl<<"Score du croupier: "<<jeu.mainCroupier.getSommeValeur()<<endl;
         cout<<"--------------------------------------------------------------------------"<<endl;
 
-        jeu.resultat();
+        unsigned int res = jeu.resultat();
 
-        if (jeu.joueurSolo.getGain()==0)
+        if (res==0/*jeu.joueurSolo.getGain()==0*/)
         {
             cout<<" Vous venez de perdre contre le croupier, retentez votre chance !"<<endl;
             cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<"$"<<endl;
         }
 
 
-        if (jeu.joueurSolo.getGain()==2*jeu.joueurSolo.getMise())
+        if (res==2/*jeu.joueurSolo.getGain()==2*jeu.joueurSolo.getMise()*/)
         {
             cout<<" Bravo vous avez battu le croupier, vous remportez 2 fois votre mise !!"<<endl;
             cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<"$"<<endl;
         }
 
-        if (jeu.joueurSolo.getGain()==(2.5)*jeu.joueurSolo.getMise())
+        if (res==3/*jeu.joueurSolo.getGain()==(2.5)*jeu.joueurSolo.getMise()*/)
         {
             cout<<" Bravo vous avez battu le croupier avec un BlackJack, vous remportez 2 fois et demie votre mise !!"<<endl;
             cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<"$"<<endl;
         }
 
-        if (jeu.joueurSolo.getGain()==jeu.joueurSolo.getMise())
+        if (res==1/*jeu.joueurSolo.getGain()==jeu.joueurSolo.getMise()*/)
         {
             cout<<" Vous avez fait le même score que le croupier, vous récupérez votre mise !!"<<endl;
             cout<<" Votre budget est maintenant de "<<jeu.joueurSolo.getBudget()<<"$"<<endl;
