@@ -1234,7 +1234,7 @@ void sfmlJeu::sfmlAff()
         {
             sDoubler.setPosition(dimx-100,dimy-240);
             window->draw(sDoubler);
-            if(jeu.joueurSolo.mainJoueur.getIemeCarte(0).getValeur()==jeu.joueurSolo.mainJoueur.getIemeCarte(1).getValeur())
+            if((jeu.joueurSolo.mainJoueur.getIemeCarte(0).getValeur()==jeu.joueurSolo.mainJoueur.getIemeCarte(1).getValeur())||(jeu.joueurSolo.mainJoueur.getIemeCarte(0).getRang()==jeu.joueurSolo.mainJoueur.getIemeCarte(1).getRang()))
             {
                 sChanger.setPosition(dimx-100,dimy-320);
                 window->draw(sChanger);
