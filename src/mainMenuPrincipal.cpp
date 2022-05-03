@@ -1,4 +1,5 @@
 ﻿#include "MenuSfml.h"
+#include "jeuSfml.h"
 #include <SFML/Graphics.hpp>
 
 using namespace sf;
@@ -29,18 +30,22 @@ int main ()
                 {
                     case sf::Keyboard::Up:
                     menu.monter();
+                    menu.sonMise.play();
                     break;
 
                     case sf::Keyboard::Left:
                     menu.monter();
+                    menu.sonMise.play();
                     break;
 
                     case sf::Keyboard::Down:
                     menu.descendre();
+                    menu.sonMise.play();
                     break;
 
                     case sf::Keyboard::Right:
                     menu.descendre();
+                    menu.sonMise.play();
                     break;
 
                     case sf::Keyboard::Return:
