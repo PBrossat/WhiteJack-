@@ -3,34 +3,32 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Jeu.h"
 using namespace std;
 using namespace sf;
 
-#define Max_menu_principal 4
+#define Max_menu_principal 3
 
 class Menu 
 {
 
 public :
 
-    MenuPrincipal(float longueur, float largeur );
-
+    Menu(float longueur, float largeur);
+    ~Menu();
     void dessiner (RenderWindow& window);
     void monter();
-    void descendre()
-
-    int MenuPrincipalAppuyer()
-    {
-        return MenuPrincipalSelection;
-    }
-
-    ~MenuPrincipal();
+    void descendre();
+    // int MenuPrincipalAppuyer()
+    // {
+    //     return MenuPrincipalSelection;
+    // }
 
 
 private :
     int MenuPrincipalSelection;
     Font police;
-    Text texteMenu[Max_main_menu];
+    Text menu[Max_menu_principal];
 
 };
 #endif
