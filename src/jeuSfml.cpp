@@ -3,6 +3,7 @@
 #include "jeuSfml.h"
 #include <stdlib.h>
 #include <iostream>
+#include <string.h>
 
 using namespace sf;
 using namespace std;
@@ -619,21 +620,25 @@ void sfmlJeu::sfmlInit() {
 
     if (!m_font.loadFromFile("data/BLACKJAC.TTF")) {cout << "Error data/BLACKJAC.TTF non found" << endl;}
     else {
-        txtScore.setFont(m_font);
+        txtScoreJoueur.setFont(m_font);
+        txtScoreCroupier.setFont(m_font);
         txtMise.setFont(m_font);
         txtBudget.setFont(m_font);
 
-        txtScore.setCharacterSize(30);
+        txtScoreJoueur.setCharacterSize(30);
+        txtScoreCroupier.setCharacterSize(30);
         txtMise.setCharacterSize(30);
         txtBudget.setCharacterSize(30);
         
-        txtScore.setFillColor(Color::Blue);
-        txtMise.setFillColor(Color::Blue);
-        txtBudget.setFillColor(Color::Blue);
+        txtScoreJoueur.setFillColor(Color::White);
+        txtScoreCroupier.setFillColor(Color::White);
+        txtMise.setFillColor(Color::White);
+        txtBudget.setFillColor(Color::White);
         
-        txtScore.setPosition(Vector2f(50,30));
-        txtMise.setPosition(Vector2f(50,50));
-        txtBudget.setPosition(Vector2f(50,70));
+        txtScoreJoueur.setPosition(Vector2f(50,30));
+        txtScoreCroupier.setPosition(Vector2f(50,330));
+        txtMise.setPosition(Vector2f(50,130));
+        txtBudget.setPosition(Vector2f(50,230));
     }
 
     if (!m_soundbuffer.loadFromFile("data/SonMise.wav")) 
@@ -1200,12 +1205,25 @@ void sfmlJeu::sfmlAff()
     sChanger.setScale(0.75,0.75);
     sDoubler.setScale(0.75,0.75);
 
-    txtBudget.setString("zebiiiiiii");
+    string budget = to_string(jeu.joueurSolo.getBudget());
+    txtBudget.setString("Budget : "+budget);
     window->draw(txtBudget);
 
     if(actionMiser==1)
     //faire un test sur getJoueToujours() pour effacer les boutons quand tu as joué.
     {
+        string mise = to_string(jeu.joueurSolo.getMise());
+        txtMise.setString("Mise : "+mise);
+        window->draw(txtMise);
+
+        string scoreJoueur = to_string(jeu.joueurSolo.mainJoueur.getSommeValeur());
+        txtScoreJoueur.setString("Score : "+scoreJoueur);
+        window->draw(txtScoreJoueur);
+
+        string scoreCroupier = to_string(jeu.mainCroupier.getSommeValeur());
+        txtScoreCroupier.setString("Score Croupier : "+scoreCroupier);
+        window->draw(txtScoreCroupier);
+
         afficherMainDeCarteCroupier(jeu.mainCroupier);
         afficherMainDeCarteJoueur(jeu.joueurSolo.mainJoueur);
         sRester.setPosition(dimx-100,dimy-80);
@@ -1292,23 +1310,6 @@ void sfmlJeu::sfmlAff()
     //Largeur d'une carte = environ 115
     //Hauteur d'une carte = environ 170
 
-    // Test affichage de deux cartes 
-    // unsigned int positionx = dimx/2-150;
-    // unsigned int positiony = dimy-700;
-    // s1deTrefles.setScale(1.5,1.5);
-    // s1deTrefles.setPosition(positionx, positiony);
-	// positionx += 150;
-    // positiony -= 50;
-	// window->draw(s1deTrefles);
-    // s1deTrefles.setPosition(positionx, positiony);
-    // positionx += 150;
-    // positiony -= 50;
-    // window->draw(s1deTrefles);
-    
-
-    // // Ecrire un titre par dessus
-    // m_window->draw(m_text);
-
     window->display();
 }
 
@@ -1316,7 +1317,7 @@ void sfmlJeu::sfmlAff()
 
 void sfmlJeu::sfmlBoucle() {
 
-    while ((window->isOpen())&&(jeu.joueurSolo.testArgentJoueur())) //jeu.joueurSolo.getBudget()>=1
+    while ((window->isOpen())&&(jeu.joueurSolo.testArgentJoueur())) 
     {
         Event event;
 
@@ -1338,6 +1339,8 @@ void sfmlJeu::sfmlBoucle() {
                         jeu.finJeu();
                         actionMiser=0;
                         finJeu=0;
+
+                        if(jeu.joueurSolo.getBudget()==0) window->close();
                     }
 
                     switch(actionMiser)

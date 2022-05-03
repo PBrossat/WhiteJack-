@@ -185,9 +185,10 @@ private :
     bool finJeu;
 
     sf::Font m_font;
-    sf::Text txtScore;
+    sf::Text txtScoreJoueur;
     sf::Text txtMise;
     sf::Text txtBudget;
+    sf::Text txtScoreCroupier;
 
     sf::SoundBuffer m_soundbuffer;
     sf::Sound sonMise;

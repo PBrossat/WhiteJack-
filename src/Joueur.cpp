@@ -30,7 +30,7 @@ Joueur::Joueur(string nomJ, unsigned int nivJoueur, float budgetJ)
 
 bool Joueur::testArgentJoueur() const
 {
-	return (budget>0);
+	return (budget>=0);
 }
 
 
@@ -101,7 +101,7 @@ unsigned int Joueur::getMise() const
 
 void Joueur::setMise(unsigned int Mise)
 {
-	assert(Mise<=budget);
+	//assert(Mise<=budget);
 	mise=Mise;
 
 }
