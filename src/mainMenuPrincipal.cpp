@@ -12,16 +12,14 @@ int main ()
     menu.rsFond.setSize(Vector2f(fenetre.getSize().x, fenetre.getSize().y));
     fenetre.draw(menu.rsFond);
 
-
+    menu.sonAmbiance.play();
 
 
     while (fenetre.isOpen())
     {
-        
         Event evenement; 
         while (fenetre.pollEvent(evenement))
         {
-
             switch (evenement.type)
             {
                 case sf::Event::KeyReleased:
@@ -30,25 +28,23 @@ int main ()
                 {
                     case sf::Keyboard::Up:
                     menu.monter();
-                    menu.sonMise.play();
                     break;
 
                     case sf::Keyboard::Left:
                     menu.monter();
-                    menu.sonMise.play();
                     break;
 
                     case sf::Keyboard::Down:
                     menu.descendre();
-                    menu.sonMise.play();
                     break;
 
                     case sf::Keyboard::Right:
                     menu.descendre();
-                    menu.sonMise.play();
                     break;
 
                     case sf::Keyboard::Return:
+                    menu.sonAmbiance.stop();
+                    menu.sonMise.play();
                     switch (menu.menuPrincipalAppuyer())
                     {
                         case 0:

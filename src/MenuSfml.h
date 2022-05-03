@@ -30,8 +30,10 @@ public :
     void sfmlInit();
     sf::RectangleShape rsFond;
     sf::Texture tFond;
-    sf::SoundBuffer m_soundbuffer;
+    sf::SoundBuffer m1_soundbuffer;
+    sf::SoundBuffer m2_soundbuffer;
     sf::Sound sonMise;
+    sf::Sound sonAmbiance;
 
 
 private :

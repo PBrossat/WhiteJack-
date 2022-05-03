@@ -57,14 +57,12 @@ void Menu::monter()
         menu[menuPrincipalSelection].setFillColor(Color::White);
         menuPrincipalSelection --;
         menu[menuPrincipalSelection].setFillColor(Color::Red);
-        sonMise.play();
     }else if (menuPrincipalSelection==0)
     {
 
         menu[menuPrincipalSelection].setFillColor(Color::White);
         menuPrincipalSelection=2;
         menu[menuPrincipalSelection].setFillColor(Color::Red);
-        sonMise.play();
     }
     
     
@@ -80,14 +78,12 @@ void Menu::descendre()
         menu[menuPrincipalSelection].setFillColor(Color::White);
         menuPrincipalSelection ++;
         menu[menuPrincipalSelection].setFillColor(Color::Red);
-        sonMise.play();
         
     }else if (menuPrincipalSelection==2)
     {
         menu[menuPrincipalSelection].setFillColor(Color::White);  
         menuPrincipalSelection=0;
         menu[menuPrincipalSelection].setFillColor(Color::Red);
-        sonMise.play();
     }
     
 }
@@ -104,12 +100,22 @@ void Menu::sfmlInit()
         rsFond.setTexture(&tFond);
     }
 
-    if (!m_soundbuffer.loadFromFile("data/SonMise.wav")) 
+    if (!m1_soundbuffer.loadFromFile("data/SonMise.wav")) 
     {
         cout << "Error data/SonMise.wav non found" << endl;
     }
     else {
-        sonMise.setBuffer(m_soundbuffer);
+        sonMise.setBuffer(m1_soundbuffer);
+
+    if (!m2_soundbuffer.loadFromFile("data/sonAmbiance.wav")) 
+    {
+        cout << "Error data/sonAmbiance.wav non found" << endl;
+    }
+    else {
+        sonAmbiance.setBuffer(m2_soundbuffer);
+        sonAmbiance.setLoop(true);
+        sonAmbiance.setVolume(50);
+    }
     }
 }
 
