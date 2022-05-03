@@ -618,7 +618,7 @@ void sfmlJeu::sfmlInit() {
     }
 
 
-    if (!m_font.loadFromFile("data/CasinoFlat.ttf")) {cout << "Error data/CasinoFlat.ttf non found" << endl;}
+    if (!m_font.loadFromFile("data/CasinoFlatShadow.ttf")) {cout << "Error data/CasinoFlatShadow.ttf non found" << endl;}
     else {
         txtScoreJoueur.setFont(m_font);
         txtScoreCroupier.setFont(m_font);
@@ -1206,22 +1206,22 @@ void sfmlJeu::sfmlAff()
     sDoubler.setScale(0.75,0.75);
 
     string budget = to_string(jeu.joueurSolo.getBudget());
-    txtBudget.setString("Budget : "+budget);
+    txtBudget.setString("Budget : "+ budget);
     window->draw(txtBudget);
 
     if(actionMiser==1)
     //faire un test sur getJoueToujours() pour effacer les boutons quand tu as joué.
     {
         string mise = to_string(jeu.joueurSolo.getMise());
-        txtMise.setString("Mise : "+mise);
+        txtMise.setString("Mise : "+ mise);
         window->draw(txtMise);
 
         string scoreJoueur = to_string(jeu.joueurSolo.mainJoueur.getSommeValeur());
-        txtScoreJoueur.setString("Score : "+scoreJoueur);
+        txtScoreJoueur.setString("Score : "+ scoreJoueur);
         window->draw(txtScoreJoueur);
 
         string scoreCroupier = to_string(jeu.mainCroupier.getSommeValeur());
-        txtScoreCroupier.setString("Score Croupier : "+scoreCroupier);
+        txtScoreCroupier.setString("Score Croupier : "+ scoreCroupier);
         window->draw(txtScoreCroupier);
 
         afficherMainDeCarteCroupier(jeu.mainCroupier);

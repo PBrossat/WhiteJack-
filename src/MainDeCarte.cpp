@@ -103,7 +103,7 @@ void MainDeCarte::doubler (const Carte& carteAjoutee)
 
 void MainDeCarte::changeCarte (const Carte& carteAjoutee)
 {
-    if ((nbCartes==2)&&((getIemeCarte(0).getValeur()==getIemeCarte(1).getValeur())||((getIemeCarte(0).getRang()==1)&&(getIemeCarte(1).getRang()==1))))
+    if ((nbCartes==2)&&((getIemeCarte(0).getValeur()==getIemeCarte(1).getValeur())||(getIemeCarte(0).getRang()==getIemeCarte(1).getRang()==1)))
     {
             sommeValeur=sommeValeur-getIemeCarte(1).getValeur(); //maj de sommeValeur
             mainDeJoueur.pop_back(); //on supprime la deuxieme carte de la main
