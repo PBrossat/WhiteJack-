@@ -89,7 +89,7 @@ void Menu::descendre()
 }
 
 
-void Menu::sfmlInit()
+void Menu::menuInit()
 {
     if (!tFond.loadFromFile("data/imageMenu.png")) 
     {
@@ -119,6 +119,11 @@ void Menu::sfmlInit()
     }
 }
 
+
+void Menu::menuBoucle()
+{
+    
+}
 
 
 

@@ -27,7 +27,11 @@ public :
     {
         return menuPrincipalSelection;
     }
-    void sfmlInit();
+    void menuInit();
+    void menuBoucle();
+
+
+
     sf::RectangleShape rsFond;
     sf::Texture tFond;
     sf::SoundBuffer m1_soundbuffer;
