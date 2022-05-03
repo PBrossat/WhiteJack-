@@ -90,9 +90,9 @@ void Menu::descendre()
 
 void Menu::sfmlInit()
 {
-    if (!tFond.loadFromFile("data/imageMenu.jpg")) 
+    if (!tFond.loadFromFile("data/imageMenu.png")) 
     {
-        cout << "Error data/imageMenu.jpg non found" << endl;
+        cout << "Error data/imageMenu.png non found" << endl;
     }
     else 
     {
