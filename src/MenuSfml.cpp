@@ -11,7 +11,7 @@ Menu::Menu(float longueur, float largeur )
     }
 
     menu[0].setFont(police);
-    menu[0].setFillColor(Color::White);
+    menu[0].setFillColor(Color::Red);
     menu[0].setString ("Mode Solo");
     menu[0].setCharacterSize(70);
     menu[0].setPosition(800, 100);
