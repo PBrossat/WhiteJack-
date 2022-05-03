@@ -133,11 +133,13 @@ void Jeu::resultat()
 		{
 			joueurSolo.setBudget(joueurSolo.getMise());
 			joueurSolo.setGain(joueurSolo.getMise());
+			//return égalité
 		}
 		else
 		{
 			joueurSolo.setBudget((2.5)*joueurSolo.getMise());
 			joueurSolo.setGain((2.5)*joueurSolo.getMise());
+			//return blackjack
 		}
 	}
 	else if(!joueurSolo.mainJoueur.getCrame())
@@ -146,6 +148,7 @@ void Jeu::resultat()
 		{
 			joueurSolo.setBudget(2*joueurSolo.getMise());
 			joueurSolo.setGain(2*joueurSolo.getMise());
+			//return gagné
 		}
 		else
 		{
@@ -153,14 +156,18 @@ void Jeu::resultat()
 			{
 				joueurSolo.setBudget(2*joueurSolo.getMise());	
 				joueurSolo.setGain(2*joueurSolo.getMise());
+				//return gagné
 			}
 			else if(joueurSolo.mainJoueur.getSommeValeur() == mainCroupier.getSommeValeur())
 			{
 				joueurSolo.setBudget(joueurSolo.getMise());	
 				joueurSolo.setGain(joueurSolo.getMise());
+				//return égalité
 			}
 		}
 	}
+	//else return perdu
+	
 }
 
 

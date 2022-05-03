@@ -662,7 +662,18 @@ sfmlJeu::~sfmlJeu ()
 
 void sfmlJeu::afficherMainDeCarteCroupier(MainDeCarte mainJoueur)
 {
-    unsigned int positionx = dimx/2-45;
+    unsigned int nbCartes = mainJoueur.getNbCartes();
+    unsigned int decalage;
+    if(nbCartes<=2)
+    {
+        decalage = 0;
+    }
+    else
+    {
+        decalage = (nbCartes-2)*20;
+    } 
+
+    unsigned int positionx = dimx/2-(50+decalage);
     unsigned int positiony = dimy/2-200;
 
     for (unsigned int i=0; i<mainJoueur.getNbCartes(); i++)
@@ -916,16 +927,19 @@ void sfmlJeu::afficherMainDeCarteCroupier(MainDeCarte mainJoueur)
 				}
 			}
 			carte.setPosition(positionx, positiony);
-            carte.setScale(0.75,0.75);
-			positionx += 35;
-            positiony -= 35;
+            carte.setScale(0.65,0.65);
+			positionx += 40;
+            //positiony -= 35;
 			window->draw(carte);
     }
 }
 
 void sfmlJeu::afficherMainDeCarteJoueur(MainDeCarte mainJoueur)
 {
-    unsigned int positionx = dimx/2-45;
+    unsigned int nbCartes = mainJoueur.getNbCartes();
+    unsigned int decalage = (nbCartes-2)*18;        
+
+    unsigned int positionx = dimx/2-(45+decalage);
     unsigned int positiony = dimy-275;
 
     for (unsigned int i=0; i<mainJoueur.getNbCartes(); i++)
@@ -1179,9 +1193,9 @@ void sfmlJeu::afficherMainDeCarteJoueur(MainDeCarte mainJoueur)
 				}
 			}
 			carte.setPosition(positionx, positiony);
-            carte.setScale(0.75,0.75);
-			positionx +=35;
-            positiony -= 35;
+            carte.setScale(0.65,0.65);
+			positionx +=36;
+            positiony -= 30;
 			window->draw(carte);
     }
 }
