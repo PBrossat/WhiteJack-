@@ -42,6 +42,7 @@ Menu :: ~Menu ()
 
 void Menu::dessiner(RenderWindow & fenetre)
 {
+    fenetre.draw(rsFond);
     for (unsigned int i=0; i<Max_menu_principal; i++)
     {
         fenetre.draw(menu[i]);
@@ -85,6 +86,20 @@ void Menu::descendre()
     }
     
 }
+
+
+void Menu::sfmlInit()
+{
+    if (!tFond.loadFromFile("data/imageMenu.png")) 
+    {
+        cout << "Error data/imageMenu.png non found" << endl;
+    }
+    else 
+    {
+        rsFond.setTexture(&tFond);
+    }
+}
+
 
 
 

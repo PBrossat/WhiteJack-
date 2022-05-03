@@ -7,6 +7,11 @@ int main ()
 {
     sf::RenderWindow fenetre (VideoMode(1400,750), "Menu Principal" , Style::Default);
     Menu menu (fenetre.getSize().x, fenetre.getSize().y);
+    menu.sfmlInit();
+    menu.rsFond.setSize(Vector2f(fenetre.getSize().x, fenetre.getSize().y));
+    fenetre.draw(menu.rsFond);
+
+
 
 
     while (fenetre.isOpen())

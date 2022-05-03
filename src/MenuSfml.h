@@ -24,12 +24,17 @@ public :
     {
         return menuPrincipalSelection;
     }
- 
+    void sfmlInit();
+    sf::RectangleShape rsFond;
+    sf::Texture tFond;
 
 private :
 
     int menuPrincipalSelection;
     Font police;
+    // sf::RectangleShape rsFond;
+    // sf::Texture tFond;
+
     Text menu[Max_menu_principal];
 
 
