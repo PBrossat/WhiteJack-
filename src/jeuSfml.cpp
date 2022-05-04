@@ -641,7 +641,7 @@ void sfmlJeu::sfmlInit() {
         sCadre.setPosition(Vector2f((dimx/64)-20,(dimy/8)+3));
     }
 
-    if (!m_font.loadFromFile("data/CasinoFlatShadow.ttf")) {cout << "Error data/CasinoFlatShadow.ttf non found" << endl;}
+    if (!m_font.loadFromFile("data/FontMoney.ttf")) {cout << "Error data/FontMoney.ttf non found" << endl;}
     else {
         txtScoreJoueur.setFont(m_font);
         txtScoreCroupier.setFont(m_font);
