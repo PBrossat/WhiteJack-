@@ -629,15 +629,15 @@ void sfmlJeu::sfmlInit() {
         sBlackjack.setScale(1.25,1.25);
         sBlackjack.setPosition(dimx/2-218.75,dimy/2-109.375);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
-    if (!tCadre.loadFromFile("data/cadre.png"))
+    if (!tCadre.loadFromFile("data/cadreRouge.png"))
     {
-        cout << "Error data/cadre.png non found" << endl;
+        cout << "Error data/cadreRouge.png non found" << endl;
     }
     else
     {
         sCadre.setTexture(tCadre);
-        sCadre.setScale(0.125,0.125);
-        sCadre.setPosition(Vector2f(dimx/40-30,dimy/10+20));
+        sCadre.setScale(0.5,0.5);
+        sCadre.setPosition(Vector2f((dimx/64)-20,(dimy/8)+3));
     }
 
     if (!m_font.loadFromFile("data/CasinoFlatShadow.ttf")) {cout << "Error data/CasinoFlatShadow.ttf non found" << endl;}
@@ -657,7 +657,7 @@ void sfmlJeu::sfmlInit() {
         txtScoreJoueur.setFillColor(Color::Black);
         txtScoreCroupier.setFillColor(Color::Black);
         txtMise.setFillColor(Color::White);
-        txtBudget.setFillColor(Color::Black);
+        txtBudget.setFillColor(Color::White);
         
         txtScoreJoueur.setPosition(Vector2f(dimx/2-35,dimy-80));
         txtScoreCroupier.setPosition(Vector2f(dimx/2,dimy/7));
