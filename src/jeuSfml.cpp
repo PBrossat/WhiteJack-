@@ -637,34 +637,34 @@ void sfmlJeu::sfmlInit() {
     else
     {
         sCadre.setTexture(tCadre);
-        sCadre.setScale(0.5,0.5);
-        sCadre.setPosition(Vector2f((dimx/64)-20,(dimy/8)+3));
+        sCadre.setScale(0.63,0.63);
+        sCadre.setPosition(Vector2f((dimx/64)-20,(dimy/2)-235));
     }
 
-    if (!m_font.loadFromFile("data/FontMoney.ttf")) {cout << "Error data/FontMoney.ttf non found" << endl;}
+    if (!m1_font.loadFromFile("data/FontMoney.ttf")) {cout << "Error data/FontMoney.ttf non found" << endl;}
     else {
-        txtScoreJoueur.setFont(m_font);
-        txtScoreCroupier.setFont(m_font);
-        txtMise.setFont(m_font);
-        txtBudget.setFont(m_font);
+        txtBudget.setFont(m1_font);
         
+        txtBudget.setCharacterSize(35);
+        
+        txtBudget.setFillColor(Color::White);
+        
+        txtBudget.setPosition(Vector2f(84,190)); 
+    }
 
+    if (!m2_font.loadFromFile("data/CasinoFlat.ttf")) {cout << "Error data/CasinoFlat.ttf non found" << endl;}
+    else {
+        txtScoreJoueur.setFont(m2_font);
+        txtScoreCroupier.setFont(m2_font);
+        
         txtScoreJoueur.setCharacterSize(30);
         txtScoreCroupier.setCharacterSize(30);
-        txtMise.setCharacterSize(30);
-        txtBudget.setCharacterSize(37);
-        
         
         txtScoreJoueur.setFillColor(Color::Black);
         txtScoreCroupier.setFillColor(Color::Black);
-        txtMise.setFillColor(Color::White);
-        txtBudget.setFillColor(Color::White);
         
         txtScoreJoueur.setPosition(Vector2f(dimx/2-35,dimy-80));
-        txtScoreCroupier.setPosition(Vector2f(dimx/2,dimy/7));
-        txtMise.setPosition(Vector2f(50,130));
-        txtBudget.setPosition(Vector2f(75,190));
-         
+        txtScoreCroupier.setPosition(Vector2f(dimx/2-90,dimy/7)); 
     }
 
     if (!m1_soundbuffer.loadFromFile("data/SonMise.wav")) 
@@ -1266,12 +1266,12 @@ void sfmlJeu::sfmlAff()
     stringstream stream;
     
     // Set precision level to 3
-    stream.precision(2);
+    stream.precision(1);
     stream << fixed;
     // Convert float to string
     stream<<jeu.joueurSolo.getBudget();  
     string str  = stream.str();
-    txtBudget.setString(str);
+    txtBudget.setString(str+"$");
     window->draw(txtBudget);
 
     if(actionMiser==1)
@@ -1286,7 +1286,7 @@ void sfmlJeu::sfmlAff()
         window->draw(txtScoreJoueur);
 
         string scoreCroupier = to_string(jeu.mainCroupier.getSommeValeur());
-        txtScoreCroupier.setString(scoreCroupier);
+        txtScoreCroupier.setString("Score croupier : "+scoreCroupier);
         window->draw(txtScoreCroupier);
 
         if(finJeu==1)
@@ -1309,9 +1309,6 @@ void sfmlJeu::sfmlAff()
         }
         else
         {
-            string mise = to_string(jeu.joueurSolo.getMise());
-            txtMise.setString("Mise : "+ mise);
-            window->draw(txtMise);
             sRester.setPosition(dimx-100,dimy-80);
             window->draw(sRester);
             sTirer.setPosition(dimx-100,dimy-160);

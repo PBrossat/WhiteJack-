@@ -190,7 +190,8 @@ private :
 
     unsigned int res;
 
-    sf::Font m_font;
+    sf::Font m1_font;
+    sf::Font m2_font;
     sf::Text txtScoreJoueur;
     sf::Text txtMise;
     sf::Text txtBudget;

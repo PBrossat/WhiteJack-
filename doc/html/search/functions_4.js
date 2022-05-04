@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['finjeu_149',['finJeu',['../class_jeu.html#a80eb667bed400b2f22333bc0018318de',1,'Jeu']]]
+  ['eliminationjoueur_0',['eliminationJoueur',['../classjeu_multi.html#acf2a300711304843def818ef0dd763ef',1,'jeuMulti']]]
 ];

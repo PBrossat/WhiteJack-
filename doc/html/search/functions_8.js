@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['main_171',['main',['../main_jeu_sfml_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;mainJeuSfml.cpp'],['../main_jeu_txt_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;mainJeuTxt.cpp'],['../main_test_carte_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;mainTestCarte.cpp'],['../main_test_deck_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;mainTestDeck.cpp'],['../main_test_jeu_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;mainTestJeu.cpp'],['../main_test_jeu_multi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;mainTestJeuMulti.cpp'],['../main_test_joueur_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;mainTestJoueur.cpp'],['../main_test_main_de_carte_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;mainTestMainDeCarte.cpp']]],
-  ['maindecarte_172',['MainDeCarte',['../class_main_de_carte.html#aac0407560c3e9c22227f33b157d5bdcd',1,'MainDeCarte::MainDeCarte()'],['../class_main_de_carte.html#a4fb910636028f2f38be0e541e2837cae',1,'MainDeCarte::MainDeCarte(const Carte &amp;carte1, const Carte &amp;carte2)']]],
-  ['melangerdeck_173',['melangerDeck',['../class_deck.html#a85e72ee5a974e5b5d7c8f1f83942ed8b',1,'Deck']]],
-  ['miser_174',['miser',['../class_joueur.html#afb2ce391a4321278424fced12a156988',1,'Joueur']]]
+  ['jeu_0',['Jeu',['../class_jeu.html#acc5795ee00edf75516d3dfe65be3e6d6',1,'Jeu']]],
+  ['jeumulti_1',['jeuMulti',['../classjeu_multi.html#ab981e178f6d37b0a887fc9b10ec394da',1,'jeuMulti::jeuMulti()'],['../classjeu_multi.html#a8e8465325e3e8e926c4d24d427c67e18',1,'jeuMulti::jeuMulti(unsigned int NiveauJoueur)']]],
+  ['joueur_2',['Joueur',['../class_joueur.html#add6c98be3020651d84f6d75ccc1d867e',1,'Joueur::Joueur()'],['../class_joueur.html#a0d65c33a463b530498131a93e06995bf',1,'Joueur::Joueur(string nomJ, unsigned int nivJoueur, unsigned int budgetJ)']]]
 ];

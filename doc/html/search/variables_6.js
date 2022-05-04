@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['undeck_209',['unDeck',['../class_jeu.html#aff23ae3b58b67ee7cd58c25d447e7fa0',1,'Jeu::unDeck()'],['../classjeu_multi.html#aec006a10b9c088d06a050b61ecbc83d7',1,'jeuMulti::unDeck()']]]
+  ['sonambiance_0',['sonAmbiance',['../class_menu.html#a349296352feeb1005af59ffdbcbaa87d',1,'Menu']]],
+  ['sonmise_1',['sonMise',['../class_menu.html#a9e88b9a84f5760a40e79e12eab161aaa',1,'Menu']]]
 ];
