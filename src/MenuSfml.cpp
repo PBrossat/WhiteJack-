@@ -79,26 +79,25 @@ void Menu::boucleMenu()
                     case sf::Keyboard::Return:
                     sonAmbiance.stop();
                     sonMise.play();
-                    switch (menuPrincipalAppuyer())
+
+                    if(menuPrincipalAppuyer()==0) //choix joueur => jeu Solo 
                     {
-                        case 0:
-                        cout<<"Jeu Solo selectionné"<<endl;
-                        fenetre.close(); 
-                        sfmlJeu jeu;
+                        fenetre.close();    //On ferme la fenetre du menu
+                        sfmlJeu jeu;        //On crée un jeu
                         jeu.sfmlInit();
                         jeu.sfmlAff();
-                        jeu.sfmlBoucle();
-                        break;
-
-                        case 1:
+                        jeu.sfmlBoucle();   //On ouvre le jeu solo 
+                    }else if(menuPrincipalAppuyer()==1) //choix joueur => jeu Multi 
+                    {
                         cout<<"Jeu Multi selectionné"<<endl;
-                        break;
 
-                        case 2:
+                    }else if (menuPrincipalAppuyer()==2)  //choix joueur => Regles du jeu 
+                    {
                         cout<<"Règles selectionné"<<endl;
-                        break;
-
                     }
+                        
+                    
+                    
                 }
                 
 
