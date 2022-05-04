@@ -49,7 +49,7 @@ class Joueur
      * @warning 2 : le joueur est intermédiaire
      * @warning 3 : le joueur est expert
     */ 
-    Joueur(string nomJ, unsigned int nivJoueur, float budgetJ);
+    Joueur(string nomJ, unsigned int nivJoueur, unsigned int budgetJ);
 
    
     /**
@@ -73,7 +73,7 @@ class Joueur
      * unJoueur.getBudget();
      * @endcode     
     */ 
-    float getBudget() const;
+    unsigned int getBudget() const;
 
 
      /**

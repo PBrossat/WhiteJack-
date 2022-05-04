@@ -651,7 +651,8 @@ void sfmlJeu::sfmlInit() {
         txtScoreJoueur.setCharacterSize(30);
         txtScoreCroupier.setCharacterSize(30);
         txtMise.setCharacterSize(30);
-        txtBudget.setCharacterSize(27);
+        txtBudget.setCharacterSize(37);
+        
         
         txtScoreJoueur.setFillColor(Color::Black);
         txtScoreCroupier.setFillColor(Color::Black);
@@ -659,9 +660,10 @@ void sfmlJeu::sfmlInit() {
         txtBudget.setFillColor(Color::Black);
         
         txtScoreJoueur.setPosition(Vector2f(dimx/2-35,dimy-80));
-        txtScoreCroupier.setPosition(Vector2f(dimx/4+20,dimy/7));
+        txtScoreCroupier.setPosition(Vector2f(dimx/2,dimy/7));
         txtMise.setPosition(Vector2f(50,130));
-        txtBudget.setPosition(Vector2f(60,190));
+        txtBudget.setPosition(Vector2f(75,190));
+         
     }
 
     if (!m1_soundbuffer.loadFromFile("data/SonMise.wav")) 
@@ -1276,7 +1278,7 @@ void sfmlJeu::sfmlAff()
         window->draw(txtScoreJoueur);
 
         string scoreCroupier = to_string(jeu.mainCroupier.getSommeValeur());
-        txtScoreCroupier.setString("Score Croupier : "+ scoreCroupier);
+        txtScoreCroupier.setString(scoreCroupier);
         window->draw(txtScoreCroupier);
 
         if(finJeu==1)
