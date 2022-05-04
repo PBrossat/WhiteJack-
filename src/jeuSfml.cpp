@@ -1531,16 +1531,16 @@ void sfmlJeu::sfmlBoucle() {
                                         switch(res)
                                         {
                                             case 0:
-                                                sonJackpot.play();
+                                                sonPerdu.play(); // si on a perdu on joue le sonPerdu
                                                 break;
                                             case 1:
-                                                sonJackpot.play();
+                                                sonMise.play(); // si on a égalité on joue le sonMise
                                                 break;
                                             case 2:
-                                                sonJackpot.play();
+                                                sonGagne.play();// si on a gagné on joue le sonGagne
                                                 break;
                                             case 3:
-                                                sonJackpot.play();
+                                                sonJackpot.play();// si on a blackjack on joue le sonJackpot
                                                 break;
                                         }
                                     }
@@ -1557,16 +1557,16 @@ void sfmlJeu::sfmlBoucle() {
                                         switch(res)
                                         {
                                             case 0:
-                                                sonJackpot.play();
+                                                sonPerdu.play(); // si on a perdu on joue le sonPerdu
                                                 break;
                                             case 1:
-                                                sonJackpot.play();
+                                                sonMise.play(); // si on a égalité on joue le sonMise
                                                 break;
                                             case 2:
-                                                sonJackpot.play();
+                                                sonGagne.play();// si on a gagné on joue le sonGagne
                                                 break;
                                             case 3:
-                                                sonJackpot.play();
+                                                sonJackpot.play();// si on a blackjack on joue le sonJackpot
                                                 break;
                                         }
                                     } 
@@ -1585,16 +1585,16 @@ void sfmlJeu::sfmlBoucle() {
                                         switch(res)
                                         {
                                             case 0:
-                                                sonJackpot.play();
+                                                sonPerdu.play(); // si on a perdu on joue le sonPerdu
                                                 break;
                                             case 1:
-                                                sonJackpot.play();
+                                                sonMise.play(); // si on a égalité on joue le sonMise
                                                 break;
                                             case 2:
-                                                sonJackpot.play();
+                                                sonGagne.play();// si on a gagné on joue le sonGagne
                                                 break;
                                             case 3:
-                                                sonJackpot.play();
+                                                sonJackpot.play();// si on a blackjack on joue le sonJackpot
                                                 break;
                                         }
                                     } 
