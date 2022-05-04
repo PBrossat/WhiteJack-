@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 using namespace sf;
 using namespace std;
@@ -627,7 +629,16 @@ void sfmlJeu::sfmlInit() {
         sBlackjack.setScale(1.25,1.25);
         sBlackjack.setPosition(dimx/2-218.75,dimy/2-109.375);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
-
+    if (!tCadre.loadFromFile("data/cadre.png"))
+    {
+        cout << "Error data/cadre.png non found" << endl;
+    }
+    else
+    {
+        sCadre.setTexture(tCadre);
+        sCadre.setScale(0.125,0.125);
+        sCadre.setPosition(Vector2f(dimx/40-30,dimy/10+20));
+    }
 
     if (!m_font.loadFromFile("data/CasinoFlatShadow.ttf")) {cout << "Error data/CasinoFlatShadow.ttf non found" << endl;}
     else {
@@ -635,21 +646,22 @@ void sfmlJeu::sfmlInit() {
         txtScoreCroupier.setFont(m_font);
         txtMise.setFont(m_font);
         txtBudget.setFont(m_font);
+        
 
         txtScoreJoueur.setCharacterSize(30);
         txtScoreCroupier.setCharacterSize(30);
         txtMise.setCharacterSize(30);
-        txtBudget.setCharacterSize(30);
+        txtBudget.setCharacterSize(27);
         
         txtScoreJoueur.setFillColor(Color::Black);
         txtScoreCroupier.setFillColor(Color::Black);
         txtMise.setFillColor(Color::White);
-        txtBudget.setFillColor(Color::White);
+        txtBudget.setFillColor(Color::Black);
         
         txtScoreJoueur.setPosition(Vector2f(dimx/2-35,dimy-80));
         txtScoreCroupier.setPosition(Vector2f(dimx/4+20,dimy/7));
         txtMise.setPosition(Vector2f(50,130));
-        txtBudget.setPosition(Vector2f(50,230));
+        txtBudget.setPosition(Vector2f(60,190));
     }
 
     if (!m1_soundbuffer.loadFromFile("data/SonMise.wav")) 
@@ -1235,6 +1247,7 @@ void sfmlJeu::sfmlAff()
     window->clear(Color(230, 240, 255, 255)); 
     rsFond.setSize(Vector2f(dimx,dimy));
     window->draw(rsFond);
+    window->draw(sCadre);
 
     s1.setScale(0.75,0.75);
     s10.setScale(0.75,0.75);
@@ -1246,8 +1259,9 @@ void sfmlJeu::sfmlAff()
     sChanger.setScale(0.75,0.75);
     sDoubler.setScale(0.75,0.75);
 
+
     string budget = to_string(jeu.joueurSolo.getBudget());
-    txtBudget.setString("Budget : "+ budget);
+    txtBudget.setString(budget);
     window->draw(txtBudget);
 
     if(actionMiser==1)

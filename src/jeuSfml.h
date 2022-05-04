@@ -96,6 +96,7 @@ private :
     sf::Texture tRester;
     sf::Texture tChanger;
     sf::Texture tBlackjack;
+    sf::Texture tCadre;
   
 
 
@@ -177,6 +178,7 @@ private :
     sf::Sprite sRester;
     sf::Sprite sChanger;
     sf::Sprite sBlackjack;
+    sf::Sprite sCadre;
 
     sf::RectangleShape rsFond;
 
@@ -200,6 +202,7 @@ private :
     sf::Sound sonMise;
     sf::Sound sonCarte;
     sf::Sound sonJackpot;
+    
 
 public :
 
