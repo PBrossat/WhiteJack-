@@ -683,17 +683,17 @@ void sfmlJeu::sfmlInit() {
         sonJackpot.setBuffer(m2_soundbuffer);
     }
 
-    if (!m2_soundbuffer.loadFromFile("data/SonGagne.wav")) 
+    if (!m2_soundbuffer.loadFromFile("data/win.wav")) 
     {
-        cout << "Error data/SonGagne.wav non found" << endl;
+        cout << "Error data/win.wav non found" << endl;
     }
     else {
         sonGagne.setBuffer(m2_soundbuffer);
     }
 
-    if (!m2_soundbuffer.loadFromFile("data/SonPerdu.wav")) 
+    if (!m2_soundbuffer.loadFromFile("data/lose.wav")) 
     {
-        cout << "Error data/SonPerdu.wav non found" << endl;
+        cout << "Error data/lose.wav non found" << endl;
     }
     else {
         sonPerdu.setBuffer(m2_soundbuffer);
@@ -1507,16 +1507,16 @@ void sfmlJeu::sfmlBoucle() {
                                         switch(res)
                                         {
                                             case 0:
-                                                sonPerdu.play();
+                                                sonPerdu.play(); // si on a perdu on joue le sonPerdu
                                                 break;
                                             case 1:
-                                                sonMise.play();
+                                                sonMise.play(); // si on a égalité on joue le sonMise
                                                 break;
                                             case 2:
-                                                sonGagne.play();
+                                                sonGagne.play();// si on a gagné on joue le sonGagne
                                                 break;
                                             case 3:
-                                                sonJackpot.play();
+                                                sonJackpot.play();// si on a blackjack on joue le sonJackpot
                                                 break;
                                         }
                                     }
