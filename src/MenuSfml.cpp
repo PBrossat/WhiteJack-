@@ -1,5 +1,6 @@
 ﻿#include "MenuSfml.h"
 #include <iostream>
+#include "jeuSfml.h"
 using namespace std;
 
 
@@ -82,6 +83,11 @@ void Menu::boucleMenu()
                     {
                         case 0:
                         cout<<"Jeu Solo selectionné"<<endl;
+                        fenetre.close(); 
+                        sfmlJeu jeu;
+                        jeu.sfmlInit();
+                        jeu.sfmlAff();
+                        jeu.sfmlBoucle();
                         break;
 
                         case 1:

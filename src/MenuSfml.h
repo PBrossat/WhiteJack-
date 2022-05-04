@@ -3,6 +3,7 @@
 #pragma once
 #include <iostream>
 #include "Jeu.h"
+#include "jeuSfml.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
