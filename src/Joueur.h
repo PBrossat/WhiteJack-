@@ -73,7 +73,7 @@ class Joueur
      * unJoueur.getBudget();
      * @endcode     
     */ 
-    unsigned int getBudget() const;
+    float getBudget() const;
 
 
      /**
@@ -104,14 +104,14 @@ class Joueur
 
     /**
      * @brief Accesseur du gain du joueur
-     * @return unsigned int 
+     * @return float
      * 
      * Exemple d'utilisation :
      * @code
      * unJoueur.getGain();
      * @endcode     
     */ 
-    unsigned int getGain() const;
+    float getGain() const;
 
 
 

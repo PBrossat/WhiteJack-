@@ -6,6 +6,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include<sstream> 
 
 using namespace sf;
 using namespace std;
@@ -1262,8 +1263,15 @@ void sfmlJeu::sfmlAff()
     sDoubler.setScale(0.75,0.75);
 
 
-    string budget = to_string(jeu.joueurSolo.getBudget());
-    txtBudget.setString(budget);
+    stringstream stream;
+    
+    // Set precision level to 3
+    stream.precision(2);
+    stream << fixed;
+    // Convert float to string
+    stream<<jeu.joueurSolo.getBudget();  
+    string str  = stream.str();
+    txtBudget.setString(str);
     window->draw(txtBudget);
 
     if(actionMiser==1)

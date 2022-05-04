@@ -34,7 +34,7 @@ bool Joueur::testArgentJoueur() const
 }
 
 
-unsigned int Joueur::getBudget() const
+float Joueur::getBudget() const
 {
 	if(budget>0)
 	{
@@ -80,8 +80,9 @@ void Joueur::miser(unsigned int mise)
 
 
 
- unsigned int Joueur::getGain() const
+ float Joueur::getGain() const
  {
+	 assert(gain>=0);
 	return gain; 
  }
 
