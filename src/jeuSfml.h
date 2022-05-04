@@ -200,6 +200,8 @@ private :
     sf::SoundBuffer m1_soundbuffer;
     sf::SoundBuffer m2_soundbuffer;
     sf::SoundBuffer m3_soundbuffer;
+    sf::SoundBuffer m4_soundbuffer;
+    sf::SoundBuffer m5_soundbuffer;
     sf::Sound sonMise;
     sf::Sound sonCarte;
     sf::Sound sonJackpot;

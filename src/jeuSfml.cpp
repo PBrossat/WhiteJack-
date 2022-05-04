@@ -627,8 +627,8 @@ void sfmlJeu::sfmlInit() {
     else 
     {
         sBlackjack.setTexture(tBlackjack);
-        sBlackjack.setScale(1.25,1.25);
-        sBlackjack.setPosition(dimx/2-218.75,dimy/2-109.375);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+        sBlackjack.setScale(1,1);
+        sBlackjack.setPosition(dimx/2+200,dimy/2-87.5);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tCadre.loadFromFile("data/cadreRouge.png"))
     {
@@ -647,7 +647,7 @@ void sfmlJeu::sfmlInit() {
         
         txtBudget.setCharacterSize(35);
         
-        txtBudget.setFillColor(Color::White);
+        txtBudget.setFillColor(Color::Yellow);
         
         txtBudget.setPosition(Vector2f(84,190)); 
     }
@@ -681,22 +681,24 @@ void sfmlJeu::sfmlInit() {
     }
     else {
         sonJackpot.setBuffer(m2_soundbuffer);
+        sonJackpot.setVolume(20);
     }
 
-    if (!m2_soundbuffer.loadFromFile("data/win.wav")) 
+    if (!m4_soundbuffer.loadFromFile("data/winMoney.wav")) 
     {
-        cout << "Error data/win.wav non found" << endl;
+        cout << "Error data/winMoney.wav non found" << endl;
     }
     else {
-        sonGagne.setBuffer(m2_soundbuffer);
+        sonGagne.setBuffer(m4_soundbuffer);
     }
 
-    if (!m2_soundbuffer.loadFromFile("data/lose.wav")) 
+    if (!m5_soundbuffer.loadFromFile("data/lose.wav")) 
     {
         cout << "Error data/lose.wav non found" << endl;
     }
     else {
-        sonPerdu.setBuffer(m2_soundbuffer);
+        sonPerdu.setBuffer(m5_soundbuffer);
+        sonPerdu.setVolume(20);
     }
 
     if (!m3_soundbuffer.loadFromFile("data/SonCarte.wav")) 
@@ -1557,6 +1559,7 @@ void sfmlJeu::sfmlBoucle() {
                                         switch(res)
                                         {
                                             case 0:
+                                                cout<<"jai perdu en restant";
                                                 sonPerdu.play(); // si on a perdu on joue le sonPerdu
                                                 break;
                                             case 1:

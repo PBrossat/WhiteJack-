@@ -164,6 +164,10 @@ unsigned int Jeu::resultat()
 				joueurSolo.setGain(joueurSolo.getMise());
 				return 1;
 			}
+			else if(joueurSolo.mainJoueur.getSommeValeur() < mainCroupier.getSommeValeur())
+			{
+				return 0;
+			}
 		}
 	}
 	else
