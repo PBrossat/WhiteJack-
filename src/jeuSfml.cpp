@@ -683,6 +683,22 @@ void sfmlJeu::sfmlInit() {
         sonJackpot.setBuffer(m2_soundbuffer);
     }
 
+    if (!m2_soundbuffer.loadFromFile("data/SonGagne.wav")) 
+    {
+        cout << "Error data/SonGagne.wav non found" << endl;
+    }
+    else {
+        sonGagne.setBuffer(m2_soundbuffer);
+    }
+
+    if (!m2_soundbuffer.loadFromFile("data/SonPerdu.wav")) 
+    {
+        cout << "Error data/SonPerdu.wav non found" << endl;
+    }
+    else {
+        sonPerdu.setBuffer(m2_soundbuffer);
+    }
+
     if (!m3_soundbuffer.loadFromFile("data/SonCarte.wav")) 
     {
         cout << "Error data/SonCarte.wav non found" << endl;
@@ -1491,13 +1507,13 @@ void sfmlJeu::sfmlBoucle() {
                                         switch(res)
                                         {
                                             case 0:
-                                                sonJackpot.play();
+                                                sonPerdu.play();
                                                 break;
                                             case 1:
-                                                sonJackpot.play();
+                                                sonMise.play();
                                                 break;
                                             case 2:
-                                                sonJackpot.play();
+                                                sonGagne.play();
                                                 break;
                                             case 3:
                                                 sonJackpot.play();

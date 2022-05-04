@@ -202,6 +202,8 @@ private :
     sf::Sound sonMise;
     sf::Sound sonCarte;
     sf::Sound sonJackpot;
+    sf::Sound sonGagne;
+    sf::Sound sonPerdu;
     
 
 public :
