@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['eliminationjoueur_148',['eliminationJoueur',['../classjeu_multi.html#acf2a300711304843def818ef0dd763ef',1,'jeuMulti']]]
+  ['descendre_0',['descendre',['../class_menu.html#abb60645db4e2238b12daf05aa70944b8',1,'Menu']]],
+  ['dessiner_1',['dessiner',['../class_menu.html#ad226cbb1f9082cf60ef121d5b71b1a3c',1,'Menu']]],
+  ['distribuercarte_2',['distribuerCarte',['../class_deck.html#a9a630045038557790dcd89d21b2f3546',1,'Deck']]],
+  ['doubler_3',['doubler',['../class_main_de_carte.html#a4db801b38dce3e59de648da3f88f43c7',1,'MainDeCarte']]]
 ];

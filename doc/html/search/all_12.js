@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['_7eimage_98',['~Image',['../class_image.html#a0294f63700543e11c0f0da85601c7ae5',1,'Image']]]
+  ['_7emenu_0',['~Menu',['../class_menu.html#a831387f51358cfb88cd018e1777bc980',1,'Menu']]],
+  ['_7esfmljeu_1',['~sfmlJeu',['../classsfml_jeu.html#a22446d3645360d379b963471e85eb989',1,'sfmlJeu']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['distribuercarte_146',['distribuerCarte',['../class_deck.html#a9a630045038557790dcd89d21b2f3546',1,'Deck']]],
-  ['doubler_147',['doubler',['../class_main_de_carte.html#a4db801b38dce3e59de648da3f88f43c7',1,'MainDeCarte']]]
+  ['carte_0',['Carte',['../class_carte.html#aa54d60198730fb2db12c2cf1a600bbbf',1,'Carte::Carte(unsigned int Rang, unsigned int Valeur, unsigned int Signe)'],['../class_carte.html#a06daaca86c31c80f8308f4a81d46dc9b',1,'Carte::Carte()']]],
+  ['changecarte_1',['changeCarte',['../class_main_de_carte.html#ac357006dab7884e271d95fd48116737a',1,'MainDeCarte']]]
 ];
