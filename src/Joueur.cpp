@@ -87,7 +87,7 @@ void Joueur::miser(unsigned int mise)
  }
 
 
-void Joueur::setGain(unsigned int Gain)
+void Joueur::setGain(float Gain)
 {
 	assert (Gain>=0);
 	gain=Gain;

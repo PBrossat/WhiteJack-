@@ -22,7 +22,7 @@ class Carte
     * Carte carte1(5,5,2);
     * Carte carte1(11,10,1);
     * @endcode
-    * @warning Rang doit être compris entre 1 et 13 (ace=1, deux=2, ... valet=11, dame=12, roi=13)
+    * @warning Rang doit être compris entre 1 et 13 (ace=1, deux=2, ..., valet=11, dame=12, roi=13)
     * @warning Valeur doit être comprise entre 1 et 11
     * @warning Signe doit être compris entre 1 et 4 (pique=1, coeur =2, trèfle=3, carreau=4)
     */

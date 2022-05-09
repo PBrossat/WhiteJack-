@@ -17,10 +17,13 @@ class Joueur
 	string nom;
 
 
+
 	/**
 	 * @brief mainJoueur main de cartes du joueur
 	*/
 	MainDeCarte mainJoueur;
+
+
 
 	/**
      * @brief  Constructeur par défaut de joueur
@@ -43,6 +46,7 @@ class Joueur
      * Exemple d'utilisation :
      * @code
      * Joueur unJoueur("Pierrick", 0, 1000);
+     * Joueur unAutreJoueur("Lucas",2,2000)
      * @endcode     
      * @warning 0 : le joueur est humain
      * @warning 1 : le joueur est amateur
@@ -52,8 +56,9 @@ class Joueur
     Joueur(string nomJ, unsigned int nivJoueur, unsigned int budgetJ);
 
    
+   
     /**
-     * @brief Tester si un joueur a toujours de l'argent ou non
+     * @brief Teste si un joueur a toujours de l'argent ou non
      * @return bool
      * 
      * Exemple d'utilisation :
@@ -62,6 +67,7 @@ class Joueur
      * @endcode     
     */ 
     bool testArgentJoueur() const;
+
 
 
     /**
@@ -76,7 +82,8 @@ class Joueur
     float getBudget() const;
 
 
-     /**
+
+    /**
      * @brief Mutateur de budget
      * @param[in] gain l'argent que le joueur a gagné (ou perdu)
      * @return void 
@@ -88,6 +95,7 @@ class Joueur
      * @endcode     
     */ 
     void setBudget(float gain);
+
 
     /**
      * @brief Accesseur du niveau de joueur 
@@ -116,22 +124,21 @@ class Joueur
 
 
     /**
-    * @brief Mutateur de gain
-    * @param[in] Gain l'argent que le joueur a gagné (ou perdu)
-    * @return void 
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * unJoueur.setGain(100);
-    * unJoueur.setGain(-100);
-    * @endcode     
+     * @brief Mutateur de gain
+     * @param[in] Gain l'argent que le joueur a gagné 
+     * @return void 
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * unJoueur.setGain(100);
+     * @endcode     
     */ 
-    void setGain(unsigned int Gain);
+    void setGain(float Gain);
 
 
 
     /**
-     * @brief Accesseur dz la mise du joueur
+     * @brief Accesseur de la mise du joueur
      * @return unsigned int 
      * 
      * Exemple d'utilisation :
@@ -169,6 +176,7 @@ class Joueur
     void testRegression() const;
 
 
+
     /**
      * @brief Fonction permettant au joueur de miser 
      * @param[in] mise la mise du joueur 
@@ -182,13 +190,17 @@ class Joueur
     */ 
     void miser(unsigned int mise);
 
+
+
     private :
 
-    unsigned int gain;
+    //un réel positif décrivant le gain du joueur
+    float gain;
 
+    //un entier positif décrivant la mise du joueur
     unsigned int mise;
 
-    //un réel décrivant le budget du joueur 
+    //un réel décrivant le budget du joueur
     float budget;
 
     //un entier entre 0 et 3 définissant le niveau du joueur 
