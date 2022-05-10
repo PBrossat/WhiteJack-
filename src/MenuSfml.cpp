@@ -115,7 +115,7 @@ void Menu::boucleMenu()
 }
 
 
-void Menu::dessiner(RenderWindow & fenetre)
+void Menu::dessiner(RenderWindow & fenetre)const 
 {
     fenetre.draw(rsFond);
     for (unsigned int i=0; i<Max_menu_principal; i++)

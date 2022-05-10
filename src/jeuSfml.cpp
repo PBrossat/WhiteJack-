@@ -628,7 +628,7 @@ void sfmlJeu::sfmlInit() {
     {
         sBlackjack.setTexture(tBlackjack);
         sBlackjack.setScale(1,1);
-        sBlackjack.setPosition(dimx/2-150,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+        sBlackjack.setPosition(dimx/2-120,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tGagne.loadFromFile("data/Gagne.png")) 
     {
@@ -750,7 +750,7 @@ sfmlJeu::~sfmlJeu ()
 
 
 
-void sfmlJeu::afficherMainDeCarteCroupier(MainDeCarte mainJoueur)
+void sfmlJeu::afficherMainDeCarteCroupier(const MainDeCarte mainJoueur)const
 {
     unsigned int nbCartes = mainJoueur.getNbCartes();
     unsigned int decalage;
@@ -1024,7 +1024,7 @@ void sfmlJeu::afficherMainDeCarteCroupier(MainDeCarte mainJoueur)
     }
 }
 
-void sfmlJeu::afficherMainDeCarteJoueur(MainDeCarte mainJoueur)
+void sfmlJeu::afficherMainDeCarteJoueur(const MainDeCarte mainJoueur)const 
 {
     unsigned int nbCartes = mainJoueur.getNbCartes();
     unsigned int decalage = (nbCartes-2)*18;        

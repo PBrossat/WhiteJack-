@@ -218,15 +218,89 @@ private :
 
 public :
 
-//AJOUTER LES CONST
 
+
+    /**
+    * @brief Constructeur sans paramètres de sfmlJeu.
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * sfmlJeu unJeuSfml;
+    * @endcode
+    */
     sfmlJeu ();
+
+
+
+    /**
+    * @brief Destructeur de sfmlJeu.
+    */
     ~sfmlJeu ();
 
-    void afficherMainDeCarteJoueur(MainDeCarte mainJoueur);
-    void afficherMainDeCarteCroupier(MainDeCarte mainJoueur);
+
+    /**
+    * @brief Procédure permettant d'afficher à l'écran la main du joueur
+    * @return void
+    * @param[in] mainJoueur : la main du joueur 
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * unJeuSfml.afficherMainDeCarteJoueur(mainJoueur1);
+    * @endcode
+    */   
+    void afficherMainDeCarteJoueur(const MainDeCarte mainJoueur)const ;
+
+
+
+    /**
+    * @brief Procédure permettant d'afficher à l'écran la main du croupier
+    * @return void
+    * @param[in] mainJoueur : la main du croupier 
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * unJeuSfml.afficherMainDeCarteCroupier(mainCroupier);
+    * @endcode
+    */   
+    void afficherMainDeCarteCroupier(const MainDeCarte mainJoueur)const;
+
+
+
+    /**
+    * @brief Procédure permettant d'initialiser toute les images, son et polices utilisées
+    * @return void
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * unJeuSfml.sfmlInit();
+    * @endcode
+    */   
     void sfmlInit();
+
+
+
+    /**
+    * @brief Procédure permettant de faire tourner la boucle du jeu 
+    * @return void
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * unJeuSfml.sfmlBoucle();
+    * @endcode
+    */     
     void sfmlBoucle();
+
+
+
+    /**
+    * @brief Procédure permettant d'afficher toute les images à l'écran
+    * @return void
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * unJeuSfml.sfmlAff();
+    * @endcode
+    */   
     void sfmlAff();
 
 };
