@@ -39,11 +39,11 @@ Menu :: ~Menu ()
     
 }
 
-
-void Menu::boucleMenu()
+unsigned int  Menu::boucleMenu()
 {
     sf::RenderWindow fenetre (VideoMode(1400,750), "Menu Principal" , Style::Default);
     rsFond.setSize(Vector2f(fenetre.getSize().x, fenetre.getSize().y));
+    
     fenetre.draw(rsFond);
 
     sonAmbiance.play();
@@ -83,17 +83,23 @@ void Menu::boucleMenu()
                     if(menuPrincipalAppuyer()==0) //choix joueur => jeu Solo 
                     {
                         fenetre.close();    //On ferme la fenetre du menu
-                        sfmlJeu jeu;        //On crée un jeu
-                        jeu.sfmlInit();
-                        jeu.sfmlAff();
-                        jeu.sfmlBoucle();   //On ouvre le jeu solo 
+                        return 0; 
+                        // sfmlJeu jeu;        //On crée un jeu
+                        // jeu.sfmlInit();
+                        // jeu.sfmlAff();
+                        // jeu.sfmlBoucle();   //On ouvre le jeu solo 
                     }else if(menuPrincipalAppuyer()==1) //choix joueur => jeu Multi 
                     {
                         cout<<"Jeu Multi selectionné"<<endl;
+                        fenetre.close();    //On ferme la fenetre du menu
+                        return 1; 
+
 
                     }else if (menuPrincipalAppuyer()==2)  //choix joueur => Regles du jeu 
                     {
                         cout<<"Règles selectionné"<<endl;
+                        fenetre.close();    //On ferme la fenetre du menu
+                        return 2; 
                     }
                         
                     
@@ -174,7 +180,16 @@ void Menu::initMenu()
     {
         rsFond.setTexture(&tFond);
     }
+    if (!tRegle.loadFromFile("data/Regle.png")) 
+    {
+        cout << "Error data/Regle.png non found" << endl;
+    }
+    else 
+    {
+        rsRegle.setSize(Vector2f(1400,750));
+        rsRegle.setTexture(&tRegle);
 
+    }
     if (!m1_soundbuffer.loadFromFile("data/SonMise.wav")) 
     {
         cout << "Error data/SonMise.wav non found" << endl;

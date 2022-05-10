@@ -21,6 +21,8 @@ public :
     
     sf::RectangleShape rsFond;
     sf::Texture tFond;
+    sf::Texture tRegle;
+    sf::RectangleShape rsRegle; 
     sf::SoundBuffer m1_soundbuffer;
     sf::SoundBuffer m2_soundbuffer;
     sf::Sound sonMise;
@@ -96,7 +98,7 @@ public :
     * unMenu.boucleMenu();
     * @endcode
     */  
-    void boucleMenu();
+    unsigned int boucleMenu();
 
 
     /**
