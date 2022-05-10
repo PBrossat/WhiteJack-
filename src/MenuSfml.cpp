@@ -83,7 +83,7 @@ unsigned int  Menu::boucleMenu()
                     if(menuPrincipalAppuyer()==0) //choix joueur => jeu Solo 
                     {
                         fenetre.close();    //On ferme la fenetre du menu
-                        return 0; 
+                        return 0; // on renvoie 0 
                         // sfmlJeu jeu;        //On crée un jeu
                         // jeu.sfmlInit();
                         // jeu.sfmlAff();
@@ -92,14 +92,13 @@ unsigned int  Menu::boucleMenu()
                     {
                         cout<<"Jeu Multi selectionné"<<endl;
                         fenetre.close();    //On ferme la fenetre du menu
-                        return 1; 
-
+                        return 1; // on renvoie 1
 
                     }else if (menuPrincipalAppuyer()==2)  //choix joueur => Regles du jeu 
                     {
                         cout<<"Règles selectionné"<<endl;
                         fenetre.close();    //On ferme la fenetre du menu
-                        return 2; 
+                        return 2; // on renvoie 2 
                     }
                         
                     
