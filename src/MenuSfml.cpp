@@ -186,7 +186,7 @@ void Menu::initMenu()
     }
     else 
     {
-        rsRegle.setSize(Vector2f(1400,750));
+        rsRegle.setSize(Vector2f(1400,5000));
         rsRegle.setTexture(&tRegle);
 
     }

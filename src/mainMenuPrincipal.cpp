@@ -6,6 +6,12 @@ using namespace sf;
 
 int main ()
 {
+
+
+	sf::View view(sf::Vector2f(1400/2.f, 200.f), sf::Vector2f(1400.f, 750.f));
+
+
+
     Menu menu;
 	menu.initMenu();
 	unsigned int res=menu.boucleMenu();
@@ -18,10 +24,37 @@ int main ()
 		break;
 
 		case 2:
-		sf::RenderWindow fenetre (VideoMode(1400,750), "Regle" , Style::Default);
-		while (fenetre.isOpen())
+		sf::RenderWindow * fenetre;
+		fenetre = new RenderWindow(VideoMode(1400,750), "Regle" , Style::Default);
+		while (fenetre->isOpen())
 		{
-    	fenetre.draw(menu.rsRegle);
+			Event event; 
+        	while (fenetre->pollEvent(event))
+        	{
+				if (event.type == Event::Closed)   
+            		fenetre->close();
+				if (event.type == Event::MouseWheelScrolled)
+				{
+					if(event.mouseWheelScroll.delta<0)
+					{
+						if(view.getCenter().y != menu.rsRegle.getSize().y-400)
+						{
+							view.move(0, 100.f);
+							fenetre->setView(view);
+						}
+					}
+					else if(event.mouseWheelScroll.delta>0)
+					{
+						if(view.getCenter().y != 200)
+						{
+							view.move(0, -100.f);
+							fenetre->setView(view);
+						}
+					}
+				}
+			}
+			fenetre->draw(menu.rsRegle);
+			fenetre->display();
 		}
 	}
 	return 0;
