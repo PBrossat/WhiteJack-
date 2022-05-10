@@ -19,7 +19,10 @@ class jeuMulti{
     unsigned int nbPartie;
 
 
-
+    /**
+    * @brief Le nombre de joueur encore présent
+    */
+    unsigned int nbJoueur;
 
     /**
     * @brief Le deck du jeu.
@@ -32,6 +35,23 @@ class jeuMulti{
     */
 	MainDeCarte mainCroupier;
 
+
+    /**
+     * @brief La deuxième carte du croupier (cachée lorsque le joueur joue)  
+    */
+	Carte deuxiemeCarteCroupier;
+
+
+    /**
+     * @brief Procédure permettant de gérer automatiquement les actions du croupier 
+    * @return void
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * unJeu.actionCroupier();
+     * @endcode
+    */
+	void actionCroupier();
 
 
     /**
@@ -73,6 +93,19 @@ class jeuMulti{
     */
     void eliminationJoueur();
 
+
+    /**
+     * @brief Fonction permettant de déterminer les gains du joueur et renvoyant un entier déterminant le résultat (gagné,perdu,blackjack...)
+     * @param[in] indiceJoueur : l'indice du joueur pour lequel on veut obtenir le résultat
+     * @return unsigned int : 0 pour perdu, 1 pour égalité, 2 pour gagné, 3 pour blackjack
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * 
+     * @endcode
+     * @warning À faire qu'à la fin de la partie
+    */
+	unsigned int resultat(unsigned int indiceJoueur); 
 
 
     /**
@@ -176,5 +209,10 @@ class jeuMulti{
     * @brief Le pourcentage (entre 40 et 60) pour determiner le ratio/le niveau du joueur.
     */
 	unsigned int randPourcentage;
+
+    /**
+    * @brief booléen indiquant si nous avons été eliminé ou pas
+    */
+	bool elimine;
 };
 #endif

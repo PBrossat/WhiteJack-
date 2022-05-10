@@ -3,7 +3,6 @@
 #include "jeuMulti.h"
 #include "Joueur.h"
 #include "Deck.h"
-#include "jeuTxt.h"
 #include <time.h> 
 #include <stdlib.h>
 #include <cassert>
@@ -32,6 +31,8 @@ jeuMulti::jeuMulti (unsigned int NiveauJoueur)
     tabJoueur.push_back(Joueur("IA2",NiveauJoueur,2000));
     tabJoueur.push_back(Joueur("IA3",NiveauJoueur,2000));
     nbPartie=1;
+    nbJoueur=4;
+    elimine=0;
 }
 
 
@@ -73,8 +74,6 @@ unsigned int nbJoueurs=tabJoueur.size(); // nbJoueur= à la taille du tableau
 
 void jeuMulti::initialisationMiseMulti()
 {
-
-
     for (unsigned int i=0; i<tabJoueur.size(); i++) //parcours du tableau de joueurs
     {
         tabJoueur[i].setGain(0);//initialisation des gains de tout les joueurs à 0
@@ -104,7 +103,57 @@ void jeuMulti::initialisationMiseMulti()
 
 }
 
-
+unsigned int jeuMulti::resultat(unsigned int indiceJoueur) 
+{
+	if(tabJoueur[indiceJoueur].mainJoueur.verifBlackJack())
+	{
+		if(mainCroupier.verifBlackJack())
+		{
+			tabJoueur[indiceJoueur].setBudget(tabJoueur[indiceJoueur].getMise());
+			tabJoueur[indiceJoueur].setGain(tabJoueur[indiceJoueur].getMise());
+			return 1;
+		}
+		else
+		{
+			tabJoueur[indiceJoueur].setBudget((2.5)*tabJoueur[indiceJoueur].getMise());
+			tabJoueur[indiceJoueur].setGain((2.5)*tabJoueur[indiceJoueur].getMise());
+			return 3;
+		}
+	}
+	else if(!tabJoueur[indiceJoueur].mainJoueur.getCrame())
+	{
+		if(mainCroupier.getCrame())
+		{
+			tabJoueur[indiceJoueur].setBudget(2*tabJoueur[indiceJoueur].getMise());
+			tabJoueur[indiceJoueur].setGain(2*tabJoueur[indiceJoueur].getMise());
+			return 2;
+		}
+		else
+		{
+			if(tabJoueur[indiceJoueur].mainJoueur.getSommeValeur() > mainCroupier.getSommeValeur())
+			{
+				tabJoueur[indiceJoueur].setBudget(2*tabJoueur[indiceJoueur].getMise());	
+				tabJoueur[indiceJoueur].setGain(2*tabJoueur[indiceJoueur].getMise());
+				return 2;
+			}
+			else if(tabJoueur[indiceJoueur].mainJoueur.getSommeValeur() == mainCroupier.getSommeValeur())
+			{
+				tabJoueur[indiceJoueur].setBudget(tabJoueur[indiceJoueur].getMise());	
+				tabJoueur[indiceJoueur].setGain(tabJoueur[indiceJoueur].getMise());
+				return 1;
+			}
+			else if(tabJoueur[indiceJoueur].mainJoueur.getSommeValeur() < mainCroupier.getSommeValeur())
+			{
+				return 0;
+			}
+		}
+	}
+	else
+	{
+		return 0;
+	}
+	
+}
 
 
 
@@ -133,6 +182,28 @@ void jeuMulti::initialisationJeuMulti()
 }
 
 
+void jeuMulti::actionCroupier()
+{
+    bool tousCrame=1;
+    for(unsigned int i=0; i<tabJoueur.size(); i++)
+    {
+        if(tabJoueur[i].mainJoueur.getCrame()==0)
+        {
+            tousCrame=0;
+        }
+    }
+	mainCroupier.tirerCarte(deuxiemeCarteCroupier);
+	if(tousCrame==0)
+	{
+		while(mainCroupier.getSommeValeur()<17)
+		{
+			Carte carteTiree = unDeck.distribuerCarte();
+			mainCroupier.tirerCarte(carteTiree);
+
+		}
+	}
+	mainCroupier.rester();
+}
 
 
 void jeuMulti::actionAmateur()
