@@ -628,7 +628,7 @@ void sfmlJeu::sfmlInit() {
     {
         sBlackjack.setTexture(tBlackjack);
         sBlackjack.setScale(1,1);
-        sBlackjack.setPosition(dimx/2-150,dimy/2-20);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+        sBlackjack.setPosition(dimx/2-150,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tGagne.loadFromFile("data/Gagne.png")) 
     {
@@ -638,7 +638,7 @@ void sfmlJeu::sfmlInit() {
     {
         sGagne.setTexture(tGagne);
         sGagne.setScale(1,1);
-        sGagne.setPosition(dimx/2,dimy/2-87.5);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+        sGagne.setPosition(dimx/2-150,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tPerdu.loadFromFile("data/Perdu.png")) 
     {
@@ -648,7 +648,7 @@ void sfmlJeu::sfmlInit() {
     {
         sPerdu.setTexture(tPerdu);
         sPerdu.setScale(1,1);
-        sPerdu.setPosition(dimx/2,dimy/2-87.5);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+        sPerdu.setPosition(dimx/2-150,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tEgalite.loadFromFile("data/Egalite.png")) 
     {
@@ -658,7 +658,7 @@ void sfmlJeu::sfmlInit() {
     {
         sEgalite.setTexture(tEgalite);
         sEgalite.setScale(1,1);
-        sEgalite.setPosition(dimx/2,dimy/2-87.5);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+        sEgalite.setPosition(dimx/2-150,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tCadre.loadFromFile("data/cadreRouge.png"))
     {
@@ -1342,13 +1342,13 @@ void sfmlJeu::sfmlAff()
             switch(res)
             {
                 case 0:
-                    window->draw(sBlackjack);
+                    window->draw(sPerdu);
                     break;
                 case 1:
-                    window->draw(sBlackjack);
+                    window->draw(sEgalite);
                     break;
                 case 2:
-                    window->draw(sBlackjack);
+                    window->draw(sGagne);
                     break;
                 case 3:
                     window->draw(sBlackjack);
