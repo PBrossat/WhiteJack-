@@ -8,7 +8,7 @@ int main ()
 {
 
 
-	sf::View view(sf::Vector2f(1400/2.f, 200.f), sf::Vector2f(1400.f, 750.f));
+	sf::View view(sf::Vector2f(1400/2.f, 375.f), sf::Vector2f(1400.f, 750.f));
 
 
 
@@ -37,7 +37,7 @@ int main ()
 				{
 					if(event.mouseWheelScroll.delta<0)
 					{
-						if(view.getCenter().y != menu.rsRegle.getSize().y-400)
+						if(view.getCenter().y < menu.rsRegle.getSize().y-450)
 						{
 							view.move(0, 100.f);
 							fenetre->setView(view);
@@ -45,7 +45,7 @@ int main ()
 					}
 					else if(event.mouseWheelScroll.delta>0)
 					{
-						if(view.getCenter().y != 200)
+						if(view.getCenter().y > 375)
 						{
 							view.move(0, -100.f);
 							fenetre->setView(view);
