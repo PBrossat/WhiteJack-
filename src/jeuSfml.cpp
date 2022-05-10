@@ -638,7 +638,7 @@ void sfmlJeu::sfmlInit() {
     {
         sGagne.setTexture(tGagne);
         sGagne.setScale(1,1);
-        sGagne.setPosition(dimx/2-150,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+        sGagne.setPosition(dimx/2-60,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tPerdu.loadFromFile("data/Perdu.png")) 
     {
@@ -648,7 +648,7 @@ void sfmlJeu::sfmlInit() {
     {
         sPerdu.setTexture(tPerdu);
         sPerdu.setScale(1,1);
-        sPerdu.setPosition(dimx/2-150,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+        sPerdu.setPosition(dimx/2-60,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tEgalite.loadFromFile("data/Egalite.png")) 
     {
@@ -658,7 +658,7 @@ void sfmlJeu::sfmlInit() {
     {
         sEgalite.setTexture(tEgalite);
         sEgalite.setScale(1,1);
-        sEgalite.setPosition(dimx/2-150,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+        sEgalite.setPosition(dimx/2-80,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tCadre.loadFromFile("data/cadreRouge.png"))
     {
