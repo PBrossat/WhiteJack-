@@ -628,7 +628,37 @@ void sfmlJeu::sfmlInit() {
     {
         sBlackjack.setTexture(tBlackjack);
         sBlackjack.setScale(1,1);
-        sBlackjack.setPosition(dimx/2+200,dimy/2-87.5);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+        sBlackjack.setPosition(dimx/2-150,dimy/2-20);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+    }
+    if (!tGagne.loadFromFile("data/Gagne.png")) 
+    {
+        cout << "Error data/Gagne.png non found" << endl;
+    }
+    else 
+    {
+        sGagne.setTexture(tGagne);
+        sGagne.setScale(1,1);
+        sGagne.setPosition(dimx/2,dimy/2-87.5);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+    }
+    if (!tPerdu.loadFromFile("data/Perdu.png")) 
+    {
+        cout << "Error data/Perdu.png non found" << endl;
+    }
+    else 
+    {
+        sPerdu.setTexture(tPerdu);
+        sPerdu.setScale(1,1);
+        sPerdu.setPosition(dimx/2,dimy/2-87.5);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+    }
+    if (!tEgalite.loadFromFile("data/Egalite.png")) 
+    {
+        cout << "Error data/Egalite.png non found" << endl;
+    }
+    else 
+    {
+        sEgalite.setTexture(tEgalite);
+        sEgalite.setScale(1,1);
+        sEgalite.setPosition(dimx/2,dimy/2-87.5);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tCadre.loadFromFile("data/cadreRouge.png"))
     {

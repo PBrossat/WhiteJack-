@@ -97,6 +97,10 @@ private :
     sf::Texture tChanger;
     sf::Texture tBlackjack;
     sf::Texture tCadre;
+    sf::Texture tGagne;
+    sf::Texture tPerdu;
+    sf::Texture tEgalite;
+    
   
 
 
@@ -179,6 +183,9 @@ private :
     sf::Sprite sChanger;
     sf::Sprite sBlackjack;
     sf::Sprite sCadre;
+    sf::Sprite sGagne;
+    sf::Sprite sPerdu;
+    sf::Sprite sEgalite;
 
     sf::RectangleShape rsFond;
 
