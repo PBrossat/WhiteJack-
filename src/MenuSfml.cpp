@@ -179,9 +179,9 @@ void Menu::initMenu()
     {
         rsFond.setTexture(&tFond);
     }
-    if (!tRegle.loadFromFile("data/Regle.png")) 
+    if (!tRegle.loadFromFile("data/Regles.jpg")) 
     {
-        cout << "Error data/Regle.png non found" << endl;
+        cout << "Error data/Regles.jpg non found" << endl;
     }
     else 
     {
