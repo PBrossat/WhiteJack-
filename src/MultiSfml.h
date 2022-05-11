@@ -198,6 +198,10 @@ private :
     sf::Text txtScoreIA1;
     sf::Text txtScoreIA2;
     sf::Text txtScoreIA3;
+    sf::Text txtNom;
+    sf::Text txtNomIA1;
+    sf::Text txtNomIA2;
+    sf::Text txtNomIA3;
     sf::Text txtManche;
     sf::Text txtMise;
     sf::Text txtBudget;

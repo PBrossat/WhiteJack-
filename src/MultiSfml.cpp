@@ -1001,7 +1001,7 @@ void sfmlMulti::afficherMainDeCarte(MainDeCarte mainJoueur, unsigned int x, unsi
 				}
 			}
 			carte.setPosition(positionx, positiony);
-            carte.setScale(0.35,0.35);
+            carte.setScale(0.5,0.5);
 			positionx +=15;
 			window->draw(carte);
     }
@@ -1050,10 +1050,30 @@ void sfmlMulti::sfmlAff()
     {
 
         afficherMainDeCarte(jeu.mainCroupier, dimx/2-50, dimy/2-200);
-        for(unsigned int i = 0; i<jeu.nbJoueur ;i++)
+
+        if (jeu.nbJoueur==4)
         {
-            afficherMainDeCarte(jeu.tabJoueur[i].mainJoueur, 30+i*100,dimy/2+200);
+        afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, 70, dimy/2 );
+        afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, dimx/4, dimy/2+100 );
+        afficherMainDeCarte(jeu.tabJoueur[2].mainJoueur, dimx/2-40, dimy/2+125 );
+        afficherMainDeCarte(jeu.tabJoueur[3].mainJoueur, 3*dimx/4-65, dimy/2+100 );
+        }else if (jeu.nbJoueur==3)
+        {
+        afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/4, dimy/2+100);
+        afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, dimx/2-40, dimy/2+125 );
+        afficherMainDeCarte(jeu.tabJoueur[2].mainJoueur, 3*dimx/4-65, dimy/2+100 );
+        }else if (jeu.nbJoueur==3)
+        {
+        afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/4, dimy/2+100);
+        afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, dimx/2-40, dimy/2+125 );
         }
+
+
+
+        // for(unsigned int i = 0; i<jeu.nbJoueur ;i++)
+        // {
+        //     afficherMainDeCarte(jeu.tabJoueur[i].mainJoueur, 30+i*100,dimy/2+200);
+        // }
 
         // string scoreJoueur = to_string(jeu.joueurSolo.mainJoueur.getSommeValeur());
         // txtScoreJoueur.setString("Score : "+ scoreJoueur);
