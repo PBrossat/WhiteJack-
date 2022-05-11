@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['sfmljeu_137',['sfmlJeu',['../classsfml_jeu.html',1,'']]],
-  ['sfmlmulti_138',['sfmlMulti',['../classsfml_multi.html',1,'']]]
+  ['maindecarte_0',['MainDeCarte',['../class_main_de_carte.html',1,'']]],
+  ['menu_1',['Menu',['../class_menu.html',1,'']]]
 ];

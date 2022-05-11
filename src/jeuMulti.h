@@ -124,6 +124,19 @@ class jeuMulti{
     void initialisationMiseMulti();
 
 
+    /**
+     * @brief Procédure permettant de saisir la mise de départ
+     * @param[in] touche : la touche saisie par l'utilisateur
+     * @return void
+     * 
+     * Exemple d'utilisation :
+      * unJeu.initialisationMise();
+     * @endcode
+     * @warning La mise saisie doit être inférieur au budget du joueur (2000)
+     * @warning Le parametre touche doit etre obligatoirement 'a', 'z', 'e', 'r' ou 't'
+    */
+    void initialisationMise(const char touche);
+
 
     /**
     * @brief Procédure permettant de distribuer 2 cartes aux joueurs (le joueur physique derrière son écran et les IA) et 1 carte au croupier.
@@ -135,6 +148,19 @@ class jeuMulti{
     * @endcode
     */
     void initialisationJeuMulti();
+
+    /**
+     * @brief Procédure permettant d'adapter les actions suivant les touches pressées par l'utilisateur
+     * @param[in] touche : la touche saisie par l'utilisateur
+     * @return void
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * unJeu.actionClavier();
+     * @endcode
+     * @warning Le parametre touche doit etre obligatoirement 'a', 'z', 'e', 'r' ou 't'
+    */
+	void actionClavier(const char touche);
 
 
     /**

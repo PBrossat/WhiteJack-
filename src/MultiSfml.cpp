@@ -598,6 +598,15 @@ void sfmlMulti::sfmlInit() {
         sChanger.setTexture(tChanger);
     }
 
+    if (!tExit.loadFromFile("data/exit.png")) 
+    {
+        cout << "Error data/exit.png non found" << endl;
+    }
+    else 
+    {
+        sExit.setTexture(tExit);
+    }
+
     if (!tBlackjack.loadFromFile("data/BlackJack.png")) 
     {
         cout << "Error data/BlackJack.png non found" << endl;
@@ -605,8 +614,34 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sBlackjack.setTexture(tBlackjack);
-        sBlackjack.setScale(1,1);
-        sBlackjack.setPosition(dimx/2+200,dimy/2-87.5);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+        sBlackjack.setPosition(dimx/2-120,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+    }
+    if (!tGagne.loadFromFile("data/Gagne.png")) 
+    {
+        cout << "Error data/Gagne.png non found" << endl;
+    }
+    else 
+    {
+        sGagne.setTexture(tGagne);
+        sGagne.setPosition(dimx/2-60,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+    }
+    if (!tPerdu.loadFromFile("data/Perdu.png")) 
+    {
+        cout << "Error data/Perdu.png non found" << endl;
+    }
+    else 
+    {
+        sPerdu.setTexture(tPerdu);
+        sPerdu.setPosition(dimx/2-60,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
+    }
+    if (!tEgalite.loadFromFile("data/Egalite.png")) 
+    {
+        cout << "Error data/Egalite.png non found" << endl;
+    }
+    else 
+    {
+        sEgalite.setTexture(tEgalite);
+        sEgalite.setPosition(dimx/2-80,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tCadre.loadFromFile("data/cadreRouge.png"))
     {
@@ -705,26 +740,15 @@ void sfmlMulti::sfmlInit() {
 sfmlMulti::~sfmlMulti () 
 {
     if (window != NULL) delete window;
+    window=NULL;
 }
 
 
 
-
-void sfmlMulti::afficherMainDeCarteCroupier(MainDeCarte mainJoueur)
+void sfmlMulti::afficherMainDeCarte(MainDeCarte mainJoueur, unsigned int x, unsigned int y)
 {
-    unsigned int nbCartes = mainJoueur.getNbCartes();
-    unsigned int decalage;
-    if(nbCartes<=2)
-    {
-        decalage = 0;
-    }
-    else
-    {
-        decalage = (nbCartes-2)*20;
-    } 
-
-    unsigned int positionx = dimx/2-(50+decalage);
-    unsigned int positiony = dimy/2-200;
+    unsigned int positionx = x;
+    unsigned int positiony = y;
 
     for (unsigned int i=0; i<mainJoueur.getNbCartes(); i++)
     {
@@ -977,274 +1001,8 @@ void sfmlMulti::afficherMainDeCarteCroupier(MainDeCarte mainJoueur)
 				}
 			}
 			carte.setPosition(positionx, positiony);
-            carte.setScale(0.5,0.5);
-			positionx += 40;
-            //positiony -= 35;
-			window->draw(carte);
-    }
-}
-
-void sfmlMulti::afficherMainDeCarteJoueur(MainDeCarte mainJoueur, unsigned int positionJoueur)
-{
-    unsigned int nbCartes = mainJoueur.getNbCartes();
-    // unsigned int decalage = (nbCartes-2)*10;        
-
-    unsigned int positionx = positionJoueur*100;
-    unsigned int positiony = dimy-300;
-
-    for (unsigned int i=0; i<mainJoueur.getNbCartes(); i++)
-    {
-        Sprite carte;
-            if (mainJoueur.getIemeCarte(i).getRang()== 1)
-			{
-				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
-				{
-					carte = s1dePiques;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
-				{
-					carte = s1deCoeur;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
-				{
-					carte = s1deTrefles;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
-				{
-					carte = s1deCarreau;
-				}
-			}
-			else if (mainJoueur.getIemeCarte(i).getRang() == 2)
-			{
-				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
-				{
-					carte = s2dePiques;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
-				{
-					carte = s2deCoeur;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
-				{
-					carte = s2deTrefles;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
-				{
-					carte = s2deCarreau;
-				}
-			}
-			else if (mainJoueur.getIemeCarte(i).getRang() == 3)
-			{
-				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
-				{
-					carte = s3dePiques;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
-				{
-					carte = s3deCoeur;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
-				{
-					carte = s3deTrefles;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
-				{
-					carte = s3deCarreau;
-				}
-			}
-			else if (mainJoueur.getIemeCarte(i).getRang() == 4)
-			{
-			    if (mainJoueur.getIemeCarte(i).getSigne() == 1)
-				{
-					carte = s4dePiques;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
-				{
-					carte = s4deCoeur;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
-				{
-					carte = s4deTrefles;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
-				{
-					carte = s4deCarreau;
-				}
-			}
-			else if (mainJoueur.getIemeCarte(i).getRang() == 5)
-			{
-                if (mainJoueur.getIemeCarte(i).getSigne() == 1)
-				{
-					carte = s5dePiques;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
-				{
-					carte = s5deCoeur;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
-				{
-					carte = s5deTrefles;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
-				{
-					carte = s5deCarreau;
-				}
-			}
-			else if (mainJoueur.getIemeCarte(i).getRang() == 6)
-			{
-				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
-				{
-					carte = s6dePiques;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
-				{
-					carte = s6deCoeur;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
-				{
-					carte = s6deTrefles;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
-				{
-					carte = s6deCarreau;
-				}
-			}
-			else if (mainJoueur.getIemeCarte(i).getRang() == 7)
-			{
-				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
-				{
-					carte = s7dePiques;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
-				{
-					carte = s7deCoeur;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
-				{
-					carte = s7deTrefles;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
-				{
-					carte = s7deCarreau;
-				}
-			}
-			else if (mainJoueur.getIemeCarte(i).getRang() == 8)
-			{
-				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
-				{
-					carte = s8dePiques;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
-				{
-					carte = s8deCoeur;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
-				{
-					carte = s8deTrefles;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
-				{
-					carte = s8deCarreau;
-				}
-			}
-			else if (mainJoueur.getIemeCarte(i).getRang() == 9)
-			{
-				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
-				{
-					carte = s9dePiques;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
-				{
-					carte = s9deCoeur;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
-				{
-					carte = s9deTrefles;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
-				{
-					carte = s9deCarreau;
-				}
-			}
-			else if (mainJoueur.getIemeCarte(i).getRang() == 10)
-			{
-				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
-				{
-					carte = s10dePiques;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
-				{
-					carte = s10deCoeur;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
-				{
-					carte = s10deTrefles;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
-				{
-					carte = s10deCarreau;
-				}
-			}
-			else if (mainJoueur.getIemeCarte(i).getRang() == 11)
-			{
-				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
-				{
-					carte = s11dePiques;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
-				{
-					carte = s11deCoeur;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
-				{
-					carte = s11deTrefles;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
-				{
-					carte = s11deCarreau;
-				}
-			}
-			else if (mainJoueur.getIemeCarte(i).getRang() == 12)
-			{
-				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
-				{
-					carte = s12dePiques;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
-				{
-					carte = s12deCoeur;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
-				{
-					carte = s12deTrefles;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
-				{
-					carte = s12deCarreau;
-				}
-			}
-			else if (mainJoueur.getIemeCarte(i).getRang() == 13)
-			{
-				if (mainJoueur.getIemeCarte(i).getSigne() == 1)
-				{
-					carte = s13dePiques;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 2)
-				{
-					carte = s13deCoeur;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 3)
-				{
-					carte = s13deTrefles;
-				}
-				if (mainJoueur.getIemeCarte(i).getSigne() == 4)
-				{
-					carte = s13deCarreau;
-				}
-			}
-			carte.setPosition(positionx, positiony);
-            carte.setScale(0.5,0.5);
-			positionx +=20;
+            carte.setScale(0.35,0.35);
+			positionx +=15;
 			window->draw(carte);
     }
 }
@@ -1257,8 +1015,14 @@ void sfmlMulti::sfmlAff()
     window->clear(Color(230, 240, 255, 255)); 
     rsFond.setSize(Vector2f(dimx,dimy));
     window->draw(rsFond);
-    cout<<"affiche toi zebiiiiii"<<endl;
     window->draw(sCadre);
+
+    sf::Color color = sExit.getColor();
+    color.a=200;
+    sExit.setPosition((dimx/64),30);
+    sExit.setColor(color);
+    sExit.setScale(0.4,0.4);
+    window->draw(sExit);
 
     s1.setScale(0.75,0.75);
     s10.setScale(0.75,0.75);
@@ -1283,13 +1047,12 @@ void sfmlMulti::sfmlAff()
     // window->draw(txtBudget);
 
     if(actionMiser==1)
-    //faire un test sur getJoueToujours() pour effacer les boutons quand tu as joué.
     {
 
-        afficherMainDeCarteCroupier(jeu.mainCroupier);
+        afficherMainDeCarte(jeu.mainCroupier, dimx/2-50, dimy/2-200);
         for(unsigned int i = 0; i<jeu.nbJoueur ;i++)
         {
-            afficherMainDeCarteJoueur(jeu.tabJoueur[i].mainJoueur, i);
+            afficherMainDeCarte(jeu.tabJoueur[i].mainJoueur, 30+i*100,dimy/2+200);
         }
 
         // string scoreJoueur = to_string(jeu.joueurSolo.mainJoueur.getSommeValeur());
@@ -1410,7 +1173,7 @@ void sfmlMulti::sfmlAff()
 
 
 
-void sfmlMulti::sfmlBoucle() {
+unsigned int sfmlMulti::sfmlBoucle() {
 
     while (window->isOpen()) 
     {
@@ -1419,14 +1182,18 @@ void sfmlMulti::sfmlBoucle() {
         while(window->pollEvent(event))
         {
             if (event.type == Event::Closed)   
-            window->close();
+            {
+                window->close();
+                delete window;
+                window=NULL;
+            }
 
-    //         if(event.type == Event::MouseButtonPressed)
-    //         {
-    //             if(event.key.code == Mouse::Left)
-    //             {
-    //                 float x = Mouse::getPosition(*window).x;
-    //                 float y = Mouse::getPosition(*window).y;
+            if(event.type == Event::MouseButtonPressed)
+            {
+                if(event.key.code == Mouse::Left)
+                {
+                    float x = Mouse::getPosition(*window).x;
+                    float y = Mouse::getPosition(*window).y;
 
     //                 if(finJeu==1)
     //                 {
@@ -1437,50 +1204,55 @@ void sfmlMulti::sfmlBoucle() {
     //                     if(jeu.joueurSolo.getBudget()==0) window->close();
     //                 }
 
-    //                 switch(actionMiser)
-    //                 {
-    //                     case 0 :
-    //                         if(s1.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 1 
-    //                         {
-    //                             jeu.initialisationMise('a');    //correspond pour l'instant à une mise de 100
-    //                             sonMise.play();
-    //                             jeu.initialisationJeu();
-    //                             sonCarte.play();
-    //                             actionMiser=1;
-    //                         }
-    //                         else if(s10.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 10 
-    //                         {
-    //                             jeu.initialisationMise('z');    //correspond pour l'instant à une mise de 200
-    //                             sonMise.play();
-    //                             jeu.initialisationJeu();
-    //                             sonCarte.play();
-    //                             actionMiser=1;
-    //                         }
-    //                         else if(s100.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 100 
-    //                         {
-    //                             jeu.initialisationMise('e');    //correspond pour l'instant à une mise de 500
-    //                             sonMise.play();
-    //                             jeu.initialisationJeu();
-    //                             sonCarte.play();
-    //                             actionMiser=1;
-    //                         }
-    //                         else if(s250.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 1000 
-    //                         {
-    //                             jeu.initialisationMise('r');    //correspond pour l'instant à une mise de 1000
-    //                             sonMise.play();
-    //                             jeu.initialisationJeu();
-    //                             sonCarte.play();
-    //                             actionMiser=1;
-    //                         }
-    //                         else if(s500.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 1000 
-    //                         {
-    //                             jeu.initialisationMise('t');    //correspond pour l'instant à une mise de 1000
-    //                             sonMise.play();
-    //                             jeu.initialisationJeu();
-    //                             sonCarte.play();
-    //                             actionMiser=1;
-    //                         }
-    //                         break;
+                    switch(actionMiser)
+                    {
+                        case 0 :
+                            if(s1.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 1 
+                            {
+                                jeu.initialisationMise('a');    //correspond pour l'instant à une mise de 100
+                                jeu.initialisationMiseMulti();
+                                sonMise.play();
+                                jeu.initialisationJeuMulti();
+                                sonCarte.play();
+                                actionMiser=1;
+                            }
+                            else if(s10.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 10 
+                            {
+                                jeu.initialisationMise('z');    //correspond pour l'instant à une mise de 200
+                                jeu.initialisationMiseMulti();
+                                sonMise.play();
+                                jeu.initialisationJeuMulti();
+                                sonCarte.play();
+                                actionMiser=1;
+                            }
+                            else if(s100.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 100 
+                            {
+                                jeu.initialisationMise('e');    //correspond pour l'instant à une mise de 500
+                                jeu.initialisationMiseMulti();
+                                sonMise.play();
+                                jeu.initialisationJeuMulti();
+                                sonCarte.play();
+                                actionMiser=1;
+                            }
+                            else if(s250.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 1000 
+                            {
+                                jeu.initialisationMise('r');    //correspond pour l'instant à une mise de 1000
+                                jeu.initialisationMiseMulti();
+                                sonMise.play();
+                                jeu.initialisationJeuMulti();
+                                sonCarte.play();
+                                actionMiser=1;
+                            }
+                            else if(s500.getGlobalBounds().contains(x,y))  //on appuie sur le jeton de valeur 1000 
+                            {
+                                jeu.initialisationMise('t');    //correspond pour l'instant à une mise de 1000
+                                jeu.initialisationMiseMulti();
+                                sonMise.play();
+                                jeu.initialisationJeuMulti();
+                                sonCarte.play();
+                                actionMiser=1;
+                            }
+                            break;
                         
     //                     case 1 :
     //                         if(jeu.joueurSolo.mainJoueur.getJoueToujours())
@@ -1597,12 +1369,10 @@ void sfmlMulti::sfmlBoucle() {
     //                             }
     //                         }
     //                         break;
-    //                 }
-    //             }
-    //         }
+                    }
+                }
+            }
             sfmlAff();
         }
     }
 }
-
-//une classe application qui contient un menu (classe) et un jeu (une classe)

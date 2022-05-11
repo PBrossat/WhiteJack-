@@ -21,6 +21,7 @@ jeuMulti::jeuMulti ()
 }
 
 
+
 jeuMulti::jeuMulti (unsigned int NiveauJoueur)
 {
 
@@ -106,6 +107,72 @@ void jeuMulti::initialisationMiseMulti()
     }
 
 }
+
+void jeuMulti::initialisationMise(const char touche)
+{
+	tabJoueur[0].setGain(0);
+	switch(touche)
+	{
+		case 'a' :
+			if(tabJoueur[0].getBudget()>=1) tabJoueur[0].setMise(1);
+			break;
+
+		case 'z' :
+			if(tabJoueur[0].getBudget()>=10) tabJoueur[0].setMise(10);
+			break;
+
+		case 'e' :
+			if(tabJoueur[0].getBudget()>=100) tabJoueur[0].setMise(100);
+			break;
+
+		case 'r' :
+			if(tabJoueur[0].getBudget()>=250) tabJoueur[0].setMise(250);
+			break;
+
+		case 't' :
+			if(tabJoueur[0].getBudget()>=500) tabJoueur[0].setMise(500);
+			break;
+	}
+}
+
+
+void jeuMulti::actionClavier(const char touche)
+{
+	switch(touche) 
+	{
+		case 't' :
+		{
+			Carte carteTiree = unDeck.distribuerCarte();
+			tabJoueur[0].mainJoueur.tirerCarte(carteTiree);
+			break;
+		}
+		case 'd' :
+		{
+			assert((tabJoueur[0].mainJoueur.getNbCartes()==2) && (tabJoueur[0].getBudget()>=tabJoueur[0].getMise()));
+			tabJoueur[0].miser(tabJoueur[0].getMise());
+			tabJoueur[0].setMise(tabJoueur[0].getMise()*2);
+			Carte carteTiree = unDeck.distribuerCarte();
+			tabJoueur[0].mainJoueur.doubler(carteTiree);
+			break;
+		}
+		case 'r' :
+		{
+			tabJoueur[0].mainJoueur.rester();
+			break;
+		}
+		case 'c' :
+		{
+			assert((tabJoueur[0].mainJoueur.getNbCartes()==2) && (tabJoueur[0].getBudget()>=tabJoueur[0].getMise()));
+			assert((tabJoueur[0].mainJoueur.getIemeCarte(0).getValeur()==tabJoueur[0].mainJoueur.getIemeCarte(1).getValeur())||(tabJoueur[0].mainJoueur.getIemeCarte(0).getRang()==tabJoueur[0].mainJoueur.getIemeCarte(1).getRang())); 
+			tabJoueur[0].miser(tabJoueur[0].getMise());
+			tabJoueur[0].setMise(tabJoueur[0].getMise()*2);
+			Carte carteTiree = unDeck.distribuerCarte();
+			tabJoueur[0].mainJoueur.changeCarte(carteTiree);
+			break;
+		}
+	}
+}
+
 
 unsigned int jeuMulti::resultat(unsigned int indiceJoueur) 
 {

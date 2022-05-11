@@ -1323,7 +1323,6 @@ void sfmlJeu::sfmlAff()
     window->draw(txtBudget);
 
     if(actionMiser==1)
-    //faire un test sur getJoueToujours() pour effacer les boutons quand tu as joué.
     {
 
         afficherMainDeCarteCroupier(jeu.mainCroupier);
@@ -1612,7 +1611,6 @@ unsigned int sfmlJeu::sfmlBoucle() {
                                         switch(res)
                                         {
                                             case 0:
-                                                cout<<"jai perdu en restant";
                                                 sonPerdu.play(); // si on a perdu on joue le sonPerdu
                                                 break;
                                             case 1:

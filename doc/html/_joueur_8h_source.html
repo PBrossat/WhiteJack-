@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.17"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>WhiteJack:  Fichier source de src/Joueur.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -19,8 +19,8 @@
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
- <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
+ <tr id="projectrow">
+  <td id="projectalign">
    <div id="projectname">WhiteJack
    </div>
   </td>
@@ -29,21 +29,22 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.17 -->
+<!-- Généré par Doxygen 1.9.3 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */</script>
+/* @license-end */
+</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -65,113 +66,121 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle">
-<div class="title">Joueur.h</div>  </div>
+  <div class="headertitle"><div class="title">Joueur.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_joueur_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef JOUEUR_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define JOUEUR_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_main_de_carte_8h.html">MainDeCarte.h</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_joueur.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_joueur.html">Joueur</a></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    public :</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_joueur.html#a251a7192f61dae541f80cbff3914f208">   17</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_joueur.html#a251a7192f61dae541f80cbff3914f208">nom</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_joueur.html#a199747dae2581da9d661e8104774e20f">   24</a></span>&#160;    <a class="code" href="class_main_de_carte.html">MainDeCarte</a> <a class="code" href="class_joueur.html#a199747dae2581da9d661e8104774e20f">mainJoueur</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_joueur.html">Joueur</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="class_joueur.html">Joueur</a>(<span class="keywordtype">string</span> nomJ, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nivJoueur, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> budgetJ);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;   </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;   </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">bool</span> testArgentJoueur() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">float</span> getBudget() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> setBudget(<span class="keywordtype">float</span> gain);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getNiveau() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">float</span> getGain() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">void</span> setGain(<span class="keywordtype">float</span> Gain);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getMise() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">void</span> setMise(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Mise);</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordtype">void</span> testRegression() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordtype">void</span> miser(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mise);</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    private :</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="comment">//un réel positif décrivant le gain du joueur</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordtype">float</span> gain;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="comment">//un entier positif décrivant la mise du joueur</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mise;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="comment">//un réel décrivant le budget du joueur</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordtype">float</span> budget;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="comment">//un entier entre 0 et 3 définissant le niveau du joueur </span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="comment">//0 : le joueur est humain</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="comment">//1 : le joueur est amateur</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="comment">//2 : le joueur est intermédiaire</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="comment">//3 : le joueur est expert</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> niveauJoueur;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;};</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
-</div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_joueur_html"><div class="ttname"><a href="class_joueur.html">Joueur</a></div><div class="ttdef"><b>Definition:</b> Joueur.h:10</div></div>
-<div class="ttc" id="aclass_main_de_carte_html"><div class="ttname"><a href="class_main_de_carte.html">MainDeCarte</a></div><div class="ttdef"><b>Definition:</b> MainDeCarte.h:9</div></div>
-<div class="ttc" id="aclass_joueur_html_a199747dae2581da9d661e8104774e20f"><div class="ttname"><a href="class_joueur.html#a199747dae2581da9d661e8104774e20f">Joueur::mainJoueur</a></div><div class="ttdeci">MainDeCarte mainJoueur</div><div class="ttdoc">mainJoueur main de cartes du joueur</div><div class="ttdef"><b>Definition:</b> Joueur.h:24</div></div>
+<a href="_joueur_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef JOUEUR_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define JOUEUR_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_main_de_carte_8h.html">MainDeCarte.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_joueur.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="class_joueur.html">Joueur</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    public :</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_joueur.html#a251a7192f61dae541f80cbff3914f208">   17</a></span>    <span class="keywordtype">string</span> <a class="code hl_variable" href="class_joueur.html#a251a7192f61dae541f80cbff3914f208">nom</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_joueur.html#a199747dae2581da9d661e8104774e20f">   24</a></span>    <a class="code hl_class" href="class_main_de_carte.html">MainDeCarte</a> <a class="code hl_variable" href="class_joueur.html#a199747dae2581da9d661e8104774e20f">mainJoueur</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_function" href="class_joueur.html#add6c98be3020651d84f6d75ccc1d867e">Joueur</a>();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_function" href="class_joueur.html#add6c98be3020651d84f6d75ccc1d867e">Joueur</a>(<span class="keywordtype">string</span> nomJ, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nivJoueur, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> budgetJ);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>   </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>   </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_joueur.html#aab769adc318999eb596258ddaa089ddc">testArgentJoueur</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_joueur.html#a4f0185d6991c2ad84bded3e6cf6ed64c">getBudget</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_joueur.html#aba5c5a18a9f52bdd00e5ae76625d5eb8">setBudget</a>(<span class="keywordtype">float</span> gain);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_joueur.html#abec464c3958916f951e19ba5e12d0dbc">getNiveau</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_joueur.html#a3b7f6854f2ca2ced19832342056adf16">getGain</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_joueur.html#a7da64db9b636f65043d789bd37c03309">setGain</a>(<span class="keywordtype">float</span> Gain);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_joueur.html#a6dc641dddca9882f51e419422909d16d">getMise</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_joueur.html#ad9a2d5e2632db3a5e334c533af851dd2">setMise</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Mise);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_joueur.html#a57881ee998684e2ed4c7d2e05b405a6a">testRegression</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_joueur.html#afb2ce391a4321278424fced12a156988">miser</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mise);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    private :</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="comment">//un réel positif décrivant le gain du joueur</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keywordtype">float</span> gain;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <span class="comment">//un entier positif décrivant la mise du joueur</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mise;</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="comment">//un réel décrivant le budget du joueur</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordtype">float</span> budget;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="comment">//un entier entre 0 et 3 définissant le niveau du joueur </span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="comment">//0 : le joueur est humain</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="comment">//1 : le joueur est amateur</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <span class="comment">//2 : le joueur est intermédiaire</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="comment">//3 : le joueur est expert</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> niveauJoueur;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>};</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
 <div class="ttc" id="a_main_de_carte_8h_html"><div class="ttname"><a href="_main_de_carte_8h.html">MainDeCarte.h</a></div></div>
+<div class="ttc" id="aclass_joueur_html"><div class="ttname"><a href="class_joueur.html">Joueur</a></div><div class="ttdef"><b>Definition:</b> Joueur.h:11</div></div>
+<div class="ttc" id="aclass_joueur_html_a199747dae2581da9d661e8104774e20f"><div class="ttname"><a href="class_joueur.html#a199747dae2581da9d661e8104774e20f">Joueur::mainJoueur</a></div><div class="ttdeci">MainDeCarte mainJoueur</div><div class="ttdoc">mainJoueur main de cartes du joueur</div><div class="ttdef"><b>Definition:</b> Joueur.h:24</div></div>
 <div class="ttc" id="aclass_joueur_html_a251a7192f61dae541f80cbff3914f208"><div class="ttname"><a href="class_joueur.html#a251a7192f61dae541f80cbff3914f208">Joueur::nom</a></div><div class="ttdeci">string nom</div><div class="ttdoc">nom une chaîne de caractères décrivant le nom du joueur</div><div class="ttdef"><b>Definition:</b> Joueur.h:17</div></div>
+<div class="ttc" id="aclass_joueur_html_a3b7f6854f2ca2ced19832342056adf16"><div class="ttname"><a href="class_joueur.html#a3b7f6854f2ca2ced19832342056adf16">Joueur::getGain</a></div><div class="ttdeci">float getGain() const</div><div class="ttdoc">Accesseur du gain du joueur.</div><div class="ttdef"><b>Definition:</b> Joueur.cpp:83</div></div>
+<div class="ttc" id="aclass_joueur_html_a4f0185d6991c2ad84bded3e6cf6ed64c"><div class="ttname"><a href="class_joueur.html#a4f0185d6991c2ad84bded3e6cf6ed64c">Joueur::getBudget</a></div><div class="ttdeci">float getBudget() const</div><div class="ttdoc">Accesseur de budget.</div><div class="ttdef"><b>Definition:</b> Joueur.cpp:37</div></div>
+<div class="ttc" id="aclass_joueur_html_a57881ee998684e2ed4c7d2e05b405a6a"><div class="ttname"><a href="class_joueur.html#a57881ee998684e2ed4c7d2e05b405a6a">Joueur::testRegression</a></div><div class="ttdeci">void testRegression() const</div><div class="ttdoc">Procédure testant les fonctionnalités de la classe.</div><div class="ttdef"><b>Definition:</b> Joueur.cpp:112</div></div>
+<div class="ttc" id="aclass_joueur_html_a6dc641dddca9882f51e419422909d16d"><div class="ttname"><a href="class_joueur.html#a6dc641dddca9882f51e419422909d16d">Joueur::getMise</a></div><div class="ttdeci">unsigned int getMise() const</div><div class="ttdoc">Accesseur de la mise du joueur.</div><div class="ttdef"><b>Definition:</b> Joueur.cpp:97</div></div>
+<div class="ttc" id="aclass_joueur_html_a7da64db9b636f65043d789bd37c03309"><div class="ttname"><a href="class_joueur.html#a7da64db9b636f65043d789bd37c03309">Joueur::setGain</a></div><div class="ttdeci">void setGain(float Gain)</div><div class="ttdoc">Mutateur de gain.</div><div class="ttdef"><b>Definition:</b> Joueur.cpp:90</div></div>
+<div class="ttc" id="aclass_joueur_html_aab769adc318999eb596258ddaa089ddc"><div class="ttname"><a href="class_joueur.html#aab769adc318999eb596258ddaa089ddc">Joueur::testArgentJoueur</a></div><div class="ttdeci">bool testArgentJoueur() const</div><div class="ttdoc">Teste si un joueur a toujours de l'argent ou non.</div><div class="ttdef"><b>Definition:</b> Joueur.cpp:31</div></div>
+<div class="ttc" id="aclass_joueur_html_aba5c5a18a9f52bdd00e5ae76625d5eb8"><div class="ttname"><a href="class_joueur.html#aba5c5a18a9f52bdd00e5ae76625d5eb8">Joueur::setBudget</a></div><div class="ttdeci">void setBudget(float gain)</div><div class="ttdoc">Mutateur de budget.</div><div class="ttdef"><b>Definition:</b> Joueur.cpp:49</div></div>
+<div class="ttc" id="aclass_joueur_html_abec464c3958916f951e19ba5e12d0dbc"><div class="ttname"><a href="class_joueur.html#abec464c3958916f951e19ba5e12d0dbc">Joueur::getNiveau</a></div><div class="ttdeci">unsigned int getNiveau() const</div><div class="ttdoc">Accesseur du niveau de joueur.</div><div class="ttdef"><b>Definition:</b> Joueur.cpp:66</div></div>
+<div class="ttc" id="aclass_joueur_html_ad9a2d5e2632db3a5e334c533af851dd2"><div class="ttname"><a href="class_joueur.html#ad9a2d5e2632db3a5e334c533af851dd2">Joueur::setMise</a></div><div class="ttdeci">void setMise(unsigned int Mise)</div><div class="ttdoc">Mutateur de mise.</div><div class="ttdef"><b>Definition:</b> Joueur.cpp:103</div></div>
+<div class="ttc" id="aclass_joueur_html_add6c98be3020651d84f6d75ccc1d867e"><div class="ttname"><a href="class_joueur.html#add6c98be3020651d84f6d75ccc1d867e">Joueur::Joueur</a></div><div class="ttdeci">Joueur()</div><div class="ttdoc">Constructeur par défaut de joueur.</div><div class="ttdef"><b>Definition:</b> Joueur.cpp:8</div></div>
+<div class="ttc" id="aclass_joueur_html_afb2ce391a4321278424fced12a156988"><div class="ttname"><a href="class_joueur.html#afb2ce391a4321278424fced12a156988">Joueur::miser</a></div><div class="ttdeci">void miser(unsigned int mise)</div><div class="ttdoc">Fonction permettant au joueur de miser.</div><div class="ttdef"><b>Definition:</b> Joueur.cpp:74</div></div>
+<div class="ttc" id="aclass_main_de_carte_html"><div class="ttname"><a href="class_main_de_carte.html">MainDeCarte</a></div><div class="ttdef"><b>Definition:</b> MainDeCarte.h:10</div></div>
+</div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
 </small></address>
 </body>
 </html>
