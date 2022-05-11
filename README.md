@@ -1,92 +1,173 @@
 # WhiteJack
 
+# Contributeurs : 
+
+    p2020351 Faustmann Lucas
+    p2002218 Brossat Pierrick 
+
+# Présentation WhiteJack
+
+	Notre projet: "WhiteJack" est un dérivé bien connu du jeu de casino: le "BlackJack". Dans notre application vous pourrez jouer en mode Solo (contre le croupier) avec les règles classique du "BlackJack". 
+    Cependant vous pourrez aussi jouer en mode Multijoueur contre des Intelligences Artificielles que nous avons créée. 
+    Le but, dans ce mode, est d'être le dernier en lice apres les 9 manches de la partie. En effet, toute les 3 manches, le joueur ayant le moins d'argent est éliminé de la partie. Vous êtes aussi éliminé de la partie si vous n'avez plus d'argent. 
+    Pour créer cette application nous utiliserons la programmation modulaire grâce à de nombreuse classes. 
+
+# Installation des dépendances 
+
+	Nous avons programmés notre projet "WhitJack" en utilisant le language C++ et la librairie graphique SFML.
+
+	Pour installer sous Linux toutes les dépendances nécessaires pour notre projet il faut exécuter la commande suivante :
+		~/sudo apt-get install libsfml-dev
+
+	Pour installer g++, le compilateur C++, nécessaire pour compiler notre projet il faut exécuter la commande suivante :
+		~/sudo apt-get install g++
+
+# Compilation 
+
+Pour compiler, utiliser la commande make suivante: 
+
+    ~/whitejack$ make (ou make all)
+    g++ -g -Wall obj/mainTestCarte.o obj/Carte.o -o bin/Carte 
+    g++ -g -Wall obj/mainTestMainDeCarte.o obj/MainDeCarte.o obj/Carte.o -o bin/MainDeCarte
+    g++ -g -Wall obj/mainTestDeck.o obj/Deck.o obj/Carte.o -o bin/Deck 
+    g++ -g -Wall obj/mainTestJoueur.o obj/Joueur.o obj/MainDeCarte.o obj/Carte.o -o bin/Joueur
+    g++ -g -Wall obj/mainTestJeuMulti.o obj/jeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o -o bin/jeuMulti
+    g++ -g -Wall obj/mainTestJeu.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o -o bin/Jeu
+    g++ -g -Wall obj/mainJeuTxt.o obj/JeuTxt.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o -o bin/JeuTxt
+    g++ -g -Wall obj/mainMenuPrincipal.o obj/MenuSfml.o obj/JeuSfml.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o -o bin/MenuSfml -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio 
+    g++ -g -Wall obj/mainJeuSfml.o obj/JeuSfml.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o -o bin/JeuSfml -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio 
+    g++ -g -Wall obj/mainJeuMultiSfml.o obj/MultiSfml.o obj/jeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o -o bin/MultiSfml -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio 
+
+Pour compiler qu'un seul fichier (exemple ici la classe Carte), utiliser la commande make suivante:
+
+    ~/whitejack$ make bin/Carte 
+    g++ -g -Wall obj/mainTestCarte.o obj/Carte.o -o bin/Carte 
+
+Pour "nettoyer" les dossiers bin et obj (supprimer les éxécutables dans bin et les .o dans obj) nous utilisons la commande make suivante: 
+
+    ~/whitejack$ make clean 
+    rm -f obj/*
+    rm -f bin/*
+   
+Pour mettre à jour la documentation doxygen, utiliser la commande make suivante :
+
+    ~/whitejack$ make doc
 
 
-## Getting started
+# Arborescence
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+	whitejack/
+	├─ bin/
+	│  ├─ contient les exécutables du projet (Carte.bin, Deck.bin, ...)
+	├─ data/
+	│  ├─ contient les images, les sons et les polices utilisées dans le projet  
+	├─ doc/
+	│  ├─ whitejack.doxy
+	│  ├─ html/
+	│  │  ├─ contient tous les fichiers nécessaires à la documentation en html de notre projet
+	├─ makefile
+	├─ obj/
+	│  ├─ contient les fichiers objets du projet (Carte.o, Deck.o, ...)
+	├─ Readme.txt
+	├─ src/
+	│  ├─ Carte.h
+	│  ├─ Carte.cpp
+	│  ├─ Deck.h
+	│  ├─ Deck.cpp
+	│  ├─ Jeu.h
+	│  ├─ Jeu.cpp
+	│  ├─ jeuMulti.h
+    │  ├─ jeuMulti.cpp
+    │  ├─ jeuSfml.h
+    │  ├─ jeuSfml.cpp
+    │  ├─ jeuTxt.h
+    │  ├─ jeuTxt.cpp
+    │  ├─ Joueur.h
+    │  ├─ Joueur.cpp
+    │  ├─ MainDeCarte.h
+    │  ├─ MainDeCarte.cpp
+    │  ├─ mainJeuMultiSfml.cpp
+    │  ├─ mainJeuSfml.cpp
+    │  ├─ mainJeuTxt.cpp
+    │  ├─ mainMenuPrincipal.cpp
+    │  ├─ mainTestCarte.cpp
+    │  ├─ mainTestDeck.cpp
+    │  ├─ mainTestJeu.cpp
+    │  ├─ mainTestJeuMulti.cpp
+    │  ├─ mainTestJoueur.cpp
+    │  ├─ mainTestMainDeCarte.cpp
+    │  ├─ MenuSfml.cpp
+    │  ├─ MenuSfml.h
+    │  ├─ MultiSfml.cpp
+    │  ├─ MultiSfml.h
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
 
-## Add your files
+- Les fichiers sources (.h et .cpp) sont placés dans le dossier src
+- Les images, sons et polices seront toujours placées dans le dossier data
+- doc/whitejack.doxy est le fichier de configuration de doxygen
+- doc/html/index.html est la page d'entrée de la documentation (générée avec doxygen)
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
 
-```
-cd existing_repo
-git remote add origin https://forge.univ-lyon1.fr/p2020351/whitejack.git
-git branch -M main
-git push -uf origin main
-```
+# Utilisation
 
-## Integrate with your tools
+Le projet permet de créer dix exécutables. Le principal étant bin/MenuSfml.
 
-- [ ] [Set up project integrations](https://forge.univ-lyon1.fr/p2020351/whitejack/-/settings/integrations)
+## bin/MenuSfml : cet exécutable permet d'afficher le Menu du jeu avec trois choix disponible: le mode Solo, le mode MultiJoueur et les règles du jeu. Pour "naviguer" dans celui-ci, utiliser les flèches du clavier et la touche entré pour valider son choix.
+## Cet executable est le plus important car c'est celui que l'on appelera si l'on veut jouer au WhiteJack.
 
-## Collaborate with your team
+	Pour le lancer :
+		~/whitejack$ ./bin/MenuSfml
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+## bin/MultiSfml: cet exécutable permet de lancer le jeu graphique en mode multijoueur sans passer par le menu.
 
-## Test and Deploy
+	Pour le lancer :
+		~/whitejack$ ./bin/MultiSfml
 
-Use the built-in continuous integration in GitLab.
+## bin/jeuSfml : cet exécutable permet de lancer le jeu graphique en mode solo sans passer par le menu.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+	Pour le lancer :
+		~/whitejack$ ./bin/jeuSfml
 
-***
+## bin/JeuTxt : cet exécutable permet de lancer le jeu texte en mode solo 
 
-# Editing this README
+    Pour le lancer :
+		~/whitejack$ ./bin/JeuTxt
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+## bin/jeuMulti : cet exécutable permet de lancer la procédure testRegression() de la classe jeuMulti afin de faire passer une multitude de tests et s'assurer que les fonctions de la classe fonctionnent correctement
 
-## Name
-Choose a self-explaining name for your project.
+    Pour le lancer :
+		~/whitejack$ ./bin/jeuMulti
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+## bin/MainDeCarte : cet exécutable permet de lancer la procédure testRegression() de la classe MainDeCarte afin de faire passer une multitude de tests et s'assurer que les fonctions de la classe fonctionnent correctement
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+    Pour le lancer :
+		~/whitejack$ ./bin/MainDeCarte
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## bin/Joueur : cet exécutable permet de lancer la procédure testRegression() de la classe Joueur afin de faire passer une multitude de tests et s'assurer que les fonctions de la classe fonctionnent correctement
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+    Pour le lancer :
+		~/whitejack$ ./bin/Joueur
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+## bin/Jeu : cet exécutable permet de lancer la procédure testRegression() de la classe Jeu afin de faire passer une multitude de tests et s'assurer que les fonctions de la classe fonctionnent correctement
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+    Pour le lancer :
+		~/whitejack$ ./bin/Jeu
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+## bin/Deck : cet exécutable permet de lancer la procédure testRegression() de la classe Deck afin de faire passer une multitude de tests et s'assurer que les fonctions de la classe fonctionnent correctement
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+    Pour le lancer :
+		~/whitejack$ ./bin/Deck
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+## bin/Carte : cet exécutable permet de lancer la procédure testRegression() de la classe Carte afin de faire passer une multitude de tests et s'assurer que les fonctions de la classe fonctionnent correctement
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+    Pour le lancer :
+		~/whitejack$ ./bin/Carte
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
 
-## License
-For open source projects, say how it is licensed.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+# Documentation du code
+
+Voir doc/html/index.html pour accéder à la documentation de toute les classes de notre projet. 
+
+
