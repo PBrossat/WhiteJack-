@@ -37,6 +37,11 @@ class MainDeCarte
     MainDeCarte (const Carte& carte1, const Carte& carte2);
 
 
+    /**
+    * @brief Destructeur de MainDeCarte
+    */
+    ~MainDeCarte();
+
 
     /**
      * @brief Permet de tirer une nouvelle carte

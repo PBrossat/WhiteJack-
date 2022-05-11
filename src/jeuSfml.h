@@ -83,8 +83,6 @@ private :
     sf::Texture t13dePiques;
     sf::Texture t13deTrefles;
 
-    sf::Texture tCardBack;
-    sf::Texture tDeck;
     sf::Texture tFond;
     sf::Texture t1;
     sf::Texture t10;
@@ -100,6 +98,7 @@ private :
     sf::Texture tGagne;
     sf::Texture tPerdu;
     sf::Texture tEgalite;
+    sf::Texture tExit;
     
   
 
@@ -170,8 +169,6 @@ private :
     sf::Sprite s13dePiques;
     sf::Sprite s13deTrefles;
 
-    sf::Sprite sCardBack;
-    sf::Sprite sDeck;
     sf::Sprite s1;
     sf::Sprite s10;
     sf::Sprite s100;
@@ -186,6 +183,7 @@ private :
     sf::Sprite sGagne;
     sf::Sprite sPerdu;
     sf::Sprite sEgalite;
+    sf::Sprite sExit;
 
     sf::RectangleShape rsFond;
 
@@ -281,14 +279,14 @@ public :
 
     /**
     * @brief Procédure permettant de faire tourner la boucle du jeu 
-    * @return void
+    * @return unsigned int
     * 
     * Exemple d'utilisation :
     * @code
     * unJeuSfml.sfmlBoucle();
     * @endcode
     */     
-    void sfmlBoucle();
+    unsigned int sfmlBoucle();
 
 
 

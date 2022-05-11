@@ -41,18 +41,18 @@ Menu :: ~Menu ()
 
 unsigned int  Menu::boucleMenu()
 {
-    sf::RenderWindow fenetre (VideoMode(1400,750), "Menu Principal" , Style::Default);
-    rsFond.setSize(Vector2f(fenetre.getSize().x, fenetre.getSize().y));
+    sf::RenderWindow * fenetre = new RenderWindow(VideoMode(1400,750), "Menu Principal" , Style::Default);
+    rsFond.setSize(Vector2f(fenetre->getSize().x, fenetre->getSize().y));
     
-    fenetre.draw(rsFond);
+    fenetre->draw(rsFond);
 
     sonAmbiance.play();
 
 
-    while (fenetre.isOpen())
+    while (fenetre->isOpen())
     {
         Event evenement; 
-        while (fenetre.pollEvent(evenement))
+        while (fenetre->pollEvent(evenement))
         {
             switch (evenement.type)
             {
@@ -82,8 +82,10 @@ unsigned int  Menu::boucleMenu()
 
                     if(menuPrincipalAppuyer()==0) //choix joueur => jeu Solo 
                     {
-                        fenetre.close();    //On ferme la fenetre du menu
-                        return 0; // on renvoie 0 
+                        fenetre->close();    //On ferme la fenetre du menu
+                        delete fenetre;
+                        fenetre=NULL;
+                        return 1; // on renvoie 1 
                         // sfmlJeu jeu;        //On crée un jeu
                         // jeu.sfmlInit();
                         // jeu.sfmlAff();
@@ -91,14 +93,18 @@ unsigned int  Menu::boucleMenu()
                     }else if(menuPrincipalAppuyer()==1) //choix joueur => jeu Multi 
                     {
                         cout<<"Jeu Multi selectionné"<<endl;
-                        fenetre.close();    //On ferme la fenetre du menu
-                        return 1; // on renvoie 1
+                        fenetre->close();    //On ferme la fenetre du menu
+                        delete fenetre;
+                        fenetre=NULL;
+                        return 2; // on renvoie 2
 
                     }else if (menuPrincipalAppuyer()==2)  //choix joueur => Regles du jeu 
                     {
                         cout<<"Règles selectionné"<<endl;
-                        fenetre.close();    //On ferme la fenetre du menu
-                        return 2; // on renvoie 2 
+                        fenetre->close();    //On ferme la fenetre du menu
+                        delete fenetre;
+                        fenetre=NULL;
+                        return 3; // on renvoie 3
                     }
                         
                     
@@ -108,14 +114,15 @@ unsigned int  Menu::boucleMenu()
 
                 break;
                 case sf::Event::Closed:
-                fenetre.close();
+                fenetre->close();
+                return 0;
                 break;
             }
         }
 
-        fenetre.clear();
-        dessiner(fenetre);
-        fenetre.display();
+        fenetre->clear();
+        dessiner(*fenetre);
+        fenetre->display();
     }
 }
 

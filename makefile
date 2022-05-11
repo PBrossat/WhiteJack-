@@ -1,4 +1,15 @@
-all :  bin/Deck bin/MainDeCarte bin/Carte bin/Joueur bin/JeuTxt bin/Jeu bin/JeuSfml bin/jeuMulti bin/MenuSfml bin/MultiSfml
+all :  bin/Deck bin/MainDeCarte bin/Carte bin/Joueur bin/JeuTxt bin/Jeu bin/JeuSfml bin/jeuMulti bin/MenuSfml bin/MultiSfml bin/Appli
+
+
+bin/Appli : obj/mainApplication.o obj/Application.o obj/MenuSfml.o obj/JeuSfml.o obj/Jeu.o obj/MultiSfml.o obj/jeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o
+	g++ -g -Wall obj/mainApplication.o obj/Application.o obj/MenuSfml.o obj/JeuSfml.o obj/Jeu.o obj/MultiSfml.o obj/jeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o  -o bin/Appli -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+
+obj/mainApplication.o : src/mainApplication.cpp src/application.h src/MenuSfml.h src/jeuSfml.h src/Jeu.h src/MultiSfml.h src/jeuMulti.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h src/winTxt.h
+	g++ -g -Wall -c src/mainApplication.cpp -o obj/mainApplication.o -I/usr/local/include/SFML
+
+obj/Application.o : src/application.cpp src/application.h src/MenuSfml.h src/jeuSfml.h src/Jeu.h src/MultiSfml.h src/jeuMulti.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h src/winTxt.h
+	g++ -g -Wall -c src/application.cpp -o obj/Application.o -I/usr/local/include/SFML
+
 
 bin/MultiSfml : obj/mainJeuMultiSfml.o obj/MultiSfml.o obj/jeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o
 	g++ -g -Wall obj/mainJeuMultiSfml.o obj/MultiSfml.o obj/jeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o -o bin/MultiSfml -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio 

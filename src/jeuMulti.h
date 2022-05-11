@@ -64,6 +64,10 @@ class jeuMulti{
     */
     jeuMulti ();
 
+    /**
+    * @brief Destructeur de jeuMulti.
+    */
+    ~jeuMulti();
 
 
     /**

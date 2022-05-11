@@ -29,6 +29,10 @@ MainDeCarte::MainDeCarte (const Carte& carte1, const Carte& carte2)
 }
 
 
+MainDeCarte::~MainDeCarte()
+{
+    mainDeJoueur.clear();
+}
 
 
 void MainDeCarte::verifScore()

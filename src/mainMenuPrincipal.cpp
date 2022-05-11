@@ -17,13 +17,13 @@ int main ()
 	unsigned int res=menu.boucleMenu();
 	switch (res)
 	{
-		case 0:
-		break;
-
 		case 1:
 		break;
 
 		case 2:
+		break;
+
+		case 3:
 		sf::RenderWindow * fenetre;
 		fenetre = new RenderWindow(VideoMode(1400,750), "Regle" , Style::Default);
 		while (fenetre->isOpen())

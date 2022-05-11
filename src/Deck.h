@@ -62,6 +62,12 @@ class Deck
 	void testRegression() const;
 
 
+    /**
+    * @brief Destructeur de Deck.
+    */
+    ~Deck();
+
+
 	private :	
 	
     //Tableau dynamique représentant le deck de cartes 

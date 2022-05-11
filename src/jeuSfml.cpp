@@ -512,24 +512,6 @@ void sfmlJeu::sfmlInit() {
 
 //Chargement des autres images nécessaires
 
-    if (!tCardBack.loadFromFile("data/cardBack.png")) 
-    {
-        cout << "Error data/cardBack.png non found" << endl;
-    }
-    else 
-    {
-        sCardBack.setTexture(tCardBack);
-    }
-
-    if (!tDeck.loadFromFile("data/deck.png")) 
-    {
-        cout << "Error data/Deck.png non found" << endl;
-    }
-    else 
-    {
-        sDeck.setTexture(tDeck);
-    } 
-
     if (!tFond.loadFromFile("data/fond.png")) 
     {
         cout << "Error data/fond.png non found" << endl;
@@ -620,6 +602,15 @@ void sfmlJeu::sfmlInit() {
         sChanger.setTexture(tChanger);
     }
 
+    if (!tExit.loadFromFile("data/exit.png")) 
+    {
+        cout << "Error data/exit.png non found" << endl;
+    }
+    else 
+    {
+        sExit.setTexture(tExit);
+    }
+
     if (!tBlackjack.loadFromFile("data/BlackJack.png")) 
     {
         cout << "Error data/BlackJack.png non found" << endl;
@@ -627,7 +618,6 @@ void sfmlJeu::sfmlInit() {
     else 
     {
         sBlackjack.setTexture(tBlackjack);
-        sBlackjack.setScale(1,1);
         sBlackjack.setPosition(dimx/2-120,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tGagne.loadFromFile("data/Gagne.png")) 
@@ -637,7 +627,6 @@ void sfmlJeu::sfmlInit() {
     else 
     {
         sGagne.setTexture(tGagne);
-        sGagne.setScale(1,1);
         sGagne.setPosition(dimx/2-60,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tPerdu.loadFromFile("data/Perdu.png")) 
@@ -647,7 +636,6 @@ void sfmlJeu::sfmlInit() {
     else 
     {
         sPerdu.setTexture(tPerdu);
-        sPerdu.setScale(1,1);
         sPerdu.setPosition(dimx/2-60,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tEgalite.loadFromFile("data/Egalite.png")) 
@@ -657,7 +645,6 @@ void sfmlJeu::sfmlInit() {
     else 
     {
         sEgalite.setTexture(tEgalite);
-        sEgalite.setScale(1,1);
         sEgalite.setPosition(dimx/2-80,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tCadre.loadFromFile("data/cadreRouge.png"))
@@ -674,12 +661,16 @@ void sfmlJeu::sfmlInit() {
     if (!m1_font.loadFromFile("data/FontMoney.ttf")) {cout << "Error data/FontMoney.ttf non found" << endl;}
     else {
         txtBudget.setFont(m1_font);
+        txtMise.setFont(m1_font);
         
         txtBudget.setCharacterSize(35);
+        txtMise.setCharacterSize(35);
         
         txtBudget.setFillColor(Color::Yellow);
+        txtMise.setFillColor(Color::Yellow);
         
         txtBudget.setPosition(Vector2f(84,190)); 
+        txtMise.setPosition(84,dimy-200);
     }
 
     if (!m2_font.loadFromFile("data/CasinoFlat.ttf")) {cout << "Error data/CasinoFlat.ttf non found" << endl;}
@@ -745,6 +736,7 @@ void sfmlJeu::sfmlInit() {
 sfmlJeu::~sfmlJeu () 
 {
     if (window != NULL) delete window;
+    window=NULL;
 }
 
 
@@ -1300,6 +1292,14 @@ void sfmlJeu::sfmlAff()
     window->draw(rsFond);
     window->draw(sCadre);
 
+
+    sf::Color color = sExit.getColor();
+    color.a=200;
+    sExit.setPosition((dimx/64),30);
+    sExit.setColor(color);
+    sExit.setScale(0.4,0.4);
+    window->draw(sExit);
+
     s1.setScale(0.75,0.75);
     s10.setScale(0.75,0.75);
     s100.setScale(0.75,0.75);
@@ -1336,6 +1336,10 @@ void sfmlJeu::sfmlAff()
         string scoreCroupier = to_string(jeu.mainCroupier.getSommeValeur());
         txtScoreCroupier.setString("Score croupier : "+scoreCroupier);
         window->draw(txtScoreCroupier);
+
+        string miseJoueur = to_string(jeu.joueurSolo.getMise());
+        txtMise.setString("Mise : "+ miseJoueur+"$");
+        window->draw(txtMise);
 
         if(finJeu==1)
         {   
@@ -1447,16 +1451,21 @@ void sfmlJeu::sfmlAff()
 
 
 
-void sfmlJeu::sfmlBoucle() {
+unsigned int sfmlJeu::sfmlBoucle() {
 
-    while ((window->isOpen())&&(jeu.joueurSolo.testArgentJoueur())) 
+    while (window->isOpen()) 
     {
         Event event;
 
         while(window->pollEvent(event))
         {
             if (event.type == Event::Closed)   
-            window->close();
+            {
+                window->close();
+                delete window;
+                window=NULL;
+                return 0;
+            }
 
             if(event.type == Event::MouseButtonPressed)
             {
@@ -1465,13 +1474,27 @@ void sfmlJeu::sfmlBoucle() {
                     float x = Mouse::getPosition(*window).x;
                     float y = Mouse::getPosition(*window).y;
 
+                    if(sExit.getGlobalBounds().contains(x,y))
+                    {
+                        window->close();
+                        delete window;
+                        window=NULL;
+                        return 1;
+                    }
+
                     if(finJeu==1)
                     {
                         jeu.finJeu();
                         actionMiser=0;
                         finJeu=0;
 
-                        if(jeu.joueurSolo.getBudget()==0) window->close();
+                        if(!jeu.joueurSolo.testArgentJoueur())
+                        {
+                            window->close();
+                            delete window;
+                            window=NULL;
+                            return 1;
+                        }
                     }
 
                     switch(actionMiser)

@@ -30,7 +30,7 @@ Joueur::Joueur(string nomJ, unsigned int nivJoueur, unsigned int budgetJ)
 
 bool Joueur::testArgentJoueur() const
 {
-	return (budget>=0);
+	return (budget>0);
 }
 
 

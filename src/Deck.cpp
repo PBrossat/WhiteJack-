@@ -10,6 +10,11 @@
 using namespace std;
 
 
+Deck::~Deck()
+{
+  deck.clear();
+}
+
 void Deck::initDeck()
 {
   for(int i=0 ; i<4 ; i++)  //boucle sur le nombre de paquets (ici 4)

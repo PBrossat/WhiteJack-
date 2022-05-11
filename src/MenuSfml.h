@@ -11,6 +11,10 @@
 using namespace std;
 using namespace sf;
 
+
+//enlever variable globale et voir comment on libere le tab de texte appelé Menu
+
+
 #define Max_menu_principal 3
 
 class Menu 

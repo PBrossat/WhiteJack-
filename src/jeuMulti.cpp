@@ -35,6 +35,10 @@ jeuMulti::jeuMulti (unsigned int NiveauJoueur)
     elimine=0;
 }
 
+jeuMulti::~jeuMulti()
+{
+    tabJoueur.clear();
+}
 
 
 void jeuMulti::eliminationJoueur() //procédure permettant d'eliminer un joueur si : soit il n'as plus de budget, soit il a le moins d'argent à la partie n={3,6,9}
