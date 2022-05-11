@@ -112,8 +112,8 @@ Pour mettre à jour la documentation doxygen, utiliser la commande make suivante
 
 Le projet permet de créer dix exécutables. Le principal étant bin/MenuSfml.
 
-## bin/MenuSfml : cet exécutable permet d'afficher le Menu du jeu avec trois choix disponible: le mode Solo, le mode MultiJoueur et les règles du jeu. Pour "naviguer" dans celui-ci, utiliser les flèches du clavier et la touche entré pour valider son choix.
-## Cet executable est le plus important car c'est celui que l'on appelera si l'on veut jouer au WhiteJack.
+## bin/MenuSfml : cet exécutable permet d'afficher le Menu du jeu avec trois choix disponible: le mode Solo, le mode MultiJoueur et les règles du jeu. Pour "naviguer" dans celui-ci, utiliser les flèches du clavier et la touche entrée pour valider son choix.
+## Cet exécutable est le plus important car c'est celui que l'on appelera si l'on veut jouer au WhiteJack.
 
 	Pour le lancer :
 		~/whitejack$ ./bin/MenuSfml
