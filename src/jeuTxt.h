@@ -6,6 +6,6 @@ using namespace std;
 
 void txtBoucle (Jeu& jeu);
 void afficherMainDeCarte(const MainDeCarte& mainJoueur);
-//fontion afficherMise ?
+
 
 #endif

@@ -201,7 +201,7 @@ void Jeu::testRegression() const
 
 
 	unJeu.initialisationJeu();
-	assert(unJeu.joueurSolo.getBudget()==1000); // budget selon la derniere mise (2000-1000)
+	assert(unJeu.joueurSolo.getBudget()==1500); // budget selon la derniere mise (2000-500)
 	assert(unJeu.joueurSolo.mainJoueur.getNbCartes()==2);
 	assert(unJeu.mainCroupier.getNbCartes()==1);
 	assert(unJeu.deuxiemeCarteCroupier.getValeur()!=0);

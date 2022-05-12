@@ -84,33 +84,33 @@ void txtBoucle (Jeu& jeu)
         cout<<"Vous avez actuellement:  "<<jeu.joueurSolo.getBudget()<<"$ de budget, prenez en soins !"<<endl<<endl;
         cout<<"Combien voulez miser pour cette manche ?"<<endl;
 
-        if(jeu.joueurSolo.getBudget()>=1000)
+        if(jeu.joueurSolo.getBudget()>=500)
         {
-            cout<<"100$ (entrez 'a')  |   200$ (entrez 'z') |   300$ (entrez 'e') |   500$ (entrez 'r') |   1000$ (entrez 't')"<<endl;
+            cout<<"1$ (entrez 'a')  |   10$ (entrez 'z') |   100$ (entrez 'e') |   250$ (entrez 'r') |   500$ (entrez 't')"<<endl;
             do
             {
                 cin>>choix3;
             }while((choix3!='a')&&(choix3!='z')&&(choix3!='e')&&(choix3!='r')&&(choix3!='t'));
         }
-        else if(jeu.joueurSolo.getBudget()>=500)
+        else if(jeu.joueurSolo.getBudget()>=250)
         {
-            cout<<"100$ (entrez 'a')  |   200$ (entrez 'z') |   300$ (entrez 'e') |   500$ (entrez 'r')"<<endl;
+            cout<<"1$ (entrez 'a')  |   10$ (entrez 'z') |   100$ (entrez 'e') |   250$ (entrez 'r')"<<endl;
             do
             {
                 cin>>choix3;
             }while((choix3!='a')&&(choix3!='z')&&(choix3!='e')&&(choix3!='r'));
         }
-        else if(jeu.joueurSolo.getBudget()>=300)
+        else if(jeu.joueurSolo.getBudget()>=100)
         {
-            cout<<"100$ (entrez 'a')  |   200$ (entrez 'z') |   300$ (entrez 'e')"<<endl;
+            cout<<"1$ (entrez 'a')  |   10$ (entrez 'z') |   100$ (entrez 'e')"<<endl;
             do
             {
                 cin>>choix3;
             }while((choix3!='a')&&(choix3!='z')&&(choix3!='e'));
         }
-        else if(jeu.joueurSolo.getBudget()>=200)
+        else if(jeu.joueurSolo.getBudget()>=10)
         {
-            cout<<"100$ (entrez 'a')  |   200$ (entrez 'z')"<<endl;
+            cout<<"1$ (entrez 'a')  |   10$ (entrez 'z')"<<endl;
             do
             {
                 cin>>choix3;
@@ -118,7 +118,7 @@ void txtBoucle (Jeu& jeu)
         }
         else
         {
-            cout<<"100$ (entrez 'a')"<<endl;
+            cout<<"1$ (entrez 'a')"<<endl;
             do
             {
                 cin>>choix3;
