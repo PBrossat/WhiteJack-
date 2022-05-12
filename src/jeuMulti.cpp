@@ -27,7 +27,7 @@ jeuMulti::jeuMulti (unsigned int NiveauJoueur)
 
 	unDeck.initDeck();
 	unDeck.melangerDeck();
-    tabJoueur.push_back(Joueur("moi",0,2000));
+    tabJoueur.push_back(Joueur("Vous",0,2000));
     tabJoueur.push_back(Joueur("IA1",NiveauJoueur,2000));
     tabJoueur.push_back(Joueur("IA2",NiveauJoueur,2000));
     tabJoueur.push_back(Joueur("IA3",NiveauJoueur,2000));

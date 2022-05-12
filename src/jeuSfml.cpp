@@ -673,7 +673,7 @@ void sfmlJeu::sfmlInit() {
         txtMise.setPosition(84,dimy-200);
     }
 
-    if (!m2_font.loadFromFile("data/CasinoFlat.ttf")) {cout << "Error data/CasinoFlat.ttf non found" << endl;}
+    if (!m2_font.loadFromFile("data/BLACR___.TTF")) {cout << "Error data/BLACR___.TTF non found" << endl;}
     else {
         txtScoreJoueur.setFont(m2_font);
         txtScoreCroupier.setFont(m2_font);
@@ -684,8 +684,8 @@ void sfmlJeu::sfmlInit() {
         txtScoreJoueur.setFillColor(Color::Black);
         txtScoreCroupier.setFillColor(Color::Black);
         
-        txtScoreJoueur.setPosition(Vector2f(dimx/2-35,dimy-80));
-        txtScoreCroupier.setPosition(Vector2f(dimx/2-90,dimy/7)); 
+        txtScoreJoueur.setPosition(Vector2f(dimx/2-70,dimy-80));
+        txtScoreCroupier.setPosition(Vector2f(dimx/2-135,dimy/7)); 
     }
 
     if (!m1_soundbuffer.loadFromFile("data/SonMise.wav")) 
