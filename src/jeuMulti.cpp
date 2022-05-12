@@ -921,12 +921,12 @@ void jeuMulti::testRegression() const
     jeuIAIntermediaire5.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee2); // main du joueur = double deux
     jeuIAIntermediaire5.mainCroupier.tirerCarte(carteAjoutee2); // le croupier à 2
     jeuIAExpert5.actionExpert();
-    assert (jeuIAExpert5.tabJoueur[1].mainJoueur.getNbCartes()>=2);
-    assert (jeuIAExpert5.tabJoueur[1].mainJoueur.getIemeCarte(0).getRang()==1);
-    assert (jeuIAExpert5.tabJoueur[2].mainJoueur.getNbCartes()>=2);
-    assert (jeuIAExpert5.tabJoueur[2].mainJoueur.getIemeCarte(0).getValeur()==9);
-    assert (jeuIAExpert5.tabJoueur[3].mainJoueur.getNbCartes()>=2);
-    assert (jeuIAExpert5.tabJoueur[3].mainJoueur.getIemeCarte(0).getValeur()==2);
+    assert (jeuIAIntermediaire5.tabJoueur[1].mainJoueur.getNbCartes()>=2);
+    assert (jeuIAIntermediaire5.tabJoueur[1].mainJoueur.getIemeCarte(0).getRang()==1);
+    assert (jeuIAIntermediaire5.tabJoueur[2].mainJoueur.getNbCartes()>=2);
+    assert (jeuIAIntermediaire5.tabJoueur[2].mainJoueur.getIemeCarte(0).getValeur()==9);
+    assert (jeuIAIntermediaire5.tabJoueur[3].mainJoueur.getNbCartes()>=2);
+    assert (jeuIAIntermediaire5.tabJoueur[3].mainJoueur.getIemeCarte(0).getValeur()==2);
 
     
     cout<<"Test de jeuIAIntermediaire4() OK"<<endl;
