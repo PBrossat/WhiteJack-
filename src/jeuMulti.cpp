@@ -32,8 +32,7 @@ jeuMulti::jeuMulti (unsigned int NiveauJoueur)
     tabJoueur.push_back(Joueur("IA2",NiveauJoueur,2000));
     tabJoueur.push_back(Joueur("IA3",NiveauJoueur,2000));
     nbPartie=1;
-    nbJoueur=4;
-    elimine=0;
+    nbJoueurs=4;
 }
 
 jeuMulti::~jeuMulti()
@@ -44,7 +43,6 @@ jeuMulti::~jeuMulti()
 
 void jeuMulti::eliminationJoueur() //procédure permettant d'eliminer un joueur si : soit il n'as plus de budget, soit il a le moins d'argent à la partie n={3,6,9}
 {
-unsigned int nbJoueurs=tabJoueur.size(); // nbJoueur= à la taille du tableau 
     for (unsigned int i=0; i<tabJoueur.size(); i++) //pour i parcourant tout le tableau 
     {
         if(tabJoueur[i].getBudget()==0) // si le joueur à l'indice i à 0 de budget 
@@ -56,20 +54,20 @@ unsigned int nbJoueurs=tabJoueur.size(); // nbJoueur= à la taille du tableau
     }
 
     if ( ((nbJoueurs==4)&&(nbPartie==3)) || ((nbJoueurs==3)&&(nbPartie==6))  || ((nbJoueurs==2)&&(nbPartie==9))) //si toute les conditions sont réspectées 
-        {
-            float min=tabJoueur[0].getBudget(); //initialisation de min à la valeur du budget du joueur d'indice 0 
-            unsigned int indiceMinimum=0; // initialisation d'indiceMinimum à l'indice 0 par défaut
-            for (unsigned int j=1; j<tabJoueur.size() ; j++) //on commence la boucle à 1 pour eviter de tester avec j=0 (inutile)
-                {
-                    if (tabJoueur[j].getBudget()<min) //si le budget du joueur d'indice j est inférieur à min 
-                        {
-                            min= tabJoueur[j].getBudget(); // MAJ de min avec l'indice du joueur 
-                            indiceMinimum= j; //MAJ de indiceMinimum avec l'indice du joueur 
-                        }
-                }
-            tabJoueur.erase(tabJoueur.begin()+indiceMinimum); //on supprime le joueur avec le budget le plus bas
-            nbJoueurs--; // le nombre de joueur est mis à jour (-1)
-        }
+    {
+        float min=tabJoueur[0].getBudget(); //initialisation de min à la valeur du budget du joueur d'indice 0 
+        unsigned int indiceMinimum=0; // initialisation d'indiceMinimum à l'indice 0 par défaut
+        for (unsigned int j=1; j<tabJoueur.size() ; j++) //on commence la boucle à 1 pour eviter de tester avec j=0 (inutile)
+            {
+                if (tabJoueur[j].getBudget()<min) //si le budget du joueur d'indice j est inférieur à min 
+                    {
+                        min= tabJoueur[j].getBudget(); // MAJ de min avec l'indice du joueur 
+                        indiceMinimum= j; //MAJ de indiceMinimum avec l'indice du joueur 
+                    }
+            }
+        tabJoueur.erase(tabJoueur.begin()+indiceMinimum); //on supprime le joueur avec le budget le plus bas
+        nbJoueurs--; // le nombre de joueur est mis à jour (-1)
+    }
     nbPartie++;
 }
 //Attention au cas ou deux joueur ont le meme budget minimum !
@@ -85,11 +83,11 @@ void jeuMulti::initialisationMiseMulti()
     }
 
     vector<unsigned int>misePossible; //création d'un tableau avec les valeurs des mises possibles dedans
-    misePossible.push_back(100);
-    misePossible.push_back(200);
-    misePossible.push_back(300);   
+    misePossible.push_back(1);
+    misePossible.push_back(10);
+    misePossible.push_back(100);   
+    misePossible.push_back(250);
     misePossible.push_back(500);
-    misePossible.push_back(1000);
     srand (time(NULL));
 
 	for (unsigned int i=0; i<tabJoueur.size(); i++) //parcours du tableau de joueurs
@@ -229,7 +227,7 @@ unsigned int jeuMulti::resultat(unsigned int indiceJoueur)
 
 
 void jeuMulti::initialisationJeuMulti()
-{   
+{ 
     Carte carteTiree; //initilisation des cartes qui vont être tirées
     Carte carteCroupier;
     Carte deuxiemeCarteCroupier;
@@ -250,6 +248,19 @@ void jeuMulti::initialisationJeuMulti()
         }
 
      deuxiemeCarteCroupier = unDeck.distribuerCarte(); //création d'une deuxième carte pour le croupier (invisible à cet instant précis)
+}
+
+
+void jeuMulti::finManche()
+{
+    for(unsigned int i=0; i<tabJoueur.size(); i++)
+    {
+        tabJoueur[i].mainJoueur.vider();
+        tabJoueur[i].setMise(0);
+        tabJoueur[i].setGain(0);
+    }
+	mainCroupier.vider();
+    eliminationJoueur();    //l'incrémentation du nombre de parties est réalisée dans cette fonction
 }
 
 
@@ -283,7 +294,7 @@ void jeuMulti::actionAmateur()
     for (unsigned int i=1; i<tabJoueur.size(); i++)
     {
         do{
-        if (tabJoueur[i].mainJoueur.getSommeValeur()<17) 
+        if (tabJoueur[i].mainJoueur.getSommeValeur()<16) 
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);

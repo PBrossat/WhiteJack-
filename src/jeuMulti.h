@@ -22,7 +22,7 @@ class jeuMulti{
     /**
     * @brief Le nombre de joueur encore présent
     */
-    unsigned int nbJoueur;
+    unsigned int nbJoueurs;
 
     /**
     * @brief Le deck du jeu.
@@ -156,7 +156,7 @@ class jeuMulti{
      * 
      * Exemple d'utilisation :
      * @code
-     * unJeu.actionClavier();
+     * unJeuMulti.actionClavier('a');
      * @endcode
      * @warning Le parametre touche doit etre obligatoirement 'a', 'z', 'e', 'r' ou 't'
     */
@@ -215,6 +215,18 @@ class jeuMulti{
     void actionIA(unsigned int NiveauJoueur);
 
 
+    /**
+     * @brief Procédure permettant de réinitialiser les mains de cartes des joueurs et du croupier 
+     * @return void
+     * 
+     * Exemple d'utilisation :
+     * @code
+     * unJeuMulti.finJeu();
+     * @endcode
+     * @warning À faire à chaque fin de partie
+    */ 
+	void finManche();
+
 
     /**
     * @brief Procédure permettant de tester les fonctionnalités de la classe.
@@ -239,10 +251,5 @@ class jeuMulti{
     * @brief Le pourcentage (entre 40 et 60) pour determiner le ratio/le niveau du joueur.
     */
 	unsigned int randPourcentage;
-
-    /**
-    * @brief booléen indiquant si nous avons été eliminé ou pas
-    */
-	bool elimine;
 };
 #endif

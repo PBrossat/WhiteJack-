@@ -18,7 +18,8 @@ sfmlMulti::sfmlMulti () : jeu(1) {
     dimx = window->getSize().x;
     dimy = window->getSize().y;
     actionMiser=0;
-    finJeu=0;
+    finManche=0;
+    top1 = 0;
 }
 
 void sfmlMulti::sfmlInit() {
@@ -614,7 +615,6 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sBlackjack.setTexture(tBlackjack);
-        sBlackjack.setPosition(dimx/2-120,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tGagne.loadFromFile("data/Gagne.png")) 
     {
@@ -623,7 +623,6 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sGagne.setTexture(tGagne);
-        sGagne.setPosition(dimx/2-60,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tPerdu.loadFromFile("data/Perdu.png")) 
     {
@@ -632,7 +631,6 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sPerdu.setTexture(tPerdu);
-        sPerdu.setPosition(dimx/2-60,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
     }
     if (!tEgalite.loadFromFile("data/Egalite.png")) 
     {
@@ -641,28 +639,28 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sEgalite.setTexture(tEgalite);
-        sEgalite.setPosition(dimx/2-80,dimy/2-30);     //largeur d'environ 350 et hauteur d'environ 175 de base (scale=1)
-    }
-    if (!tCadre.loadFromFile("data/cadreRouge.png"))
-    {
-        cout << "Error data/cadreRouge.png non found" << endl;
-    }
-    else
-    {
-        sCadre.setTexture(tCadre);
-        sCadre.setScale(0.63,0.63);
-        sCadre.setPosition(Vector2f((dimx/64)-20,(dimy/2)-235));
     }
 
-    if (!m1_font.loadFromFile("data/FontMoney.ttf")) {cout << "Error data/FontMoney.ttf non found" << endl;}
-    else {
+    if (!m1_font.loadFromFile("data/FontMoney.ttf")) 
+    {
+        cout << "Error data/FontMoney.ttf non found" << endl;
+    }
+    else 
+    {
         txtBudget.setFont(m1_font);
+        txtBudget1.setFont(m1_font);
+        txtBudget2.setFont(m1_font);
+        txtBudget3.setFont(m1_font);
         
         txtBudget.setCharacterSize(35);
+        txtBudget1.setCharacterSize(35);
+        txtBudget2.setCharacterSize(35);
+        txtBudget3.setCharacterSize(35);
         
         txtBudget.setFillColor(Color::Yellow);
-        
-        txtBudget.setPosition(Vector2f(84,190)); 
+        txtBudget1.setFillColor(Color::Yellow);
+        txtBudget2.setFillColor(Color::Yellow);
+        txtBudget3.setFillColor(Color::Yellow);
     }
 
     if (!m2_font.loadFromFile("data/BLACR___.TTF")) 
@@ -672,40 +670,44 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         txtScoreJoueur.setFont(m2_font);
-        txtScoreIA1.setFont(m2_font);
-        txtScoreIA2.setFont(m2_font);
-        txtScoreIA3.setFont(m2_font);
+        txtScore1.setFont(m2_font);
+        txtScore2.setFont(m2_font);
+        txtScore3.setFont(m2_font);
         txtScoreCroupier.setFont(m2_font);
         txtNom.setFont(m2_font);
-        txtNomIA1.setFont(m2_font);
-        txtNomIA2.setFont(m2_font);
-        txtNomIA3.setFont(m2_font);
+        txtNom1.setFont(m2_font);
+        txtNom2.setFont(m2_font);
+        txtNom3.setFont(m2_font);
+        txtManche.setFont(m2_font);
         
         txtScoreJoueur.setCharacterSize(30);
-        txtScoreIA1.setCharacterSize(30);
-        txtScoreIA2.setCharacterSize(30);
-        txtScoreIA3.setCharacterSize(30);
+        txtScore1.setCharacterSize(30);
+        txtScore2.setCharacterSize(30);
+        txtScore3.setCharacterSize(30);
         txtScoreCroupier.setCharacterSize(30);
         txtNom.setCharacterSize(30);
-        txtNomIA1.setCharacterSize(30);
-        txtNomIA2.setCharacterSize(30);
-        txtNomIA3.setCharacterSize(30);
+        txtNom1.setCharacterSize(30);
+        txtNom2.setCharacterSize(30);
+        txtNom3.setCharacterSize(30);
+        txtManche.setCharacterSize(30);
         
         txtScoreJoueur.setFillColor(Color::Black);
-        txtScoreIA1.setFillColor(Color::Black);
-        txtScoreIA2.setFillColor(Color::Black);
-        txtScoreIA3.setFillColor(Color::Black);
+        txtScore1.setFillColor(Color::Black);
+        txtScore2.setFillColor(Color::Black);
+        txtScore3.setFillColor(Color::Black);
         txtScoreCroupier.setFillColor(Color::Black);
         txtNom.setFillColor(Color::Black);
-        txtNomIA1.setFillColor(Color::Black);
-        txtNomIA2.setFillColor(Color::Black);
-        txtNomIA3.setFillColor(Color::Black);
+        txtNom1.setFillColor(Color::Black);
+        txtNom2.setFillColor(Color::Black);
+        txtNom3.setFillColor(Color::Black);
+        txtManche.setFillColor(Color::White);
         
-        txtScoreJoueur.setPosition(Vector2f(dimx/2-35,dimy-80));
-        txtScoreIA1.setPosition(Vector2f(dimx/2-35,dimy-80));
-        txtScoreIA2.setPosition(Vector2f(dimx/2-35,dimy-80));
-        txtScoreIA3.setPosition(Vector2f(dimx/2-35,dimy-80));
-        txtScoreCroupier.setPosition(Vector2f(dimx/2-90,dimy/7)); 
+        txtScoreJoueur.setPosition(dimx/2-35,dimy-80);
+        txtScore1.setPosition(dimx/2-35,dimy-80);
+        txtScore2.setPosition(dimx/2-35,dimy-80);
+        txtScore3.setPosition(dimx/2-35,dimy-80);
+        txtScoreCroupier.setPosition(dimx/2-90,dimy/7); 
+        txtManche.setPosition(dimx-200,dimy/2-150);
     }
 
     if (!m1_soundbuffer.loadFromFile("data/SonMise.wav")) 
@@ -1031,7 +1033,6 @@ void sfmlMulti::sfmlAff()
     window->clear(Color(230, 240, 255, 255)); 
     rsFond.setSize(Vector2f(dimx,dimy));
     window->draw(rsFond);
-    window->draw(sCadre);
 
     sf::Color color = sExit.getColor();
     color.a=200;
@@ -1040,6 +1041,7 @@ void sfmlMulti::sfmlAff()
     sExit.setScale(0.4,0.4);
     window->draw(sExit);
 
+    
     s1.setScale(0.75,0.75);
     s10.setScale(0.75,0.75);
     s100.setScale(0.75,0.75);
@@ -1050,202 +1052,278 @@ void sfmlMulti::sfmlAff()
     sChanger.setScale(0.75,0.75);
     sDoubler.setScale(0.75,0.75);
 
-
-    stringstream stream;
-    
-    // // Set precision level to 3
-    // stream.precision(1);
-    // stream << fixed;
-    // // Convert float to string
-    // stream<<jeu.joueurSolo.getBudget();  
-    // string str  = stream.str();
-    // txtBudget.setString(str+"$");
-    // window->draw(txtBudget);
-
-    if(actionMiser==1)
+    if(top1)
     {
+        sGagne.setScale(3,3);
+        sGagne.setPosition(dimx/2-300,dimy/2-100);
+        window->draw(sGagne);
+    }
+    else
+    {
+        string nbManche = to_string(jeu.nbPartie);
+        txtManche.setString("Manche : "+nbManche);
+        window->draw(txtManche);
 
-        afficherMainDeCarte(jeu.mainCroupier, dimx/2-50, dimy/2-200);
-        string scoreCroupier = to_string(jeu.mainCroupier.getSommeValeur());
-        txtScoreCroupier.setString(scoreCroupier);
-        txtScoreCroupier.setPosition(dimx/2-23, dimy/2-250);
-        window->draw(txtScoreCroupier);
-
-        if (jeu.nbJoueur==4)
+        if(actionMiser==1)
         {
-            afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, 70, dimy/2 );
-            string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
-            txtScoreIA1.setString(scoreIA1);
-            txtScoreIA1.setPosition(100,dimy/2+125);
-            txtNomIA1.setString(jeu.tabJoueur[1].nom);
-            txtNomIA1.setPosition(90,dimy/2+175);
-            window->draw(txtNomIA1);
-            window->draw(txtScoreIA1);
 
-            afficherMainDeCarte(jeu.tabJoueur[2].mainJoueur, dimx/4, dimy/2+100 );
-            string scoreIA2 = to_string(jeu.tabJoueur[2].mainJoueur.getSommeValeur());
-            txtScoreIA2.setString(scoreIA2);
-            txtScoreIA2.setPosition(dimx/4+30,dimy/2+225);
-            txtNomIA2.setString(jeu.tabJoueur[2].nom);
-            txtNomIA2.setPosition(dimx/4+15,dimy/2+275);
-            window->draw(txtNomIA2);
-            window->draw(txtScoreIA2);
+            afficherMainDeCarte(jeu.mainCroupier, dimx/2-50, dimy/2-200);
+            string scoreCroupier = to_string(jeu.mainCroupier.getSommeValeur());
+            txtScoreCroupier.setString(scoreCroupier);
+            txtScoreCroupier.setPosition(dimx/2-23, dimy/2-250);
+            window->draw(txtScoreCroupier);
 
-            afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
-            string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
-            txtScoreJoueur.setString(scoreJoueur);
-            txtScoreJoueur.setPosition(dimx/2-10,dimy/2+250);
-            txtNom.setString(jeu.tabJoueur[0].nom);
-            txtNom.setPosition(dimx/2-25,dimy/2+300);
-            window->draw(txtNom);
-            window->draw(txtScoreJoueur);
-
-            afficherMainDeCarte(jeu.tabJoueur[3].mainJoueur, 3*dimx/4-65, dimy/2+100 );
-            string scoreIA3 = to_string(jeu.tabJoueur[3].mainJoueur.getSommeValeur());
-            txtScoreIA3.setString(scoreIA3);
-            txtScoreIA3.setPosition(3*dimx/4-35,dimy/2+225);
-            txtNomIA3.setString(jeu.tabJoueur[3].nom);
-            txtNomIA3.setPosition(3*dimx/4-40,dimy/2+275);
-            window->draw(txtNomIA3);
-            window->draw(txtScoreIA3);
-        }
-        else if (jeu.nbJoueur==3)
-        {
-            afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, dimx/4, dimy/2+100);
-            string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
-            txtScoreIA2.setString(scoreIA1);
-            txtNomIA2.setString(jeu.tabJoueur[1].nom);
-            window->draw(txtNomIA2);
-            window->draw(txtScoreIA2);
-
-            afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
-            string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
-            txtScoreJoueur.setString(scoreJoueur);
-            window->draw(txtNom);
-            window->draw(txtScoreJoueur);
-
-            afficherMainDeCarte(jeu.tabJoueur[2].mainJoueur, 3*dimx/4-65, dimy/2+100 );
-            string scoreIA2 = to_string(jeu.tabJoueur[2].mainJoueur.getSommeValeur());
-            txtScoreIA3.setString(scoreIA2);
-            txtScoreIA3.setPosition(3*dimx/4-35,dimy/2+225);
-            txtNomIA3.setString(jeu.tabJoueur[2].nom);
-            window->draw(txtNomIA3);
-            window->draw(txtScoreIA3);
-        }
-        else if (jeu.nbJoueur==2)
-        {
-            afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, dimx/4, dimy/2+100);
-            string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
-            txtScoreIA2.setString(scoreIA1);
-            txtNomIA2.setString(jeu.tabJoueur[1].nom);
-            window->draw(txtNomIA2);
-            window->draw(txtScoreIA2);
-
-            afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
-            string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
-            txtScoreJoueur.setString(scoreJoueur);
-            window->draw(txtNom);
-            window->draw(txtScoreJoueur);
-        }
-
-
-    //     if(finJeu==1)
-    //     {   
-    //         switch(res)
-    //         {
-    //             case 0:
-    //                 window->draw(sBlackjack);
-    //                 break;
-    //             case 1:
-    //                 window->draw(sBlackjack);
-    //                 break;
-    //             case 2:
-    //                 window->draw(sBlackjack);
-    //                 break;
-    //             case 3:
-    //                 window->draw(sBlackjack);
-    //                 break;
-    //         }
-    //     }
-    //     else
-    //     {
-            sRester.setPosition(dimx-100,dimy-80);
-            window->draw(sRester);
-            sTirer.setPosition(dimx-100,dimy-160);
-            window->draw(sTirer);
-            if((jeu.tabJoueur[0].mainJoueur.getNbCartes()==2) && (jeu.tabJoueur[0].getBudget()>=jeu.tabJoueur[0].getMise())) //si le joueur peut doubler (2 cartes et peut doubler sa mise)
+            if (jeu.nbJoueurs==4)
             {
-                sDoubler.setPosition(dimx-100,dimy-240);
-                window->draw(sDoubler);
-                if((jeu.tabJoueur[0].mainJoueur.getIemeCarte(0).getValeur()==jeu.tabJoueur[0].mainJoueur.getIemeCarte(1).getValeur())||(jeu.tabJoueur[0].mainJoueur.getIemeCarte(0).getRang()==jeu.tabJoueur[0].mainJoueur.getIemeCarte(1).getRang()))
+                afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, 70, dimy/2 );
+                string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
+                txtScore1.setString(scoreIA1);
+                txtScore1.setPosition(100,dimy/2+125);
+                stringstream stream2;
+                stream2.precision(1);
+                stream2 << fixed;
+                stream2<<jeu.tabJoueur[1].getBudget();  
+                string budgetIA1  = stream2.str();
+                txtBudget1.setString(budgetIA1+"$");
+                txtBudget1.setPosition(70,dimy/2-50);
+                txtNom1.setString(jeu.tabJoueur[1].nom);
+                txtNom1.setPosition(90,dimy/2+175);
+                window->draw(txtNom1);
+                window->draw(txtScore1);
+                window->draw(txtBudget1);
+
+                afficherMainDeCarte(jeu.tabJoueur[2].mainJoueur, dimx/4, dimy/2+100 );
+                string scoreIA2 = to_string(jeu.tabJoueur[2].mainJoueur.getSommeValeur());
+                txtScore2.setString(scoreIA2);
+                txtScore2.setPosition(dimx/4+30,dimy/2+225);
+                stringstream stream3;
+                stream3.precision(1);
+                stream3 << fixed;
+                stream3<<jeu.tabJoueur[2].getBudget();  
+                string budgetIA2  = stream3.str();
+                txtBudget2.setString(budgetIA2+"$");
+                txtBudget2.setPosition(dimx/4,dimy/2+50);
+                txtNom2.setString(jeu.tabJoueur[2].nom);
+                txtNom2.setPosition(dimx/4+15,dimy/2+275);
+                window->draw(txtNom2);
+                window->draw(txtScore2);
+                window->draw(txtBudget2);
+
+                afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
+                string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
+                txtScoreJoueur.setString(scoreJoueur);
+                txtScoreJoueur.setPosition(dimx/2-10,dimy/2+250);
+                stringstream stream1;
+                stream1.precision(1);
+                stream1 << fixed;
+                stream1<<jeu.tabJoueur[0].getBudget();  
+                string budget  = stream1.str();
+                txtBudget.setString(budget+"$");
+                txtBudget.setPosition(dimx/2-40,dimy/2+75);
+                txtNom.setString(jeu.tabJoueur[0].nom);
+                txtNom.setPosition(dimx/2-25,dimy/2+300);
+                window->draw(txtNom);
+                window->draw(txtScoreJoueur);
+                window->draw(txtBudget);
+
+                afficherMainDeCarte(jeu.tabJoueur[3].mainJoueur, 3*dimx/4-65, dimy/2+100 );
+                string scoreIA3 = to_string(jeu.tabJoueur[3].mainJoueur.getSommeValeur());
+                txtScore3.setString(scoreIA3);
+                txtScore3.setPosition(3*dimx/4-35,dimy/2+225);
+                stringstream stream4;
+                stream4.precision(1);
+                stream4 << fixed;
+                stream4<<jeu.tabJoueur[3].getBudget();  
+                string budgetIA3  = stream1.str();
+                txtBudget3.setString(budgetIA3+"$");
+                txtBudget3.setPosition(3*dimx/4-65,dimy/2+50);
+                txtNom3.setString(jeu.tabJoueur[3].nom);
+                txtNom3.setPosition(3*dimx/4-40,dimy/2+275);
+                window->draw(txtNom3);
+                window->draw(txtScore3);
+                window->draw(txtBudget3);
+            }
+            else if (jeu.nbJoueurs==3)
+            {
+                afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, dimx/4, dimy/2+100);
+                string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
+                txtScore2.setString(scoreIA1);
+                stringstream stream2;
+                stream2.precision(1);
+                stream2 << fixed;
+                stream2<<jeu.tabJoueur[1].getBudget();  
+                string budgetIA1  = stream2.str();
+                txtBudget2.setString(budgetIA1+"$");
+                txtNom2.setString(jeu.tabJoueur[1].nom);
+                window->draw(txtNom2);
+                window->draw(txtScore2);
+                window->draw(txtBudget2);
+
+                afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
+                string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
+                txtScoreJoueur.setString(scoreJoueur);
+                stringstream stream1;
+                stream1.precision(1);
+                stream1 << fixed;
+                stream1<<jeu.tabJoueur[0].getBudget();  
+                string budget  = stream1.str();
+                txtBudget.setString(budget+"$");
+                window->draw(txtNom);
+                window->draw(txtScoreJoueur);
+                window->draw(txtBudget);
+
+                afficherMainDeCarte(jeu.tabJoueur[2].mainJoueur, 3*dimx/4-65, dimy/2+100 );
+                string scoreIA2 = to_string(jeu.tabJoueur[2].mainJoueur.getSommeValeur());
+                txtScore3.setString(scoreIA2);
+                txtScore3.setPosition(3*dimx/4-35,dimy/2+225);
+                stringstream stream3;
+                stream3.precision(1);
+                stream3 << fixed;
+                stream3<<jeu.tabJoueur[2].getBudget();  
+                string budgetIA2  = stream3.str();
+                txtBudget3.setString(budgetIA2+"$");
+                txtNom3.setString(jeu.tabJoueur[2].nom);
+                window->draw(txtNom3);
+                window->draw(txtScore3);
+                window->draw(txtBudget3);
+            }
+            else if (jeu.nbJoueurs==2)
+            {
+                afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, dimx/4, dimy/2+100);
+                string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
+                txtScore2.setString(scoreIA1);
+                stringstream stream2;
+                stream2.precision(1);
+                stream2 << fixed;
+                stream2<<jeu.tabJoueur[1].getBudget();  
+                string budgetIA1  = stream2.str();
+                txtBudget2.setString(budgetIA1+"$");
+                txtNom2.setString(jeu.tabJoueur[1].nom);
+                window->draw(txtNom2);
+                window->draw(txtScore2);
+                window->draw(txtBudget2);
+
+                afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
+                string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
+                txtScoreJoueur.setString(scoreJoueur);
+                stringstream stream1;
+                stream1.precision(1);
+                stream1 << fixed;
+                stream1<<jeu.tabJoueur[0].getBudget();  
+                string budget  = stream1.str();
+                txtBudget.setString(budget+"$");
+                window->draw(txtNom);
+                window->draw(txtScoreJoueur);
+                window->draw(txtBudget);
+            }
+
+            if(finManche==1)
+            {   
+                switch(res)
                 {
-                    sChanger.setPosition(dimx-100,dimy-320);
+                    case 0:
+                        sPerdu.setScale(0.6,0.6);
+                        sPerdu.setPosition(dimx/2-50, dimy/2+165);
+                        window->draw(sPerdu);
+                        break;
+                    case 1:
+                        sEgalite.setScale(0.6,0.6);
+                        sEgalite.setPosition(dimx/2-55, dimy/2+165);
+                        window->draw(sEgalite);
+                        break;
+                    case 2:
+                        sGagne.setScale(0.6,0.6);
+                        sGagne.setPosition(dimx/2-50, dimy/2+165);
+                        window->draw(sGagne);
+                        break;
+                    case 3:
+                        sBlackjack.setScale(0.6,0.6);
+                        sBlackjack.setPosition(dimx/2-70, dimy/2+165);
+                        window->draw(sBlackjack);
+                        break;
+                }
+
+            }
+            else
+            {
+                sRester.setPosition(dimx-100,dimy-80);
+                window->draw(sRester);
+                sTirer.setPosition(dimx-100,dimy-160);
+                window->draw(sTirer);
+                if((jeu.tabJoueur[0].mainJoueur.getNbCartes()==2) && (jeu.tabJoueur[0].getBudget()>=jeu.tabJoueur[0].getMise())) //si le joueur peut doubler (2 cartes et peut doubler sa mise)
+                {
+                    sDoubler.setPosition(dimx-100,dimy-240);
+                    window->draw(sDoubler);
+                    if((jeu.tabJoueur[0].mainJoueur.getIemeCarte(0).getValeur()==jeu.tabJoueur[0].mainJoueur.getIemeCarte(1).getValeur())||(jeu.tabJoueur[0].mainJoueur.getIemeCarte(0).getRang()==jeu.tabJoueur[0].mainJoueur.getIemeCarte(1).getRang()))
+                    {
+                        sChanger.setPosition(dimx-100,dimy-320);
+                        window->draw(sChanger);
+                    }
+                }
+                else    //on déplace le sprite de doubler hors de la fenetre pour s'assurer que le joueur ne puisse doubler
+                {
+                    sDoubler.setPosition(dimx+1,dimy+1);
+                    sChanger.setPosition(dimx+1,dimy+1);
+                    window->draw(sDoubler);
                     window->draw(sChanger);
                 }
             }
-            else    //on déplace le sprite de doubler hors de la fenetre pour s'assurer que le joueur ne puisse doubler
-            {
-                sDoubler.setPosition(dimx+1,dimy+1);
-                sChanger.setPosition(dimx+1,dimy+1);
-                window->draw(sDoubler);
-                window->draw(sChanger);
-            }
-    //     }
-    }
-    else if(jeu.tabJoueur[0].getBudget()>=500)
-    {
-        s1.setPosition(dimx/2-205,dimy-90);
-        window->draw(s1);
+        }
+        else if(jeu.tabJoueur[0].getBudget()>=500)
+        {
+            s1.setPosition(dimx/2-205,dimy-90);
+            window->draw(s1);
 
-        s10.setPosition(dimx/2-120,dimy-90);
-        window->draw(s10);
+            s10.setPosition(dimx/2-120,dimy-90);
+            window->draw(s10);
 
-        s100.setPosition(dimx/2-35,dimy-90);
-        window->draw(s100);
+            s100.setPosition(dimx/2-35,dimy-90);
+            window->draw(s100);
 
-        s250.setPosition(dimx/2+50,dimy-90);
-        window->draw(s250);
+            s250.setPosition(dimx/2+50,dimy-90);
+            window->draw(s250);
 
-        s500.setPosition(dimx/2+135,dimy-90);
-        window->draw(s500);
-    }
-    else if(jeu.tabJoueur[0].getBudget()>=250)
-    {
-        s1.setPosition(dimx/2-162.5,dimy-90);
-        window->draw(s1);
+            s500.setPosition(dimx/2+135,dimy-90);
+            window->draw(s500);
+        }
+        else if(jeu.tabJoueur[0].getBudget()>=250)
+        {
+            s1.setPosition(dimx/2-162.5,dimy-90);
+            window->draw(s1);
 
-        s10.setPosition(dimx/2-77.5,dimy-90);
-        window->draw(s10);
+            s10.setPosition(dimx/2-77.5,dimy-90);
+            window->draw(s10);
 
-        s100.setPosition(dimx/2+7.5,dimy-90);
-        window->draw(s100);
+            s100.setPosition(dimx/2+7.5,dimy-90);
+            window->draw(s100);
 
-        s250.setPosition(dimx/2+92.5,dimy-90);
-        window->draw(s250);
-    }
-    else if(jeu.tabJoueur[0].getBudget()>=100)
-    {
-        s1.setPosition(dimx/2-120,dimy-90);
-        window->draw(s1);
+            s250.setPosition(dimx/2+92.5,dimy-90);
+            window->draw(s250);
+        }
+        else if(jeu.tabJoueur[0].getBudget()>=100)
+        {
+            s1.setPosition(dimx/2-120,dimy-90);
+            window->draw(s1);
 
-        s10.setPosition(dimx/2-35,dimy-90);
-        window->draw(s10);
+            s10.setPosition(dimx/2-35,dimy-90);
+            window->draw(s10);
 
-        s100.setPosition(dimx/2+50,dimy-90);
-        window->draw(s100);
-    }
-    else if(jeu.tabJoueur[0].getBudget()>=10)
-    {
-        s1.setPosition(dimx/2-77.5,dimy-90);
-        window->draw(s1);
+            s100.setPosition(dimx/2+50,dimy-90);
+            window->draw(s100);
+        }
+        else if(jeu.tabJoueur[0].getBudget()>=10)
+        {
+            s1.setPosition(dimx/2-77.5,dimy-90);
+            window->draw(s1);
 
-        s10.setPosition(dimx/2+7.5,dimy-90);
-        window->draw(s10);
-    }
-    else if(jeu.tabJoueur[0].getBudget()>=1)
-    {
-        s1.setPosition(dimx/2-35,dimy-90);
-        window->draw(s1);
+            s10.setPosition(dimx/2+7.5,dimy-90);
+            window->draw(s10);
+        }
+        else if(jeu.tabJoueur[0].getBudget()>=1)
+        {
+            s1.setPosition(dimx/2-35,dimy-90);
+            window->draw(s1);
+        }
     }
    
 
@@ -1272,8 +1350,9 @@ unsigned int sfmlMulti::sfmlBoucle() {
                 window->close();
                 delete window;
                 window=NULL;
+                return 0;
             }
-
+        
             if(event.type == Event::MouseButtonPressed)
             {
                 if(event.key.code == Mouse::Left)
@@ -1281,14 +1360,43 @@ unsigned int sfmlMulti::sfmlBoucle() {
                     float x = Mouse::getPosition(*window).x;
                     float y = Mouse::getPosition(*window).y;
 
-    //                 if(finJeu==1)
-    //                 {
-    //                     jeu.finJeu();
-    //                     actionMiser=0;
-    //                     finJeu=0;
+                    if(sExit.getGlobalBounds().contains(x,y))
+                    {
+                        window->close();
+                        delete window;
+                        window=NULL;
+                        return 1;
+                    }
+                    
+                    if(top1)
+                    {
+                        window->close();
+                        delete window;
+                        window=NULL;
+                        return 1;
+                    }
 
-    //                     if(jeu.joueurSolo.getBudget()==0) window->close();
-    //                 }
+                    if(finManche==1)
+                    {
+                        jeu.finManche();
+                        actionMiser=0;
+                        finManche=0;
+                        
+                        if(jeu.tabJoueur[0].getNiveau()!=0) //si nous avons été éliminés
+                        {
+                            window->close();
+                            delete window;
+                            window=NULL;
+                            return 1;
+                        }
+                        else
+                        {
+                            if(jeu.nbJoueurs==1)    //si pas éliminé + dernier survivant = top1
+                            {
+                                top1 = 1;
+                            }
+                        }
+                    }
 
                     switch(actionMiser)
                     {
@@ -1350,10 +1458,14 @@ unsigned int sfmlMulti::sfmlBoucle() {
                                     sonCarte.play();
                                     if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
                                     {
-                                        jeu.actionExpert();    //pour l'instant teste boucle avec action amateur
+                                        jeu.actionAmateur();    //pour l'instant teste boucle avec action amateur
                                         jeu.actionCroupier();
                                         sonCarte.play();
-                                        finJeu=1;
+                                        finManche=1;
+                                        for(unsigned int i=1; i<jeu.tabJoueur.size();i++)
+                                        {
+                                            jeu.resultat(i);
+                                        }
                                         res = jeu.resultat(0);
                                         switch(res)
                                         {
@@ -1378,10 +1490,14 @@ unsigned int sfmlMulti::sfmlBoucle() {
                                     sonCarte.play();
                                     if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
                                     {
-                                        jeu.actionExpert();    //pour l'instant teste boucle avec action amateur
+                                        jeu.actionAmateur();    //pour l'instant teste boucle avec action amateur
                                         jeu.actionCroupier();
                                         sonCarte.play();
-                                        finJeu=1;
+                                        finManche=1;
+                                        for(unsigned int i=1; i<jeu.tabJoueur.size();i++)
+                                        {
+                                            jeu.resultat(i);
+                                        }
                                         res = jeu.resultat(0);
                                         switch(res)
                                         {
@@ -1405,10 +1521,14 @@ unsigned int sfmlMulti::sfmlBoucle() {
                                     jeu.actionClavier('r'); 
                                     if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
                                     {
-                                        jeu.actionExpert();    //pour l'instant teste boucle avec action amateur
+                                        jeu.actionAmateur();    //pour l'instant teste boucle avec action amateur
                                         jeu.actionCroupier();
                                         sonCarte.play();
-                                        finJeu=1;
+                                        finManche=1;
+                                        for(unsigned int i=1; i<jeu.tabJoueur.size();i++)
+                                        {
+                                            jeu.resultat(i);
+                                        }
                                         res = jeu.resultat(0);
                                         switch(res)
                                         {
@@ -1434,10 +1554,14 @@ unsigned int sfmlMulti::sfmlBoucle() {
                                     sonCarte.play();
                                     if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
                                     {
-                                        jeu.actionExpert();    //pour l'instant teste boucle avec action amateur
+                                        jeu.actionAmateur();    //pour l'instant teste boucle avec action amateur
                                         jeu.actionCroupier();
                                         sonCarte.play();
-                                        finJeu=1;
+                                        finManche=1;
+                                        for(unsigned int i=1; i<jeu.tabJoueur.size();i++)
+                                        {
+                                            jeu.resultat(i);
+                                        }
                                         res = jeu.resultat(0);
                                         switch(res)
                                         {

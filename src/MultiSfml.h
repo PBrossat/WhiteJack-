@@ -92,7 +92,6 @@ private :
     sf::Texture tRester;
     sf::Texture tChanger;
     sf::Texture tBlackjack;
-    sf::Texture tCadre;
     sf::Texture tGagne;
     sf::Texture tPerdu;
     sf::Texture tEgalite;
@@ -176,7 +175,6 @@ private :
     sf::Sprite sRester;
     sf::Sprite sChanger;
     sf::Sprite sBlackjack;
-    sf::Sprite sCadre;
     sf::Sprite sGagne;
     sf::Sprite sPerdu;
     sf::Sprite sEgalite;
@@ -188,23 +186,27 @@ private :
     unsigned int dimy;
 
     bool actionMiser;
-    bool finJeu;
+    bool finManche;
+    bool top1;
 
     unsigned int res;
 
     sf::Font m1_font;
     sf::Font m2_font;
     sf::Text txtScoreJoueur;
-    sf::Text txtScoreIA1;
-    sf::Text txtScoreIA2;
-    sf::Text txtScoreIA3;
+    sf::Text txtScore1;
+    sf::Text txtScore2;
+    sf::Text txtScore3;
     sf::Text txtNom;
-    sf::Text txtNomIA1;
-    sf::Text txtNomIA2;
-    sf::Text txtNomIA3;
+    sf::Text txtNom1;
+    sf::Text txtNom2;
+    sf::Text txtNom3;
     sf::Text txtManche;
     sf::Text txtMise;
     sf::Text txtBudget;
+    sf::Text txtBudget1;
+    sf::Text txtBudget2;
+    sf::Text txtBudget3;
     sf::Text txtScoreCroupier;
 
     sf::SoundBuffer m1_soundbuffer;

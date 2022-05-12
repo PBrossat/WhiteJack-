@@ -73,7 +73,7 @@ class Jeu
      * @return void
      * 
      * Exemple d'utilisation :
-      * unJeu.initialisationMise();
+      * unJeu.initialisationMise('a');
      * @endcode
      * @warning La mise saisie doit être inférieur au budget du joueur (2000)
      * @warning Le parametre touche doit etre obligatoirement 'a', 'z', 'e', 'r' ou 't'
@@ -114,9 +114,9 @@ class Jeu
      * 
      * Exemple d'utilisation :
      * @code
-     * unJeu.actionClavier();
+     * unJeu.actionClavier('t');
      * @endcode
-     * @warning Le parametre touche doit etre obligatoirement 'a', 'z', 'e', 'r' ou 't'
+     * @warning Le parametre touche doit etre obligatoirement 't', 'd', 'r', 'c' 
     */
 	void actionClavier(const char touche);
 
