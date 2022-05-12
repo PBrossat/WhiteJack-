@@ -2,8 +2,8 @@
 
 # Contributeurs : 
 
-    p2020351 Faustmann Lucas
     p2002218 Brossat Pierrick 
+    p2020351 Faustmann Lucas
 
 # Présentation WhiteJack :
 
