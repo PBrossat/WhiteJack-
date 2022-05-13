@@ -77,6 +77,9 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:abd574548278b0c3ecac1b41c1643cd24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjeu_multi.html#abd574548278b0c3ecac1b41c1643cd24">actionCroupier</a> ()</td></tr>
 <tr class="memdesc:abd574548278b0c3ecac1b41c1643cd24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procédure permettant de gérer automatiquement les actions du croupier.  <a href="classjeu_multi.html#abd574548278b0c3ecac1b41c1643cd24">Plus de détails...</a><br /></td></tr>
 <tr class="separator:abd574548278b0c3ecac1b41c1643cd24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa18451147ac03ac33da1ec53ef275234"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjeu_multi.html#aa18451147ac03ac33da1ec53ef275234">remplirJoueurs</a> (unsigned int NiveauJoueur)</td></tr>
+<tr class="memdesc:aa18451147ac03ac33da1ec53ef275234"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procédure permettant d'initialiser et de créer les joueurs (IA) selon le niveau choisi.  <a href="classjeu_multi.html#aa18451147ac03ac33da1ec53ef275234">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa18451147ac03ac33da1ec53ef275234"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab981e178f6d37b0a887fc9b10ec394da"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjeu_multi.html#ab981e178f6d37b0a887fc9b10ec394da">jeuMulti</a> ()</td></tr>
 <tr class="memdesc:ab981e178f6d37b0a887fc9b10ec394da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur sans paramètres de <a class="el" href="classjeu_multi.html">jeuMulti</a>.  <a href="classjeu_multi.html#ab981e178f6d37b0a887fc9b10ec394da">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ab981e178f6d37b0a887fc9b10ec394da"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -473,6 +476,35 @@ Le parametre touche doit etre obligatoirement 'a', 'z', 'e', 'r' ou 't' </dd></d
 <dl class="section return"><dt>Renvoie</dt><dd>void</dd></dl>
 <p>Exemple d'utilisation : </p><div class="fragment"><div class="line">unJeuMulti.initialisationMiseMulti();</div>
 </div><!-- fragment --> 
+</div>
+</div>
+<a id="aa18451147ac03ac33da1ec53ef275234" name="aa18451147ac03ac33da1ec53ef275234"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa18451147ac03ac33da1ec53ef275234">&#9670;&nbsp;</a></span>remplirJoueurs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jeuMulti::remplirJoueurs </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>NiveauJoueur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Procédure permettant d'initialiser et de créer les joueurs (IA) selon le niveau choisi. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">NiveauJoueur</td><td>: le niveau des IA avec lesquelles le joueur jouera sa partie. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void</dd></dl>
+<p>Exemple d'utilisation : </p><div class="fragment"><div class="line">unJeu.remplirJoueurs(2);</div>
+</div><!-- fragment --> <dl class="section warning"><dt>Avertissement</dt><dd>NiveauJoueur doit être compris entre 1 et 3 compris (1=amateur ; 2=intermédiaire ; 3=expert). </dd></dl>
+
 </div>
 </div>
 <a id="a49659f540ed4fa866598e29e39faafbf" name="a49659f540ed4fa866598e29e39faafbf"></a>

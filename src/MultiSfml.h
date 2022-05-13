@@ -12,6 +12,18 @@ class sfmlMulti{
 private :
 
     jeuMulti jeu;
+
+    unsigned int dimx;
+    unsigned int dimy;
+
+    bool actionMiser;
+    bool finManche;
+    unsigned int choixNiv;
+    bool top1;
+    bool elimine;
+
+    unsigned int res;
+
 	sf::RenderWindow * window;
 
     sf::Texture t1deCoeur;
@@ -96,6 +108,11 @@ private :
     sf::Texture tPerdu;
     sf::Texture tEgalite;
     sf::Texture tExit;
+    sf::Texture tAmateur;
+    sf::Texture tIntermediaire;
+    sf::Texture tExpert;
+    sf::Texture tBigWin;
+    sf::Texture tElimine;
   
 
 
@@ -179,17 +196,13 @@ private :
     sf::Sprite sPerdu;
     sf::Sprite sEgalite;
     sf::Sprite sExit;
+    sf::Sprite sAmateur;
+    sf::Sprite sIntermediaire;
+    sf::Sprite sExpert;
+    sf::Sprite sBigWin;
+    sf::Sprite sElimine;
 
     sf::RectangleShape rsFond;
-
-    unsigned int dimx;
-    unsigned int dimy;
-
-    bool actionMiser;
-    bool finManche;
-    bool top1;
-
-    unsigned int res;
 
     sf::Font m1_font;
     sf::Font m2_font;

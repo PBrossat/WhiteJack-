@@ -100,10 +100,14 @@ void application::boucleApplication()
     }
     else if(choixMenu==2)
     {
-            //jeuMulti.sfmlInit();
-            choixRetour = 1 /*jeuMulti.sfmlBoucle()*/;
+            sfmlMulti* jeuMulti = new sfmlMulti;
+            jeuMulti->sfmlInit();
+            jeuMulti->sfmlAff();
+            choixRetour = jeuMulti->sfmlBoucle();
             if(choixRetour==1)
             {
+                delete jeuMulti;
+                jeuMulti=NULL;
                 boucleApplication();
             }
     }

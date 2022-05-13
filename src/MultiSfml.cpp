@@ -20,6 +20,8 @@ sfmlMulti::sfmlMulti () : jeu(1) {
     actionMiser=0;
     finManche=0;
     top1 = 0;
+    choixNiv=0;
+    elimine=0;
 }
 
 void sfmlMulti::sfmlInit() {
@@ -640,6 +642,46 @@ void sfmlMulti::sfmlInit() {
     {
         sEgalite.setTexture(tEgalite);
     }
+    if (!tAmateur.loadFromFile("data/amateur.png")) 
+    {
+        cout << "Error data/Amateur.png non found" << endl;
+    }
+    else 
+    {
+        sAmateur.setTexture(tAmateur);
+    }
+    if (!tIntermediaire.loadFromFile("data/intermédiaire.png")) 
+    {
+        cout << "Error data/intermédiaire.png non found" << endl;
+    }
+    else 
+    {
+        sIntermediaire.setTexture(tIntermediaire);
+    }
+    if (!tExpert.loadFromFile("data/expert.png")) 
+    {
+        cout << "Error data/expert.png non found" << endl;
+    }
+    else 
+    {
+        sExpert.setTexture(tExpert);
+    }
+    if (!tBigWin.loadFromFile("data/bigWin.png")) 
+    {
+        cout << "Error data/bigWin.png non found" << endl;
+    }
+    else 
+    {
+        sBigWin.setTexture(tBigWin);
+    }
+    if (!tElimine.loadFromFile("data/Elimination.png")) 
+    {
+        cout << "Error data/Elimination.png non found" << endl;
+    }
+    else 
+    {
+        sElimine.setTexture(tElimine);
+    }
 
     if (!m1_font.loadFromFile("data/FontMoney.ttf")) 
     {
@@ -1033,7 +1075,6 @@ void sfmlMulti::sfmlAff()
     window->clear(Color(230, 240, 255, 255)); 
     rsFond.setSize(Vector2f(dimx,dimy));
     window->draw(rsFond);
-
     sf::Color color = sExit.getColor();
     color.a=200;
     sExit.setPosition((dimx/64),30);
@@ -1041,297 +1082,309 @@ void sfmlMulti::sfmlAff()
     sExit.setScale(0.4,0.4);
     window->draw(sExit);
 
-    
-    s1.setScale(0.75,0.75);
-    s10.setScale(0.75,0.75);
-    s100.setScale(0.75,0.75);
-    s250.setScale(0.75,0.75);
-    s500.setScale(0.75,0.75);
-    sRester.setScale(0.75,0.75);
-    sTirer.setScale(0.75,0.75);
-    sChanger.setScale(0.75,0.75);
-    sDoubler.setScale(0.75,0.75);
-
-    if(top1)
+    if(choixNiv==0)
     {
-        sGagne.setScale(3,3);
-        sGagne.setPosition(dimx/2-300,dimy/2-100);
-        window->draw(sGagne);
+        sAmateur.setPosition(dimx/2-400,dimy/2-100);
+        window->draw(sAmateur);
+
+        sIntermediaire.setPosition(dimx/2-100,dimy/2-100);
+        window->draw(sIntermediaire);
+
+        sExpert.setPosition(dimx/2+200,dimy/2-100);
+        window->draw(sExpert);
     }
     else
     {
-        string nbManche = to_string(jeu.nbPartie);
-        txtManche.setString("Manche : "+nbManche);
-        window->draw(txtManche);
 
-        if(actionMiser==1)
+        s1.setScale(0.75,0.75);
+        s10.setScale(0.75,0.75);
+        s100.setScale(0.75,0.75);
+        s250.setScale(0.75,0.75);
+        s500.setScale(0.75,0.75);
+        sRester.setScale(0.75,0.75);
+        sTirer.setScale(0.75,0.75);
+        sChanger.setScale(0.75,0.75);
+        sDoubler.setScale(0.75,0.75);
+
+        if(top1)
         {
+            sBigWin.setScale(1.3,1.3);
+            sBigWin.setPosition(dimx/2-310,dimy/2-350);
+            window->draw(sBigWin);
+        }
+        else if(elimine)
+        {
+            sElimine.setPosition(80,dimy/2-100);
+            window->draw(sElimine);
+        }
+        else
+        {
+            string nbManche = to_string(jeu.nbPartie);
+            txtManche.setString("Manche : "+nbManche);
+            window->draw(txtManche);
 
-            afficherMainDeCarte(jeu.mainCroupier, dimx/2-50, dimy/2-200);
-            string scoreCroupier = to_string(jeu.mainCroupier.getSommeValeur());
-            txtScoreCroupier.setString(scoreCroupier);
-            txtScoreCroupier.setPosition(dimx/2-23, dimy/2-250);
-            window->draw(txtScoreCroupier);
-
-            if (jeu.nbJoueurs==4)
+            if(actionMiser==1)
             {
-                afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, 70, dimy/2 );
-                string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
-                txtScore1.setString(scoreIA1);
-                txtScore1.setPosition(100,dimy/2+125);
-                stringstream stream2;
-                stream2.precision(1);
-                stream2 << fixed;
-                stream2<<jeu.tabJoueur[1].getBudget();  
-                string budgetIA1  = stream2.str();
-                txtBudget1.setString(budgetIA1+"$");
-                txtBudget1.setPosition(70,dimy/2-50);
-                txtNom1.setString(jeu.tabJoueur[1].nom);
-                txtNom1.setPosition(90,dimy/2+175);
-                window->draw(txtNom1);
-                window->draw(txtScore1);
-                window->draw(txtBudget1);
 
-                afficherMainDeCarte(jeu.tabJoueur[2].mainJoueur, dimx/4, dimy/2+100 );
-                string scoreIA2 = to_string(jeu.tabJoueur[2].mainJoueur.getSommeValeur());
-                txtScore2.setString(scoreIA2);
-                txtScore2.setPosition(dimx/4+30,dimy/2+225);
-                stringstream stream3;
-                stream3.precision(1);
-                stream3 << fixed;
-                stream3<<jeu.tabJoueur[2].getBudget();  
-                string budgetIA2  = stream3.str();
-                txtBudget2.setString(budgetIA2+"$");
-                txtBudget2.setPosition(dimx/4,dimy/2+50);
-                txtNom2.setString(jeu.tabJoueur[2].nom);
-                txtNom2.setPosition(dimx/4+15,dimy/2+275);
-                window->draw(txtNom2);
-                window->draw(txtScore2);
-                window->draw(txtBudget2);
+                afficherMainDeCarte(jeu.mainCroupier, dimx/2-50, dimy/2-200);
+                string scoreCroupier = to_string(jeu.mainCroupier.getSommeValeur());
+                txtScoreCroupier.setString(scoreCroupier);
+                txtScoreCroupier.setPosition(dimx/2-23, dimy/2-250);
+                window->draw(txtScoreCroupier);
 
-                afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
-                string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
-                txtScoreJoueur.setString(scoreJoueur);
-                txtScoreJoueur.setPosition(dimx/2-10,dimy/2+250);
-                stringstream stream1;
-                stream1.precision(1);
-                stream1 << fixed;
-                stream1<<jeu.tabJoueur[0].getBudget();  
-                string budget  = stream1.str();
-                txtBudget.setString(budget+"$");
-                txtBudget.setPosition(dimx/2-40,dimy/2+75);
-                txtNom.setString(jeu.tabJoueur[0].nom);
-                txtNom.setPosition(dimx/2-25,dimy/2+300);
-                window->draw(txtNom);
-                window->draw(txtScoreJoueur);
-                window->draw(txtBudget);
-
-                afficherMainDeCarte(jeu.tabJoueur[3].mainJoueur, 3*dimx/4-65, dimy/2+100 );
-                string scoreIA3 = to_string(jeu.tabJoueur[3].mainJoueur.getSommeValeur());
-                txtScore3.setString(scoreIA3);
-                txtScore3.setPosition(3*dimx/4-35,dimy/2+225);
-                stringstream stream4;
-                stream4.precision(1);
-                stream4 << fixed;
-                stream4<<jeu.tabJoueur[3].getBudget();  
-                string budgetIA3  = stream1.str();
-                txtBudget3.setString(budgetIA3+"$");
-                txtBudget3.setPosition(3*dimx/4-65,dimy/2+50);
-                txtNom3.setString(jeu.tabJoueur[3].nom);
-                txtNom3.setPosition(3*dimx/4-40,dimy/2+275);
-                window->draw(txtNom3);
-                window->draw(txtScore3);
-                window->draw(txtBudget3);
-            }
-            else if (jeu.nbJoueurs==3)
-            {
-                afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, dimx/4, dimy/2+100);
-                string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
-                txtScore2.setString(scoreIA1);
-                stringstream stream2;
-                stream2.precision(1);
-                stream2 << fixed;
-                stream2<<jeu.tabJoueur[1].getBudget();  
-                string budgetIA1  = stream2.str();
-                txtBudget2.setString(budgetIA1+"$");
-                txtNom2.setString(jeu.tabJoueur[1].nom);
-                window->draw(txtNom2);
-                window->draw(txtScore2);
-                window->draw(txtBudget2);
-
-                afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
-                string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
-                txtScoreJoueur.setString(scoreJoueur);
-                stringstream stream1;
-                stream1.precision(1);
-                stream1 << fixed;
-                stream1<<jeu.tabJoueur[0].getBudget();  
-                string budget  = stream1.str();
-                txtBudget.setString(budget+"$");
-                window->draw(txtNom);
-                window->draw(txtScoreJoueur);
-                window->draw(txtBudget);
-
-                afficherMainDeCarte(jeu.tabJoueur[2].mainJoueur, 3*dimx/4-65, dimy/2+100 );
-                string scoreIA2 = to_string(jeu.tabJoueur[2].mainJoueur.getSommeValeur());
-                txtScore3.setString(scoreIA2);
-                txtScore3.setPosition(3*dimx/4-35,dimy/2+225);
-                stringstream stream3;
-                stream3.precision(1);
-                stream3 << fixed;
-                stream3<<jeu.tabJoueur[2].getBudget();  
-                string budgetIA2  = stream3.str();
-                txtBudget3.setString(budgetIA2+"$");
-                txtNom3.setString(jeu.tabJoueur[2].nom);
-                window->draw(txtNom3);
-                window->draw(txtScore3);
-                window->draw(txtBudget3);
-            }
-            else if (jeu.nbJoueurs==2)
-            {
-                afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, dimx/4, dimy/2+100);
-                string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
-                txtScore2.setString(scoreIA1);
-                stringstream stream2;
-                stream2.precision(1);
-                stream2 << fixed;
-                stream2<<jeu.tabJoueur[1].getBudget();  
-                string budgetIA1  = stream2.str();
-                txtBudget2.setString(budgetIA1+"$");
-                txtNom2.setString(jeu.tabJoueur[1].nom);
-                window->draw(txtNom2);
-                window->draw(txtScore2);
-                window->draw(txtBudget2);
-
-                afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
-                string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
-                txtScoreJoueur.setString(scoreJoueur);
-                stringstream stream1;
-                stream1.precision(1);
-                stream1 << fixed;
-                stream1<<jeu.tabJoueur[0].getBudget();  
-                string budget  = stream1.str();
-                txtBudget.setString(budget+"$");
-                window->draw(txtNom);
-                window->draw(txtScoreJoueur);
-                window->draw(txtBudget);
-            }
-
-            if(finManche==1)
-            {   
-                switch(res)
+                if (jeu.nbJoueurs==4)
                 {
-                    case 0:
-                        sPerdu.setScale(0.6,0.6);
-                        sPerdu.setPosition(dimx/2-50, dimy/2+165);
-                        window->draw(sPerdu);
-                        break;
-                    case 1:
-                        sEgalite.setScale(0.6,0.6);
-                        sEgalite.setPosition(dimx/2-55, dimy/2+165);
-                        window->draw(sEgalite);
-                        break;
-                    case 2:
-                        sGagne.setScale(0.6,0.6);
-                        sGagne.setPosition(dimx/2-50, dimy/2+165);
-                        window->draw(sGagne);
-                        break;
-                    case 3:
-                        sBlackjack.setScale(0.6,0.6);
-                        sBlackjack.setPosition(dimx/2-70, dimy/2+165);
-                        window->draw(sBlackjack);
-                        break;
+                    afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, 70, dimy/2 );
+                    string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
+                    txtScore1.setString(scoreIA1);
+                    txtScore1.setPosition(100,dimy/2+125);
+                    stringstream stream2;
+                    stream2.precision(1);
+                    stream2 << fixed;
+                    stream2<<jeu.tabJoueur[1].getBudget();  
+                    string budgetIA1  = stream2.str();
+                    txtBudget1.setString(budgetIA1+"$");
+                    txtBudget1.setPosition(70,dimy/2-50);
+                    txtNom1.setString(jeu.tabJoueur[1].nom);
+                    txtNom1.setPosition(90,dimy/2+175);
+                    window->draw(txtNom1);
+                    window->draw(txtScore1);
+                    window->draw(txtBudget1);
+
+                    afficherMainDeCarte(jeu.tabJoueur[2].mainJoueur, dimx/4, dimy/2+100 );
+                    string scoreIA2 = to_string(jeu.tabJoueur[2].mainJoueur.getSommeValeur());
+                    txtScore2.setString(scoreIA2);
+                    txtScore2.setPosition(dimx/4+30,dimy/2+225);
+                    stringstream stream3;
+                    stream3.precision(1);
+                    stream3 << fixed;
+                    stream3<<jeu.tabJoueur[2].getBudget();  
+                    string budgetIA2  = stream3.str();
+                    txtBudget2.setString(budgetIA2+"$");
+                    txtBudget2.setPosition(dimx/4,dimy/2+50);
+                    txtNom2.setString(jeu.tabJoueur[2].nom);
+                    txtNom2.setPosition(dimx/4+15,dimy/2+275);
+                    window->draw(txtNom2);
+                    window->draw(txtScore2);
+                    window->draw(txtBudget2);
+
+                    afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
+                    string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
+                    txtScoreJoueur.setString(scoreJoueur);
+                    txtScoreJoueur.setPosition(dimx/2-10,dimy/2+250);
+                    stringstream stream1;
+                    stream1.precision(1);
+                    stream1 << fixed;
+                    stream1<<jeu.tabJoueur[0].getBudget();  
+                    string budget  = stream1.str();
+                    txtBudget.setString(budget+"$");
+                    txtBudget.setPosition(dimx/2-40,dimy/2+75);
+                    txtNom.setString(jeu.tabJoueur[0].nom);
+                    txtNom.setPosition(dimx/2-25,dimy/2+300);
+                    window->draw(txtNom);
+                    window->draw(txtScoreJoueur);
+                    window->draw(txtBudget);
+
+                    afficherMainDeCarte(jeu.tabJoueur[3].mainJoueur, 3*dimx/4-65, dimy/2+100 );
+                    string scoreIA3 = to_string(jeu.tabJoueur[3].mainJoueur.getSommeValeur());
+                    txtScore3.setString(scoreIA3);
+                    txtScore3.setPosition(3*dimx/4-35,dimy/2+225);
+                    stringstream stream4;
+                    stream4.precision(1);
+                    stream4 << fixed;
+                    stream4<<jeu.tabJoueur[3].getBudget();  
+                    string budgetIA3  = stream1.str();
+                    txtBudget3.setString(budgetIA3+"$");
+                    txtBudget3.setPosition(3*dimx/4-65,dimy/2+50);
+                    txtNom3.setString(jeu.tabJoueur[3].nom);
+                    txtNom3.setPosition(3*dimx/4-40,dimy/2+275);
+                    window->draw(txtNom3);
+                    window->draw(txtScore3);
+                    window->draw(txtBudget3);
+                }
+                else if (jeu.nbJoueurs==3)
+                {
+                    afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, dimx/4, dimy/2+100);
+                    string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
+                    txtScore2.setString(scoreIA1);
+                    stringstream stream2;
+                    stream2.precision(1);
+                    stream2 << fixed;
+                    stream2<<jeu.tabJoueur[1].getBudget();  
+                    string budgetIA1  = stream2.str();
+                    txtBudget2.setString(budgetIA1+"$");
+                    txtNom2.setString(jeu.tabJoueur[1].nom);
+                    window->draw(txtNom2);
+                    window->draw(txtScore2);
+                    window->draw(txtBudget2);
+
+                    afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
+                    string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
+                    txtScoreJoueur.setString(scoreJoueur);
+                    stringstream stream1;
+                    stream1.precision(1);
+                    stream1 << fixed;
+                    stream1<<jeu.tabJoueur[0].getBudget();  
+                    string budget  = stream1.str();
+                    txtBudget.setString(budget+"$");
+                    window->draw(txtNom);
+                    window->draw(txtScoreJoueur);
+                    window->draw(txtBudget);
+
+                    afficherMainDeCarte(jeu.tabJoueur[2].mainJoueur, 3*dimx/4-65, dimy/2+100 );
+                    string scoreIA2 = to_string(jeu.tabJoueur[2].mainJoueur.getSommeValeur());
+                    txtScore3.setString(scoreIA2);
+                    txtScore3.setPosition(3*dimx/4-35,dimy/2+225);
+                    stringstream stream3;
+                    stream3.precision(1);
+                    stream3 << fixed;
+                    stream3<<jeu.tabJoueur[2].getBudget();  
+                    string budgetIA2  = stream3.str();
+                    txtBudget3.setString(budgetIA2+"$");
+                    txtNom3.setString(jeu.tabJoueur[2].nom);
+                    window->draw(txtNom3);
+                    window->draw(txtScore3);
+                    window->draw(txtBudget3);
+                }
+                else if (jeu.nbJoueurs==2)
+                {
+                    afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, dimx/4, dimy/2+100);
+                    string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
+                    txtScore2.setString(scoreIA1);
+                    stringstream stream2;
+                    stream2.precision(1);
+                    stream2 << fixed;
+                    stream2<<jeu.tabJoueur[1].getBudget();  
+                    string budgetIA1  = stream2.str();
+                    txtBudget2.setString(budgetIA1+"$");
+                    txtNom2.setString(jeu.tabJoueur[1].nom);
+                    window->draw(txtNom2);
+                    window->draw(txtScore2);
+                    window->draw(txtBudget2);
+
+                    afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
+                    string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
+                    txtScoreJoueur.setString(scoreJoueur);
+                    stringstream stream1;
+                    stream1.precision(1);
+                    stream1 << fixed;
+                    stream1<<jeu.tabJoueur[0].getBudget();  
+                    string budget  = stream1.str();
+                    txtBudget.setString(budget+"$");
+                    window->draw(txtNom);
+                    window->draw(txtScoreJoueur);
+                    window->draw(txtBudget);
                 }
 
-            }
-            else
-            {
-                sRester.setPosition(dimx-100,dimy-80);
-                window->draw(sRester);
-                sTirer.setPosition(dimx-100,dimy-160);
-                window->draw(sTirer);
-                if((jeu.tabJoueur[0].mainJoueur.getNbCartes()==2) && (jeu.tabJoueur[0].getBudget()>=jeu.tabJoueur[0].getMise())) //si le joueur peut doubler (2 cartes et peut doubler sa mise)
-                {
-                    sDoubler.setPosition(dimx-100,dimy-240);
-                    window->draw(sDoubler);
-                    if((jeu.tabJoueur[0].mainJoueur.getIemeCarte(0).getValeur()==jeu.tabJoueur[0].mainJoueur.getIemeCarte(1).getValeur())||(jeu.tabJoueur[0].mainJoueur.getIemeCarte(0).getRang()==jeu.tabJoueur[0].mainJoueur.getIemeCarte(1).getRang()))
+                if(finManche==1)
+                {   
+                    switch(res)
                     {
-                        sChanger.setPosition(dimx-100,dimy-320);
+                        case 0:
+                            sPerdu.setScale(0.6,0.6);
+                            sPerdu.setPosition(dimx/2-50, dimy/2+165);
+                            window->draw(sPerdu);
+                            break;
+                        case 1:
+                            sEgalite.setScale(0.6,0.6);
+                            sEgalite.setPosition(dimx/2-55, dimy/2+165);
+                            window->draw(sEgalite);
+                            break;
+                        case 2:
+                            sGagne.setScale(0.6,0.6);
+                            sGagne.setPosition(dimx/2-50, dimy/2+165);
+                            window->draw(sGagne);
+                            break;
+                        case 3:
+                            sBlackjack.setScale(0.6,0.6);
+                            sBlackjack.setPosition(dimx/2-70, dimy/2+165);
+                            window->draw(sBlackjack);
+                            break;
+                    }
+
+                }
+                else
+                {
+                    sRester.setPosition(dimx-100,dimy-80);
+                    window->draw(sRester);
+                    sTirer.setPosition(dimx-100,dimy-160);
+                    window->draw(sTirer);
+                    if((jeu.tabJoueur[0].mainJoueur.getNbCartes()==2) && (jeu.tabJoueur[0].getBudget()>=jeu.tabJoueur[0].getMise())) //si le joueur peut doubler (2 cartes et peut doubler sa mise)
+                    {
+                        sDoubler.setPosition(dimx-100,dimy-240);
+                        window->draw(sDoubler);
+                        if((jeu.tabJoueur[0].mainJoueur.getIemeCarte(0).getValeur()==jeu.tabJoueur[0].mainJoueur.getIemeCarte(1).getValeur())||(jeu.tabJoueur[0].mainJoueur.getIemeCarte(0).getRang()==jeu.tabJoueur[0].mainJoueur.getIemeCarte(1).getRang()))
+                        {
+                            sChanger.setPosition(dimx-100,dimy-320);
+                            window->draw(sChanger);
+                        }
+                    }
+                    else    //on déplace le sprite de doubler hors de la fenetre pour s'assurer que le joueur ne puisse doubler
+                    {
+                        sDoubler.setPosition(dimx+1,dimy+1);
+                        sChanger.setPosition(dimx+1,dimy+1);
+                        window->draw(sDoubler);
                         window->draw(sChanger);
                     }
                 }
-                else    //on déplace le sprite de doubler hors de la fenetre pour s'assurer que le joueur ne puisse doubler
-                {
-                    sDoubler.setPosition(dimx+1,dimy+1);
-                    sChanger.setPosition(dimx+1,dimy+1);
-                    window->draw(sDoubler);
-                    window->draw(sChanger);
-                }
+            }
+            else if(jeu.tabJoueur[0].getBudget()>=500)
+            {
+                s1.setPosition(dimx/2-205,dimy-90);
+                window->draw(s1);
+
+                s10.setPosition(dimx/2-120,dimy-90);
+                window->draw(s10);
+
+                s100.setPosition(dimx/2-35,dimy-90);
+                window->draw(s100);
+
+                s250.setPosition(dimx/2+50,dimy-90);
+                window->draw(s250);
+
+                s500.setPosition(dimx/2+135,dimy-90);
+                window->draw(s500);
+            }
+            else if(jeu.tabJoueur[0].getBudget()>=250)
+            {
+                s1.setPosition(dimx/2-162.5,dimy-90);
+                window->draw(s1);
+
+                s10.setPosition(dimx/2-77.5,dimy-90);
+                window->draw(s10);
+
+                s100.setPosition(dimx/2+7.5,dimy-90);
+                window->draw(s100);
+
+                s250.setPosition(dimx/2+92.5,dimy-90);
+                window->draw(s250);
+            }
+            else if(jeu.tabJoueur[0].getBudget()>=100)
+            {
+                s1.setPosition(dimx/2-120,dimy-90);
+                window->draw(s1);
+
+                s10.setPosition(dimx/2-35,dimy-90);
+                window->draw(s10);
+
+                s100.setPosition(dimx/2+50,dimy-90);
+                window->draw(s100);
+            }
+            else if(jeu.tabJoueur[0].getBudget()>=10)
+            {
+                s1.setPosition(dimx/2-77.5,dimy-90);
+                window->draw(s1);
+
+                s10.setPosition(dimx/2+7.5,dimy-90);
+                window->draw(s10);
+            }
+            else if(jeu.tabJoueur[0].getBudget()>=1)
+            {
+                s1.setPosition(dimx/2-35,dimy-90);
+                window->draw(s1);
             }
         }
-        else if(jeu.tabJoueur[0].getBudget()>=500)
-        {
-            s1.setPosition(dimx/2-205,dimy-90);
-            window->draw(s1);
-
-            s10.setPosition(dimx/2-120,dimy-90);
-            window->draw(s10);
-
-            s100.setPosition(dimx/2-35,dimy-90);
-            window->draw(s100);
-
-            s250.setPosition(dimx/2+50,dimy-90);
-            window->draw(s250);
-
-            s500.setPosition(dimx/2+135,dimy-90);
-            window->draw(s500);
-        }
-        else if(jeu.tabJoueur[0].getBudget()>=250)
-        {
-            s1.setPosition(dimx/2-162.5,dimy-90);
-            window->draw(s1);
-
-            s10.setPosition(dimx/2-77.5,dimy-90);
-            window->draw(s10);
-
-            s100.setPosition(dimx/2+7.5,dimy-90);
-            window->draw(s100);
-
-            s250.setPosition(dimx/2+92.5,dimy-90);
-            window->draw(s250);
-        }
-        else if(jeu.tabJoueur[0].getBudget()>=100)
-        {
-            s1.setPosition(dimx/2-120,dimy-90);
-            window->draw(s1);
-
-            s10.setPosition(dimx/2-35,dimy-90);
-            window->draw(s10);
-
-            s100.setPosition(dimx/2+50,dimy-90);
-            window->draw(s100);
-        }
-        else if(jeu.tabJoueur[0].getBudget()>=10)
-        {
-            s1.setPosition(dimx/2-77.5,dimy-90);
-            window->draw(s1);
-
-            s10.setPosition(dimx/2+7.5,dimy-90);
-            window->draw(s10);
-        }
-        else if(jeu.tabJoueur[0].getBudget()>=1)
-        {
-            s1.setPosition(dimx/2-35,dimy-90);
-            window->draw(s1);
-        }
     }
-   
-
-    //Largeur d'un jeton = environ 70
-
-    //Largeur d'une carte = environ 115
-    //Hauteur d'une carte = environ 170
-
     window->display();
 }
 
@@ -1367,221 +1420,297 @@ unsigned int sfmlMulti::sfmlBoucle() {
                         window=NULL;
                         return 1;
                     }
-                    
-                    if(top1)
-                    {
-                        window->close();
-                        delete window;
-                        window=NULL;
-                        return 1;
-                    }
 
-                    if(finManche==1)
+                    if(choixNiv==0)
                     {
-                        jeu.finManche();
-                        actionMiser=0;
-                        finManche=0;
-                        
-                        if(jeu.tabJoueur[0].getNiveau()!=0) //si nous avons été éliminés
+                        if(sAmateur.getGlobalBounds().contains(x,y))
+                        {
+                            choixNiv=1;
+                            jeu.remplirJoueurs(choixNiv);
+                            sonMise.play();
+                        }
+                        else if(sIntermediaire.getGlobalBounds().contains(x,y))
+                        {
+                            choixNiv=2;
+                            jeu.remplirJoueurs(choixNiv);
+                            sonMise.play();
+                        }
+                        else if(sExpert.getGlobalBounds().contains(x,y))
+                        {
+                            choixNiv=3;
+                            jeu.remplirJoueurs(choixNiv);
+                            sonMise.play();
+                        }
+                    }
+                    else
+                    {
+
+                        if(top1)
                         {
                             window->close();
                             delete window;
                             window=NULL;
                             return 1;
                         }
-                        else
+
+                        if(elimine)
                         {
-                            if(jeu.nbJoueurs==1)    //si pas éliminé + dernier survivant = top1
+                            window->close();
+                            delete window;
+                            window=NULL;
+                            return 1;
+                        }
+
+                        if(finManche==1)
+                        {
+                            jeu.finManche();
+                            actionMiser=0;
+                            finManche=0;
+                            
+                            if(jeu.tabJoueur[0].getNiveau()!=0) //si nous avons été éliminés
                             {
-                                top1 = 1;
+                                elimine=1;
+                                sonPerdu.play();
+                            }
+                            else
+                            {
+                                if(jeu.nbJoueurs==1)    //si pas éliminé + dernier survivant = top1
+                                {
+                                    top1 = 1;
+                                    sonJackpot.play();
+                                }
                             }
                         }
-                    }
 
-                    switch(actionMiser)
-                    {
-                        case 0 :
-                            if(s1.getGlobalBounds().contains(x,y))  
-                            {
-                                jeu.initialisationMise('a');    
-                                jeu.initialisationMiseMulti();
-                                sonMise.play();
-                                jeu.initialisationJeuMulti();
-                                sonCarte.play();
-                                actionMiser=1;
-                            }
-                            else if(s10.getGlobalBounds().contains(x,y))  
-                            {
-                                jeu.initialisationMise('z');    
-                                jeu.initialisationMiseMulti();
-                                sonMise.play();
-                                jeu.initialisationJeuMulti();
-                                sonCarte.play();
-                                actionMiser=1;
-                            }
-                            else if(s100.getGlobalBounds().contains(x,y)) 
-                            {
-                                jeu.initialisationMise('e');    
-                                jeu.initialisationMiseMulti();
-                                sonMise.play();
-                                jeu.initialisationJeuMulti();
-                                sonCarte.play();
-                                actionMiser=1;
-                            }
-                            else if(s250.getGlobalBounds().contains(x,y))  
-                            {
-                                jeu.initialisationMise('r');    
-                                jeu.initialisationMiseMulti();
-                                sonMise.play();
-                                jeu.initialisationJeuMulti();
-                                sonCarte.play();
-                                actionMiser=1;
-                            }
-                            else if(s500.getGlobalBounds().contains(x,y))  
-                            {
-                                jeu.initialisationMise('t');    
-                                jeu.initialisationMiseMulti();
-                                sonMise.play();
-                                jeu.initialisationJeuMulti();
-                                sonCarte.play();
-                                actionMiser=1;
-                            }
-                            break;
-                        
-                        case 1 :
-                            if(jeu.tabJoueur[0].mainJoueur.getJoueToujours())
-                            {
-                                if(sDoubler.getGlobalBounds().contains(x,y))  //on appuie sur le bouton doubler
+                        switch(actionMiser)
+                        {
+                            case 0 :
+                                if(s1.getGlobalBounds().contains(x,y))  
                                 {
-                                    jeu.actionClavier('d');    //on double
+                                    jeu.initialisationMise('a');    
+                                    jeu.initialisationMiseMulti();
                                     sonMise.play();
+                                    jeu.initialisationJeuMulti();
                                     sonCarte.play();
-                                    if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
+                                    actionMiser=1;
+                                }
+                                else if(s10.getGlobalBounds().contains(x,y))  
+                                {
+                                    jeu.initialisationMise('z');    
+                                    jeu.initialisationMiseMulti();
+                                    sonMise.play();
+                                    jeu.initialisationJeuMulti();
+                                    sonCarte.play();
+                                    actionMiser=1;
+                                }
+                                else if(s100.getGlobalBounds().contains(x,y)) 
+                                {
+                                    jeu.initialisationMise('e');    
+                                    jeu.initialisationMiseMulti();
+                                    sonMise.play();
+                                    jeu.initialisationJeuMulti();
+                                    sonCarte.play();
+                                    actionMiser=1;
+                                }
+                                else if(s250.getGlobalBounds().contains(x,y))  
+                                {
+                                    jeu.initialisationMise('r');    
+                                    jeu.initialisationMiseMulti();
+                                    sonMise.play();
+                                    jeu.initialisationJeuMulti();
+                                    sonCarte.play();
+                                    actionMiser=1;
+                                }
+                                else if(s500.getGlobalBounds().contains(x,y))  
+                                {
+                                    jeu.initialisationMise('t');    
+                                    jeu.initialisationMiseMulti();
+                                    sonMise.play();
+                                    jeu.initialisationJeuMulti();
+                                    sonCarte.play();
+                                    actionMiser=1;
+                                }
+                                break;
+                            
+                            case 1 :
+                                if(jeu.tabJoueur[0].mainJoueur.getJoueToujours())
+                                {
+                                    if(sDoubler.getGlobalBounds().contains(x,y))  //on appuie sur le bouton doubler
                                     {
-                                        jeu.actionAmateur();    //pour l'instant teste boucle avec action amateur
-                                        jeu.actionCroupier();
+                                        jeu.actionClavier('d');    //on double
+                                        sonMise.play();
                                         sonCarte.play();
-                                        finManche=1;
-                                        for(unsigned int i=1; i<jeu.tabJoueur.size();i++)
+                                        if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
                                         {
-                                            jeu.resultat(i);
-                                        }
-                                        res = jeu.resultat(0);
-                                        switch(res)
-                                        {
-                                            case 0:
-                                                sonPerdu.play(); // si on a perdu on joue le sonPerdu
-                                                break;
-                                            case 1:
-                                                sonMise.play(); // si on a égalité on joue le sonMise
-                                                break;
-                                            case 2:
-                                                sonGagne.play();// si on a gagné on joue le sonGagne
-                                                break;
-                                            case 3:
-                                                sonJackpot.play();// si on a blackjack on joue le sonJackpot
-                                                break;
+                                            switch(choixNiv)
+                                            {
+                                                case 1:
+                                                    jeu.actionAmateur();
+                                                    break;
+                                                case 2:
+                                                    jeu.actionIntermediaire();
+                                                    break;
+                                                case 3:
+                                                    jeu.actionExpert();
+                                                    break;
+                                            }
+                                            jeu.actionCroupier();
+                                            sonCarte.play();
+                                            finManche=1;
+                                            for(unsigned int i=1; i<jeu.tabJoueur.size();i++)
+                                            {
+                                                jeu.resultat(i);
+                                            }
+                                            res = jeu.resultat(0);
+                                            switch(res)
+                                            {
+                                                case 0:
+                                                    sonPerdu.play(); // si on a perdu on joue le sonPerdu
+                                                    break;
+                                                case 1:
+                                                    sonMise.play(); // si on a égalité on joue le sonMise
+                                                    break;
+                                                case 2:
+                                                    sonGagne.play();// si on a gagné on joue le sonGagne
+                                                    break;
+                                                case 3:
+                                                    sonJackpot.play();// si on a blackjack on joue le sonJackpot
+                                                    break;
+                                            }
                                         }
                                     }
-                                }
-                                else if(sTirer.getGlobalBounds().contains(x,y))  //on appuie sur le bouton tirer
-                                {
-                                    jeu.actionClavier('t');    //on tire
-                                    sonCarte.play();
-                                    if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
+                                    else if(sTirer.getGlobalBounds().contains(x,y))  //on appuie sur le bouton tirer
                                     {
-                                        jeu.actionAmateur();    //pour l'instant teste boucle avec action amateur
-                                        jeu.actionCroupier();
+                                        jeu.actionClavier('t');    //on tire
                                         sonCarte.play();
-                                        finManche=1;
-                                        for(unsigned int i=1; i<jeu.tabJoueur.size();i++)
+                                        if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
                                         {
-                                            jeu.resultat(i);
-                                        }
-                                        res = jeu.resultat(0);
-                                        switch(res)
-                                        {
-                                            case 0:
-                                                sonPerdu.play(); // si on a perdu on joue le sonPerdu
-                                                break;
-                                            case 1:
-                                                sonMise.play(); // si on a égalité on joue le sonMise
-                                                break;
-                                            case 2:
-                                                sonGagne.play();// si on a gagné on joue le sonGagne
-                                                break;
-                                            case 3:
-                                                sonJackpot.play();// si on a blackjack on joue le sonJackpot
-                                                break;
+                                            switch(choixNiv)
+                                            {
+                                                case 1:
+                                                    jeu.actionAmateur();
+                                                    break;
+                                                case 2:
+                                                    jeu.actionIntermediaire();
+                                                    break;
+                                                case 3:
+                                                    jeu.actionExpert();
+                                                    break;
+                                            }
+                                            jeu.actionCroupier();
+                                            sonCarte.play();
+                                            finManche=1;
+                                            for(unsigned int i=1; i<jeu.tabJoueur.size();i++)
+                                            {
+                                                jeu.resultat(i);
+                                            }
+                                            res = jeu.resultat(0);
+                                            switch(res)
+                                            {
+                                                case 0:
+                                                    sonPerdu.play(); // si on a perdu on joue le sonPerdu
+                                                    break;
+                                                case 1:
+                                                    sonMise.play(); // si on a égalité on joue le sonMise
+                                                    break;
+                                                case 2:
+                                                    sonGagne.play();// si on a gagné on joue le sonGagne
+                                                    break;
+                                                case 3:
+                                                    sonJackpot.play();// si on a blackjack on joue le sonJackpot
+                                                    break;
+                                            }
                                         }
                                     }
-                                }
-                                else if(sRester.getGlobalBounds().contains(x,y))  //on appuie sur le bouton rester
-                                {
-                                    jeu.actionClavier('r'); 
-                                    if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
+                                    else if(sRester.getGlobalBounds().contains(x,y))  //on appuie sur le bouton rester
                                     {
-                                        jeu.actionAmateur();    //pour l'instant teste boucle avec action amateur
-                                        jeu.actionCroupier();
-                                        sonCarte.play();
-                                        finManche=1;
-                                        for(unsigned int i=1; i<jeu.tabJoueur.size();i++)
+                                        jeu.actionClavier('r'); 
+                                        if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
                                         {
-                                            jeu.resultat(i);
-                                        }
-                                        res = jeu.resultat(0);
-                                        switch(res)
-                                        {
-                                            case 0:
-                                                sonPerdu.play(); // si on a perdu on joue le sonPerdu
-                                                break;
-                                            case 1:
-                                                sonMise.play(); // si on a égalité on joue le sonMise
-                                                break;
-                                            case 2:
-                                                sonGagne.play();// si on a gagné on joue le sonGagne
-                                                break;
-                                            case 3:
-                                                sonJackpot.play();// si on a blackjack on joue le sonJackpot
-                                                break;
-                                        }
-                                    } 
-                                }
-                                else if(sChanger.getGlobalBounds().contains(x,y))  //on appuie sur le bouton rester
-                                {
-                                    jeu.actionClavier('c'); //on change
-                                    sonMise.play();
-                                    sonCarte.play();
-                                    if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
+                                            switch(choixNiv)
+                                            {
+                                                case 1:
+                                                    jeu.actionAmateur();
+                                                    break;
+                                                case 2:
+                                                    jeu.actionIntermediaire();
+                                                    break;
+                                                case 3:
+                                                    jeu.actionExpert();
+                                                    break;
+                                            }
+                                            jeu.actionCroupier();
+                                            sonCarte.play();
+                                            finManche=1;
+                                            for(unsigned int i=1; i<jeu.tabJoueur.size();i++)
+                                            {
+                                                jeu.resultat(i);
+                                            }
+                                            res = jeu.resultat(0);
+                                            switch(res)
+                                            {
+                                                case 0:
+                                                    sonPerdu.play(); // si on a perdu on joue le sonPerdu
+                                                    break;
+                                                case 1:
+                                                    sonMise.play(); // si on a égalité on joue le sonMise
+                                                    break;
+                                                case 2:
+                                                    sonGagne.play();// si on a gagné on joue le sonGagne
+                                                    break;
+                                                case 3:
+                                                    sonJackpot.play();// si on a blackjack on joue le sonJackpot
+                                                    break;
+                                            }
+                                        } 
+                                    }
+                                    else if(sChanger.getGlobalBounds().contains(x,y))  //on appuie sur le bouton rester
                                     {
-                                        jeu.actionAmateur();    //pour l'instant teste boucle avec action amateur
-                                        jeu.actionCroupier();
+                                        jeu.actionClavier('c'); //on change
+                                        sonMise.play();
                                         sonCarte.play();
-                                        finManche=1;
-                                        for(unsigned int i=1; i<jeu.tabJoueur.size();i++)
+                                        if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
                                         {
-                                            jeu.resultat(i);
-                                        }
-                                        res = jeu.resultat(0);
-                                        switch(res)
-                                        {
-                                            case 0:
-                                                sonPerdu.play(); // si on a perdu on joue le sonPerdu
-                                                break;
-                                            case 1:
-                                                sonMise.play(); // si on a égalité on joue le sonMise
-                                                break;
-                                            case 2:
-                                                sonGagne.play();// si on a gagné on joue le sonGagne
-                                                break;
-                                            case 3:
-                                                sonJackpot.play();// si on a blackjack on joue le sonJackpot
-                                                break;
-                                        }
-                                    } 
+                                            switch(choixNiv)
+                                            {
+                                                case 1:
+                                                    jeu.actionAmateur();
+                                                    break;
+                                                case 2:
+                                                    jeu.actionIntermediaire();
+                                                    break;
+                                                case 3:
+                                                    jeu.actionExpert();
+                                                    break;
+                                            }
+                                            jeu.actionCroupier();
+                                            sonCarte.play();
+                                            finManche=1;
+                                            for(unsigned int i=1; i<jeu.tabJoueur.size();i++)
+                                            {
+                                                jeu.resultat(i);
+                                            }
+                                            res = jeu.resultat(0);
+                                            switch(res)
+                                            {
+                                                case 0:
+                                                    sonPerdu.play(); // si on a perdu on joue le sonPerdu
+                                                    break;
+                                                case 1:
+                                                    sonMise.play(); // si on a égalité on joue le sonMise
+                                                    break;
+                                                case 2:
+                                                    sonGagne.play();// si on a gagné on joue le sonGagne
+                                                    break;
+                                                case 3:
+                                                    sonJackpot.play();// si on a blackjack on joue le sonJackpot
+                                                    break;
+                                            }
+                                        } 
+                                    }
                                 }
-                            }
-                            break;
+                                break;
+                        }
                     }
                 }
             }

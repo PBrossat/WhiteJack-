@@ -20,8 +20,6 @@ jeuMulti::jeuMulti ()
     
 }
 
-
-
 jeuMulti::jeuMulti (unsigned int NiveauJoueur)
 {
 
@@ -33,6 +31,18 @@ jeuMulti::jeuMulti (unsigned int NiveauJoueur)
     tabJoueur.push_back(Joueur("IA3",NiveauJoueur,2000));
     nbPartie=1;
     nbJoueurs=4;
+}
+
+void jeuMulti::remplirJoueurs(unsigned int NiveauJoueur)
+{
+    if(tabJoueur.empty())
+    {
+        tabJoueur.push_back(Joueur("Vous",0,2000));
+        tabJoueur.push_back(Joueur("IA1",NiveauJoueur,2000));
+        tabJoueur.push_back(Joueur("IA2",NiveauJoueur,2000));
+        tabJoueur.push_back(Joueur("IA3",NiveauJoueur,2000));
+        nbJoueurs=4;
+    }
 }
 
 jeuMulti::~jeuMulti()

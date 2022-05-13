@@ -140,5 +140,5 @@ clean :
 
 
 
-doc : src/Carte.h src/Deck.h src/MainDeCarte.h src/Joueur.h src/Jeu.h #src/winTxt.h src/jeuTxt.h
+doc : src/Carte.h src/Deck.h src/MainDeCarte.h src/Joueur.h src/Jeu.h src/winTxt.h src/jeuTxt.h src/MenuSfml.h src/jeuSfml.h src/jeuMulti.h src/MultiSfml.h src/application.h
 	doxygen doc/whitejack.doxy

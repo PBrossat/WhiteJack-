@@ -55,6 +55,20 @@ class jeuMulti{
 
 
     /**
+    * @brief Procédure permettant d'initialiser et de créer les joueurs (IA) selon le niveau choisi
+    * @param[in] NiveauJoueur : le niveau des IA avec lesquelles le joueur jouera sa partie. 
+    * @return void
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * unJeu.remplirJoueurs(2);
+    * @endcode
+    * @warning NiveauJoueur doit être compris entre 1 et 3 compris (1=amateur ; 2=intermédiaire ; 3=expert).
+    */
+	void remplirJoueurs(unsigned int NiveauJoueur);
+
+
+    /**
     * @brief Constructeur sans paramètres de jeuMulti.
     * 
     * Exemple d'utilisation :
