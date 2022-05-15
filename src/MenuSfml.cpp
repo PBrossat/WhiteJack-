@@ -1,6 +1,6 @@
 ﻿#include "MenuSfml.h"
 #include <iostream>
-#include "jeuSfml.h"
+#include "JeuSoloSfml.h"
 using namespace std;
 
 
@@ -86,10 +86,6 @@ unsigned int  Menu::boucleMenu()
                         delete fenetre;
                         fenetre=NULL;
                         return 1; // on renvoie 1 
-                        // sfmlJeu jeu;        //On crée un jeu
-                        // jeu.sfmlInit();
-                        // jeu.sfmlAff();
-                        // jeu.sfmlBoucle();   //On ouvre le jeu solo 
                     }else if(menuPrincipalAppuyer()==1) //choix joueur => jeu Multi 
                     {
                         cout<<"Jeu Multi selectionné"<<endl;

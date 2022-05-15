@@ -3,10 +3,10 @@
 #include <windows.h>
 #else
 #include <unistd.h>
-#endif // WIN32
-#include "winTxt.h"
+#endif 
+#include "WinTxt.h"
 #include "Jeu.h"
-#include "MainDeCarte.h"
+#include "MainDeCartes.h"
 #include <cassert>
 
 using namespace std;

@@ -1,7 +1,7 @@
 #ifndef _SFMLMULTI_H
 #define _SFMLMULTI_H
 
-#include "jeuMulti.h"
+#include "JeuMulti.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
@@ -241,7 +241,7 @@ public :
     sfmlMulti ();
     ~sfmlMulti ();
 
-    void afficherMainDeCarte(MainDeCarte mainJoueur, unsigned int x, unsigned int y);
+    void afficherMainDeCarte(const MainDeCarte& mainJoueur, unsigned int x, unsigned int y)const;
     void sfmlInit();
     unsigned int sfmlBoucle();
     void sfmlAff();

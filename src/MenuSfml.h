@@ -2,8 +2,8 @@
 #define MENUSFML_H
 #pragma once
 #include <iostream>
-#include "Jeu.h"
-#include "jeuSfml.h"
+#include "JeuSolo.h"
+#include "JeuSoloSfml.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>

@@ -2,7 +2,7 @@
 #include <cassert>
 #include "Jeu.h"
 #include "Joueur.h"
-#include "winTxt.h"
+#include "WinTxt.h"
 
 using namespace std; 
 
@@ -57,7 +57,7 @@ ostream& operator << (ostream& flux, const Carte& carteAffichee)
 
 
 
-void afficherMainDeCarte(MainDeCarte mainJoueur)
+void afficherMainDeCarte(MainDeCartes mainJoueur)
 {
 
     for (unsigned int i=0; i<mainJoueur.getNbCartes(); i++)

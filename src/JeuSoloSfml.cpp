@@ -1,6 +1,6 @@
 #include <cassert>
 #include <time.h>
-#include "jeuSfml.h"
+#include "JeuSoloSfml.h"
 #include <stdlib.h>
 #include <iostream>
 #include <string.h>
@@ -755,7 +755,7 @@ sfmlJeu::~sfmlJeu ()
 }
 
 
-void sfmlJeu::afficherMainDeCarteCroupier(const MainDeCarte mainJoueur)const
+void sfmlJeu::afficherMainDeCarteCroupier(const MainDeCartes mainJoueur)const
 {
     unsigned int nbCartes = mainJoueur.getNbCartes();
     unsigned int decalage;
@@ -1029,7 +1029,7 @@ void sfmlJeu::afficherMainDeCarteCroupier(const MainDeCarte mainJoueur)const
     }
 }
 
-void sfmlJeu::afficherMainDeCarteJoueur(const MainDeCarte mainJoueur)const 
+void sfmlJeu::afficherMainDeCarteJoueur(const MainDeCartes mainJoueur)const 
 {
     unsigned int nbCartes = mainJoueur.getNbCartes();
     unsigned int decalage = (nbCartes-2)*18;        

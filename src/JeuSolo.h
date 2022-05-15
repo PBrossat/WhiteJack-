@@ -2,7 +2,7 @@
 #define JEU_H
 
 #include <iostream>
-#include "MainDeCarte.h"
+#include "MainDeCartes.h"
 #include "Carte.h"
 #include "Deck.h"
 #include "Joueur.h"
