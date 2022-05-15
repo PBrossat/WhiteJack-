@@ -1,99 +1,96 @@
-all :  bin/Deck bin/MainDeCarte bin/Carte bin/Joueur bin/JeuTxt bin/Jeu bin/JeuSfml bin/jeuMulti bin/MenuSfml bin/MultiSfml bin/Appli
+all :  bin/Deck bin/MainDeCartes bin/Carte bin/Joueur bin/JeuSoloTxt bin/JeuSolo bin/JeuSoloSfml bin/JeuMulti bin/MenuSfml bin/JeuMultiSfml bin/Appli
 
 
-bin/Appli : obj/mainApplication.o obj/Application.o obj/MenuSfml.o obj/JeuSfml.o obj/Jeu.o obj/MultiSfml.o obj/jeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o
-	g++ -g -Wall obj/mainApplication.o obj/Application.o obj/MenuSfml.o obj/JeuSfml.o obj/Jeu.o obj/MultiSfml.o obj/jeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o  -o bin/Appli -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+bin/Appli : obj/mainApplication.o obj/Application.o obj/MenuSfml.o obj/JeuSoloSfml.o obj/JeuSolo.o obj/JeuMultiSfml.o obj/JeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o 
+	g++ -g -Wall obj/mainApplication.o obj/Application.o obj/MenuSfml.o obj/JeuSoloSfml.o obj/JeuSolo.o obj/JeuMultiSfml.o obj/JeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o -o bin/Appli -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
-obj/mainApplication.o : src/mainApplication.cpp src/application.h src/MenuSfml.h src/jeuSfml.h src/Jeu.h src/MultiSfml.h src/jeuMulti.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h src/winTxt.h
+obj/mainApplication.o : src/mainApplication.cpp src/Application.h src/MenuSfml.h src/JeuSoloSfml.h src/JeuSolo.h src/JeuMultiSfml.h src/JeuMulti.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCartes.h 
 	g++ -g -Wall -c src/mainApplication.cpp -o obj/mainApplication.o -I/usr/local/include/SFML
 
-obj/Application.o : src/application.cpp src/application.h src/MenuSfml.h src/jeuSfml.h src/Jeu.h src/MultiSfml.h src/jeuMulti.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h src/winTxt.h
-	g++ -g -Wall -c src/application.cpp -o obj/Application.o -I/usr/local/include/SFML
+obj/Application.o : src/Application.cpp src/Application.h src/MenuSfml.h src/JeuSoloSfml.h src/JeuSolo.h src/JeuMultiSfml.h src/JeuMulti.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCartes.h 
+	g++ -g -Wall -c src/Application.cpp -o obj/Application.o -I/usr/local/include/SFML
 
 
-bin/MultiSfml : obj/mainJeuMultiSfml.o obj/MultiSfml.o obj/jeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o
-	g++ -g -Wall obj/mainJeuMultiSfml.o obj/MultiSfml.o obj/jeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o -o bin/MultiSfml -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio 
 
-obj/mainJeuMultiSfml.o : src/mainJeuMultiSfml.cpp src/MultiSfml.h src/jeuMulti.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h src/winTxt.h
+bin/JeuMultiSfml : obj/mainJeuMultiSfml.o obj/JeuMultiSfml.o obj/JeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o 
+	g++ -g -Wall obj/mainJeuMultiSfml.o obj/JeuMultiSfml.o obj/JeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o -o bin/JeuMultiSfml -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio 
+
+obj/mainJeuMultiSfml.o : src/mainJeuMultiSfml.cpp src/JeuMultiSfml.h src/JeuMulti.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCartes.h 
 	g++ -g -Wall -c src/mainJeuMultiSfml.cpp -o obj/mainJeuMultiSfml.o -I/usr/local/include/SFML
 
-obj/MultiSfml.o : src/MultiSfml.h src/MultiSfml.cpp src/jeuMulti.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h src/winTxt.h
-	g++ -g -Wall -c src/MultiSfml.cpp -o obj/MultiSfml.o -I/usr/local/include/SFML
+obj/JeuMultiSfml.o : src/JeuMultiSfml.h src/JeuMultiSfml.cpp src/JeuMulti.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCartes.h 
+	g++ -g -Wall -c src/JeuMultiSfml.cpp -o obj/JeuMultiSfml.o -I/usr/local/include/SFML
 
 
 
-bin/JeuSfml : obj/mainJeuSfml.o obj/JeuSfml.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o
-	g++ -g -Wall obj/mainJeuSfml.o obj/JeuSfml.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o -o bin/JeuSfml -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio 
+bin/JeuSoloSfml : obj/mainJeuSoloSfml.o obj/JeuSoloSfml.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o 
+	g++ -g -Wall obj/mainJeuSoloSfml.o obj/JeuSoloSfml.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o -o bin/JeuSoloSfml -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio 
 
-obj/mainJeuSfml.o : src/mainJeuSfml.cpp src/jeuSfml.h src/Jeu.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h src/winTxt.h
-	g++ -g -Wall -c src/mainJeuSfml.cpp -o obj/mainJeuSfml.o -I/usr/local/include/SFML
+obj/mainJeuSoloSfml.o : src/mainJeuSoloSfml.cpp src/JeuSoloSfml.h src/JeuSolo.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCartes.h 
+	g++ -g -Wall -c src/mainJeuSoloSfml.cpp -o obj/mainJeuSfml.o -I/usr/local/include/SFML
 
-obj/JeuSfml.o : src/jeuSfml.h src/jeuSfml.cpp src/Jeu.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h src/winTxt.h
-	g++ -g -Wall -c src/jeuSfml.cpp -o obj/JeuSfml.o -I/usr/local/include/SFML
+obj/JeuSoloSfml.o : src/JeuSoloSfml.h src/JeuSoloSfml.cpp src/JeuSolo.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCartes.h 
+	g++ -g -Wall -c src/JeuSoloSfml.cpp -o obj/JeuSoloSfml.o -I/usr/local/include/SFML
 
 
 
-bin/MenuSfml : obj/mainMenuPrincipal.o obj/MenuSfml.o obj/JeuSfml.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o
-	g++ -g -Wall obj/mainMenuPrincipal.o obj/MenuSfml.o obj/JeuSfml.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o -o bin/MenuSfml -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio 
+bin/MenuSfml : obj/mainMenuSfml.o obj/MenuSfml.o obj/JeuSoloSfml.o obj/JeuSolo.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o 
+	g++ -g -Wall obj/mainMenuSfml.o obj/MenuSfml.o obj/JeuSoloSfml.o obj/JeuSolo.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o -o bin/MenuSfml -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio 
 
-obj/mainMenuPrincipal.o : src/mainMenuPrincipal.cpp src/MenuSfml.h src/jeuSfml.h src/Jeu.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h src/winTxt.h
-	g++ -g -Wall -c src/mainMenuPrincipal.cpp -o obj/mainMenuPrincipal.o -I/usr/local/include/SFML
+obj/mainMenuSfml.o : src/mainMenuSfml.cpp src/MenuSfml.h src/JeuSoloSfml.h src/JeuSolo.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCartes.h 
+	g++ -g -Wall -c src/mainMenuSfml.cpp -o obj/mainMenuSfml.o -I/usr/local/include/SFML
 
-obj/MenuSfml.o : src/MenuSfml.h src/MenuSfml.cpp src/jeuSfml.h src/jeuSfml.cpp src/Jeu.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h src/winTxt.h
+obj/MenuSfml.o : src/MenuSfml.h src/MenuSfml.cpp src/JeuSoloSfml.h src/JeuSoloSfml.cpp src/JeuSolo.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCartes.h 
 	g++ -g -Wall -c src/MenuSfml.cpp -o obj/MenuSfml.o -I/usr/local/include/SFML
 
 
 
+bin/JeuSoloTxt : obj/mainJeuSoloTxt.o obj/JeuSoloTxt.o obj/JeuSolo.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o obj/WinTxt.o
+	g++ -g -Wall obj/mainJeuSoloTxt.o obj/JeuSoloTxt.o obj/JeuSolo.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o obj/WinTxt.o -o bin/JeuSoloTxt
 
-bin/JeuTxt : obj/mainJeuTxt.o obj/JeuTxt.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o
-	g++ -g -Wall obj/mainJeuTxt.o obj/JeuTxt.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o obj/winTxt.o -o bin/JeuTxt
+obj/mainJeuSoloTxt.o : src/mainJeuSoloTxt.cpp src/JeuSoloTxt.h src/JeuSolo.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCartes.h src/WinTxt.h
+	g++ -g -Wall -c src/mainJeuSoloTxt.cpp -o obj/mainJeuSoloTxt.o
 
-obj/mainJeuTxt.o : src/mainJeuTxt.cpp src/jeuTxt.h src/Jeu.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h src/winTxt.h
-	g++ -g -Wall -c src/mainJeuTxt.cpp -o obj/mainJeuTxt.o
-
-obj/JeuTxt.o : src/jeuTxt.h src/jeuTxt.cpp src/Jeu.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h src/winTxt.h
-	g++ -g -Wall -c src/jeuTxt.cpp -o obj/JeuTxt.o
-
+obj/JeuSoloTxt.o : src/JeuSoloTxt.h src/JeuSoloTxt.cpp src/JeuSolo.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCartes.h src/WinTxt.h
+	g++ -g -Wall -c src/JeuSoloTxt.cpp -o obj/JeuSoloTxt.o
 
 
 
-obj/winTxt.o : src/winTxt.cpp src/winTxt.h
-	g++ -g -Wall -c src/winTxt.cpp -o obj/winTxt.o
+obj/WinTxt.o : src/WinTxt.cpp src/WinTxt.h
+	g++ -g -Wall -c src/WinTxt.cpp -o obj/WinTxt.o
 
 
 
-bin/Jeu : obj/mainTestJeu.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o
+bin/JeuSolo : obj/mainTestJeuSolo.o obj/JeuSolo.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o
 	g++ -g -Wall obj/mainTestJeu.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o -o bin/Jeu
 
-obj/mainTestJeu.o : src/mainTestJeu.cpp src/Jeu.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h
-	g++ -g -Wall -c src/mainTestJeu.cpp -o obj/mainTestJeu.o
+obj/mainTestJeuSolo.o : src/mainTestJeuSolo.cpp src/JeuSolo.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCartes.h
+	g++ -g -Wall -c src/mainTestJeuSolo.cpp -o obj/mainTestJeuSolo.o
 
-obj/Jeu.o : src/Jeu.cpp src/Jeu.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h
-	g++ -g -Wall -c src/Jeu.cpp -o obj/Jeu.o
+obj/JeuSolo.o : src/JeuSolo.cpp src/JeuSolo.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCartes.h
+	g++ -g -Wall -c src/JeuSolo.cpp -o obj/JeuSolo.o
 
 
 
-bin/jeuMulti : obj/mainTestJeuMulti.o obj/jeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o 
-	g++ -g -Wall obj/mainTestJeuMulti.o obj/jeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o -o bin/jeuMulti
+bin/JeuMulti : obj/mainTestJeuMulti.o obj/JeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o 
+	g++ -g -Wall obj/mainTestJeuMulti.o obj/JeuMulti.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o -o bin/JeuMulti
 
-obj/mainTestJeuMulti.o : src/mainTestJeuMulti.cpp src/jeuMulti.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h
+obj/mainTestJeuMulti.o : src/mainTestJeuMulti.cpp src/JeuMulti.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCartes.h
 	g++ -g -Wall -c src/mainTestJeuMulti.cpp -o obj/mainTestJeuMulti.o
 
-obj/jeuMulti.o: src/jeuMulti.cpp src/jeuMulti.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCarte.h
-	g++ -g -Wall -c src/jeuMulti.cpp -o obj/jeuMulti.o
+obj/JeuMulti.o: src/JeuMulti.cpp src/JeuMulti.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCartes.h
+	g++ -g -Wall -c src/JeuMulti.cpp -o obj/JeuMulti.o
 
 
 
-bin/Joueur : obj/mainTestJoueur.o obj/Joueur.o obj/MainDeCarte.o obj/Carte.o
-	g++ -g -Wall obj/mainTestJoueur.o obj/Joueur.o obj/MainDeCarte.o obj/Carte.o -o bin/Joueur
+bin/Joueur : obj/mainTestJoueur.o obj/Joueur.o obj/MainDeCartes.o obj/Carte.o
+	g++ -g -Wall obj/mainTestJoueur.o obj/Joueur.o obj/MainDeCartes.o obj/Carte.o -o bin/Joueur
 
-obj/mainTestJoueur.o : src/mainTestJoueur.cpp src/Joueur.h src/MainDeCarte.h src/Carte.h
+obj/mainTestJoueur.o : src/mainTestJoueur.cpp src/Joueur.h src/MainDeCartes.h src/Carte.h
 	g++ -g -Wall -c src/mainTestJoueur.cpp -o obj/mainTestJoueur.o
 
-obj/Joueur.o : src/Joueur.h src/Joueur.cpp src/MainDeCarte.h src/Carte.h
+obj/Joueur.o : src/Joueur.h src/Joueur.cpp src/MainDeCartes.h src/Carte.h
 	g++ -g -Wall -c src/Joueur.cpp -o obj/Joueur.o
-
-
 
 
 
@@ -108,18 +105,14 @@ obj/Deck.o : src/Deck.h src/Deck.cpp src/Carte.h
 
 
 
+bin/MainDeCartes : obj/mainTestMainDeCartes.o obj/MainDeCartes.o obj/Carte.o
+	g++ -g -Wall obj/mainTestMainDeCartes.o obj/MainDeCartes.o obj/Carte.o -o bin/MainDeCartes
 
+obj/mainTestMainDeCartes.o : src/mainTestMainDeCartes.cpp src/MainDeCartes.h src/Carte.h
+	g++ -g -Wall -c src/mainTestMainDeCartes.cpp -o obj/mainTestMainDeCartes.o
 
-bin/MainDeCarte : obj/mainTestMainDeCarte.o obj/MainDeCarte.o obj/Carte.o
-	g++ -g -Wall obj/mainTestMainDeCarte.o obj/MainDeCarte.o obj/Carte.o -o bin/MainDeCarte
-
-obj/mainTestMainDeCarte.o : src/mainTestMainDeCarte.cpp src/MainDeCarte.h src/Carte.h
-	g++ -g -Wall -c src/mainTestMainDeCarte.cpp -o obj/mainTestMainDeCarte.o
-
-obj/MainDeCarte.o : src/MainDeCarte.cpp src/MainDeCarte.h src/Carte.h 
-	g++ -g -Wall -c src/MainDeCarte.cpp -o obj/MainDeCarte.o
-
-
+obj/MainDeCartes.o : src/MainDeCartes.cpp src/MainDeCartes.h src/Carte.h 
+	g++ -g -Wall -c src/MainDeCartes.cpp -o obj/MainDeCartes.o
 
 
 
@@ -140,5 +133,5 @@ clean :
 
 
 
-doc : src/Carte.h src/Deck.h src/MainDeCarte.h src/Joueur.h src/Jeu.h src/winTxt.h src/jeuTxt.h src/MenuSfml.h src/jeuSfml.h src/jeuMulti.h src/MultiSfml.h src/application.h
+doc : src/Carte.h src/Deck.h src/MainDeCartes.h src/Joueur.h src/JeuSolo.h src/WinTxt.h src/JeuSoloTxt.h src/MenuSfml.h src/JeuSoloSfml.h src/JeuMulti.h src/JeuMultiSfml.h src/Application.h
 	doxygen doc/whitejack.doxy
