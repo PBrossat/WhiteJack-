@@ -27,8 +27,6 @@ Selon son jeu, un joueur peut effectuer diverses actions :
     • Doubler : demander une et une seule nouvelle carte (impossible de tirer par la suite) et doubler sa mise de départ (il n’est possible de doubler que lors de sa première action)
     • Changer : permet de changer sa deuxième carte par une autre et doubler sa mise de départ. Ceci n’est possible que si vous obtenez deux cartes d’une même valeur.
     • Rester : le joueur décide de garder son jeu tel qu’il est (c’est alors au tour des autres joueurs)
-    • Se coucher : le joueur décide d’arrêter de jouer pour cette partie (il récupère alors la moitié de sa
-    mise de départ et c’est ensuite aux autres joueurs de jouer)
 
 Une fois que tous les joueurs ont fini de jouer, c’est au tour de croupier. Ce dernier retourne sa carte face
 cachée et si son score est inférieur à 17 alors il est contraint à tirer une autre carte, et ce jusqu’à ce qu’on
