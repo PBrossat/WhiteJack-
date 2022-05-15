@@ -13,6 +13,56 @@
 
 class sfmlJeu {
 
+public :
+
+    /**
+    * @brief Constructeur sans paramètres de sfmlJeu.
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * sfmlJeu unJeuSfml;
+    * @endcode
+    */
+    sfmlJeu ();
+
+    /**
+    * @brief Destructeur de sfmlJeu.
+    */
+    ~sfmlJeu ();
+
+    /**
+    * @brief Procédure permettant d'initialiser toute les images, sons et polices utilisées
+    * @return void
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * unJeuSfml.sfmlInit();
+    * @endcode
+    */   
+    void sfmlInit();
+
+    /**
+    * @brief Procédure permettant de faire tourner la boucle du jeu 
+    * @return unsigned int
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * unJeuSfml.sfmlBoucle();
+    * @endcode
+    */     
+    unsigned int sfmlBoucle();
+
+    /**
+    * @brief Procédure permettant d'afficher toute les images à l'écran
+    * @return void
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * unJeuSfml.sfmlAff();
+    * @endcode
+    */   
+    void sfmlAff();
+
 private :
 
 	Jeu jeu;
@@ -220,57 +270,6 @@ private :
 
     //Procédure permettant de gérer la fin d'une partie dès que le joueur a terminé de jouer  
     void finPartie();
-    
-
-public :
-
-    /**
-    * @brief Constructeur sans paramètres de sfmlJeu.
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * sfmlJeu unJeuSfml;
-    * @endcode
-    */
-    sfmlJeu ();
-
-    /**
-    * @brief Destructeur de sfmlJeu.
-    */
-    ~sfmlJeu ();
-
-    /**
-    * @brief Procédure permettant d'initialiser toute les images, son et polices utilisées
-    * @return void
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * unJeuSfml.sfmlInit();
-    * @endcode
-    */   
-    void sfmlInit();
-
-    /**
-    * @brief Procédure permettant de faire tourner la boucle du jeu 
-    * @return unsigned int
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * unJeuSfml.sfmlBoucle();
-    * @endcode
-    */     
-    unsigned int sfmlBoucle();
-
-    /**
-    * @brief Procédure permettant d'afficher toute les images à l'écran
-    * @return void
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * unJeuSfml.sfmlAff();
-    * @endcode
-    */   
-    void sfmlAff();
 
 };
 

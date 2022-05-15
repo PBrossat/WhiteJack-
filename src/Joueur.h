@@ -53,7 +53,7 @@ class Joueur
      * @warning 2 : le joueur est intermédiaire
      * @warning 3 : le joueur est expert
     */ 
-    Joueur(string nomJ, unsigned int nivJoueur, unsigned int budgetJ);
+    Joueur(string nomJ, unsigned int nivJoueur, float budgetJ);
 
    
    

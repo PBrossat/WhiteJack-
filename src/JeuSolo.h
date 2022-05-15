@@ -14,17 +14,9 @@ class Jeu
 	public :
 
     /**
-     * @brief Le deck du jeu
-    */
-	Deck unDeck;
-
-
-
-    /**
      * @brief Le joueur 
     */
 	Joueur joueurSolo; 
-
 
 
     /**
@@ -33,26 +25,16 @@ class Jeu
 	MainDeCarte mainCroupier;
 
 
-
-    /**
-     * @brief La deuxième carte du croupier (cachée lorsque le joueur joue)  
-    */
-	Carte deuxiemeCarteCroupier;
-
-
-
     /**
      * @brief La mise du joueur
     */
 	unsigned int mise;
 
 
-
     /**
      * @brief L'éventuel gain du joueur 
     */
 	unsigned int gain;
-
 
 
 	/**
@@ -66,7 +48,6 @@ class Jeu
 	Jeu();
 
 
-
 	/**
      * @brief Procédure permettant de saisir la mise de départ
      * @param[in] touche : la touche saisie par l'utilisateur
@@ -76,7 +57,7 @@ class Jeu
       * unJeu.initialisationMise('a');
      * @endcode
      * @warning La mise saisie doit être inférieur au budget du joueur (2000)
-     * @warning Le parametre touche doit etre obligatoirement 'a', 'z', 'e', 'r' ou 't'
+     * @warning Le parametre touche doit etre obligatoirement 'a' pour 1, 'z' pour 10, 'e' pour 100, 'r' pour 250 ou 't' pour 500
     */
     void initialisationMise(const char touche);
 
@@ -159,6 +140,14 @@ class Jeu
      * @endcode
     */
 	void testRegression() const; 
+
+    private :
+
+    //La deuxième carte du croupier (cachée lorsque le joueur joue)
+	Carte deuxiemeCarteCroupier;
+
+    //Le deck du jeu
+	Deck unDeck;
 
 };
 

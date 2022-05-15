@@ -75,6 +75,7 @@ private :
     // la police utilisée
     Font police;
 
+    //Tableau représentant le menu
     Text menu[3];
 
     //Fonction permettant de renvoyer la selection du joueur      

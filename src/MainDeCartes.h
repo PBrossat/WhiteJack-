@@ -10,9 +10,8 @@ class MainDeCarte
 {
     public :
 
-
     /**
-     * @brief Constructeur de la classe sans paramètre
+     * @brief Constructeur de la classe sans paramètres
      * 
      * Exemple d'utilisation :
      * @code
@@ -25,7 +24,7 @@ class MainDeCarte
 
 
     /**
-     * @brief Constructeur avec parametres de la classe MainDeCarte
+     * @brief Constructeur avec paramètres de la classe MainDeCarte
      * @param[in,out] carte1 la première carte de la main (mode donnée-résultat mais CONST)
      * @param[in,out] carte2 la deuxième carte de la main (mode donnée-résultat mais CONST)
      * 

@@ -9,19 +9,68 @@
 
 class sfmlMulti{
 
+public :
+
+    /**
+    * @brief Constructeur de sfmlMulti
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * sfmlMulti unJeuMulti;
+    * @endcode
+    */
+    sfmlMulti ();
+
+    /**
+    * @brief Destructeur de sfmlMulti
+    */
+    ~sfmlMulti ();
+
+    /**
+    * @brief Procédure permettant d'initialiser toute les images, sons et polices utilisées
+    * @return void
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * unJeuMultiSfml.sfmlInit();
+    * @endcode
+    */  
+    void sfmlInit();
+
+    /**
+    * @brief Procédure permettant de faire tourner la boucle du jeu 
+    * @return unsigned int
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * unJeuMultiSfml.sfmlBoucle();
+    * @endcode
+    */ 
+    unsigned int sfmlBoucle();
+
+    /**
+    * @brief Procédure permettant d'afficher toute les images à l'écran
+    * @return void
+    * 
+    * Exemple d'utilisation :
+    * @code
+    * unJeuMultiSfml.sfmlAff();
+    * @endcode
+    */ 
+    void sfmlAff();
+
+
 private :
 
     jeuMulti jeu;
 
     unsigned int dimx;
     unsigned int dimy;
-
     bool actionMiser;
     bool finManche;
     unsigned int choixNiv;
     bool top1;
     bool elimine;
-
     unsigned int res;
 
 	sf::RenderWindow * window;
@@ -114,9 +163,6 @@ private :
     sf::Texture tBigWin;
     sf::Texture tElimine;
   
-
-
-
     sf::Sprite s1deCoeur;
     sf::Sprite s1deCarreau;
     sf::Sprite s1dePiques;
@@ -232,20 +278,19 @@ private :
     sf::Sound sonJackpot;
     sf::Sound sonGagne;
     sf::Sound sonPerdu;
-    
 
-public :
-
-//AJOUTER LES CONST
-
-    sfmlMulti ();
-    ~sfmlMulti ();
-
+    //Procédure permettant d'afficher à l'écran les main de cartes
     void afficherMainDeCarte(const MainDeCarte& mainJoueur, unsigned int x, unsigned int y)const;
-    void sfmlInit();
-    unsigned int sfmlBoucle();
-    void sfmlAff();
 
+    //Procédure permettant d'initialiser la partie une fois que le joueur a misé  
+    void initPartie();
+
+    //Procédure permettant de gérer la fin d'une manche dès que le joueur a terminé de jouer  
+    void finPartie();
+
+    //Procédure permettant de gérer l'affichage au cours d'une manche suivant le nombre de joueurs
+    void affichageManche(unsigned int nbJoueurs);
+    
 };
 
 #endif

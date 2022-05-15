@@ -8,47 +8,39 @@
 #include "JeuSolo.h"
 
 class jeuMulti{
+    
     public : 
 
-
+    /**
+    * @brief Tableau contenant les joueurs de la partie
+    */
     vector<Joueur>tabJoueur;
 
-    /**
-    * @brief Le nombre de partie effectué.
-    */
-    unsigned int nbPartie;
-
 
     /**
-    * @brief Le nombre de joueur encore présent
-    */
-    unsigned int nbJoueurs;
-
-    /**
-    * @brief Le deck du jeu.
-    */
-	Deck unDeck;
-
-
-    /**
-    * @brief La main de carte du croupier.
+    * @brief La main de carte du croupier
     */
 	MainDeCarte mainCroupier;
 
 
     /**
-     * @brief La deuxième carte du croupier (cachée lorsque le joueur joue)  
+    @brief Le nombre de partie effectuées
     */
-	Carte deuxiemeCarteCroupier;
+    unsigned int nbManches;
 
+    /**
+    @brief Le nombre de joueur encore présents
+    */
+    unsigned int nbJoueurs;
+    
 
     /**
      * @brief Procédure permettant de gérer automatiquement les actions du croupier 
-    * @return void
+     * @return void
      * 
      * Exemple d'utilisation :
      * @code
-     * unJeu.actionCroupier();
+     * unJeuMulti.actionCroupier();
      * @endcode
     */
 	void actionCroupier();
@@ -61,7 +53,7 @@ class jeuMulti{
     * 
     * Exemple d'utilisation :
     * @code
-    * unJeu.remplirJoueurs(2);
+    * unJeuMulti.remplirJoueurs(2);
     * @endcode
     * @warning NiveauJoueur doit être compris entre 1 et 3 compris (1=amateur ; 2=intermédiaire ; 3=expert).
     */
@@ -75,6 +67,7 @@ class jeuMulti{
     * @code
     * jeuMulti unJeuMulti;
     * @endcode
+    * @warning Attention, aucun joueur n'est créé
     */
     jeuMulti ();
 
@@ -119,7 +112,7 @@ class jeuMulti{
      * 
      * Exemple d'utilisation :
      * @code
-     * 
+     * unJeuMulti.resultat(0);
      * @endcode
      * @warning À faire qu'à la fin de la partie
     */
@@ -147,7 +140,7 @@ class jeuMulti{
       * unJeu.initialisationMise();
      * @endcode
      * @warning La mise saisie doit être inférieur au budget du joueur (2000)
-     * @warning Le parametre touche doit etre obligatoirement 'a', 'z', 'e', 'r' ou 't'
+     * @warning Le parametre touche doit etre obligatoirement 'a' pour 1, 'z' pour 10, 'e' pour 100, 'r' pour 250 ou 't' pour 500
     */
     void initialisationMise(const char touche);
 
@@ -172,7 +165,7 @@ class jeuMulti{
      * @code
      * unJeuMulti.actionClavier('a');
      * @endcode
-     * @warning Le parametre touche doit etre obligatoirement 'a', 'z', 'e', 'r' ou 't'
+     * @warning Le parametre touche doit etre obligatoirement 't', 'd', 'r', 'c' 
     */
 	void actionClavier(const char touche);
 
@@ -212,7 +205,6 @@ class jeuMulti{
     void actionAmateur();
 
 
-
     /**
     * @brief Procédure permettant d'effectuer les actions des IAs selon NiveauJoueur.
     * @return void
@@ -235,7 +227,7 @@ class jeuMulti{
      * 
      * Exemple d'utilisation :
      * @code
-     * unJeuMulti.finJeu();
+     * unJeuMulti.finManche();
      * @endcode
      * @warning À faire à chaque fin de partie
     */ 
@@ -256,14 +248,17 @@ class jeuMulti{
 
     private:
 
-    /**
-    * @brief Le niveau choisi au hasard dans la fonction actionIntermediaire().
-    */
+    //Le niveau choisi au hasard dans la fonction actionIntermediaire().
     unsigned int nvHasard;
 
-    /**
-    * @brief Le pourcentage (entre 40 et 60) pour determiner le ratio/le niveau du joueur.
-    */
+    //Le pourcentage (entre 40 et 60) pour determiner le ratio/le niveau du joueur.
 	unsigned int randPourcentage;
+
+    //La deuxième carte du croupier (cachée lorsque le joueur joue)  
+	Carte deuxiemeCarteCroupier;
+
+    //Le deck du jeu
+	Deck unDeck;
+
 };
 #endif

@@ -16,7 +16,7 @@ Joueur::Joueur()
 
 
 
-Joueur::Joueur(string nomJ, unsigned int nivJoueur, unsigned int budgetJ)
+Joueur::Joueur(string nomJ, unsigned int nivJoueur, float budgetJ)
 {
 	assert(budgetJ>0);
 	assert(nivJoueur < 4 && nivJoueur >= 0);
@@ -102,9 +102,7 @@ unsigned int Joueur::getMise() const
 
 void Joueur::setMise(unsigned int Mise)
 {
-	//assert(Mise<=budget);
 	mise=Mise;
-
 }
 
 

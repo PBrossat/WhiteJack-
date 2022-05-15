@@ -16,7 +16,7 @@ jeuMulti::jeuMulti ()
 
     unDeck.initDeck();
 	unDeck.melangerDeck();
-    nbPartie=1;
+    nbManches=1;
     
 }
 
@@ -29,12 +29,13 @@ jeuMulti::jeuMulti (unsigned int NiveauJoueur)
     tabJoueur.push_back(Joueur("IA1",NiveauJoueur,2000));
     tabJoueur.push_back(Joueur("IA2",NiveauJoueur,2000));
     tabJoueur.push_back(Joueur("IA3",NiveauJoueur,2000));
-    nbPartie=1;
+    nbManches=1;
     nbJoueurs=4;
 }
 
 void jeuMulti::remplirJoueurs(unsigned int NiveauJoueur)
 {
+    assert(NiveauJoueur>0 && NiveauJoueur<4);
     if(tabJoueur.empty())
     {
         tabJoueur.push_back(Joueur("Vous",0,2000));
@@ -63,7 +64,7 @@ void jeuMulti::eliminationJoueur() //procédure permettant d'eliminer un joueur 
 
     }
 
-    if ( ((nbJoueurs==4)&&(nbPartie==3)) || ((nbJoueurs==3)&&(nbPartie==6))  || ((nbJoueurs==2)&&(nbPartie==9))) //si toute les conditions sont réspectées 
+    if ( ((nbJoueurs==4)&&(nbManches==3)) || ((nbJoueurs==3)&&(nbManches==6))  || ((nbJoueurs==2)&&(nbManches==9))) //si toute les conditions sont réspectées 
     {
         float min=tabJoueur[0].getBudget(); //initialisation de min à la valeur du budget du joueur d'indice 0 
         unsigned int indiceMinimum=0; // initialisation d'indiceMinimum à l'indice 0 par défaut
@@ -78,7 +79,7 @@ void jeuMulti::eliminationJoueur() //procédure permettant d'eliminer un joueur 
         tabJoueur.erase(tabJoueur.begin()+indiceMinimum); //on supprime le joueur avec le budget le plus bas
         nbJoueurs--; // le nombre de joueur est mis à jour (-1)
     }
-    nbPartie++;
+    nbManches++;
 }
 //Attention au cas ou deux joueur ont le meme budget minimum !
 
@@ -634,7 +635,7 @@ void jeuMulti::testRegression() const
 
     jeuMulti unJeuMultiParDefaut; // création d'un jeu multi par défaut 
     assert (unJeuMultiParDefaut.tabJoueur.size()==0); // taille =0   
-    assert(unJeuMultiParDefaut.nbPartie==1);
+    assert(unJeuMultiParDefaut.nbManches==1);
     Joueur joueurParDefaut; //création d'un joueur par défaut
     unJeuMultiParDefaut.tabJoueur.push_back(joueurParDefaut); //on ajoute ce joueur au jeu
     assert (unJeuMultiParDefaut.tabJoueur.size()==1); // taille =1
@@ -665,10 +666,10 @@ void jeuMulti::testRegression() const
 
     unJeuMulti.tabJoueur[1].setBudget(-200); //budget du joueur 2 = 1800
     unJeuMulti.tabJoueur[2].setBudget(-300); //budget du joueur 2 = 1700
-    unJeuMulti.nbPartie=6; //6 eme partie
+    unJeuMulti.nbManches=6; //6 eme partie
     unJeuMulti.eliminationJoueur(); //il reste 3 joueur ET nous sommes a la partie n°6
     assert (unJeuMulti.tabJoueur.size()==2); //elimination du joueur 3 (indice 2)
-    unJeuMulti.nbPartie=9; //9 eme partie
+    unJeuMulti.nbManches=9; //9 eme partie
     unJeuMulti.eliminationJoueur(); //il reste 2 joueur ET nous sommes a la partie n°9
     assert (unJeuMulti.tabJoueur.size()==1); //elimination du joueur 2(indice 1) car il à 1800 contre 2000 pour le joueur 1 (indice 0)
     cout<<"Test de eliminationJoueur() OK"<<endl;

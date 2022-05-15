@@ -89,7 +89,7 @@ class Carte
     * @endcode
     * @warning : Valeur doit être comprise entre 1 et 11
     */
-    void setValeur(unsigned int Valeur) ;
+    void setValeur(unsigned int Valeur);
 
     /**
     * @brief Procédure testant les fonctionnalités de la classe
@@ -141,7 +141,7 @@ class Carte
     * cout<<carte1;
     * @endcode
     */ 
-    friend ostream& operator << (ostream& flux, const Carte& carteAffichee);    //À METTRE DANS MODULE JEU TXT
+    friend ostream& operator << (ostream& flux, const Carte& carteAffichee);   
 
 
     private :   

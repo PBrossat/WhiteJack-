@@ -518,6 +518,7 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         rsFond.setTexture(&tFond);
+        rsFond.setSize(Vector2f(dimx,dimy));
     }
 
     if (!t1.loadFromFile("data/1.png")) 
@@ -527,6 +528,7 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         s1.setTexture(t1);
+        s1.setScale(0.75,0.75);
     }
 
     if (!t10.loadFromFile("data/10.png")) 
@@ -536,6 +538,7 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         s10.setTexture(t10);
+        s10.setScale(0.75,0.75);
     }
 
     if (!t100.loadFromFile("data/100.png")) 
@@ -545,6 +548,7 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         s100.setTexture(t100);
+        s100.setScale(0.75,0.75);
     }
 
     if (!t250.loadFromFile("data/250.png")) 
@@ -554,6 +558,7 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         s250.setTexture(t250);
+        s250.setScale(0.75,0.75);
     }
 
     if (!t500.loadFromFile("data/500.png")) 
@@ -563,6 +568,7 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         s500.setTexture(t500);
+        s500.setScale(0.75,0.75);
     }
 
     if (!tDoubler.loadFromFile("data/doubler.png")) 
@@ -572,6 +578,7 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sDoubler.setTexture(tDoubler);
+        sDoubler.setScale(0.75,0.75);
     }
 
     if (!tRester.loadFromFile("data/rester.png")) 
@@ -581,6 +588,7 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sRester.setTexture(tRester);
+        sRester.setScale(0.75,0.75);
     }
 
     if (!tTirer.loadFromFile("data/tirer.png")) 
@@ -590,6 +598,7 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sTirer.setTexture(tTirer);
+        sTirer.setScale(0.75,0.75);
     }
 
     if (!tChanger.loadFromFile("data/changer.png")) 
@@ -599,6 +608,7 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sChanger.setTexture(tChanger);
+        sChanger.setScale(0.75,0.75);
     }
 
     if (!tExit.loadFromFile("data/exit.png")) 
@@ -608,6 +618,11 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sExit.setTexture(tExit);
+        sf::Color color = sExit.getColor();
+        color.a=200;
+        sExit.setPosition((dimx/64),30);
+        sExit.setColor(color);
+        sExit.setScale(0.4,0.4);
     }
 
     if (!tBlackjack.loadFromFile("data/BlackJack.png")) 
@@ -617,6 +632,8 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sBlackjack.setTexture(tBlackjack);
+        sBlackjack.setScale(0.6,0.6);
+        sBlackjack.setPosition(dimx/2-70, dimy/2+165);
     }
     if (!tGagne.loadFromFile("data/Gagne.png")) 
     {
@@ -625,6 +642,8 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sGagne.setTexture(tGagne);
+        sGagne.setScale(0.6,0.6);
+        sGagne.setPosition(dimx/2-50, dimy/2+165);
     }
     if (!tPerdu.loadFromFile("data/Perdu.png")) 
     {
@@ -633,6 +652,8 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sPerdu.setTexture(tPerdu);
+        sPerdu.setScale(0.6,0.6);
+        sPerdu.setPosition(dimx/2-50, dimy/2+165);
     }
     if (!tEgalite.loadFromFile("data/Egalite.png")) 
     {
@@ -641,6 +662,8 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sEgalite.setTexture(tEgalite);
+        sEgalite.setScale(0.6,0.6);
+        sEgalite.setPosition(dimx/2-55, dimy/2+165);
     }
     if (!tAmateur.loadFromFile("data/amateur.png")) 
     {
@@ -649,6 +672,7 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sAmateur.setTexture(tAmateur);
+        sAmateur.setPosition(dimx/2-400,dimy/2-100);
     }
     if (!tIntermediaire.loadFromFile("data/intermédiaire.png")) 
     {
@@ -657,6 +681,7 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sIntermediaire.setTexture(tIntermediaire);
+        sIntermediaire.setPosition(dimx/2-100,dimy/2-100);
     }
     if (!tExpert.loadFromFile("data/expert.png")) 
     {
@@ -665,6 +690,7 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sExpert.setTexture(tExpert);
+        sExpert.setPosition(dimx/2+200,dimy/2-100);
     }
     if (!tBigWin.loadFromFile("data/bigWin.png")) 
     {
@@ -673,6 +699,8 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sBigWin.setTexture(tBigWin);
+        sBigWin.setScale(1.3,1.3);
+        sBigWin.setPosition(dimx/2-310,dimy/2-350);
     }
     if (!tElimine.loadFromFile("data/Elimination.png")) 
     {
@@ -681,6 +709,7 @@ void sfmlMulti::sfmlInit() {
     else 
     {
         sElimine.setTexture(tElimine);
+        sElimine.setPosition(80,dimy/2-100);
     }
 
     if (!m1_font.loadFromFile("data/FontMoney.ttf")) 
@@ -703,6 +732,11 @@ void sfmlMulti::sfmlInit() {
         txtBudget1.setFillColor(Color::Yellow);
         txtBudget2.setFillColor(Color::Yellow);
         txtBudget3.setFillColor(Color::Yellow);
+
+        txtBudget.setPosition(dimx/2-40,dimy/2+75);
+        txtBudget1.setPosition(70,dimy/2-50);
+        txtBudget2.setPosition(dimx/4,dimy/2+50);
+        txtBudget3.setPosition(3*dimx/4-65,dimy/2+50);
     }
 
     if (!m2_font.loadFromFile("data/BLACR___.TTF")) 
@@ -744,12 +778,17 @@ void sfmlMulti::sfmlInit() {
         txtNom3.setFillColor(Color::Black);
         txtManche.setFillColor(Color::White);
         
-        txtScoreJoueur.setPosition(dimx/2-35,dimy-80);
-        txtScore1.setPosition(dimx/2-35,dimy-80);
-        txtScore2.setPosition(dimx/2-35,dimy-80);
-        txtScore3.setPosition(dimx/2-35,dimy-80);
-        txtScoreCroupier.setPosition(dimx/2-90,dimy/7); 
+        txtScoreJoueur.setPosition(dimx/2-10,dimy/2+250);
+        txtScore1.setPosition(100,dimy/2+125);
+        txtScore2.setPosition(dimx/4+30,dimy/2+225);
+        txtScore3.setPosition(3*dimx/4-35,dimy/2+225);
+        txtScoreCroupier.setPosition(dimx/2-100, dimy/2-250);
+        txtNom.setPosition(dimx/2-25,dimy/2+300);
+        txtNom1.setPosition(90,dimy/2+175);
+        txtNom2.setPosition(dimx/4+15,dimy/2+275);
+        txtNom3.setPosition(3*dimx/4-40,dimy/2+275);
         txtManche.setPosition(dimx-200,dimy/2-150);
+
     }
 
     if (!m1_soundbuffer.loadFromFile("data/SonMise.wav")) 
@@ -1068,58 +1107,221 @@ void sfmlMulti::afficherMainDeCarte(const MainDeCarte& mainJoueur, unsigned int 
 }
 
 
+void sfmlMulti::initPartie()
+{
+    jeu.initialisationMiseMulti();
+    sonMise.play();
+    jeu.initialisationJeuMulti();
+    sonCarte.play();
+    actionMiser=1;
+}
+
+
+void sfmlMulti::finPartie()
+{
+    assert(!jeu.tabJoueur.empty());
+    if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
+    {
+        switch(choixNiv)
+        {
+            case 1:
+                jeu.actionAmateur();
+                break;
+            case 2:
+                jeu.actionIntermediaire();
+                break;
+            case 3:
+                jeu.actionExpert();
+                break;
+        }
+        jeu.actionCroupier();
+        sonCarte.play();
+        finManche=1;
+        for(unsigned int i=1; i<jeu.tabJoueur.size();i++)
+        {
+            jeu.resultat(i);
+        }
+        res = jeu.resultat(0);
+        switch(res)
+        {
+            case 0:
+                sonPerdu.play(); // si on a perdu on joue le sonPerdu
+                break;
+            case 1:
+                sonMise.play(); // si on a égalité on joue le sonMise
+                break;
+            case 2:
+                sonGagne.play();// si on a gagné on joue le sonGagne
+                break;
+            case 3:
+                sonJackpot.play();// si on a blackjack on joue le sonJackpot
+                break;
+        }
+    }
+}
+
+
+void sfmlMulti::affichageManche(unsigned int nbJoueurs)
+{
+    if (nbJoueurs==4)
+    {
+        afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, 70, dimy/2 );
+        string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
+        txtScore1.setString(scoreIA1);
+        stringstream stream2;
+        stream2.precision(1);
+        stream2 << fixed;
+        stream2<<jeu.tabJoueur[1].getBudget();  
+        string budgetIA1  = stream2.str();
+        txtBudget1.setString(budgetIA1+"$");
+        txtNom1.setString(jeu.tabJoueur[1].nom);
+        window->draw(txtNom1);
+        window->draw(txtScore1);
+        window->draw(txtBudget1);
+
+        afficherMainDeCarte(jeu.tabJoueur[2].mainJoueur, dimx/4, dimy/2+100 );
+        string scoreIA2 = to_string(jeu.tabJoueur[2].mainJoueur.getSommeValeur());
+        txtScore2.setString(scoreIA2);
+        stringstream stream3;
+        stream3.precision(1);
+        stream3 << fixed;
+        stream3<<jeu.tabJoueur[2].getBudget();  
+        string budgetIA2  = stream3.str();
+        txtBudget2.setString(budgetIA2+"$");
+        txtNom2.setString(jeu.tabJoueur[2].nom);
+        window->draw(txtNom2);
+        window->draw(txtScore2);
+        window->draw(txtBudget2);
+
+        afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
+        string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
+        txtScoreJoueur.setString(scoreJoueur);
+        stringstream stream1;
+        stream1.precision(1);
+        stream1 << fixed;
+        stream1<<jeu.tabJoueur[0].getBudget();  
+        string budget  = stream1.str();
+        txtBudget.setString(budget+"$");
+        txtNom.setString(jeu.tabJoueur[0].nom);
+        window->draw(txtNom);
+        window->draw(txtScoreJoueur);
+        window->draw(txtBudget);
+
+        afficherMainDeCarte(jeu.tabJoueur[3].mainJoueur, 3*dimx/4-65, dimy/2+100 );
+        string scoreIA3 = to_string(jeu.tabJoueur[3].mainJoueur.getSommeValeur());
+        txtScore3.setString(scoreIA3);
+        stringstream stream4;
+        stream4.precision(1);
+        stream4 << fixed;
+        stream4<<jeu.tabJoueur[3].getBudget();  
+        string budgetIA3  = stream1.str();
+        txtBudget3.setString(budgetIA3+"$");
+        txtNom3.setString(jeu.tabJoueur[3].nom);
+        window->draw(txtNom3);
+        window->draw(txtScore3);
+        window->draw(txtBudget3);
+    }
+    else if (nbJoueurs==3)
+    {
+        afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, dimx/4, dimy/2+100);
+        string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
+        txtScore2.setString(scoreIA1);
+        stringstream stream2;
+        stream2.precision(1);
+        stream2 << fixed;
+        stream2<<jeu.tabJoueur[1].getBudget();  
+        string budgetIA1  = stream2.str();
+        txtBudget2.setString(budgetIA1+"$");
+        txtNom2.setString(jeu.tabJoueur[1].nom);
+        window->draw(txtNom2);
+        window->draw(txtScore2);
+        window->draw(txtBudget2);
+
+        afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
+        string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
+        txtScoreJoueur.setString(scoreJoueur);
+        stringstream stream1;
+        stream1.precision(1);
+        stream1 << fixed;
+        stream1<<jeu.tabJoueur[0].getBudget();  
+        string budget  = stream1.str();
+        txtBudget.setString(budget+"$");
+        window->draw(txtNom);
+        window->draw(txtScoreJoueur);
+        window->draw(txtBudget);
+
+        afficherMainDeCarte(jeu.tabJoueur[2].mainJoueur, 3*dimx/4-65, dimy/2+100 );
+        string scoreIA2 = to_string(jeu.tabJoueur[2].mainJoueur.getSommeValeur());
+        txtScore3.setString(scoreIA2);
+        txtScore3.setPosition(3*dimx/4-35,dimy/2+225);
+        stringstream stream3;
+        stream3.precision(1);
+        stream3 << fixed;
+        stream3<<jeu.tabJoueur[2].getBudget();  
+        string budgetIA2  = stream3.str();
+        txtBudget3.setString(budgetIA2+"$");
+        txtNom3.setString(jeu.tabJoueur[2].nom);
+        window->draw(txtNom3);
+        window->draw(txtScore3);
+        window->draw(txtBudget3);
+    }
+    else if (nbJoueurs==2)
+    {
+        afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, dimx/4, dimy/2+100);
+        string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
+        txtScore2.setString(scoreIA1);
+        stringstream stream2;
+        stream2.precision(1);
+        stream2 << fixed;
+        stream2<<jeu.tabJoueur[1].getBudget();  
+        string budgetIA1  = stream2.str();
+        txtBudget2.setString(budgetIA1+"$");
+        txtNom2.setString(jeu.tabJoueur[1].nom);
+        window->draw(txtNom2);
+        window->draw(txtScore2);
+        window->draw(txtBudget2);
+
+        afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
+        string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
+        txtScoreJoueur.setString(scoreJoueur);
+        stringstream stream1;
+        stream1.precision(1);
+        stream1 << fixed;
+        stream1<<jeu.tabJoueur[0].getBudget();  
+        string budget  = stream1.str();
+        txtBudget.setString(budget+"$");
+        window->draw(txtNom);
+        window->draw(txtScoreJoueur);
+        window->draw(txtBudget);
+    }
+}
 
 
 void sfmlMulti::sfmlAff() 
 {
     window->clear(Color(230, 240, 255, 255)); 
-    rsFond.setSize(Vector2f(dimx,dimy));
     window->draw(rsFond);
-    sf::Color color = sExit.getColor();
-    color.a=200;
-    sExit.setPosition((dimx/64),30);
-    sExit.setColor(color);
-    sExit.setScale(0.4,0.4);
     window->draw(sExit);
 
     if(choixNiv==0)
     {
-        sAmateur.setPosition(dimx/2-400,dimy/2-100);
         window->draw(sAmateur);
-
-        sIntermediaire.setPosition(dimx/2-100,dimy/2-100);
         window->draw(sIntermediaire);
-
-        sExpert.setPosition(dimx/2+200,dimy/2-100);
         window->draw(sExpert);
     }
     else
     {
-
-        s1.setScale(0.75,0.75);
-        s10.setScale(0.75,0.75);
-        s100.setScale(0.75,0.75);
-        s250.setScale(0.75,0.75);
-        s500.setScale(0.75,0.75);
-        sRester.setScale(0.75,0.75);
-        sTirer.setScale(0.75,0.75);
-        sChanger.setScale(0.75,0.75);
-        sDoubler.setScale(0.75,0.75);
-
         if(top1)
         {
-            sBigWin.setScale(1.3,1.3);
-            sBigWin.setPosition(dimx/2-310,dimy/2-350);
             window->draw(sBigWin);
         }
         else if(elimine)
         {
-            sElimine.setPosition(80,dimy/2-100);
             window->draw(sElimine);
         }
         else
         {
-            string nbManche = to_string(jeu.nbPartie);
+            string nbManche = to_string(jeu.nbManches);
             txtManche.setString("Manche : "+nbManche);
             window->draw(txtManche);
 
@@ -1128,176 +1330,24 @@ void sfmlMulti::sfmlAff()
 
                 afficherMainDeCarte(jeu.mainCroupier, dimx/2-50, dimy/2-200);
                 string scoreCroupier = to_string(jeu.mainCroupier.getSommeValeur());
-                txtScoreCroupier.setString(scoreCroupier);
-                txtScoreCroupier.setPosition(dimx/2-23, dimy/2-250);
+                txtScoreCroupier.setString("Croupier : "+scoreCroupier);
                 window->draw(txtScoreCroupier);
-
-                if (jeu.nbJoueurs==4)
-                {
-                    afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, 70, dimy/2 );
-                    string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
-                    txtScore1.setString(scoreIA1);
-                    txtScore1.setPosition(100,dimy/2+125);
-                    stringstream stream2;
-                    stream2.precision(1);
-                    stream2 << fixed;
-                    stream2<<jeu.tabJoueur[1].getBudget();  
-                    string budgetIA1  = stream2.str();
-                    txtBudget1.setString(budgetIA1+"$");
-                    txtBudget1.setPosition(70,dimy/2-50);
-                    txtNom1.setString(jeu.tabJoueur[1].nom);
-                    txtNom1.setPosition(90,dimy/2+175);
-                    window->draw(txtNom1);
-                    window->draw(txtScore1);
-                    window->draw(txtBudget1);
-
-                    afficherMainDeCarte(jeu.tabJoueur[2].mainJoueur, dimx/4, dimy/2+100 );
-                    string scoreIA2 = to_string(jeu.tabJoueur[2].mainJoueur.getSommeValeur());
-                    txtScore2.setString(scoreIA2);
-                    txtScore2.setPosition(dimx/4+30,dimy/2+225);
-                    stringstream stream3;
-                    stream3.precision(1);
-                    stream3 << fixed;
-                    stream3<<jeu.tabJoueur[2].getBudget();  
-                    string budgetIA2  = stream3.str();
-                    txtBudget2.setString(budgetIA2+"$");
-                    txtBudget2.setPosition(dimx/4,dimy/2+50);
-                    txtNom2.setString(jeu.tabJoueur[2].nom);
-                    txtNom2.setPosition(dimx/4+15,dimy/2+275);
-                    window->draw(txtNom2);
-                    window->draw(txtScore2);
-                    window->draw(txtBudget2);
-
-                    afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
-                    string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
-                    txtScoreJoueur.setString(scoreJoueur);
-                    txtScoreJoueur.setPosition(dimx/2-10,dimy/2+250);
-                    stringstream stream1;
-                    stream1.precision(1);
-                    stream1 << fixed;
-                    stream1<<jeu.tabJoueur[0].getBudget();  
-                    string budget  = stream1.str();
-                    txtBudget.setString(budget+"$");
-                    txtBudget.setPosition(dimx/2-40,dimy/2+75);
-                    txtNom.setString(jeu.tabJoueur[0].nom);
-                    txtNom.setPosition(dimx/2-25,dimy/2+300);
-                    window->draw(txtNom);
-                    window->draw(txtScoreJoueur);
-                    window->draw(txtBudget);
-
-                    afficherMainDeCarte(jeu.tabJoueur[3].mainJoueur, 3*dimx/4-65, dimy/2+100 );
-                    string scoreIA3 = to_string(jeu.tabJoueur[3].mainJoueur.getSommeValeur());
-                    txtScore3.setString(scoreIA3);
-                    txtScore3.setPosition(3*dimx/4-35,dimy/2+225);
-                    stringstream stream4;
-                    stream4.precision(1);
-                    stream4 << fixed;
-                    stream4<<jeu.tabJoueur[3].getBudget();  
-                    string budgetIA3  = stream1.str();
-                    txtBudget3.setString(budgetIA3+"$");
-                    txtBudget3.setPosition(3*dimx/4-65,dimy/2+50);
-                    txtNom3.setString(jeu.tabJoueur[3].nom);
-                    txtNom3.setPosition(3*dimx/4-40,dimy/2+275);
-                    window->draw(txtNom3);
-                    window->draw(txtScore3);
-                    window->draw(txtBudget3);
-                }
-                else if (jeu.nbJoueurs==3)
-                {
-                    afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, dimx/4, dimy/2+100);
-                    string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
-                    txtScore2.setString(scoreIA1);
-                    stringstream stream2;
-                    stream2.precision(1);
-                    stream2 << fixed;
-                    stream2<<jeu.tabJoueur[1].getBudget();  
-                    string budgetIA1  = stream2.str();
-                    txtBudget2.setString(budgetIA1+"$");
-                    txtNom2.setString(jeu.tabJoueur[1].nom);
-                    window->draw(txtNom2);
-                    window->draw(txtScore2);
-                    window->draw(txtBudget2);
-
-                    afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
-                    string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
-                    txtScoreJoueur.setString(scoreJoueur);
-                    stringstream stream1;
-                    stream1.precision(1);
-                    stream1 << fixed;
-                    stream1<<jeu.tabJoueur[0].getBudget();  
-                    string budget  = stream1.str();
-                    txtBudget.setString(budget+"$");
-                    window->draw(txtNom);
-                    window->draw(txtScoreJoueur);
-                    window->draw(txtBudget);
-
-                    afficherMainDeCarte(jeu.tabJoueur[2].mainJoueur, 3*dimx/4-65, dimy/2+100 );
-                    string scoreIA2 = to_string(jeu.tabJoueur[2].mainJoueur.getSommeValeur());
-                    txtScore3.setString(scoreIA2);
-                    txtScore3.setPosition(3*dimx/4-35,dimy/2+225);
-                    stringstream stream3;
-                    stream3.precision(1);
-                    stream3 << fixed;
-                    stream3<<jeu.tabJoueur[2].getBudget();  
-                    string budgetIA2  = stream3.str();
-                    txtBudget3.setString(budgetIA2+"$");
-                    txtNom3.setString(jeu.tabJoueur[2].nom);
-                    window->draw(txtNom3);
-                    window->draw(txtScore3);
-                    window->draw(txtBudget3);
-                }
-                else if (jeu.nbJoueurs==2)
-                {
-                    afficherMainDeCarte(jeu.tabJoueur[1].mainJoueur, dimx/4, dimy/2+100);
-                    string scoreIA1 = to_string(jeu.tabJoueur[1].mainJoueur.getSommeValeur());
-                    txtScore2.setString(scoreIA1);
-                    stringstream stream2;
-                    stream2.precision(1);
-                    stream2 << fixed;
-                    stream2<<jeu.tabJoueur[1].getBudget();  
-                    string budgetIA1  = stream2.str();
-                    txtBudget2.setString(budgetIA1+"$");
-                    txtNom2.setString(jeu.tabJoueur[1].nom);
-                    window->draw(txtNom2);
-                    window->draw(txtScore2);
-                    window->draw(txtBudget2);
-
-                    afficherMainDeCarte(jeu.tabJoueur[0].mainJoueur, dimx/2-40, dimy/2+125 );
-                    string scoreJoueur = to_string(jeu.tabJoueur[0].mainJoueur.getSommeValeur());
-                    txtScoreJoueur.setString(scoreJoueur);
-                    stringstream stream1;
-                    stream1.precision(1);
-                    stream1 << fixed;
-                    stream1<<jeu.tabJoueur[0].getBudget();  
-                    string budget  = stream1.str();
-                    txtBudget.setString(budget+"$");
-                    window->draw(txtNom);
-                    window->draw(txtScoreJoueur);
-                    window->draw(txtBudget);
-                }
+                affichageManche(jeu.nbJoueurs);
 
                 if(finManche==1)
                 {   
                     switch(res)
                     {
                         case 0:
-                            sPerdu.setScale(0.6,0.6);
-                            sPerdu.setPosition(dimx/2-50, dimy/2+165);
                             window->draw(sPerdu);
                             break;
                         case 1:
-                            sEgalite.setScale(0.6,0.6);
-                            sEgalite.setPosition(dimx/2-55, dimy/2+165);
                             window->draw(sEgalite);
                             break;
                         case 2:
-                            sGagne.setScale(0.6,0.6);
-                            sGagne.setPosition(dimx/2-50, dimy/2+165);
                             window->draw(sGagne);
                             break;
                         case 3:
-                            sBlackjack.setScale(0.6,0.6);
-                            sBlackjack.setPosition(dimx/2-70, dimy/2+165);
                             window->draw(sBlackjack);
                             break;
                     }
@@ -1313,7 +1363,8 @@ void sfmlMulti::sfmlAff()
                     {
                         sDoubler.setPosition(dimx-100,dimy-240);
                         window->draw(sDoubler);
-                        if((jeu.tabJoueur[0].mainJoueur.getIemeCarte(0).getValeur()==jeu.tabJoueur[0].mainJoueur.getIemeCarte(1).getValeur())||(jeu.tabJoueur[0].mainJoueur.getIemeCarte(0).getRang()==jeu.tabJoueur[0].mainJoueur.getIemeCarte(1).getRang()))
+                        if((jeu.tabJoueur[0].mainJoueur.getIemeCarte(0).getValeur()==jeu.tabJoueur[0].mainJoueur.getIemeCarte(1).getValeur())
+                            ||(jeu.tabJoueur[0].mainJoueur.getIemeCarte(0).getRang()==jeu.tabJoueur[0].mainJoueur.getIemeCarte(1).getRang()))
                         {
                             sChanger.setPosition(dimx-100,dimy-320);
                             window->draw(sChanger);
@@ -1444,7 +1495,6 @@ unsigned int sfmlMulti::sfmlBoucle() {
                     }
                     else
                     {
-
                         if(top1)
                         {
                             window->close();
@@ -1488,47 +1538,27 @@ unsigned int sfmlMulti::sfmlBoucle() {
                                 if(s1.getGlobalBounds().contains(x,y))  
                                 {
                                     jeu.initialisationMise('a');    
-                                    jeu.initialisationMiseMulti();
-                                    sonMise.play();
-                                    jeu.initialisationJeuMulti();
-                                    sonCarte.play();
-                                    actionMiser=1;
+                                    initPartie();
                                 }
                                 else if(s10.getGlobalBounds().contains(x,y))  
                                 {
                                     jeu.initialisationMise('z');    
-                                    jeu.initialisationMiseMulti();
-                                    sonMise.play();
-                                    jeu.initialisationJeuMulti();
-                                    sonCarte.play();
-                                    actionMiser=1;
+                                    initPartie();
                                 }
                                 else if(s100.getGlobalBounds().contains(x,y)) 
                                 {
                                     jeu.initialisationMise('e');    
-                                    jeu.initialisationMiseMulti();
-                                    sonMise.play();
-                                    jeu.initialisationJeuMulti();
-                                    sonCarte.play();
-                                    actionMiser=1;
+                                    initPartie();
                                 }
                                 else if(s250.getGlobalBounds().contains(x,y))  
                                 {
                                     jeu.initialisationMise('r');    
-                                    jeu.initialisationMiseMulti();
-                                    sonMise.play();
-                                    jeu.initialisationJeuMulti();
-                                    sonCarte.play();
-                                    actionMiser=1;
+                                    initPartie();
                                 }
                                 else if(s500.getGlobalBounds().contains(x,y))  
                                 {
                                     jeu.initialisationMise('t');    
-                                    jeu.initialisationMiseMulti();
-                                    sonMise.play();
-                                    jeu.initialisationJeuMulti();
-                                    sonCarte.play();
-                                    actionMiser=1;
+                                    initPartie();
                                 }
                                 break;
                             
@@ -1540,173 +1570,25 @@ unsigned int sfmlMulti::sfmlBoucle() {
                                         jeu.actionClavier('d');    //on double
                                         sonMise.play();
                                         sonCarte.play();
-                                        if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
-                                        {
-                                            switch(choixNiv)
-                                            {
-                                                case 1:
-                                                    jeu.actionAmateur();
-                                                    break;
-                                                case 2:
-                                                    jeu.actionIntermediaire();
-                                                    break;
-                                                case 3:
-                                                    jeu.actionExpert();
-                                                    break;
-                                            }
-                                            jeu.actionCroupier();
-                                            sonCarte.play();
-                                            finManche=1;
-                                            for(unsigned int i=1; i<jeu.tabJoueur.size();i++)
-                                            {
-                                                jeu.resultat(i);
-                                            }
-                                            res = jeu.resultat(0);
-                                            switch(res)
-                                            {
-                                                case 0:
-                                                    sonPerdu.play(); // si on a perdu on joue le sonPerdu
-                                                    break;
-                                                case 1:
-                                                    sonMise.play(); // si on a égalité on joue le sonMise
-                                                    break;
-                                                case 2:
-                                                    sonGagne.play();// si on a gagné on joue le sonGagne
-                                                    break;
-                                                case 3:
-                                                    sonJackpot.play();// si on a blackjack on joue le sonJackpot
-                                                    break;
-                                            }
-                                        }
+                                        finPartie();
                                     }
                                     else if(sTirer.getGlobalBounds().contains(x,y))  //on appuie sur le bouton tirer
                                     {
                                         jeu.actionClavier('t');    //on tire
                                         sonCarte.play();
-                                        if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
-                                        {
-                                            switch(choixNiv)
-                                            {
-                                                case 1:
-                                                    jeu.actionAmateur();
-                                                    break;
-                                                case 2:
-                                                    jeu.actionIntermediaire();
-                                                    break;
-                                                case 3:
-                                                    jeu.actionExpert();
-                                                    break;
-                                            }
-                                            jeu.actionCroupier();
-                                            sonCarte.play();
-                                            finManche=1;
-                                            for(unsigned int i=1; i<jeu.tabJoueur.size();i++)
-                                            {
-                                                jeu.resultat(i);
-                                            }
-                                            res = jeu.resultat(0);
-                                            switch(res)
-                                            {
-                                                case 0:
-                                                    sonPerdu.play(); // si on a perdu on joue le sonPerdu
-                                                    break;
-                                                case 1:
-                                                    sonMise.play(); // si on a égalité on joue le sonMise
-                                                    break;
-                                                case 2:
-                                                    sonGagne.play();// si on a gagné on joue le sonGagne
-                                                    break;
-                                                case 3:
-                                                    sonJackpot.play();// si on a blackjack on joue le sonJackpot
-                                                    break;
-                                            }
-                                        }
+                                        finPartie();
                                     }
                                     else if(sRester.getGlobalBounds().contains(x,y))  //on appuie sur le bouton rester
                                     {
                                         jeu.actionClavier('r'); 
-                                        if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
-                                        {
-                                            switch(choixNiv)
-                                            {
-                                                case 1:
-                                                    jeu.actionAmateur();
-                                                    break;
-                                                case 2:
-                                                    jeu.actionIntermediaire();
-                                                    break;
-                                                case 3:
-                                                    jeu.actionExpert();
-                                                    break;
-                                            }
-                                            jeu.actionCroupier();
-                                            sonCarte.play();
-                                            finManche=1;
-                                            for(unsigned int i=1; i<jeu.tabJoueur.size();i++)
-                                            {
-                                                jeu.resultat(i);
-                                            }
-                                            res = jeu.resultat(0);
-                                            switch(res)
-                                            {
-                                                case 0:
-                                                    sonPerdu.play(); // si on a perdu on joue le sonPerdu
-                                                    break;
-                                                case 1:
-                                                    sonMise.play(); // si on a égalité on joue le sonMise
-                                                    break;
-                                                case 2:
-                                                    sonGagne.play();// si on a gagné on joue le sonGagne
-                                                    break;
-                                                case 3:
-                                                    sonJackpot.play();// si on a blackjack on joue le sonJackpot
-                                                    break;
-                                            }
-                                        } 
+                                        finPartie();
                                     }
                                     else if(sChanger.getGlobalBounds().contains(x,y))  //on appuie sur le bouton rester
                                     {
                                         jeu.actionClavier('c'); //on change
                                         sonMise.play();
                                         sonCarte.play();
-                                        if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
-                                        {
-                                            switch(choixNiv)
-                                            {
-                                                case 1:
-                                                    jeu.actionAmateur();
-                                                    break;
-                                                case 2:
-                                                    jeu.actionIntermediaire();
-                                                    break;
-                                                case 3:
-                                                    jeu.actionExpert();
-                                                    break;
-                                            }
-                                            jeu.actionCroupier();
-                                            sonCarte.play();
-                                            finManche=1;
-                                            for(unsigned int i=1; i<jeu.tabJoueur.size();i++)
-                                            {
-                                                jeu.resultat(i);
-                                            }
-                                            res = jeu.resultat(0);
-                                            switch(res)
-                                            {
-                                                case 0:
-                                                    sonPerdu.play(); // si on a perdu on joue le sonPerdu
-                                                    break;
-                                                case 1:
-                                                    sonMise.play(); // si on a égalité on joue le sonMise
-                                                    break;
-                                                case 2:
-                                                    sonGagne.play();// si on a gagné on joue le sonGagne
-                                                    break;
-                                                case 3:
-                                                    sonJackpot.play();// si on a blackjack on joue le sonJackpot
-                                                    break;
-                                            }
-                                        } 
+                                        finPartie();
                                     }
                                 }
                                 break;

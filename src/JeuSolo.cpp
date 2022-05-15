@@ -11,7 +11,7 @@
 
 using namespace std;
 
-Jeu::Jeu():unDeck(),joueurSolo("JoueurSOLO", 0, 2000)
+Jeu::Jeu():joueurSolo("JoueurSOLO", 0, 2000),unDeck()
 {
 	unDeck.initDeck();
 	unDeck.melangerDeck();

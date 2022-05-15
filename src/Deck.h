@@ -63,7 +63,7 @@ class Deck
 
 
     /**
-    * @brief Destructeur de Deck.
+    * @brief Destructeur de Deck
     */
     ~Deck();
 
