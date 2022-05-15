@@ -1,7 +1,7 @@
-#include "MultiSfml.h"
+#include "JeuMultiSfml.h"
 #include <cassert>
 #include <time.h>
-#include "jeuSfml.h"
+#include "JeuSoloSfml.h"
 #include <stdlib.h>
 #include <iostream>
 #include <string.h>
@@ -805,7 +805,7 @@ sfmlMulti::~sfmlMulti ()
 
 
 
-void sfmlMulti::afficherMainDeCarte(MainDeCarte mainJoueur, unsigned int x, unsigned int y)
+void sfmlMulti::afficherMainDeCarte(const MainDeCarte& mainJoueur, unsigned int x, unsigned int y)const 
 {
     unsigned int positionx = x;
     unsigned int positiony = y;

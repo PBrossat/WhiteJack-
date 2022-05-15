@@ -2,7 +2,7 @@
 #include <cassert>
 #include "Jeu.h"
 #include "Joueur.h"
-#include "winTxt.h"
+#include "WinTxt.h"
 
 using namespace std; 
 

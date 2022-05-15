@@ -5,7 +5,7 @@ using namespace std;
 #include "Jeu.h"
 
 void txtBoucle (Jeu& jeu);
-void afficherMainDeCarte(const MainDeCarte& mainJoueur);
+void afficherMainDeCarte(const MainDeCartes& mainJoueur);
 
 
 #endif

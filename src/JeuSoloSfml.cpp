@@ -1,6 +1,6 @@
 #include <cassert>
 #include <time.h>
-#include "jeuSfml.h"
+#include "JeuSoloSfml.h"
 #include <stdlib.h>
 #include <iostream>
 #include <string.h>

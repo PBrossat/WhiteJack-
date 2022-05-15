@@ -1,7 +1,7 @@
 #ifndef _SFMLJEU_H
 #define _SFMLJEU_H
 
-#include "Jeu.h"
+#include "JeuSolo.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>

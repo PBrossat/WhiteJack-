@@ -1,6 +1,6 @@
 ﻿#include <vector>
 #include <iostream> 
-#include "jeuMulti.h"
+#include "JeuMulti.h"
 #include "Joueur.h"
 #include "Deck.h"
 #include <time.h> 

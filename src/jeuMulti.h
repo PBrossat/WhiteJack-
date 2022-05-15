@@ -1,11 +1,11 @@
 ﻿#ifndef JEUMULTI_H
 #define JEUMULTI_H
 #include <iostream>
-#include "MainDeCarte.h"
+#include "MainDeCartes.h"
 #include "Carte.h"
 #include "Deck.h"
 #include "Joueur.h"
-#include "Jeu.h"
+#include "JeuSolo.h"
 
 class jeuMulti{
     public : 
