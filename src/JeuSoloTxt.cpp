@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <cassert>
-#include "Jeu.h"
+#include "JeuSolo.h"
 #include "Joueur.h"
 #include "WinTxt.h"
 
@@ -57,7 +57,7 @@ ostream& operator << (ostream& flux, const Carte& carteAffichee)
 
 
 
-void afficherMainDeCarte(MainDeCarte mainJoueur)
+void afficherMainDeCarte(const MainDeCarte& mainJoueur)
 {
 
     for (unsigned int i=0; i<mainJoueur.getNbCartes(); i++)

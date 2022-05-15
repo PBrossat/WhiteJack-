@@ -2,11 +2,6 @@
 #define _MENUSFML_H
 #pragma once
 #include <iostream>
-<<<<<<< HEAD
-=======
-#include "JeuSolo.h"
-#include "JeuSoloSfml.h"
->>>>>>> 75c8c9bfb27bf39bdfeb8255b9a2277c50bad6fb
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
@@ -61,13 +56,14 @@ public :
     */ 
     void initMenu();
 
+    sf::RectangleShape rsRegle; 
+
 
 private :
 
     sf::RectangleShape rsFond;
     sf::Texture tFond;
     sf::Texture tRegle;
-    sf::RectangleShape rsRegle; 
     sf::SoundBuffer m1_soundbuffer;
     sf::SoundBuffer m2_soundbuffer;
     sf::Sound sonMise;

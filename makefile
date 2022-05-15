@@ -23,11 +23,11 @@ obj/JeuMultiSfml.o : src/JeuMultiSfml.h src/JeuMultiSfml.cpp src/JeuMulti.h src/
 
 
 
-bin/JeuSoloSfml : obj/mainJeuSoloSfml.o obj/JeuSoloSfml.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o 
-	g++ -g -Wall obj/mainJeuSoloSfml.o obj/JeuSoloSfml.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o -o bin/JeuSoloSfml -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio 
+bin/JeuSoloSfml : obj/mainJeuSoloSfml.o obj/JeuSoloSfml.o obj/JeuSolo.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o 
+	g++ -g -Wall obj/mainJeuSoloSfml.o obj/JeuSoloSfml.o obj/JeuSolo.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o -o bin/JeuSoloSfml -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio 
 
 obj/mainJeuSoloSfml.o : src/mainJeuSoloSfml.cpp src/JeuSoloSfml.h src/JeuSolo.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCartes.h 
-	g++ -g -Wall -c src/mainJeuSoloSfml.cpp -o obj/mainJeuSfml.o -I/usr/local/include/SFML
+	g++ -g -Wall -c src/mainJeuSoloSfml.cpp -o obj/mainJeuSoloSfml.o -I/usr/local/include/SFML
 
 obj/JeuSoloSfml.o : src/JeuSoloSfml.h src/JeuSoloSfml.cpp src/JeuSolo.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCartes.h 
 	g++ -g -Wall -c src/JeuSoloSfml.cpp -o obj/JeuSoloSfml.o -I/usr/local/include/SFML
@@ -62,7 +62,7 @@ obj/WinTxt.o : src/WinTxt.cpp src/WinTxt.h
 
 
 bin/JeuSolo : obj/mainTestJeuSolo.o obj/JeuSolo.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o
-	g++ -g -Wall obj/mainTestJeu.o obj/Jeu.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCarte.o -o bin/Jeu
+	g++ -g -Wall obj/mainTestJeuSolo.o obj/JeuSolo.o obj/Joueur.o obj/Carte.o obj/Deck.o obj/MainDeCartes.o -o bin/JeuSolo
 
 obj/mainTestJeuSolo.o : src/mainTestJeuSolo.cpp src/JeuSolo.h src/Joueur.h src/Carte.h src/Deck.h src/MainDeCartes.h
 	g++ -g -Wall -c src/mainTestJeuSolo.cpp -o obj/mainTestJeuSolo.o

@@ -126,7 +126,7 @@ unsigned int  Menu::boucleMenu()
 void Menu::dessiner(RenderWindow & fenetre)const 
 {
     fenetre.draw(rsFond);
-    for (unsigned int i=0; i<Max_menu_principal; i++)
+    for (unsigned int i=0; i<3; i++)
     {
         fenetre.draw(menu[i]);
     }
@@ -155,7 +155,7 @@ void Menu::monter()
 void Menu::descendre()
 {
 
-    if (menuPrincipalSelection+1<Max_menu_principal)
+    if (menuPrincipalSelection+1<3)
     {
         
         menu[menuPrincipalSelection].setFillColor(Color::White);

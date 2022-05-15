@@ -2,10 +2,10 @@
 #define JEUTXT_H
 using namespace std;
 
-#include "Jeu.h"
+#include "JeuSolo.h"
 
 void txtBoucle (Jeu& jeu);
-void afficherMainDeCarte(const MainDeCartes& mainJoueur);
+void afficherMainDeCarte(const MainDeCarte& mainJoueur);
 
 
 #endif

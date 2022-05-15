@@ -644,7 +644,7 @@ void jeuMulti::testRegression() const
 
     jeuMulti unJeuMulti(3); //3 signifie niveau=expert 
     assert (unJeuMulti.tabJoueur.size()==4); // taille =4
-    assert (unJeuMulti.tabJoueur[0].nom=="moi"); //test sur le joueur reel
+    assert (unJeuMulti.tabJoueur[0].nom=="Vous"); //test sur le joueur reel
     assert (unJeuMulti.tabJoueur[0].getNiveau()==0);
     assert (unJeuMulti.tabJoueur[0].getBudget()==2000);
     assert (unJeuMulti.tabJoueur[1].nom=="IA1");
@@ -684,8 +684,8 @@ void jeuMulti::testRegression() const
    
     for (unsigned int i=1; i<unJeuMulti2.tabJoueur.size(); i++)
     {
-        assert ((unJeuMulti2.tabJoueur[i].getMise()==100)||(unJeuMulti2.tabJoueur[i].getMise()==200)||(unJeuMulti2.tabJoueur[i].getMise()==300)||(unJeuMulti2.tabJoueur[i].getMise()==500)||(unJeuMulti2.tabJoueur[i].getMise()==1000));
-        //verification que les mises jouées sont valides (100 ou 200 ou 300 ou 500 ou 1000)
+        assert ((unJeuMulti2.tabJoueur[i].getMise()==1)||(unJeuMulti2.tabJoueur[i].getMise()==10)||(unJeuMulti2.tabJoueur[i].getMise()==100)||(unJeuMulti2.tabJoueur[i].getMise()==250)||(unJeuMulti2.tabJoueur[i].getMise()==500));
+        //verification que les mises jouées sont valides (1 ou 10 ou 100 ou 250 ou 500)
     }
     cout<<"Test de initialisationMiseMulti() OK"<<endl;
 

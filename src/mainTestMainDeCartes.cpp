@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include "MainDeCartesS.h"
+#include "MainDeCartes.h"
 
 using namespace std;
  

@@ -1,4 +1,4 @@
-#include "winTxt.h"
+#include "WinTxt.h"
 #include <stdlib.h>
 #include <stdio.h>
 

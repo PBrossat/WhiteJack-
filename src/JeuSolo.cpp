@@ -5,7 +5,7 @@
 #include <unistd.h>
 #endif 
 #include "WinTxt.h"
-#include "Jeu.h"
+#include "JeuSolo.h"
 #include "MainDeCartes.h"
 #include <cassert>
 
