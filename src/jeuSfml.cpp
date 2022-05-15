@@ -720,17 +720,17 @@ void sfmlJeu::sfmlInit() {
         sonJackpot.setVolume(20);
     }
 
-    if (!m4_soundbuffer.loadFromFile("data/winMoney.wav")) 
+    if (!m4_soundbuffer.loadFromFile("data/sonGagne.wav")) 
     {
-        cout << "Error data/winMoney.wav non found" << endl;
+        cout << "Error data/sonGagne.wav non found" << endl;
     }
     else {
         sonGagne.setBuffer(m4_soundbuffer);
     }
 
-    if (!m5_soundbuffer.loadFromFile("data/lose.wav")) 
+    if (!m5_soundbuffer.loadFromFile("data/sonPerdu.wav")) 
     {
-        cout << "Error data/lose.wav non found" << endl;
+        cout << "Error data/sonPerdu.wav non found" << endl;
     }
     else {
         sonPerdu.setBuffer(m5_soundbuffer);
@@ -753,8 +753,6 @@ sfmlJeu::~sfmlJeu ()
     if (window != NULL) delete window;
     window=NULL;
 }
-
-
 
 
 void sfmlJeu::afficherMainDeCarteCroupier(const MainDeCarte mainJoueur)const
