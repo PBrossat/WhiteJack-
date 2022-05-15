@@ -1,5 +1,5 @@
 ﻿#include "MenuSfml.h"
-#include "jeuSfml.h"
+#include "JeuSoloSfml.h"
 #include <SFML/Graphics.hpp>
 
 using namespace sf;
