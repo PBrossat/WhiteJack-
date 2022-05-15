@@ -57,7 +57,7 @@ ostream& operator << (ostream& flux, const Carte& carteAffichee)
 
 
 
-void afficherMainDeCarte(MainDeCartes mainJoueur)
+void afficherMainDeCarte(MainDeCarte mainJoueur)
 {
 
     for (unsigned int i=0; i<mainJoueur.getNbCartes(); i++)
