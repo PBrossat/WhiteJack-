@@ -23,60 +23,58 @@ unsigned int application::afficherRegles()
 {
     sf::View view(sf::Vector2f(1400/2.f, 375.f), sf::Vector2f(1400.f, 750.f));
     sf::RenderWindow * fenetre;
-		fenetre = new RenderWindow(VideoMode(1400,750), "Regle" , Style::Default);
-		while (fenetre->isOpen())
-		{
-			Event event; 
-        	while (fenetre->pollEvent(event))
-        	{
-				if (event.type == Event::Closed)   
-            	{
-                    fenetre->close();
-                    delete fenetre;
-                    fenetre=NULL;
-                    return 0;
-                }
-
-                if(event.type == Event::MouseButtonPressed)
+	fenetre = new RenderWindow(VideoMode(1400,750), "Regle" , Style::Default);
+	while (fenetre->isOpen())
+	{
+		Event event; 
+        while (fenetre->pollEvent(event))
+        {
+			if (event.type == Event::Closed)   
+            {
+                fenetre->close();
+                delete fenetre;
+                fenetre=NULL;
+                return 0;
+            }
+            if(event.type == Event::MouseButtonPressed)
+            {
+                if(event.key.code == Mouse::Left)
                 {
-                    if(event.key.code == Mouse::Left)
+                    float x = Mouse::getPosition(*fenetre).x;
+                    float y = Mouse::getPosition(*fenetre).y;
+                    if(sExit.getGlobalBounds().contains(x,y))
                     {
-                        float x = Mouse::getPosition(*fenetre).x;
-                        float y = Mouse::getPosition(*fenetre).y;
-
-                        if(sExit.getGlobalBounds().contains(x,y))
-                        {
-                            fenetre->close();
-                            delete fenetre;
-                            fenetre=NULL;
-                            return 1;
-                        }
+                        fenetre->close();
+                        delete fenetre;
+                        fenetre=NULL;
+                        return 1;
                     }
                 }
-				if (event.type == Event::MouseWheelScrolled)
+            }
+			if (event.type == Event::MouseWheelScrolled)
+			{
+				if(event.mouseWheelScroll.delta<0)
 				{
-					if(event.mouseWheelScroll.delta<0)
+					if(view.getCenter().y < menu.rsRegle.getSize().y-450)
 					{
-						if(view.getCenter().y < menu.rsRegle.getSize().y-450)
-						{
-							view.move(0, 100.f);
-							fenetre->setView(view);
-						}
+						view.move(0, 100.f);
+						fenetre->setView(view);
 					}
-					else if(event.mouseWheelScroll.delta>0)
+				}
+				else if(event.mouseWheelScroll.delta>0)
+				{
+					if(view.getCenter().y > 375)
 					{
-						if(view.getCenter().y > 375)
-						{
-							view.move(0, -100.f);
-							fenetre->setView(view);
-						}
+						view.move(0, -100.f);
+						fenetre->setView(view);
 					}
 				}
 			}
-			fenetre->draw(menu.rsRegle);
-            fenetre->draw(sExit);
-			fenetre->display();
 		}
+		fenetre->draw(menu.rsRegle);
+        fenetre->draw(sExit);
+		fenetre->display();
+	}
 }
 
 void application::boucleApplication()

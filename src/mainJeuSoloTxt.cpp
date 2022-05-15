@@ -1,6 +1,6 @@
 ﻿#include <iostream>
-#include "jeuTxt.h"
-#include "winTxt.h"
+#include "JeuSoloTxt.h"
+#include "WinTxt.h"
 
 using namespace std;
 

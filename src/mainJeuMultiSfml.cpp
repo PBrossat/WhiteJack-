@@ -1,4 +1,4 @@
-#include "MultiSfml.h"
+#include "JeuMultiSfml.h"
 
 using namespace std;
 

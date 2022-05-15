@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Jeu.h"
+#include "JeuSolo.h"
 
 using namespace std;
  

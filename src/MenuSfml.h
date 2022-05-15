@@ -1,9 +1,7 @@
-﻿#ifndef MENUSFML_H
-#define MENUSFML_H
+﻿#ifndef _MENUSFML_H
+#define _MENUSFML_H
 #pragma once
 #include <iostream>
-#include "Jeu.h"
-#include "jeuSfml.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
@@ -12,27 +10,10 @@ using namespace std;
 using namespace sf;
 
 
-//enlever variable globale et voir comment on libere le tab de texte appelé Menu
-
-
-#define Max_menu_principal 3
-
 class Menu 
 {
 
 public :
-
-    
-    sf::RectangleShape rsFond;
-    sf::Texture tFond;
-    sf::Texture tRegle;
-    sf::RectangleShape rsRegle; 
-    sf::SoundBuffer m1_soundbuffer;
-    sf::SoundBuffer m2_soundbuffer;
-    sf::Sound sonMise;
-    sf::Sound sonAmbiance;
-
-
 
     /**
     * @brief Constructeur sans paramètres de Menu.
@@ -52,47 +33,6 @@ public :
     ~Menu();
 
 
-
-    /**
-    * @brief Procédure permettant d'afficher le menu
-    * @return void
-    * @param[in out] window la fenetre 
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * unMenu.dessiner(window);
-    * @endcode
-    */   
-    void dessiner (RenderWindow& window)const ;
-
-
-
-    /**
-    * @brief Procédure permettant de "monter" avec les flèches du clavier dans le menu
-    * @return void
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * unMenu.monter();
-    * @endcode
-    */   
-    void monter();
-
-
-
-    /**
-    * @brief Procédure permettant de "descendre" avec les flèches du clavier dans le menu
-    * @return void
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * unMenu.descendre();
-    * @endcode
-    */  
-    void descendre();
-
-
-
     /**
     * @brief Procédure permettant de faire tourner la boucle du menu
     * @return void
@@ -103,21 +43,6 @@ public :
     * @endcode
     */  
     unsigned int boucleMenu();
-
-
-    /**
-    * @brief fonction permettant de renvoyer la selection du joueur 
-    * @return void
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * unMenu.menuPrincipalAppuyer();
-    * @endcode
-    */      
-    int menuPrincipalAppuyer()
-    {
-        return menuPrincipalSelection;
-    }
 
 
     /**
@@ -132,8 +57,16 @@ public :
     void initMenu();
 
 
-
 private :
+
+    sf::RectangleShape rsFond;
+    sf::Texture tFond;
+    sf::Texture tRegle;
+    sf::RectangleShape rsRegle; 
+    sf::SoundBuffer m1_soundbuffer;
+    sf::SoundBuffer m2_soundbuffer;
+    sf::Sound sonMise;
+    sf::Sound sonAmbiance;
 
     //la selection du joueur 
     int menuPrincipalSelection;
@@ -141,9 +74,22 @@ private :
     // la police utilisée
     Font police;
 
+    Text menu[3];
 
-    Text menu[Max_menu_principal];
+    //Fonction permettant de renvoyer la selection du joueur      
+    int menuPrincipalAppuyer()
+    {
+        return menuPrincipalSelection;
+    }
 
+    //Procédure permettant de "descendre" avec les flèches du clavier dans le menu 
+    void descendre();
+
+    //Procédure permettant de "monter" avec les flèches du clavier dans le menu 
+    void monter();
+
+    //Procédure permettant d'afficher le menu 
+    void dessiner (RenderWindow& window)const ;
 
 };
 #endif

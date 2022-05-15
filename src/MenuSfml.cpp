@@ -1,6 +1,6 @@
 ﻿#include "MenuSfml.h"
 #include <iostream>
-#include "jeuSfml.h"
+#include "JeuSoloSfml.h"
 using namespace std;
 
 
