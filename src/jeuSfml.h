@@ -16,6 +16,11 @@ class sfmlJeu {
 private :
 
 	Jeu jeu;
+    unsigned int dimx;
+    unsigned int dimy;
+    bool actionMiser;
+    bool finJeu;
+    unsigned int res;
 	sf::RenderWindow * window;
 
     sf::Texture t1deCoeur;
@@ -100,10 +105,6 @@ private :
     sf::Texture tEgalite;
     sf::Texture tExit;
     
-  
-
-
-
     sf::Sprite s1deCoeur;
     sf::Sprite s1deCarreau;
     sf::Sprite s1dePiques;
@@ -187,14 +188,6 @@ private :
 
     sf::RectangleShape rsFond;
 
-    unsigned int dimx;
-    unsigned int dimy;
-
-    bool actionMiser;
-    bool finJeu;
-
-    unsigned int res;
-
     sf::Font m1_font;
     sf::Font m2_font;
     sf::Text txtScoreJoueur;
@@ -212,11 +205,24 @@ private :
     sf::Sound sonJackpot;
     sf::Sound sonGagne;
     sf::Sound sonPerdu;
+
+    //Procédure permettant d'afficher à l'écran la main du joueur  
+    void afficherMainDeCarteJoueur(const MainDeCarte mainJoueur)const ;
+
+    //Procédure permettant d'afficher à l'écran la main du croupier  
+    void afficherMainDeCarteCroupier(const MainDeCarte mainJoueur)const;
+
+    //Procédure permettant d'initialiser la partie une fois que le joueur a misé  
+    void initPartie();
+
+    //Procédure permettant d'afficher les scores ainsi que la mise du joueur
+    void affichageScoreMise();
+
+    //Procédure permettant de gérer la fin d'une partie dès que le joueur a terminé de jouer  
+    void finPartie();
     
 
 public :
-
-
 
     /**
     * @brief Constructeur sans paramètres de sfmlJeu.
@@ -228,41 +234,10 @@ public :
     */
     sfmlJeu ();
 
-
-
     /**
     * @brief Destructeur de sfmlJeu.
     */
     ~sfmlJeu ();
-
-
-    /**
-    * @brief Procédure permettant d'afficher à l'écran la main du joueur
-    * @return void
-    * @param[in] mainJoueur : la main du joueur 
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * unJeuSfml.afficherMainDeCarteJoueur(mainJoueur1);
-    * @endcode
-    */   
-    void afficherMainDeCarteJoueur(const MainDeCarte mainJoueur)const ;
-
-
-
-    /**
-    * @brief Procédure permettant d'afficher à l'écran la main du croupier
-    * @return void
-    * @param[in] mainJoueur : la main du croupier 
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * unJeuSfml.afficherMainDeCarteCroupier(mainCroupier);
-    * @endcode
-    */   
-    void afficherMainDeCarteCroupier(const MainDeCarte mainJoueur)const;
-
-
 
     /**
     * @brief Procédure permettant d'initialiser toute les images, son et polices utilisées
@@ -275,8 +250,6 @@ public :
     */   
     void sfmlInit();
 
-
-
     /**
     * @brief Procédure permettant de faire tourner la boucle du jeu 
     * @return unsigned int
@@ -287,8 +260,6 @@ public :
     * @endcode
     */     
     unsigned int sfmlBoucle();
-
-
 
     /**
     * @brief Procédure permettant d'afficher toute les images à l'écran
