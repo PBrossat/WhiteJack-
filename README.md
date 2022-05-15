@@ -220,32 +220,32 @@ Le projet permet de créer onze exécutables. Le principal étant bin/Appli.
 	Pour le lancer :
 		~/whitejack$ ./bin/MenuSfml
 
-## bin/MultiSfml: 
+## bin/JeuMultiSfml: 
     Cet exécutable permet de lancer le jeu graphique en mode multijoueur sans passer par le menu.
 
 	Pour le lancer :
 		~/whitejack$ ./bin/MultiSfml
 
-## bin/jeuSfml : 
+## bin/JeuSoloSfml : 
     Cet exécutable permet de lancer le jeu graphique en mode solo sans passer par le menu.
 
 	Pour le lancer :
 		~/whitejack$ ./bin/jeuSfml
 
-## bin/JeuTxt :
+## bin/JeuSoloTxt :
     Cet exécutable permet de lancer le jeu texte en mode solo.
 
     Pour le lancer :
 		~/whitejack$ ./bin/JeuTxt
 
 
-## bin/jeuMulti : 
+## bin/JeuMulti : 
     Cet exécutable permet de lancer la procédure testRegression() de la classe jeuMulti afin de faire passer une multitude de tests et   s'assurer que les fonctions de la classe fonctionnent correctement.
 
     Pour le lancer :
 		~/whitejack$ ./bin/jeuMulti
 
-## bin/MainDeCarte : 
+## bin/MainDeCartes : 
     Cet exécutable permet de lancer la procédure testRegression() de la classe MainDeCarte afin de faire passer une multitude de tests et s'assurer que les fonctions de la classe fonctionnent correctement
 
     Pour le lancer :
@@ -257,7 +257,7 @@ Le projet permet de créer onze exécutables. Le principal étant bin/Appli.
     Pour le lancer :
 		~/whitejack$ ./bin/Joueur
 
-## bin/Jeu : 
+## bin/JeuSolo : 
     Cet exécutable permet de lancer la procédure testRegression() de la classe Jeu afin de faire passer une multitude de tests et s'assurer que les fonctions de la classe fonctionnent correctement
 
     Pour le lancer :
