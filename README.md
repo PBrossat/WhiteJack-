@@ -16,6 +16,48 @@
     Le but, dans ce mode, est d'être le dernier en lice apres les 9 manches de la partie. En effet, toute les 3 manches, le joueur ayant le moins d'argent est éliminé de la partie. Vous êtes aussi éliminé de la partie si vous n'avez plus d'argent. 
     Pour créer cette application nous utiliserons la programmation modulaire grâce à de nombreuse classes. 
 
+# Règles du jeu : 
+
+Le blackjack est un jeu de cartes joué dans les casinos où l’objectif est de gagner de l’argent en faisant des mises au début de chaque partie. Ce jeu se joue avec des jeux de cartes habituels où chaque carte représente un certain nombre de points (entre 1 et 11) 
+et le but est d’avoir un score le plus proche possible de 21 sans jamais pour autant dépassé cette limite mais tout en ayant un meilleur score que le croupier, la personne distribuant les cartes et représentant le casino. 
+Si jamais le score du joueur dépasse 21 (score cumulé des cartes), le joueur est déclaré automatiquement perdant (on dit que le joueur crame). Au début d’une nouvelle partie, les joueurs décident de l’argent qu’ils misent puis le croupier distribue deux cartes face visible à chaque joueur en lice et se distribue également une carte face visible et une autre face cachée. Le premier à jouer est celui à qui le croupier a donné la première carte.
+
+Selon son jeu, un joueur peut effectuer diverses actions :
+    • Tirer : demander une nouvelle carte (tant que son score ne dépasse pas 21)
+    • Doubler : demander une et une seule nouvelle carte (impossible de tirer par la suite) et doubler sa mise de départ (il n’est possible de doubler que lors de sa première action)
+    • Changer : permet de changer sa deuxième carte par une autre et doubler sa mise de départ. Ceci n’est possible que si vous obtenez deux cartes d’une même valeur.
+    • Rester : le joueur décide de garder son jeu tel qu’il est (c’est alors au tour des autres joueurs)
+    • Se coucher : le joueur décide d’arrêter de jouer pour cette partie (il récupère alors la moitié de sa
+    mise de départ et c’est ensuite aux autres joueurs de jouer)
+
+Une fois que tous les joueurs ont fini de jouer, c’est au tour de croupier. Ce dernier retourne sa carte face
+cachée et si son score est inférieur à 17 alors il est contraint à tirer une autre carte, et ce jusqu’à ce qu’on
+son score soit supérieur ou égal à 17.
+Lorsque le croupier a fini de jouer à son tour, la partie se termine et vient le moment des résultats :
+    • Un joueur avec un score inférieur à celui du croupier, ou supérieur à 21 perd sa mise de départ
+    • Un joueur ayant le même résultat que la banque (inférieur à 21) récupère sa mise de départ
+    • Un joueur avec un score de 21 en deux cartes, c’est-à-dire un Blackjack, récupère 2,5 fois sa mise
+    de départ
+    • Un joueur ayant un score supérieur à celui du croupier et inférieur ou égal à 21 (sans Blackjack)
+    récupère deux fois sa mise de départ
+    • Si le croupier a un score supérieur à 21, les joueurs encore en lice (avec un score inférieur ou égal à
+    21) récupère deux fois leur mise de départ.
+
+Mode Solo :
+
+En ce qui concerne le mode solo, il s’agira d’un mode tout à fait ordinaire, avec les règles originelles. Le joueur sera tout seul autour de la table avec le croupier. 
+
+Mode Multijoueur (contre IA) :
+
+Pour ce qui est du mode multijoueur, l’idée est que le joueur joue contre la banque, c’est-à-dire le croupier, mais aussi contre d’autres joueurs, ceux-ci sont fictifs dans notre cas (IA).
+En fait, l’objectif principal de ce mode multijoueur est d’être le dernier joueur en lice contre la banque. Au début d’une partie, le joueur se retrouve à une table avec également trois autres joueurs fictifs avec le même budget qu’eux.
+L’idée est qu’au bout de trois manches, le joueur avec le moins d’argent se fasse éliminer. Ainsi, en répétant ce processus, le joueur gagnant sera celui avec le plus de budget lors de la dernière manche, c’est-à-dire la neuvième. 
+Si un joueur perd la totalité de son budget, ce dernier se retrouve automatiquement éliminer de la table.
+Les IA auront un niveau que vous choisirez. 
+    • Amateur : l’IA se contente de tirer et rester, elle joue de manière très simple (sans doubler, changer, …)
+    • Intermédiaire : le niveau de l’IA se situe entre amateur et expert 
+    • Expert : l’IA joue exactement les coups préconisés afin d’avoir une probabilité de victoires et donc de gains la plus optimale possible grâce au tableau 
+
 
 # Installation de WSL si votre machine tourne sous Windows :
 
@@ -127,18 +169,18 @@ Pour mettre à jour la documentation doxygen, utiliser la commande make suivante
 	│  ├─ Carte.cpp
 	│  ├─ Deck.h
 	│  ├─ Deck.cpp
-	│  ├─ Jeu.h
-	│  ├─ Jeu.cpp
-	│  ├─ jeuMulti.h
-    │  ├─ jeuMulti.cpp
-    │  ├─ jeuSfml.h
-    │  ├─ jeuSfml.cpp
-    │  ├─ jeuTxt.h
-    │  ├─ jeuTxt.cpp
+	│  ├─ JeuSolo.h
+	│  ├─ JeuSolo.cpp
+	│  ├─ JeuMulti.h
+    │  ├─ JeuMulti.cpp
+    │  ├─ JeuSoloSfml.h
+    │  ├─ JeuSoloSfml.cpp
+    │  ├─ JeuSoloTxt.h
+    │  ├─ JeuSoloTxt.cpp
     │  ├─ Joueur.h
     │  ├─ Joueur.cpp
-    │  ├─ MainDeCarte.h
-    │  ├─ MainDeCarte.cpp
+    │  ├─ MainDeCartes.h
+    │  ├─ MainDeCartes.cpp
     │  ├─ mainJeuMultiSfml.cpp
     │  ├─ mainJeuSfml.cpp
     │  ├─ mainJeuTxt.cpp
@@ -148,13 +190,13 @@ Pour mettre à jour la documentation doxygen, utiliser la commande make suivante
     │  ├─ mainTestJeu.cpp
     │  ├─ mainTestJeuMulti.cpp
     │  ├─ mainTestJoueur.cpp
-    │  ├─ mainTestMainDeCarte.cpp
+    │  ├─ mainTestMainDeCartes.cpp
     │  ├─ MenuSfml.cpp
     │  ├─ MenuSfml.h
-    │  ├─ MultiSfml.cpp
-    │  ├─ MultiSfml.h
-    │  ├─ application.h
-    │  ├─ application.cpp
+    │  ├─ JeuMultiSfml.cpp
+    │  ├─ JeuMultiSfml.h
+    │  ├─ Application.h
+    │  ├─ Application.cpp
 
 - Les fichiers sources (.h et .cpp) sont placés dans le dossier src
 - Les images, sons et polices seront toujours placées dans le dossier data
