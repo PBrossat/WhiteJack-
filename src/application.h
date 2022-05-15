@@ -1,9 +1,9 @@
 #ifndef _APPLICATION_H
 #define _APPLICATION_H
 
-#include "jeuSfml.h"
+#include "JeuSoloSfml.h"
 #include "MenuSfml.h"
-#include "MultiSfml.h"
+#include "JeuMultiSfml.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
