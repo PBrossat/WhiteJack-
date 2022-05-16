@@ -114,7 +114,8 @@ class Carte
 
     /**
     * @brief Surcharge de l'opérateur = pour l'affectation
-    * @param[in,out] operandeDroite carte que l'on désire affectée à la carte à gauche du = (attention : en mode donnée/résultat mais CONST)
+    * @param[in,out] operandeDroite carte que l'on désire affectée à la carte à gauche du = 
+    * (attention : en mode donnée/résultat mais CONST)
     * @return Carte& 
     * 
     * Exemple d'utilisation :
@@ -130,7 +131,8 @@ class Carte
 
     /**
     * @brief Surcharge de l'opérateur == pour tester l'égalité entre deux cartes (mêmes valeur et rang seulement)
-    * @param[in,out] operandeDroite carte que l'on désire comparée à la carte à gauche du == (attention : en mode donnée/résultat mais CONST)
+    * @param[in,out] operandeDroite carte que l'on désire comparée à la carte à gauche du == 
+    * (attention : en mode donnée/résultat mais CONST)
     * @return bool 
     * 
     * Exemple d'utilisation :

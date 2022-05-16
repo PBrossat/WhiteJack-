@@ -60,8 +60,6 @@ class Application{
 
         private :
 
-
-
         Menu menu;
         unsigned int choixMenu;
         unsigned int choixRetour;

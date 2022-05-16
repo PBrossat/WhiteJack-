@@ -85,7 +85,9 @@ void Deck::testRegression() const
   unDeck.melangerDeck();
   bool taille = (unDeck.deck.size()==AvantMelange.size());
   assert(taille);
-  bool egaux = ((unDeck.deck[0]==AvantMelange[0]) && (unDeck.deck[1]==AvantMelange[1]) && (unDeck.deck[2]==AvantMelange[2]) && (unDeck.deck[3]==AvantMelange[3]) && (unDeck.deck[4]==AvantMelange[4])); //POUR L'INSTANT J'AI PAS DE MEILLEURES MOYENS DE TESTER == 
+  bool egaux = ((unDeck.deck[0]==AvantMelange[0]) && (unDeck.deck[1]==AvantMelange[1]) 
+  && (unDeck.deck[2]==AvantMelange[2]) && (unDeck.deck[3]==AvantMelange[3]) 
+  && (unDeck.deck[4]==AvantMelange[4])); 
   assert(!egaux);
   cout<<"Deck mélangé OK "<<endl;
 
@@ -98,7 +100,7 @@ void Deck::testRegression() const
   assert(unDeck.deck.size()==((4*52)-1));
   cout<<"Distribution de cartes OK"<<endl;
 
-  //TESTER QUAND ON ARRIVE À LA FIN DU DECK ET QU'IL FAUT EN RECREER UN POUR DISTRIBUER
+
 
   for(unsigned int i=0; i<=208; i++)
   {

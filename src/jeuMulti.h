@@ -17,10 +17,12 @@ class JeuMulti{
     vector<Joueur>tabJoueur;
 
 
+
     /**
     * @brief La main de carte du croupier
     */
 	MainDeCartes mainCroupier;
+
 
 
     /**
@@ -28,11 +30,14 @@ class JeuMulti{
     */
     unsigned int nbManches;
 
+
+
     /**
     @brief Le nombre de joueur encore présents
     */
     unsigned int nbJoueurs;
-    
+
+
 
     /**
      * @brief Procédure permettant de gérer automatiquement les actions du croupier 
@@ -44,6 +49,7 @@ class JeuMulti{
      * @endcode
     */
 	void actionCroupier();
+
 
 
     /**
@@ -60,6 +66,7 @@ class JeuMulti{
 	void remplirJoueurs(unsigned int NiveauJoueur);
 
 
+
     /**
     * @brief Constructeur sans paramètres de JeuMulti.
     * 
@@ -71,10 +78,13 @@ class JeuMulti{
     */
     JeuMulti ();
 
+
+
     /**
     * @brief Destructeur de JeuMulti.
     */
     ~JeuMulti();
+
 
 
     /**
@@ -94,7 +104,8 @@ class JeuMulti{
 
 
     /**
-    * @brief Procédure permettant d'éliminer un joueur soit si il n'a plus d'argent, soit si il a le moins d'argent à la partie 3, 6 ou 9.
+    * @brief Procédure permettant d'éliminer un joueur soit si il n'a plus d'argent,
+    * soit si il a le moins d'argent à la partie 3, 6 ou 9.
     * @return void
     * 
     * Exemple d'utilisation :
@@ -105,8 +116,10 @@ class JeuMulti{
     void eliminationJoueur();
 
 
+
     /**
-     * @brief Fonction permettant de déterminer les gains du joueur et renvoyant un entier déterminant le résultat (gagné,perdu,blackjack...)
+     * @brief Fonction permettant de déterminer les gains du joueur et renvoyant un entier 
+     * déterminant le résultat (gagné,perdu,blackjack...)
      * @param[in] indiceJoueur : l'indice du joueur pour lequel on veut obtenir le résultat
      * @return unsigned int : 0 pour perdu, 1 pour égalité, 2 pour gagné, 3 pour blackjack
      * 
@@ -119,8 +132,10 @@ class JeuMulti{
 	unsigned int resultat(unsigned int indiceJoueur); 
 
 
+
     /**
-    * @brief Procédure permettant de faire miser aléaoirement les IA, celles-ci peuvent miser les mises suivantes: 100, 200, 300, 500 ou 1000.
+    * @brief Procédure permettant de faire miser aléaoirement les IA, celles-ci peuvent miser les mises suivantes: 
+    * 100, 200, 300, 500 ou 1000.
     * @return void
     * 
     * Exemple d'utilisation :
@@ -129,6 +144,7 @@ class JeuMulti{
     * @endcode
     */
     void initialisationMiseMulti();
+
 
 
     /**
@@ -145,8 +161,10 @@ class JeuMulti{
     void initialisationMise(const char touche);
 
 
+
     /**
-    * @brief Procédure permettant de distribuer 2 cartes aux joueurs (le joueur physique derrière son écran et les IA) et 1 carte au croupier.
+    * @brief Procédure permettant de distribuer 2 cartes aux joueurs (le joueur physique derrière son écran et les IA)
+    * et 1 carte au croupier.
     * @return void
     * 
     * Exemple d'utilisation :
@@ -155,6 +173,8 @@ class JeuMulti{
     * @endcode
     */
     void initialisationJeuMulti();
+
+
 
     /**
      * @brief Procédure permettant d'adapter les actions suivant les touches pressées par l'utilisateur
@@ -170,6 +190,7 @@ class JeuMulti{
 	void actionClavier(const char touche);
 
 
+
     /**
     * @brief Procédure permettant d'effectuer les actions des IAs si NiveauJoueur est égal à 3.
     * @return void
@@ -180,6 +201,7 @@ class JeuMulti{
     * @endcode
     */   
     void actionExpert();
+
 
 
     /**
@@ -193,6 +215,8 @@ class JeuMulti{
     */   
     void actionIntermediaire();
 
+
+
     /**
     * @brief Procédure permettant d'effectuer les actions des IAs si NiveauJoueur est égal à 1. 
     * @return void
@@ -203,6 +227,7 @@ class JeuMulti{
     * @endcode
     */   
     void actionAmateur();
+
 
 
     /**
@@ -221,6 +246,7 @@ class JeuMulti{
     void actionIA(unsigned int NiveauJoueur);
 
 
+
     /**
      * @brief Procédure permettant de réinitialiser les mains de cartes des joueurs et du croupier 
      * @return void
@@ -232,6 +258,7 @@ class JeuMulti{
      * @warning À faire à chaque fin de partie
     */ 
 	void finManche();
+
 
 
     /**
@@ -246,7 +273,10 @@ class JeuMulti{
     void testRegression() const; 
 
 
+
     private:
+
+
 
     //Le niveau choisi au hasard dans la fonction actionIntermediaire().
     unsigned int nvHasard;
