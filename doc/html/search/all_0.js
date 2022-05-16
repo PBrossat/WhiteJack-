@@ -9,6 +9,11 @@ var searchData=
   ['affichermaindecarte_6',['afficherMainDeCarte',['../_jeu_solo_txt_8cpp.html#a2ddef95e802acd23d56a0dad039f4e69',1,'afficherMainDeCarte(const MainDeCarte &amp;mainJoueur):&#160;JeuSoloTxt.cpp'],['../_jeu_solo_txt_8h.html#a2ddef95e802acd23d56a0dad039f4e69',1,'afficherMainDeCarte(const MainDeCarte &amp;mainJoueur):&#160;JeuSoloTxt.cpp']]],
   ['afficherregles_7',['afficherRegles',['../classapplication.html#af81646376fc4f73b2cf7a867dbf6d877',1,'application']]],
   ['application_8',['application',['../classapplication.html',1,'application'],['../classapplication.html#af51a5270dca753573be6880d06bc7ed3',1,'application::application()']]],
+<<<<<<< HEAD
   ['application_2ecpp_9',['application.cpp',['../application_8cpp.html',1,'']]],
   ['application_2eh_10',['application.h',['../application_8h.html',1,'']]]
+=======
+  ['application_2ecpp_9',['Application.cpp',['../_application_8cpp.html',1,'']]],
+  ['application_2eh_10',['Application.h',['../_application_8h.html',1,'']]]
+>>>>>>> 7770350052e1251c79029e7e901cdd5d9aa6b644
 ];
