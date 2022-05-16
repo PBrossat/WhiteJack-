@@ -28,10 +28,13 @@ Joueur::Joueur(string nomJ, unsigned int nivJoueur, float budgetJ)
 	mise=0;
 }
 
+
+
 bool Joueur::testArgentJoueur() const
 {
 	return (budget>0);
 }
+
 
 
 float Joueur::getBudget() const
@@ -45,6 +48,8 @@ float Joueur::getBudget() const
 		return 0;
 	}
 }
+
+
 
 void Joueur::setBudget(float gain)
 {
@@ -70,7 +75,6 @@ unsigned int Joueur::getNiveau() const
 
 
 
-
 void Joueur::miser(unsigned int mise)
 {
 	assert(mise<=budget);
@@ -79,12 +83,12 @@ void Joueur::miser(unsigned int mise)
 
 
 
-
  float Joueur::getGain() const
  {
 	 assert(gain>=0);
 	return gain; 
  }
+
 
 
 void Joueur::setGain(float Gain)
@@ -100,6 +104,7 @@ unsigned int Joueur::getMise() const
 }
 
 
+
 void Joueur::setMise(unsigned int Mise)
 {
 	mise=Mise;
@@ -111,10 +116,20 @@ void Joueur::testRegression() const
 {
 	cout<<endl;
 
+	Joueur sansParam;
+	assert(sansParam.nom==" ");
+	assert(sansParam.niveauJoueur == 0);
+	assert(sansParam.budget == 0);
+	assert(sansParam.gain== 0);
+	assert(sansParam.mise == 0);
+	cout<<"Constructeur sans paramètres OK"<<endl;
+
 	Joueur unJoueur("Kirikou", 2, 10000);
 	assert(unJoueur.nom=="Kirikou");
 	assert(unJoueur.niveauJoueur == 2);
 	assert(unJoueur.budget == 10000);
+	assert(unJoueur.gain== 0);
+	assert(unJoueur.mise == 0);
 	cout<<"Constructeur avec paramètres OK"<<endl;
 
 	unJoueur.setBudget(-1000);

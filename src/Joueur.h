@@ -97,6 +97,7 @@ class Joueur
     void setBudget(float gain);
 
 
+
     /**
      * @brief Accesseur du niveau de joueur 
      * @return unsigned int 

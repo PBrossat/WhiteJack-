@@ -1,20 +1,10 @@
 var searchData=
 [
-<<<<<<< HEAD
-  ['_7eapplication_116',['~application',['../classapplication.html#a545079c32aa55c781531c23380f05d47',1,'application']]],
-  ['_7edeck_117',['~Deck',['../class_deck.html#a7d1331cc558c302fdf44e5ae8aae1a95',1,'Deck']]],
-  ['_7ejeumulti_118',['~jeuMulti',['../classjeu_multi.html#ad088f7f4a827aa835a3b186d8907c754',1,'jeuMulti']]],
-  ['_7emaindecarte_119',['~MainDeCarte',['../class_main_de_carte.html#a58f90e6e1604cff3a0d51ebf5cebe9a9',1,'MainDeCarte']]],
-  ['_7emenu_120',['~Menu',['../class_menu.html#a831387f51358cfb88cd018e1777bc980',1,'Menu']]],
-  ['_7esfmljeu_121',['~sfmlJeu',['../classsfml_jeu.html#a22446d3645360d379b963471e85eb989',1,'sfmlJeu']]],
-  ['_7esfmlmulti_122',['~sfmlMulti',['../classsfml_multi.html#a359d80e19720e72554674219a8b20fed',1,'sfmlMulti']]]
-=======
-  ['_7eapplication_0',['~application',['../classapplication.html#a545079c32aa55c781531c23380f05d47',1,'application']]],
+  ['_7eapplication_0',['~Application',['../class_application.html#a748bca84fefb9c12661cfaa2f623748d',1,'Application']]],
   ['_7edeck_1',['~Deck',['../class_deck.html#a7d1331cc558c302fdf44e5ae8aae1a95',1,'Deck']]],
-  ['_7ejeumulti_2',['~jeuMulti',['../classjeu_multi.html#ad088f7f4a827aa835a3b186d8907c754',1,'jeuMulti']]],
-  ['_7emaindecarte_3',['~MainDeCarte',['../class_main_de_carte.html#a58f90e6e1604cff3a0d51ebf5cebe9a9',1,'MainDeCarte']]],
-  ['_7emenu_4',['~Menu',['../class_menu.html#a831387f51358cfb88cd018e1777bc980',1,'Menu']]],
-  ['_7esfmljeu_5',['~sfmlJeu',['../classsfml_jeu.html#a22446d3645360d379b963471e85eb989',1,'sfmlJeu']]],
-  ['_7esfmlmulti_6',['~sfmlMulti',['../classsfml_multi.html#a359d80e19720e72554674219a8b20fed',1,'sfmlMulti']]]
->>>>>>> 7770350052e1251c79029e7e901cdd5d9aa6b644
+  ['_7ejeumulti_2',['~JeuMulti',['../class_jeu_multi.html#aba1dfc3fad037330b2d2d0be5eae19fb',1,'JeuMulti']]],
+  ['_7ejeumultisfml_3',['~JeuMultiSfml',['../class_jeu_multi_sfml.html#a549117679ff2750f606472488aa8d5b1',1,'JeuMultiSfml']]],
+  ['_7ejeusolosfml_4',['~JeuSoloSfml',['../class_jeu_solo_sfml.html#a39fc289fc593963f6aa4ca2b38e814ca',1,'JeuSoloSfml']]],
+  ['_7emaindecartes_5',['~MainDeCartes',['../class_main_de_cartes.html#acb79cdbc471a8ce481b84abe0b2bb44a',1,'MainDeCartes']]],
+  ['_7emenu_6',['~Menu',['../class_menu.html#a831387f51358cfb88cd018e1777bc980',1,'Menu']]]
 ];

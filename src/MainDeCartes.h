@@ -36,10 +36,12 @@ class MainDeCartes
     MainDeCartes (const Carte& carte1, const Carte& carte2);
 
 
+
     /**
     * @brief Destructeur de MainDeCarte
     */
     ~MainDeCartes();
+
 
 
     /**
@@ -70,6 +72,7 @@ class MainDeCartes
     void doubler (const Carte& carteAjoutee);
 
 
+
     /**
      * @brief Permet d'echanger sa dernière carte avec une autre 
      * @param[in] carteAjoutee La carte à ajouter (mode donnée-résultat mais CONST)
@@ -95,7 +98,6 @@ class MainDeCartes
      * @endcode 
     */
     void rester ();
-
 
 
 
@@ -252,20 +254,20 @@ class MainDeCartes
     unsigned int sommeValeur;
 
 
+
     //tableau de Carte
     vector<Carte>mainDeJoueur;
+
 
 
     //nbCartes désigne le nombre de cartes qu'a le joueur dans sa main 
     unsigned int nbCartes;
 
 
-    // nbJeu désigne le nombre de jeux qu'a le joueur dans sa main
-    // unsigned int nbJeu; 
-
-
+    
     //Booléen permettant de savoir si le joueur joue encore.
     bool joueToujours;
+
 
 
     //Booléen permettant de savoir si la valeur de la somme de ses cartes est supérieur à 21 (0= pas cramé, 1= il a cramé).

@@ -6,11 +6,7 @@ using namespace sf;
 
 int main ()
 {
-
-
 	sf::View view(sf::Vector2f(1400/2.f, 375.f), sf::Vector2f(1400.f, 750.f));
-
-
 
     Menu menu;
 	menu.initMenu();

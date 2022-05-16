@@ -750,7 +750,10 @@ void JeuSoloSfml::sfmlInit() {
 
 JeuSoloSfml::~JeuSoloSfml () 
 {
-    if (window != NULL) delete window;
+    if (window != NULL) 
+    {
+        delete window;
+    }
     window=NULL;
 }
 
@@ -1369,7 +1372,6 @@ void JeuSoloSfml::sfmlAff()
 
     if(actionMiser==1)
     {
-
         afficherMainDeCarteCroupier(jeu.mainCroupier);
         afficherMainDeCarteJoueur(jeu.joueurSolo.mainJoueur);
         affichageScoreMise();
@@ -1398,7 +1400,8 @@ void JeuSoloSfml::sfmlAff()
             window->draw(sRester);
             sTirer.setPosition(dimx-100,dimy-160);
             window->draw(sTirer);
-            if((jeu.joueurSolo.mainJoueur.getNbCartes()==2) && (jeu.joueurSolo.getBudget()>=jeu.joueurSolo.getMise())) //si le joueur peut doubler (2 cartes et peut doubler sa mise)
+            //si le joueur peut doubler (2 cartes et peut doubler sa mise)
+            if((jeu.joueurSolo.mainJoueur.getNbCartes()==2) && (jeu.joueurSolo.getBudget()>=jeu.joueurSolo.getMise())) 
             {
                 sDoubler.setPosition(dimx-100,dimy-240);
                 window->draw(sDoubler);
@@ -1409,7 +1412,7 @@ void JeuSoloSfml::sfmlAff()
                     window->draw(sChanger);
                 }
             }
-            else    //on déplace le sprite de doubler hors de la fenetre pour s'assurer que le joueur ne puisse doubler ou changer
+            else   //on déplace le sprite de doubler hors de la fenetre pour s'assurer que le joueur ne puisse doubler ou changer
             {
                 sDoubler.setPosition(dimx+1,dimy+1);
                 sChanger.setPosition(dimx+1,dimy+1);

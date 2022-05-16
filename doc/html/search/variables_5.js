@@ -1,8 +1,4 @@
 var searchData=
 [
-<<<<<<< HEAD
-  ['tabjoueur_254',['tabJoueur',['../classjeu_multi.html#a3487194cf77b4807d0cdc5a946f38caa',1,'jeuMulti']]]
-=======
-  ['tabjoueur_0',['tabJoueur',['../classjeu_multi.html#a3487194cf77b4807d0cdc5a946f38caa',1,'jeuMulti']]]
->>>>>>> 7770350052e1251c79029e7e901cdd5d9aa6b644
+  ['tabjoueur_0',['tabJoueur',['../class_jeu_multi.html#ae86310b79fb95762d6f2aba6206c421c',1,'JeuMulti']]]
 ];

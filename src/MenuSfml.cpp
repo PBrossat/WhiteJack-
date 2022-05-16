@@ -29,7 +29,6 @@ Menu::Menu()
     menu[2].setCharacterSize(70);
     menu[2].setPosition(800, 500);
 
-
     menuPrincipalSelection= 0;
 }
 
@@ -57,62 +56,59 @@ unsigned int  Menu::boucleMenu()
             switch (evenement.type)
             {
                 case sf::Event::KeyReleased:
-
-                switch (evenement.key.code)
-                {
-                    case sf::Keyboard::Up:
-                    monter();
-                    break;
-
-                    case sf::Keyboard::Left:
-                    monter();
-                    break;
-
-                    case sf::Keyboard::Down:
-                    descendre();
-                    break;
-
-                    case sf::Keyboard::Right:
-                    descendre();
-                    break;
-
-                    case sf::Keyboard::Return:
-                    sonAmbiance.stop();
-                    sonMise.play();
-
-                    if(menuPrincipalAppuyer()==0) //choix joueur => jeu Solo 
+                    switch (evenement.key.code)
                     {
-                        fenetre->close();    //On ferme la fenetre du menu
-                        delete fenetre;
-                        fenetre=NULL;
-                        return 1; // on renvoie 1 
-                    }else if(menuPrincipalAppuyer()==1) //choix joueur => jeu Multi 
-                    {
-                        cout<<"Jeu Multi selectionné"<<endl;
-                        fenetre->close();    //On ferme la fenetre du menu
-                        delete fenetre;
-                        fenetre=NULL;
-                        return 2; // on renvoie 2
+                        case sf::Keyboard::Up:
+                        monter();
+                        break;
 
-                    }else if (menuPrincipalAppuyer()==2)  //choix joueur => Regles du jeu 
-                    {
-                        cout<<"Règles selectionné"<<endl;
-                        fenetre->close();    //On ferme la fenetre du menu
-                        delete fenetre;
-                        fenetre=NULL;
-                        return 3; // on renvoie 3
+                        case sf::Keyboard::Left:
+                        monter();
+                        break;
+
+                        case sf::Keyboard::Down:
+                        descendre();
+                        break;
+
+                        case sf::Keyboard::Right:
+                        descendre();
+                        break;
+
+                        case sf::Keyboard::Return:
+                        sonAmbiance.stop();
+                        sonMise.play();
+
+                        if(menuPrincipalAppuyer()==0) //choix joueur => jeu Solo 
+                        {
+                            fenetre->close();    //On ferme la fenetre du menu
+                            delete fenetre;
+                            fenetre=NULL;
+                            return 1; // on renvoie 1 
+                        }
+                        else if(menuPrincipalAppuyer()==1) //choix joueur => jeu Multi 
+                        {
+                            cout<<"Jeu Multi selectionné"<<endl;
+                            fenetre->close();    //On ferme la fenetre du menu
+                            delete fenetre;
+                            fenetre=NULL;
+                            return 2; // on renvoie 2
+
+                        }
+                        else if (menuPrincipalAppuyer()==2)  //choix joueur => Regles du jeu 
+                        {
+                            cout<<"Règles selectionné"<<endl;
+                            fenetre->close();    //On ferme la fenetre du menu
+                            delete fenetre;
+                            fenetre=NULL;
+                            return 3; // on renvoie 3
+                        }
                     }
-                        
-                    
-                    
-                }
-                
+                    break;
 
-                break;
                 case sf::Event::Closed:
-                fenetre->close();
-                return 0;
-                break;
+                    fenetre->close();
+                    return 0;
+                    break;
             }
         }
 
@@ -121,6 +117,7 @@ unsigned int  Menu::boucleMenu()
         fenetre->display();
     }
 }
+
 
 
 void Menu::dessiner(RenderWindow & fenetre)const 
@@ -133,6 +130,7 @@ void Menu::dessiner(RenderWindow & fenetre)const
 }
 
 
+
 void Menu::monter()
 {
     if (menuPrincipalSelection-1>=0)
@@ -140,16 +138,16 @@ void Menu::monter()
         menu[menuPrincipalSelection].setFillColor(Color::White);
         menuPrincipalSelection --;
         menu[menuPrincipalSelection].setFillColor(Color::Red);
-    }else if (menuPrincipalSelection==0)
+    }
+    else if (menuPrincipalSelection==0)
     {
 
         menu[menuPrincipalSelection].setFillColor(Color::White);
         menuPrincipalSelection=2;
         menu[menuPrincipalSelection].setFillColor(Color::Red);
     }
-    
-    
 }
+
 
 
 void Menu::descendre()
@@ -172,9 +170,10 @@ void Menu::descendre()
 }
 
 
+
 void Menu::initMenu()
 {
-    if (!tFond.loadFromFile("data/imageMenu.png")) 
+    if (!tFond.loadFromFile("data/imageMenu.png"))
     {
         cout << "Error data/imageMenu.png non found" << endl;
     }
@@ -196,18 +195,19 @@ void Menu::initMenu()
     {
         cout << "Error data/SonMise.wav non found" << endl;
     }
-    else {
+    else 
+    {
         sonMise.setBuffer(m1_soundbuffer);
-
+    }
     if (!m2_soundbuffer.loadFromFile("data/sonAmbiance.wav")) 
     {
         cout << "Error data/sonAmbiance.wav non found" << endl;
     }
-    else {
+    else 
+    {
         sonAmbiance.setBuffer(m2_soundbuffer);
         sonAmbiance.setLoop(true);
         sonAmbiance.setVolume(50);
-    }
     }
 }
 

@@ -6,6 +6,7 @@
 
 using namespace std;
 
+
 MainDeCartes::MainDeCartes ()
 {
 
@@ -29,21 +30,22 @@ MainDeCartes::MainDeCartes (const Carte& carte1, const Carte& carte2)
 }
 
 
+
 MainDeCartes::~MainDeCartes()
 {
     mainDeJoueur.clear();
 }
 
 
+
 void MainDeCartes::verifScore()
 {
     if (sommeValeur>21) 
-        {
-            crame=1; // passage de crame à vrai , le joueur a cramé
-            joueToujours=0; // passage de joueToujours à faux , le joueur ne peut plus jouer
-        }
+    {
+        crame=1; // passage de crame à vrai , le joueur a cramé
+        joueToujours=0; // passage de joueToujours à faux , le joueur ne peut plus jouer
+    }
 }
-
 
 
 
@@ -61,6 +63,7 @@ bool MainDeCartes::verifBlackJack ()
 }
 
 
+
 Carte MainDeCartes::getIemeCarte(unsigned int indice) const
 {
     assert((indice< mainDeJoueur.size())&&(mainDeJoueur.size()!=0));
@@ -69,39 +72,35 @@ Carte MainDeCartes::getIemeCarte(unsigned int indice) const
 
 
 
-
 void MainDeCartes::tirerCarte (const Carte& carteAjoutee)
 {
     if ((joueToujours)&&(! crame)) //tant que le joueur est encore en lice et qu'il n'a pas cramé 
-            {
-                nbCartes++; // son nb de carte augmente de 1 
-                mainDeJoueur.push_back (carteAjoutee); // on ajoute la carte tirée à sa main 
-                sommeValeur=sommeValeur+ carteAjoutee.getValeur(); // MAJ de la sommeValeur
+    {
+        nbCartes++; // son nb de carte augmente de 1 
+        mainDeJoueur.push_back (carteAjoutee); // on ajoute la carte tirée à sa main 
+        sommeValeur=sommeValeur+ carteAjoutee.getValeur(); // MAJ de la sommeValeur
 
-            }
+    }
     verifAs();
     verifScore(); // permet de changer les booléen en fonction du score du joueur 
 }
-   
 
 
 
 void MainDeCartes::doubler (const Carte& carteAjoutee)
 {
     if ( nbCartes==2) // on peut doubler que quand on a uniquement 2 cartes
-        {
-            nbCartes++; // son nb de carte augmente de 1 
-            mainDeJoueur.push_back (carteAjoutee); // on ajoute la carte tirée à sa main 
-            sommeValeur=sommeValeur+ carteAjoutee.getValeur(); // MAJ de la sommeValeur    
-            verifAs();
-            verifScore(); // permet de changer les booléens crame et joueToujours en fonction du score du joueur
-            rester (); // reste si le joueur n'as pas cramé
+    {
+        nbCartes++; // son nb de carte augmente de 1 
+        mainDeJoueur.push_back (carteAjoutee); // on ajoute la carte tirée à sa main 
+        sommeValeur=sommeValeur+ carteAjoutee.getValeur(); // MAJ de la sommeValeur    
+        verifAs();
+        verifScore(); // permet de changer les booléens crame et joueToujours en fonction du score du joueur
+        rester (); // reste si le joueur n'as pas cramé
 
-        }
+    }
 
 }   
-
-
 
 
 
@@ -115,7 +114,6 @@ void MainDeCartes::changeCarte (const Carte& carteAjoutee)
             tirerCarte(carteAjoutee); // on obtient une nouvelle carte
     }
 }
-
 
 
 
@@ -140,10 +138,12 @@ void MainDeCartes::setSommeValeur (unsigned int SommeValeur)
 }
 
 
+
 unsigned int MainDeCartes::getNbCartes () const
 {
     return nbCartes;
 }
+
 
 
 bool MainDeCartes::getJoueToujours () const
@@ -159,6 +159,7 @@ bool MainDeCartes::getCrame () const
 }
 
 
+
 void MainDeCartes::vider()
 {
     mainDeJoueur.clear();
@@ -172,45 +173,40 @@ void MainDeCartes::vider()
 
 void MainDeCartes::verifAs()
 {
-for (unsigned int i=0; i<getNbCartes (); i++) //parcours de la main de cartes
-	{
-		if (mainDeJoueur[i].getRang()==1) // si la carte est un as (rang=1)
-		{
-			if (mainDeJoueur[i].getValeur()==1) //si l'as à une valeur de 1 alors
-			{
-				if ((sommeValeur+10)<=21) // si la somme des valeurs des cartes +10 est inf ou egal à 21 alors
-					{
-					mainDeJoueur[i].setValeur(11); //on passe la valeur de l'as à 11
-					setSommeValeur(sommeValeur+10); // on passe la somme des valeurs des cartes à (getSommeValeur()+10) 
-					} // sinon on fait rien 
-			}
-			if (mainDeJoueur[i].getValeur()==11) //si l'as à une valeur de 11 alors
-			{
-				if (sommeValeur>21) // si la somme des valeurs des cartes est sup à 21 (joueur a cramé)  alors
-					{
-					mainDeJoueur[i].setValeur(1); //on passe la valeur de l'as à 1
-					setSommeValeur(sommeValeur-10); // on passe la somme des valeurs des cartes à (getSommeValeur()-10) 
-					} // sinon on fait rien 
-			}
-		}
-	}	
+    for (unsigned int i=0; i<getNbCartes (); i++) //parcours de la main de cartes
+    {
+        if (mainDeJoueur[i].getRang()==1) // si la carte est un as (rang=1)
+        {
+            if (mainDeJoueur[i].getValeur()==1) //si l'as à une valeur de 1 alors
+            {
+                if ((sommeValeur+10)<=21) // si la somme des valeurs des cartes +10 est inf ou egal à 21 alors
+                {
+                mainDeJoueur[i].setValeur(11); //on passe la valeur de l'as à 11
+                setSommeValeur(sommeValeur+10); // on passe la somme des valeurs des cartes à (getSommeValeur()+10) 
+                } // sinon on fait rien 
+            }
+            if (mainDeJoueur[i].getValeur()==11) //si l'as à une valeur de 11 alors
+            {
+                if (sommeValeur>21) // si la somme des valeurs des cartes est sup à 21 (joueur a cramé)  alors
+                    {
+                    mainDeJoueur[i].setValeur(1); //on passe la valeur de l'as à 1
+                    setSommeValeur(sommeValeur-10); // on passe la somme des valeurs des cartes à (getSommeValeur()-10) 
+                    } // sinon on fait rien 
+            }
+        }
+    }	
 }
-
-
 
 
 
 void MainDeCartes::testRegression() const
 {
-
-
-
     MainDeCartes mainVide; //creation d'une main de base main1
     assert (mainVide.getNbCartes()==0);
     assert (mainVide.getSommeValeur()==0);
     assert (mainVide.getJoueToujours()==1);
     assert (mainVide.getCrame()==0);
-    cout<<"Création de la mainVide OK"<<endl;
+    cout<<"Constructeur sans paramètres OK"<<endl;
 
 
 
@@ -225,7 +221,9 @@ void MainDeCartes::testRegression() const
     assert (carte2==main.mainDeJoueur[1]); // test si carte2 est bien la même carte que la carte d'indice 1 du tableau de la main de joueur.
     assert (carte1.getSigne()==1); // test si le signe de la nouvelle carte est bien celui attribué 
     assert (carte2.getSigne()==2); // test si le signe de la nouvelle carte est bien celui attribué  
-    cout<<"Création de main2 OK"<<endl;
+    cout<<"Constructeur avec paramètres OK"<<endl;
+    cout<<"Accesseur de nbCartes OK"<<endl;
+    cout<<"Accesseur de sommeValeur OK"<<endl;
 
 
 
@@ -250,6 +248,8 @@ void MainDeCartes::testRegression() const
     assert (carteAjoutee2==main.mainDeJoueur[3]); // test si carteAjoutee2 est bien la même carte que la carte d'indice 3 du tableau de la main de joueur.
     assert (carteAjoutee2.getSigne()==1); // test si le signe de la nouvelle carte est bien celui attribué
     cout<<"La carte ajoutée a fait cramer le joueur "<<endl;
+    cout<<"Accesseur de joueToujours OK"<<endl;
+    cout<<"Accesseur de crame OK"<<endl;
 
 
 
@@ -299,27 +299,30 @@ void MainDeCartes::testRegression() const
     mainChange.changeCarte(carteAjouteeChange);
     assert (mainChange.getSommeValeur()==17);
     assert (mainChange.getNbCartes()==2);
-    //assert(mainChange.getIemeCarte(0)==carteAsChange); //verifie que la premiere carte du tableau est bien l'as 
     assert(mainChange.getIemeCarte(1)==carteAjouteeChange);
-    //assert (carteAsChange==mainChange.mainDeJoueur[0]); // test si carte1 est bien la même carte que la carte d'indice 0 du tableau de la main de joueur.
     assert (carteAjouteeChange==mainChange.mainDeJoueur[1]); // test si carte2 est bien la même carte que la carte d'indice 1 du tableau de la main de joueur.
     
-    
-
-
     Carte carteAjouteeChange2 (7,7,1);
     Carte  carteDouble2(2,2,1);
     MainDeCartes mainChange2(carteDouble2,carteDouble2);
- 
-    
     mainChange2.changeCarte(carteAjouteeChange2);
     assert (mainChange2.getSommeValeur()==9);
     assert (mainChange2.getNbCartes()==2);
     assert(mainChange2.getIemeCarte(1)==carteAjouteeChange2);
-    assert (carteAjouteeChange2==mainChange2.mainDeJoueur[1]); // test si carteAjouteeChange2 est bien la même carte que la carte d'indice 1 du tableau de la main de joueur.
+    // test si carteAjouteeChange2 est bien la même carte que la carte d'indice 1 du tableau de la main de joueur.
+    assert (carteAjouteeChange2==mainChange2.mainDeJoueur[1]); 
     cout<<"Test de la procédure changeCarte() réalisé avec succès"<<endl;
 
-
+    mainChange2.vider();
+    assert(mainChange2.getNbCartes()==0);
+    assert(mainChange2.getSommeValeur()==0);
+    cout<<"Test de la procédure vider() réalisé avec succès"<<endl;
+    mainChange2.setSommeValeur(17);
+    assert(mainChange2.getSommeValeur()==17);
+    cout<<"Mutateur de sommeValeur OK"<<endl;
+    assert(mainChange2.getJoueToujours()==1);
+    mainChange2.rester();
+    assert(mainChange2.getJoueToujours()==0);
 
     cout<<"Test de regression passé avec succès"<<endl;
     

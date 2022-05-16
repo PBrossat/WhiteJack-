@@ -1,14 +1,7 @@
 var searchData=
 [
-<<<<<<< HEAD
-  ['verifas_110',['verifAs',['../class_main_de_carte.html#a3d7aa8798d6e718136bff26d2a2d8c65',1,'MainDeCarte']]],
-  ['verifblackjack_111',['verifBlackJack',['../class_main_de_carte.html#a368557cadcd27475418b89af488a874c',1,'MainDeCarte']]],
-  ['verifscore_112',['verifScore',['../class_main_de_carte.html#a7a9d431c10daf1f2865c906539546b6c',1,'MainDeCarte']]],
-  ['vider_113',['vider',['../class_main_de_carte.html#a2e3519c47b85de3f01fad1be6b78f83b',1,'MainDeCarte']]]
-=======
-  ['verifas_0',['verifAs',['../class_main_de_carte.html#a3d7aa8798d6e718136bff26d2a2d8c65',1,'MainDeCarte']]],
-  ['verifblackjack_1',['verifBlackJack',['../class_main_de_carte.html#a368557cadcd27475418b89af488a874c',1,'MainDeCarte']]],
-  ['verifscore_2',['verifScore',['../class_main_de_carte.html#a7a9d431c10daf1f2865c906539546b6c',1,'MainDeCarte']]],
-  ['vider_3',['vider',['../class_main_de_carte.html#a2e3519c47b85de3f01fad1be6b78f83b',1,'MainDeCarte']]]
->>>>>>> 7770350052e1251c79029e7e901cdd5d9aa6b644
+  ['verifas_0',['verifAs',['../class_main_de_cartes.html#aabb3dc148db7348ff88979641e9bca13',1,'MainDeCartes']]],
+  ['verifblackjack_1',['verifBlackJack',['../class_main_de_cartes.html#a5e0c26ab8bdfa3d7ff7a76c0348cd52f',1,'MainDeCartes']]],
+  ['verifscore_2',['verifScore',['../class_main_de_cartes.html#a65d0ea6d2ba757abb645b342f5561294',1,'MainDeCartes']]],
+  ['vider_3',['vider',['../class_main_de_cartes.html#ac58aa1338bfae5413902b92450b220e8',1,'MainDeCartes']]]
 ];

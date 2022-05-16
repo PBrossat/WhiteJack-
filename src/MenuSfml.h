@@ -13,85 +13,93 @@ using namespace sf;
 class Menu 
 {
 
-public :
+    public :
 
-    /**
-    * @brief Constructeur sans paramètres de Menu.
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * Menu unMenu;
-    * @endcode
-    */
-    Menu();
-
-
-
-    /**
-    * @brief Destructeur de Menu.
-    */
-    ~Menu();
+        /**
+        * @brief Constructeur sans paramètres de Menu.
+        * 
+        * Exemple d'utilisation :
+        * @code
+        * Menu unMenu;
+        * @endcode
+        */
+        Menu();
 
 
-    /**
-    * @brief Procédure permettant de faire tourner la boucle du menu
-    * @return void
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * unMenu.boucleMenu();
-    * @endcode
-    */  
-    unsigned int boucleMenu();
+
+        /**
+        * @brief Destructeur de Menu.
+        */
+        ~Menu();
 
 
-    /**
-    * @brief Procédure permettant d'initialiser toute les images, son et polices utilisées
-    * @return void
-    * 
-    * Exemple d'utilisation :
-    * @code
-    * unMenu initMenu();
-    * @endcode
-    */ 
-    void initMenu();
 
-    sf::RectangleShape rsRegle; 
+        /**
+        * @brief Procédure permettant de faire tourner la boucle du menu
+        * @return void
+        * 
+        * Exemple d'utilisation :
+        * @code
+        * unMenu.boucleMenu();
+        * @endcode
+        */  
+        unsigned int boucleMenu();
 
 
-private :
 
-    sf::RectangleShape rsFond;
-    sf::Texture tFond;
-    sf::Texture tRegle;
-    sf::SoundBuffer m1_soundbuffer;
-    sf::SoundBuffer m2_soundbuffer;
-    sf::Sound sonMise;
-    sf::Sound sonAmbiance;
+        /**
+        * @brief Procédure permettant d'initialiser toute les images, son et polices utilisées
+        * @return void
+        * 
+        * Exemple d'utilisation :
+        * @code
+        * unMenu initMenu();
+        * @endcode
+        */ 
+        void initMenu();
 
-    //la selection du joueur 
-    int menuPrincipalSelection;
 
-    // la police utilisée
-    Font police;
 
-    //Tableau représentant le menu
-    Text menu[3];
+        sf::RectangleShape rsRegle; 
 
-    //Fonction permettant de renvoyer la selection du joueur      
-    int menuPrincipalAppuyer()
-    {
-        return menuPrincipalSelection;
-    }
 
-    //Procédure permettant de "descendre" avec les flèches du clavier dans le menu 
-    void descendre();
+    private :
 
-    //Procédure permettant de "monter" avec les flèches du clavier dans le menu 
-    void monter();
+        sf::RectangleShape rsFond;
+        sf::Texture tFond;
+        sf::Texture tRegle;
+        sf::SoundBuffer m1_soundbuffer;
+        sf::SoundBuffer m2_soundbuffer;
+        sf::Sound sonMise;
+        sf::Sound sonAmbiance;
+        //la selection du joueur 
+        int menuPrincipalSelection;
+        // la police utilisée
+        Font police;
+        //Tableau représentant le menu
+        Text menu[3];
 
-    //Procédure permettant d'afficher le menu 
-    void dessiner (RenderWindow& window)const ;
+
+        //Fonction permettant de renvoyer la selection du joueur      
+        int menuPrincipalAppuyer()
+        {
+            return menuPrincipalSelection;
+        }
+
+
+
+        //Procédure permettant de "descendre" avec les flèches du clavier dans le menu 
+        void descendre();
+
+
+
+        //Procédure permettant de "monter" avec les flèches du clavier dans le menu 
+        void monter();
+
+
+
+        //Procédure permettant d'afficher le menu 
+        void dessiner (RenderWindow& window)const ;
 
 };
 #endif

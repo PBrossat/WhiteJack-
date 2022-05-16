@@ -6,7 +6,6 @@
 
 using namespace std; 
 
-//ATTENTION LES PELOS IL FAUT REMETTRE A JOUR LE CODE CAR CERTAINES CHOSES COMME LES MONTANTS DES MISES ONT CHANGÉES
 
 ostream& operator << (ostream& flux, const Carte& carteAffichee)
 {
@@ -59,7 +58,6 @@ ostream& operator << (ostream& flux, const Carte& carteAffichee)
 
 void afficherMainDeCarte(const MainDeCartes& mainJoueur)
 {
-
     for (unsigned int i=0; i<mainJoueur.getNbCartes(); i++)
     {
         cout<<mainJoueur.getIemeCarte(i)<<endl;
@@ -71,7 +69,6 @@ void afficherMainDeCarte(const MainDeCartes& mainJoueur)
 
 void txtBoucle (JeuSolo& jeu)
 {
-    // WinTXT win;
     bool veutJouer=1; //initilaisation du booléen à vrai. 
     char choix1;
     char choix2;
@@ -143,7 +140,6 @@ void txtBoucle (JeuSolo& jeu)
         afficherMainDeCarte(jeu.mainCroupier);
         cout<<endl<<"Score du croupier: "<<jeu.mainCroupier.getSommeValeur()<<endl;
         cout<<"--------------------------------------------------------------------------"<<endl;
-       
 
         do
         {
@@ -262,8 +258,6 @@ void txtBoucle (JeuSolo& jeu)
         cout<<endl<<endl<<"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl<<endl<<endl;
 
     }while ((veutJouer==1)&&(jeu.joueurSolo.testArgentJoueur()==1));
-
-
 
     cout<<endl<<endl<<endl<<"A bientot !!"<<endl<<endl<<endl;
 
