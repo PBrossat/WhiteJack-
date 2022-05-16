@@ -11,24 +11,24 @@
     La classe gérant le jeu avec un affichage SFML
 */
 
-class sfmlJeu {
+class JeuSoloSfml {
 
 public :
 
     /**
-    * @brief Constructeur sans paramètres de sfmlJeu.
+    * @brief Constructeur sans paramètres de JeuSoloSfml.
     * 
     * Exemple d'utilisation :
     * @code
-    * sfmlJeu unJeuSfml;
+    * JeuSoloSfml unJeuSfml;
     * @endcode
     */
-    sfmlJeu ();
+    JeuSoloSfml ();
 
     /**
-    * @brief Destructeur de sfmlJeu.
+    * @brief Destructeur de JeuSoloSfml.
     */
-    ~sfmlJeu ();
+    ~JeuSoloSfml ();
 
     /**
     * @brief Procédure permettant d'initialiser toute les images, sons et polices utilisées
@@ -65,7 +65,7 @@ public :
 
 private :
 
-	Jeu jeu;
+	JeuSolo jeu;
     unsigned int dimx;
     unsigned int dimy;
     bool actionMiser;
@@ -257,10 +257,10 @@ private :
     sf::Sound sonPerdu;
 
     //Procédure permettant d'afficher à l'écran la main du joueur  
-    void afficherMainDeCarteJoueur(const MainDeCarte mainJoueur)const ;
+    void afficherMainDeCarteJoueur(const MainDeCartes mainJoueur)const ;
 
     //Procédure permettant d'afficher à l'écran la main du croupier  
-    void afficherMainDeCarteCroupier(const MainDeCarte mainJoueur)const;
+    void afficherMainDeCarteCroupier(const MainDeCartes mainJoueur)const;
 
     //Procédure permettant d'initialiser la partie une fois que le joueur a misé  
     void initPartie();

@@ -4,7 +4,7 @@ using namespace std;
 
 int main ( int argc, char** argv ) 
 {
-	sfmlJeu jeu;
+	JeuSoloSfml jeu;
 	jeu.sfmlInit();
 	jeu.sfmlAff();
 	jeu.sfmlBoucle();

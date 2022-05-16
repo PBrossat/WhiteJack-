@@ -11,14 +11,14 @@
 
 using namespace std;
 
-Jeu::Jeu():joueurSolo("JoueurSOLO", 0, 2000),unDeck()
+JeuSolo::JeuSolo():joueurSolo("JoueurSOLO", 0, 2000),unDeck()
 {
 	unDeck.initDeck();
 	unDeck.melangerDeck();
 }
 
 
-void Jeu::initialisationMise(const char touche)
+void JeuSolo::initialisationMise(const char touche)
 {
 	joueurSolo.setGain(0);
 	switch(touche)
@@ -46,7 +46,7 @@ void Jeu::initialisationMise(const char touche)
 }
 
 
-void Jeu::initialisationJeu()
+void JeuSolo::initialisationJeu()
 {
 	joueurSolo.miser(joueurSolo.getMise());
 	Carte carteTiree;
@@ -60,7 +60,7 @@ void Jeu::initialisationJeu()
 }
 
 
-void Jeu::finJeu()
+void JeuSolo::finJeu()
 {
 	joueurSolo.mainJoueur.vider();
 	mainCroupier.vider();
@@ -69,7 +69,7 @@ void Jeu::finJeu()
 }
 
 
-void Jeu::actionClavier(const char touche)
+void JeuSolo::actionClavier(const char touche)
 {
 	switch(touche) 
 	{
@@ -108,7 +108,7 @@ void Jeu::actionClavier(const char touche)
 
 
 
-void Jeu::actionCroupier()
+void JeuSolo::actionCroupier()
 {
 	mainCroupier.tirerCarte(deuxiemeCarteCroupier);
 	if(joueurSolo.mainJoueur.getCrame()==0)
@@ -125,7 +125,7 @@ void Jeu::actionCroupier()
 
 
 
-unsigned int Jeu::resultat() 
+unsigned int JeuSolo::resultat() 
 {
 	if(joueurSolo.mainJoueur.verifBlackJack())
 	{
@@ -182,11 +182,11 @@ unsigned int Jeu::resultat()
 
 
 
-void Jeu::testRegression() const
+void JeuSolo::testRegression() const
 {
 	cout<<endl;
 
-	Jeu unJeu;
+	JeuSolo unJeu;
 	unJeu.initialisationMise('a');
 	assert((unJeu.joueurSolo.getGain()==0)&&(unJeu.joueurSolo.getMise()==1));
 	unJeu.initialisationMise('z');
@@ -220,7 +220,7 @@ void Jeu::testRegression() const
 	cout<<"Fin de jeu OK"<<endl;
 
 
-	Jeu unAutreJeu; //création d'un autre jeu.
+	JeuSolo unAutreJeu; //création d'un autre jeu.
 	unAutreJeu.initialisationMise('a');//choix d'une mise arbitraire 
 	unAutreJeu.initialisationJeu();
 	unAutreJeu.actionClavier('t');
@@ -231,7 +231,7 @@ void Jeu::testRegression() const
 	cout<<"Test de actionCalvier (t) et actionClavier(r) OK"<<endl;
 
 
-	Jeu jeuBlackJack;
+	JeuSolo jeuBlackJack;
 	Carte carteAs(1,11,2);
 	Carte carte10(10,10,2);
 	jeuBlackJack.initialisationMise('e');//choix d'une mise arbitraire (ici 100$)
@@ -245,7 +245,7 @@ void Jeu::testRegression() const
 	cout<<"Test résultat sur blackjack OK"<<endl;
 
 
-	Jeu jeu2; //création d'un jeu pour faire les test de resultat()
+	JeuSolo jeu2; //création d'un jeu pour faire les test de resultat()
 	Carte carte3(2,2,2);
 	Carte carte4(3,3,3);
 	jeu2.initialisationMise('e');//choix d'une mise arbitraire (ici 100$)

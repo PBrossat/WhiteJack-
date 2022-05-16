@@ -7,7 +7,7 @@ using namespace std;
 int main ( int argc, char** argv ) 
 {
 	termClear();
-	Jeu jeu;
+	JeuSolo jeu;
 	txtBoucle(jeu);
 	return 0;
 }

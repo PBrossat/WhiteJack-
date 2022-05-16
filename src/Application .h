@@ -9,24 +9,28 @@
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 
-class application{
+class Application{
     
     public :
 
         /**
-        * @brief Constructeur d'application
+        * @brief Constructeur d'Application
         * 
         * Exemple d'utilisation :
         * @code
-        * application uneAppli;
+        * Application uneAppli;
         * @endcode
         */
-        application();
+        Application();
+
+
 
         /**
-        * @brief Destructeur d'application.
+        * @brief Destructeur d'Application.
         */
-        ~application();
+        ~Application();
+
+
 
         /**
         * @brief Fonction permettant d'afficher les règles du jeu (et retournant un entier afin de gérer la fin de l'affichage)
@@ -39,6 +43,8 @@ class application{
         */
         unsigned int afficherRegles();
 
+
+
         /**
         * @brief Procédure permettant de gérer l'application
         * @return void 
@@ -50,7 +56,11 @@ class application{
         */
         void boucleApplication();
 
+
+
         private :
+
+
 
         Menu menu;
         unsigned int choixMenu;

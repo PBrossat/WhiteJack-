@@ -5,7 +5,7 @@ using namespace std;
  
 int main() 
 {
-   MainDeCarte main1;
+   MainDeCartes main1;
    main1.testRegression();
    return 0;
 }

@@ -7,7 +7,7 @@
 #include "Joueur.h"
 #include "JeuSolo.h"
 
-class jeuMulti{
+class JeuMulti{
     
     public : 
 
@@ -20,7 +20,7 @@ class jeuMulti{
     /**
     * @brief La main de carte du croupier
     */
-	MainDeCarte mainCroupier;
+	MainDeCartes mainCroupier;
 
 
     /**
@@ -61,35 +61,35 @@ class jeuMulti{
 
 
     /**
-    * @brief Constructeur sans paramètres de jeuMulti.
+    * @brief Constructeur sans paramètres de JeuMulti.
     * 
     * Exemple d'utilisation :
     * @code
-    * jeuMulti unJeuMulti;
+    * JeuMulti unJeuMulti;
     * @endcode
     * @warning Attention, aucun joueur n'est créé
     */
-    jeuMulti ();
+    JeuMulti ();
 
     /**
-    * @brief Destructeur de jeuMulti.
+    * @brief Destructeur de JeuMulti.
     */
-    ~jeuMulti();
+    ~JeuMulti();
 
 
     /**
-    * @brief Constructeur avec paramètre de jeuMulti.
+    * @brief Constructeur avec paramètre de JeuMulti.
     * @param[in] NiveauJoueur : le niveau des IA avec lesquelles le joueur jouera sa partie.
     *  
     * Exemple d'utilisation :
     * @code
-    * jeuMulti unJeuMulti(1);
-    * jeuMulti unJeuMulti(2);
-    * jeuMulti unJeuMulti(3);
+    * JeuMulti unJeuMulti(1);
+    * JeuMulti unJeuMulti(2);
+    * JeuMulti unJeuMulti(3);
     * @endcode
     * @warning NiveauJoueur doit être compris entre 1 et 3 compris (1=amateur ; 2=intermédiaire ; 3=expert).
     */
-    jeuMulti(unsigned int NiveauJoueur);
+    JeuMulti(unsigned int NiveauJoueur);
 
 
 

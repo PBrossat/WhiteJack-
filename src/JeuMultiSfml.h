@@ -7,24 +7,24 @@
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 
-class sfmlMulti{
+class JeuMultiSfml{
 
 public :
 
     /**
-    * @brief Constructeur de sfmlMulti
+    * @brief Constructeur de JeuMultiSfml
     * 
     * Exemple d'utilisation :
     * @code
-    * sfmlMulti unJeuMulti;
+    * JeuMultiSfml unJeuMulti;
     * @endcode
     */
-    sfmlMulti ();
+    JeuMultiSfml ();
 
     /**
-    * @brief Destructeur de sfmlMulti
+    * @brief Destructeur de JeuMultiSfml
     */
-    ~sfmlMulti ();
+    ~JeuMultiSfml ();
 
     /**
     * @brief Procédure permettant d'initialiser toute les images, sons et polices utilisées
@@ -61,8 +61,8 @@ public :
 
 
 private :
-
-    jeuMulti jeu;
+    
+    JeuMulti jeu;
 
     unsigned int dimx;
     unsigned int dimy;
@@ -280,7 +280,7 @@ private :
     sf::Sound sonPerdu;
 
     //Procédure permettant d'afficher à l'écran les main de cartes
-    void afficherMainDeCarte(const MainDeCarte& mainJoueur, unsigned int x, unsigned int y)const;
+    void afficherMainDeCarte(const MainDeCartes& mainJoueur, unsigned int x, unsigned int y)const;
 
     //Procédure permettant d'initialiser la partie une fois que le joueur a misé  
     void initPartie();

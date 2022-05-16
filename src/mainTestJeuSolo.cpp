@@ -5,7 +5,7 @@ using namespace std;
  
 int main() 
 {
-   Jeu jeu;
+   JeuSolo jeu;
    jeu.testRegression();
    return 0;
 }

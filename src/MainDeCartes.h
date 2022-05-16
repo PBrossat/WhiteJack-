@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class MainDeCarte 
+class MainDeCartes
 {
     public :
 
@@ -19,7 +19,7 @@ class MainDeCarte
      * @endcode
      * @warning initialise nbCartes, sommeValeur, crame à 0 et joueToujours à 1
     */
-    MainDeCarte();
+    MainDeCartes();
 
 
 
@@ -33,13 +33,13 @@ class MainDeCarte
      * MainDeCarte uneMain(carte1, carte2);
      * @endcode
     */
-    MainDeCarte (const Carte& carte1, const Carte& carte2);
+    MainDeCartes (const Carte& carte1, const Carte& carte2);
 
 
     /**
     * @brief Destructeur de MainDeCarte
     */
-    ~MainDeCarte();
+    ~MainDeCartes();
 
 
     /**

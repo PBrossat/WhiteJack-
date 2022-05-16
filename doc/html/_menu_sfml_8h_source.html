@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.3"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>WhiteJack:  Fichier source de src/MenuSfml.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -19,8 +19,8 @@
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
- <tr id="projectrow">
-  <td id="projectalign">
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">WhiteJack
    </div>
   </td>
@@ -29,22 +29,21 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.9.3 -->
+<!-- Généré par Doxygen 1.8.17 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -66,116 +65,86 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">MenuSfml.h</div></div>
+  <div class="headertitle">
+<div class="title">MenuSfml.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_menu_sfml_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef MENUSFML_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define MENUSFML_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_jeu_8h.html">Jeu.h</a>&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="jeu_sfml_8h.html">jeuSfml.h</a>&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;SFML/System.hpp&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;SFML/Window.hpp&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;SFML/Audio.hpp&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">using namespace </span>std;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">using namespace </span>sf;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">//enlever variable globale et voir comment on libere le tab de texte appelé Menu</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="_menu_sfml_8h.html#a2438c338abc119e143dda4f59f3b453f">   18</a></span><span class="preprocessor">#define Max_menu_principal 3</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_menu.html">   20</a></span><span class="keyword">class </span><a class="code hl_class" href="class_menu.html">Menu</a> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>public :</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_menu.html#afcd03c8fa38ee2e1d0ba4fbfff4da222">   26</a></span>    sf::RectangleShape <a class="code hl_variable" href="class_menu.html#afcd03c8fa38ee2e1d0ba4fbfff4da222">rsFond</a>;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_menu.html#a2ed1b20ed8e8b3e34878a4f98cea7c6f">   27</a></span>    sf::Texture <a class="code hl_variable" href="class_menu.html#a2ed1b20ed8e8b3e34878a4f98cea7c6f">tFond</a>;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_menu.html#a123a909be9c1d0a90534e22709ff0b07">   28</a></span>    sf::Texture <a class="code hl_variable" href="class_menu.html#a123a909be9c1d0a90534e22709ff0b07">tRegle</a>;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_menu.html#a78b2a01b62e216a707b5d86f5c84be41">   29</a></span>    sf::RectangleShape <a class="code hl_variable" href="class_menu.html#a78b2a01b62e216a707b5d86f5c84be41">rsRegle</a>; </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_menu.html#a736c025b61449dc291aa9c628a5d7c38">   30</a></span>    sf::SoundBuffer <a class="code hl_variable" href="class_menu.html#a736c025b61449dc291aa9c628a5d7c38">m1_soundbuffer</a>;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_menu.html#a0dd4eda606081b8b519f41ab1ceced6a">   31</a></span>    sf::SoundBuffer <a class="code hl_variable" href="class_menu.html#a0dd4eda606081b8b519f41ab1ceced6a">m2_soundbuffer</a>;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_menu.html#a9e88b9a84f5760a40e79e12eab161aaa">   32</a></span>    sf::Sound <a class="code hl_variable" href="class_menu.html#a9e88b9a84f5760a40e79e12eab161aaa">sonMise</a>;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="class_menu.html#a349296352feeb1005af59ffdbcbaa87d">   33</a></span>    sf::Sound <a class="code hl_variable" href="class_menu.html#a349296352feeb1005af59ffdbcbaa87d">sonAmbiance</a>;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_function" href="class_menu.html#ad466dd83355124a6ed958430450bfe94">Menu</a>();</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_function" href="class_menu.html#a831387f51358cfb88cd018e1777bc980">~Menu</a>();</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#addd8574d31bda5e874c98cb510c3551a">dessiner</a> (RenderWindow&amp; window)<span class="keyword">const</span> ;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#a5255e3d2a1f9afc50c7737bee4b9213f">monter</a>();</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#abb60645db4e2238b12daf05aa70944b8">descendre</a>();</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_menu.html#a032da4481cdc4e2eae0ce7491a0ecb8b">boucleMenu</a>();</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="class_menu.html#a2b3b927392b44de531481783e39dbd21">  117</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_menu.html#a2b3b927392b44de531481783e39dbd21">menuPrincipalAppuyer</a>()</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    {</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordflow">return</span> menuPrincipalSelection;</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    }</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#aebc90f39203524becf5ad750269d5d82">initMenu</a>();</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>private :</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="comment">//la selection du joueur </span></div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordtype">int</span> menuPrincipalSelection;</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="comment">// la police utilisée</span></div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    Font police;</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    Text menu[<a class="code hl_define" href="_menu_sfml_8h.html#a2438c338abc119e143dda4f59f3b453f">Max_menu_principal</a>];</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>};</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="a_jeu_8h_html"><div class="ttname"><a href="_jeu_8h.html">Jeu.h</a></div></div>
-<div class="ttc" id="a_menu_sfml_8h_html_a2438c338abc119e143dda4f59f3b453f"><div class="ttname"><a href="_menu_sfml_8h.html#a2438c338abc119e143dda4f59f3b453f">Max_menu_principal</a></div><div class="ttdeci">#define Max_menu_principal</div><div class="ttdef"><b>Definition:</b> MenuSfml.h:18</div></div>
-<div class="ttc" id="aclass_menu_html"><div class="ttname"><a href="class_menu.html">Menu</a></div><div class="ttdef"><b>Definition:</b> MenuSfml.h:21</div></div>
-<div class="ttc" id="aclass_menu_html_a032da4481cdc4e2eae0ce7491a0ecb8b"><div class="ttname"><a href="class_menu.html#a032da4481cdc4e2eae0ce7491a0ecb8b">Menu::boucleMenu</a></div><div class="ttdeci">unsigned int boucleMenu()</div><div class="ttdoc">Procédure permettant de faire tourner la boucle du menu.</div><div class="ttdef"><b>Definition:</b> MenuSfml.cpp:42</div></div>
-<div class="ttc" id="aclass_menu_html_a0dd4eda606081b8b519f41ab1ceced6a"><div class="ttname"><a href="class_menu.html#a0dd4eda606081b8b519f41ab1ceced6a">Menu::m2_soundbuffer</a></div><div class="ttdeci">sf::SoundBuffer m2_soundbuffer</div><div class="ttdef"><b>Definition:</b> MenuSfml.h:31</div></div>
-<div class="ttc" id="aclass_menu_html_a123a909be9c1d0a90534e22709ff0b07"><div class="ttname"><a href="class_menu.html#a123a909be9c1d0a90534e22709ff0b07">Menu::tRegle</a></div><div class="ttdeci">sf::Texture tRegle</div><div class="ttdef"><b>Definition:</b> MenuSfml.h:28</div></div>
-<div class="ttc" id="aclass_menu_html_a2b3b927392b44de531481783e39dbd21"><div class="ttname"><a href="class_menu.html#a2b3b927392b44de531481783e39dbd21">Menu::menuPrincipalAppuyer</a></div><div class="ttdeci">int menuPrincipalAppuyer()</div><div class="ttdoc">fonction permettant de renvoyer la selection du joueur</div><div class="ttdef"><b>Definition:</b> MenuSfml.h:117</div></div>
-<div class="ttc" id="aclass_menu_html_a2ed1b20ed8e8b3e34878a4f98cea7c6f"><div class="ttname"><a href="class_menu.html#a2ed1b20ed8e8b3e34878a4f98cea7c6f">Menu::tFond</a></div><div class="ttdeci">sf::Texture tFond</div><div class="ttdef"><b>Definition:</b> MenuSfml.h:27</div></div>
-<div class="ttc" id="aclass_menu_html_a349296352feeb1005af59ffdbcbaa87d"><div class="ttname"><a href="class_menu.html#a349296352feeb1005af59ffdbcbaa87d">Menu::sonAmbiance</a></div><div class="ttdeci">sf::Sound sonAmbiance</div><div class="ttdef"><b>Definition:</b> MenuSfml.h:33</div></div>
-<div class="ttc" id="aclass_menu_html_a5255e3d2a1f9afc50c7737bee4b9213f"><div class="ttname"><a href="class_menu.html#a5255e3d2a1f9afc50c7737bee4b9213f">Menu::monter</a></div><div class="ttdeci">void monter()</div><div class="ttdoc">Procédure permettant de &quot;monter&quot; avec les flèches du clavier dans le menu.</div><div class="ttdef"><b>Definition:</b> MenuSfml.cpp:140</div></div>
-<div class="ttc" id="aclass_menu_html_a736c025b61449dc291aa9c628a5d7c38"><div class="ttname"><a href="class_menu.html#a736c025b61449dc291aa9c628a5d7c38">Menu::m1_soundbuffer</a></div><div class="ttdeci">sf::SoundBuffer m1_soundbuffer</div><div class="ttdef"><b>Definition:</b> MenuSfml.h:30</div></div>
-<div class="ttc" id="aclass_menu_html_a78b2a01b62e216a707b5d86f5c84be41"><div class="ttname"><a href="class_menu.html#a78b2a01b62e216a707b5d86f5c84be41">Menu::rsRegle</a></div><div class="ttdeci">sf::RectangleShape rsRegle</div><div class="ttdef"><b>Definition:</b> MenuSfml.h:29</div></div>
-<div class="ttc" id="aclass_menu_html_a831387f51358cfb88cd018e1777bc980"><div class="ttname"><a href="class_menu.html#a831387f51358cfb88cd018e1777bc980">Menu::~Menu</a></div><div class="ttdeci">~Menu()</div><div class="ttdoc">Destructeur de Menu.</div><div class="ttdef"><b>Definition:</b> MenuSfml.cpp:37</div></div>
-<div class="ttc" id="aclass_menu_html_a9e88b9a84f5760a40e79e12eab161aaa"><div class="ttname"><a href="class_menu.html#a9e88b9a84f5760a40e79e12eab161aaa">Menu::sonMise</a></div><div class="ttdeci">sf::Sound sonMise</div><div class="ttdef"><b>Definition:</b> MenuSfml.h:32</div></div>
-<div class="ttc" id="aclass_menu_html_abb60645db4e2238b12daf05aa70944b8"><div class="ttname"><a href="class_menu.html#abb60645db4e2238b12daf05aa70944b8">Menu::descendre</a></div><div class="ttdeci">void descendre()</div><div class="ttdoc">Procédure permettant de &quot;descendre&quot; avec les flèches du clavier dans le menu.</div><div class="ttdef"><b>Definition:</b> MenuSfml.cpp:159</div></div>
-<div class="ttc" id="aclass_menu_html_ad466dd83355124a6ed958430450bfe94"><div class="ttname"><a href="class_menu.html#ad466dd83355124a6ed958430450bfe94">Menu::Menu</a></div><div class="ttdeci">Menu()</div><div class="ttdoc">Constructeur sans paramètres de Menu.</div><div class="ttdef"><b>Definition:</b> MenuSfml.cpp:7</div></div>
-<div class="ttc" id="aclass_menu_html_addd8574d31bda5e874c98cb510c3551a"><div class="ttname"><a href="class_menu.html#addd8574d31bda5e874c98cb510c3551a">Menu::dessiner</a></div><div class="ttdeci">void dessiner(RenderWindow &amp;window) const</div><div class="ttdoc">Procédure permettant d'afficher le menu.</div><div class="ttdef"><b>Definition:</b> MenuSfml.cpp:130</div></div>
-<div class="ttc" id="aclass_menu_html_aebc90f39203524becf5ad750269d5d82"><div class="ttname"><a href="class_menu.html#aebc90f39203524becf5ad750269d5d82">Menu::initMenu</a></div><div class="ttdeci">void initMenu()</div><div class="ttdoc">Procédure permettant d'initialiser toute les images, son et polices utilisées.</div><div class="ttdef"><b>Definition:</b> MenuSfml.cpp:179</div></div>
-<div class="ttc" id="aclass_menu_html_afcd03c8fa38ee2e1d0ba4fbfff4da222"><div class="ttname"><a href="class_menu.html#afcd03c8fa38ee2e1d0ba4fbfff4da222">Menu::rsFond</a></div><div class="ttdeci">sf::RectangleShape rsFond</div><div class="ttdef"><b>Definition:</b> MenuSfml.h:26</div></div>
-<div class="ttc" id="ajeu_sfml_8h_html"><div class="ttname"><a href="jeu_sfml_8h.html">jeuSfml.h</a></div></div>
+<a href="_menu_sfml_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _MENUSFML_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _MENUSFML_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;SFML/System.hpp&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;SFML/Window.hpp&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;SFML/Audio.hpp&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using namespace </span>sf;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_menu.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_menu.html">Menu</a> </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;public :</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_menu.html">Menu</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    ~<a class="code" href="class_menu.html">Menu</a>();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boucleMenu();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> initMenu();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_menu.html#a78b2a01b62e216a707b5d86f5c84be41">   59</a></span>&#160;    sf::RectangleShape <a class="code" href="class_menu.html#a78b2a01b62e216a707b5d86f5c84be41">rsRegle</a>; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;private :</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    sf::RectangleShape rsFond;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    sf::Texture tFond;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    sf::Texture tRegle;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    sf::SoundBuffer m1_soundbuffer;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    sf::SoundBuffer m2_soundbuffer;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    sf::Sound sonMise;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    sf::Sound sonAmbiance;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">//la selection du joueur </span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">int</span> menuPrincipalSelection;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">// la police utilisée</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    Font police;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">//Tableau représentant le menu</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    Text menu[3];</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">//Fonction permettant de renvoyer la selection du joueur      </span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">int</span> menuPrincipalAppuyer()</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">return</span> menuPrincipalSelection;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">//Procédure permettant de &quot;descendre&quot; avec les flèches du clavier dans le menu </span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> descendre();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">//Procédure permettant de &quot;monter&quot; avec les flèches du clavier dans le menu </span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> monter();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">//Procédure permettant d&#39;afficher le menu </span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> dessiner (RenderWindow&amp; window)<span class="keyword">const</span> ;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;};</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclass_menu_html_a78b2a01b62e216a707b5d86f5c84be41"><div class="ttname"><a href="class_menu.html#a78b2a01b62e216a707b5d86f5c84be41">Menu::rsRegle</a></div><div class="ttdeci">sf::RectangleShape rsRegle</div><div class="ttdef"><b>Definition:</b> MenuSfml.h:59</div></div>
+<div class="ttc" id="aclass_menu_html"><div class="ttname"><a href="class_menu.html">Menu</a></div><div class="ttdef"><b>Definition:</b> MenuSfml.h:13</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
 </small></address>
 </body>
 </html>

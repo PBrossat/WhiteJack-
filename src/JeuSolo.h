@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class Jeu
+class JeuSolo
 {
 	public :
 
@@ -22,7 +22,7 @@ class Jeu
     /**
      * @brief La main de carte du croupier
     */
-	MainDeCarte mainCroupier;
+	MainDeCartes mainCroupier;
 
 
     /**
@@ -45,7 +45,7 @@ class Jeu
      * Jeu unJeu;
      * @endcode
     */
-	Jeu();
+	JeuSolo();
 
 
 	/**

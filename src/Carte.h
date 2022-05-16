@@ -11,6 +11,8 @@ class Carte
 {
     public:
 
+
+
     /**
     * @brief Constructeur avec paramètres de la classe Carte
     * @param[in] Rang le rang de la carte (as, dame, roi,...) 
@@ -42,6 +44,7 @@ class Carte
     Carte();
 
 
+
     /**
     * @brief Accesseur renvoyant le rang d'une carte
     * @return unsigned int
@@ -52,6 +55,7 @@ class Carte
     * @endcode
     */
     unsigned int getRang() const;
+
 
 
     /**
@@ -66,6 +70,7 @@ class Carte
     unsigned int getValeur() const;
 
 
+
     /**
     * @brief Accesseur renvoyant le signe d'une carte
     * @return unsigned int
@@ -76,6 +81,7 @@ class Carte
     * @endcode
     */
     unsigned int getSigne() const;
+
 
 
     /**
@@ -91,6 +97,8 @@ class Carte
     */
     void setValeur(unsigned int Valeur);
 
+
+
     /**
     * @brief Procédure testant les fonctionnalités de la classe
     * @return void
@@ -101,6 +109,7 @@ class Carte
     * @endcode
     */
     void testRegression() const;
+
 
 
     /**
@@ -118,6 +127,7 @@ class Carte
     Carte& operator = (const Carte& operandeDroite); 
 
 
+
     /**
     * @brief Surcharge de l'opérateur == pour tester l'égalité entre deux cartes (mêmes valeur et rang seulement)
     * @param[in,out] operandeDroite carte que l'on désire comparée à la carte à gauche du == (attention : en mode donnée/résultat mais CONST)
@@ -132,6 +142,8 @@ class Carte
     */
     bool operator == (const Carte& operandeDroite); 
 
+
+
     /**
     * @brief Permet d'aficher une carte à l'écran (rang / valeur / signe)
     * 
@@ -144,21 +156,27 @@ class Carte
     friend ostream& operator << (ostream& flux, const Carte& carteAffichee);   
 
 
+
     private :   
+
+
 
     //Représente la valeur de la carte 
     // Ce valeur est obligatoirement comprise entre 1 et 11    
     unsigned int valeur;
 
     
+
     //Représente la signe de la carte (pique=1 , coeur =2, trèfle=3, carreau=4) 
     //Ce valeur est obligatoirement comprise entre 1 et 4   
     unsigned int signe;
+
 
     
     //Représente le rang de la carte (ace=1; deux=2; ... valet=11; dame=12; roi=13) 
     //Ce valeur est obligatoirement comprise entre 1 et 13     
     unsigned int rang;
+
 
 };
 

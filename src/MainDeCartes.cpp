@@ -6,7 +6,7 @@
 
 using namespace std;
 
-MainDeCarte::MainDeCarte ()
+MainDeCartes::MainDeCartes ()
 {
 
     nbCartes=0; // le nombre de carte est initialisé à 0
@@ -17,7 +17,7 @@ MainDeCarte::MainDeCarte ()
 
 
 
-MainDeCarte::MainDeCarte (const Carte& carte1, const Carte& carte2)
+MainDeCartes::MainDeCartes (const Carte& carte1, const Carte& carte2)
 {   
     joueToujours=1; // initialisation du booléen à VRAI (1)
     crame=0; //le joueur à moins de 22
@@ -29,13 +29,13 @@ MainDeCarte::MainDeCarte (const Carte& carte1, const Carte& carte2)
 }
 
 
-MainDeCarte::~MainDeCarte()
+MainDeCartes::~MainDeCartes()
 {
     mainDeJoueur.clear();
 }
 
 
-void MainDeCarte::verifScore()
+void MainDeCartes::verifScore()
 {
     if (sommeValeur>21) 
         {
@@ -47,7 +47,7 @@ void MainDeCarte::verifScore()
 
 
 
-bool MainDeCarte::verifBlackJack ()
+bool MainDeCartes::verifBlackJack ()
 {
     if ((nbCartes==2)&&(sommeValeur==21)) // si on a deux cartes et que la somme des valeurs des deux cartes est = 21 (BlackJack)
     {
@@ -61,7 +61,7 @@ bool MainDeCarte::verifBlackJack ()
 }
 
 
-Carte MainDeCarte::getIemeCarte(unsigned int indice) const
+Carte MainDeCartes::getIemeCarte(unsigned int indice) const
 {
     assert((indice< mainDeJoueur.size())&&(mainDeJoueur.size()!=0));
     return mainDeJoueur[indice];
@@ -70,7 +70,7 @@ Carte MainDeCarte::getIemeCarte(unsigned int indice) const
 
 
 
-void MainDeCarte::tirerCarte (const Carte& carteAjoutee)
+void MainDeCartes::tirerCarte (const Carte& carteAjoutee)
 {
     if ((joueToujours)&&(! crame)) //tant que le joueur est encore en lice et qu'il n'a pas cramé 
             {
@@ -86,7 +86,7 @@ void MainDeCarte::tirerCarte (const Carte& carteAjoutee)
 
 
 
-void MainDeCarte::doubler (const Carte& carteAjoutee)
+void MainDeCartes::doubler (const Carte& carteAjoutee)
 {
     if ( nbCartes==2) // on peut doubler que quand on a uniquement 2 cartes
         {
@@ -105,7 +105,7 @@ void MainDeCarte::doubler (const Carte& carteAjoutee)
 
 
 
-void MainDeCarte::changeCarte (const Carte& carteAjoutee)
+void MainDeCartes::changeCarte (const Carte& carteAjoutee)
 {
     if ((nbCartes==2)&&((getIemeCarte(0).getValeur()==getIemeCarte(1).getValeur())||(getIemeCarte(0).getRang()==getIemeCarte(1).getRang())))
     {
@@ -119,7 +119,7 @@ void MainDeCarte::changeCarte (const Carte& carteAjoutee)
 
 
 
-void MainDeCarte::rester()
+void MainDeCartes::rester()
 {
     joueToujours=0; // booléen = FAUX   (le joueur passe son tour)      
 }
@@ -127,39 +127,39 @@ void MainDeCarte::rester()
 
 
 
-unsigned int MainDeCarte::getSommeValeur () const
+unsigned int MainDeCartes::getSommeValeur () const
 {
     return sommeValeur;
 }
 
 
 
-void MainDeCarte::setSommeValeur (unsigned int SommeValeur) 
+void MainDeCartes::setSommeValeur (unsigned int SommeValeur) 
 {
     sommeValeur=SommeValeur;
 }
 
 
-unsigned int MainDeCarte::getNbCartes () const
+unsigned int MainDeCartes::getNbCartes () const
 {
     return nbCartes;
 }
 
 
-bool MainDeCarte::getJoueToujours () const
+bool MainDeCartes::getJoueToujours () const
 {
     return joueToujours;
 }
 
 
 
-bool MainDeCarte::getCrame () const
+bool MainDeCartes::getCrame () const
 {
     return crame;
 }
 
 
-void MainDeCarte::vider()
+void MainDeCartes::vider()
 {
     mainDeJoueur.clear();
     nbCartes=0;
@@ -170,7 +170,7 @@ void MainDeCarte::vider()
 
 
 
-void MainDeCarte::verifAs()
+void MainDeCartes::verifAs()
 {
 for (unsigned int i=0; i<getNbCartes (); i++) //parcours de la main de cartes
 	{
@@ -200,12 +200,12 @@ for (unsigned int i=0; i<getNbCartes (); i++) //parcours de la main de cartes
 
 
 
-void MainDeCarte::testRegression() const
+void MainDeCartes::testRegression() const
 {
 
 
 
-    MainDeCarte mainVide; //creation d'une main de base main1
+    MainDeCartes mainVide; //creation d'une main de base main1
     assert (mainVide.getNbCartes()==0);
     assert (mainVide.getSommeValeur()==0);
     assert (mainVide.getJoueToujours()==1);
@@ -216,7 +216,7 @@ void MainDeCarte::testRegression() const
 
     Carte carte1(2,2,1); //creation de deux cartes (carte1 et carte2)
     Carte carte2(3,3,2);
-    MainDeCarte main(carte1,carte2); //creation d'une main de deux cartes (carte1 et carte2)
+    MainDeCartes main(carte1,carte2); //creation d'une main de deux cartes (carte1 et carte2)
     assert (main.getNbCartes()==2); // test du nombre de cartes 
     assert (main.getSommeValeur()==5);// test de la somme des valeur 
     assert (main.getJoueToujours()==1); //test du booléen joueToujours?
@@ -256,7 +256,7 @@ void MainDeCarte::testRegression() const
     Carte carte3 (7,7,3); // création de deux nouvelles cartes (carte3 et carte4)
     Carte carte4 (4,4,3); 
     Carte carteAjouteeDouble (11, 10, 1); // création d'une carte à ajouter nommée carteAjouteeDouble (valet de pique)
-    MainDeCarte main3 (carte3, carte4); // création d'une nouvelle main nommée main3 de deux cartes (carte3 et carte4)
+    MainDeCartes main3 (carte3, carte4); // création d'une nouvelle main nommée main3 de deux cartes (carte3 et carte4)
     main3.doubler (carteAjouteeDouble); 
     assert (main3.getNbCartes()==3); // test du nombre de cartes 
     assert (main3.getSommeValeur()==21);// test de la somme des valeur
@@ -274,7 +274,7 @@ void MainDeCarte::testRegression() const
 
     Carte carteAs (1,1,1); // création de deux nouvelles cartes (carteAs et carteBuche)
     Carte carteBuche (13,10,1); 
-    MainDeCarte mainBlackJack(carteAs, carteBuche); // création d'une main BlackJack (10 et as)
+    MainDeCartes mainBlackJack(carteAs, carteBuche); // création d'une main BlackJack (10 et as)
     assert (carteAs.getValeur()==1); // test si la valeur de l'as est bien passé à 1 (valeur de base d'un as)   
     assert (mainBlackJack.getSommeValeur()==21); // test de la somme des valeur égal à 11 car l'as n'est pas encore égal à 11
     assert(mainBlackJack.verifBlackJack ()==1); // vérifie que la main n'est pas un BlackJack     
@@ -293,7 +293,7 @@ void MainDeCarte::testRegression() const
 
     Carte carteAjouteeChange (6,6,1);
     Carte carteAsChange (1,1,1);
-    MainDeCarte mainChange;
+    MainDeCartes mainChange;
     mainChange.tirerCarte(carteAsChange);
     mainChange.tirerCarte(carteAsChange);// création d'une main avec deux as
     mainChange.changeCarte(carteAjouteeChange);
@@ -309,7 +309,7 @@ void MainDeCarte::testRegression() const
 
     Carte carteAjouteeChange2 (7,7,1);
     Carte  carteDouble2(2,2,1);
-    MainDeCarte mainChange2(carteDouble2,carteDouble2);
+    MainDeCartes mainChange2(carteDouble2,carteDouble2);
  
     
     mainChange2.changeCarte(carteAjouteeChange2);

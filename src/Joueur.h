@@ -21,7 +21,7 @@ class Joueur
 	/**
 	 * @brief mainJoueur main de cartes du joueur
 	*/
-	MainDeCarte mainJoueur;
+	MainDeCartes mainJoueur;
 
 
 

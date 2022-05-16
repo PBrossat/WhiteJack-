@@ -57,7 +57,7 @@ ostream& operator << (ostream& flux, const Carte& carteAffichee)
 
 
 
-void afficherMainDeCarte(const MainDeCarte& mainJoueur)
+void afficherMainDeCarte(const MainDeCartes& mainJoueur)
 {
 
     for (unsigned int i=0; i<mainJoueur.getNbCartes(); i++)
@@ -69,7 +69,7 @@ void afficherMainDeCarte(const MainDeCarte& mainJoueur)
 
 
 
-void txtBoucle (Jeu& jeu)
+void txtBoucle (JeuSolo& jeu)
 {
     // WinTXT win;
     bool veutJouer=1; //initilaisation du booléen à vrai. 

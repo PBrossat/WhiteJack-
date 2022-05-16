@@ -3,7 +3,7 @@
 
 int main ()
 {
-    application appli;
+    Application appli;
     appli.boucleApplication();
     return 0;
 }

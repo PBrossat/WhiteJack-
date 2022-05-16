@@ -1,18 +1,16 @@
 #include "JeuMultiSfml.h"
 #include <cassert>
 #include <time.h>
-#include "JeuSoloSfml.h"
 #include <stdlib.h>
 #include <iostream>
 #include <string.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include<sstream> 
 
 using namespace sf;
 using namespace std;
 
-sfmlMulti::sfmlMulti () : jeu(1) { 
+JeuMultiSfml::JeuMultiSfml () : jeu(1) { 
 
     window = new RenderWindow(VideoMode(1400,750), "BlackJack");
     dimx = window->getSize().x;
@@ -24,7 +22,7 @@ sfmlMulti::sfmlMulti () : jeu(1) {
     elimine=0;
 }
 
-void sfmlMulti::sfmlInit() {
+void JeuMultiSfml::sfmlInit() {
 
 //Chargement images coeur 
 
@@ -836,7 +834,7 @@ void sfmlMulti::sfmlInit() {
 }
 
 
-sfmlMulti::~sfmlMulti () 
+JeuMultiSfml::~JeuMultiSfml () 
 {
     if (window != NULL) delete window;
     window=NULL;
@@ -844,7 +842,7 @@ sfmlMulti::~sfmlMulti ()
 
 
 
-void sfmlMulti::afficherMainDeCarte(const MainDeCarte& mainJoueur, unsigned int x, unsigned int y)const 
+void JeuMultiSfml::afficherMainDeCarte(const MainDeCartes& mainJoueur, unsigned int x, unsigned int y)const 
 {
     unsigned int positionx = x;
     unsigned int positiony = y;
@@ -1107,7 +1105,7 @@ void sfmlMulti::afficherMainDeCarte(const MainDeCarte& mainJoueur, unsigned int 
 }
 
 
-void sfmlMulti::initPartie()
+void JeuMultiSfml::initPartie()
 {
     jeu.initialisationMiseMulti();
     sonMise.play();
@@ -1117,7 +1115,7 @@ void sfmlMulti::initPartie()
 }
 
 
-void sfmlMulti::finPartie()
+void JeuMultiSfml::finPartie()
 {
     assert(!jeu.tabJoueur.empty());
     if(!jeu.tabJoueur[0].mainJoueur.getJoueToujours())
@@ -1161,7 +1159,7 @@ void sfmlMulti::finPartie()
 }
 
 
-void sfmlMulti::affichageManche(unsigned int nbJoueurs)
+void JeuMultiSfml::affichageManche(unsigned int nbJoueurs)
 {
     if (nbJoueurs==4)
     {
@@ -1297,7 +1295,7 @@ void sfmlMulti::affichageManche(unsigned int nbJoueurs)
 }
 
 
-void sfmlMulti::sfmlAff() 
+void JeuMultiSfml::sfmlAff() 
 {
     window->clear(Color(230, 240, 255, 255)); 
     window->draw(rsFond);
@@ -1441,7 +1439,7 @@ void sfmlMulti::sfmlAff()
 
 
 
-unsigned int sfmlMulti::sfmlBoucle() {
+unsigned int JeuMultiSfml::sfmlBoucle() {
 
     while (window->isOpen()) 
     {

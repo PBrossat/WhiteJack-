@@ -11,7 +11,7 @@
 using namespace sf;
 using namespace std;
 
-sfmlJeu::sfmlJeu () : jeu() { 
+JeuSoloSfml::JeuSoloSfml () : jeu() { 
 
     // sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
     
@@ -25,7 +25,7 @@ sfmlJeu::sfmlJeu () : jeu() {
     finJeu=0;
 }
 
-void sfmlJeu::sfmlInit() {
+void JeuSoloSfml::sfmlInit() {
 
 //Chargement images coeur 
 
@@ -748,14 +748,14 @@ void sfmlJeu::sfmlInit() {
 }
 
 
-sfmlJeu::~sfmlJeu () 
+JeuSoloSfml::~JeuSoloSfml () 
 {
     if (window != NULL) delete window;
     window=NULL;
 }
 
 
-void sfmlJeu::afficherMainDeCarteCroupier(const MainDeCarte mainJoueur)const
+void JeuSoloSfml::afficherMainDeCarteCroupier(const MainDeCartes mainJoueur)const
 {
     unsigned int nbCartes = mainJoueur.getNbCartes();
     unsigned int decalage;
@@ -1029,7 +1029,7 @@ void sfmlJeu::afficherMainDeCarteCroupier(const MainDeCarte mainJoueur)const
     }
 }
 
-void sfmlJeu::afficherMainDeCarteJoueur(const MainDeCarte mainJoueur)const 
+void JeuSoloSfml::afficherMainDeCarteJoueur(const MainDeCartes mainJoueur)const 
 {
     unsigned int nbCartes = mainJoueur.getNbCartes();
     unsigned int decalage = (nbCartes-2)*18;        
@@ -1298,7 +1298,7 @@ void sfmlJeu::afficherMainDeCarteJoueur(const MainDeCarte mainJoueur)const
 
 
 
-void sfmlJeu::initPartie()
+void JeuSoloSfml::initPartie()
 {
     sonMise.play();
     jeu.initialisationJeu();
@@ -1307,7 +1307,7 @@ void sfmlJeu::initPartie()
 }
 
 
-void sfmlJeu::finPartie()
+void JeuSoloSfml::finPartie()
 {
     if(!jeu.joueurSolo.mainJoueur.getJoueToujours())
     {
@@ -1334,7 +1334,7 @@ void sfmlJeu::finPartie()
 }
 
 
-void sfmlJeu::affichageScoreMise()
+void JeuSoloSfml::affichageScoreMise()
 {
     string scoreJoueur = to_string(jeu.joueurSolo.mainJoueur.getSommeValeur());
     txtScoreJoueur.setString("Score : "+ scoreJoueur);
@@ -1351,7 +1351,7 @@ void sfmlJeu::affichageScoreMise()
 
 
 
-void sfmlJeu::sfmlAff() 
+void JeuSoloSfml::sfmlAff() 
 {
     window->clear(Color(230, 240, 255, 255)); 
     window->draw(rsFond);
@@ -1479,7 +1479,7 @@ void sfmlJeu::sfmlAff()
 
 
 
-unsigned int sfmlJeu::sfmlBoucle() {
+unsigned int JeuSoloSfml::sfmlBoucle() {
 
     while (window->isOpen()) 
     {

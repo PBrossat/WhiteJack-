@@ -1,6 +1,7 @@
 #include "Application.h"
 
-application::application()
+
+Application::application()
 {
     if (!tExit.loadFromFile("data/exit.png")) 
     {
@@ -14,12 +15,16 @@ application::application()
     }
 }
 
-application::~application()
+
+
+Application::~Application()
 {
 
 }
 
-unsigned int application::afficherRegles()
+
+
+unsigned int Application::afficherRegles()
 {
     sf::View view(sf::Vector2f(1400/2.f, 375.f), sf::Vector2f(1400.f, 750.f));
     sf::RenderWindow * fenetre;
@@ -77,7 +82,7 @@ unsigned int application::afficherRegles()
 	}
 }
 
-void application::boucleApplication()
+void Application::boucleApplication()
 {
     menu.initMenu();
     choixRetour=0;

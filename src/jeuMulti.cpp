@@ -11,7 +11,7 @@ using namespace std;
 
 
 
-jeuMulti::jeuMulti ()
+JeuMulti::JeuMulti ()
 {
 
     unDeck.initDeck();
@@ -20,7 +20,7 @@ jeuMulti::jeuMulti ()
     
 }
 
-jeuMulti::jeuMulti (unsigned int NiveauJoueur)
+JeuMulti::JeuMulti (unsigned int NiveauJoueur)
 {
 
 	unDeck.initDeck();
@@ -33,7 +33,7 @@ jeuMulti::jeuMulti (unsigned int NiveauJoueur)
     nbJoueurs=4;
 }
 
-void jeuMulti::remplirJoueurs(unsigned int NiveauJoueur)
+void JeuMulti::remplirJoueurs(unsigned int NiveauJoueur)
 {
     assert(NiveauJoueur>0 && NiveauJoueur<4);
     if(tabJoueur.empty())
@@ -46,13 +46,14 @@ void jeuMulti::remplirJoueurs(unsigned int NiveauJoueur)
     }
 }
 
-jeuMulti::~jeuMulti()
+
+JeuMulti::~JeuMulti()
 {
     tabJoueur.clear();
 }
 
 
-void jeuMulti::eliminationJoueur() //procédure permettant d'eliminer un joueur si : soit il n'as plus de budget, soit il a le moins d'argent à la partie n={3,6,9}
+void JeuMulti::eliminationJoueur() //procédure permettant d'eliminer un joueur si : soit il n'as plus de budget, soit il a le moins d'argent à la partie n={3,6,9}
 {
     for (unsigned int i=0; i<tabJoueur.size(); i++) //pour i parcourant tout le tableau 
     {
@@ -86,7 +87,7 @@ void jeuMulti::eliminationJoueur() //procédure permettant d'eliminer un joueur 
 
 
 
-void jeuMulti::initialisationMiseMulti()
+void JeuMulti::initialisationMiseMulti()
 {
     for (unsigned int i=0; i<tabJoueur.size(); i++) //parcours du tableau de joueurs
     {
@@ -117,7 +118,7 @@ void jeuMulti::initialisationMiseMulti()
 
 }
 
-void jeuMulti::initialisationMise(const char touche)
+void JeuMulti::initialisationMise(const char touche)
 {
 	tabJoueur[0].setGain(0);
 	switch(touche)
@@ -145,7 +146,7 @@ void jeuMulti::initialisationMise(const char touche)
 }
 
 
-void jeuMulti::actionClavier(const char touche)
+void JeuMulti::actionClavier(const char touche)
 {
 	switch(touche) 
 	{
@@ -183,7 +184,7 @@ void jeuMulti::actionClavier(const char touche)
 }
 
 
-unsigned int jeuMulti::resultat(unsigned int indiceJoueur) 
+unsigned int JeuMulti::resultat(unsigned int indiceJoueur) 
 {
 	if(tabJoueur[indiceJoueur].mainJoueur.verifBlackJack())
 	{
@@ -237,7 +238,7 @@ unsigned int jeuMulti::resultat(unsigned int indiceJoueur)
 
 
 
-void jeuMulti::initialisationJeuMulti()
+void JeuMulti::initialisationJeuMulti()
 { 
     Carte carteTiree; //initilisation des cartes qui vont être tirées
     Carte carteCroupier;
@@ -262,7 +263,7 @@ void jeuMulti::initialisationJeuMulti()
 }
 
 
-void jeuMulti::finManche()
+void JeuMulti::finManche()
 {
     for(unsigned int i=0; i<tabJoueur.size(); i++)
     {
@@ -275,7 +276,7 @@ void jeuMulti::finManche()
 }
 
 
-void jeuMulti::actionCroupier()
+void JeuMulti::actionCroupier()
 {
     bool tousCrame=1;
     for(unsigned int i=0; i<tabJoueur.size(); i++)
@@ -299,7 +300,7 @@ void jeuMulti::actionCroupier()
 }
 
 
-void jeuMulti::actionAmateur()
+void JeuMulti::actionAmateur()
 {
     Carte carteTiree;  
     for (unsigned int i=1; i<tabJoueur.size(); i++)
@@ -321,7 +322,7 @@ void jeuMulti::actionAmateur()
 
 
 
-void jeuMulti::actionIntermediaire()
+void JeuMulti::actionIntermediaire()
 {
     Carte carteTiree;  
     srand (time(NULL));
@@ -339,7 +340,7 @@ void jeuMulti::actionIntermediaire()
 
 
 
-void jeuMulti::actionExpert()
+void JeuMulti::actionExpert()
 {
 
     Carte carteTiree;
@@ -630,10 +631,10 @@ void jeuMulti::actionExpert()
 
 
 
-void jeuMulti::testRegression() const
+void JeuMulti::testRegression() const
 {
 
-    jeuMulti unJeuMultiParDefaut; // création d'un jeu multi par défaut 
+    JeuMulti unJeuMultiParDefaut; // création d'un jeu multi par défaut 
     assert (unJeuMultiParDefaut.tabJoueur.size()==0); // taille =0   
     assert(unJeuMultiParDefaut.nbManches==1);
     Joueur joueurParDefaut; //création d'un joueur par défaut
@@ -643,7 +644,7 @@ void jeuMulti::testRegression() const
     
 
 
-    jeuMulti unJeuMulti(3); //3 signifie niveau=expert 
+    JeuMulti unJeuMulti(3); //3 signifie niveau=expert 
     assert (unJeuMulti.tabJoueur.size()==4); // taille =4
     assert (unJeuMulti.tabJoueur[0].nom=="Vous"); //test sur le joueur reel
     assert (unJeuMulti.tabJoueur[0].getNiveau()==0);
@@ -676,7 +677,7 @@ void jeuMulti::testRegression() const
 
 
 
-    jeuMulti unJeuMulti2(3); //création d'un nouveau jeuMulti (jeuMulti2)
+    JeuMulti unJeuMulti2(3); //création d'un nouveau jeuMulti (jeuMulti2)
     unJeuMulti2.initialisationMiseMulti();
     for (unsigned int i=0; i<unJeuMulti2.tabJoueur.size(); i++)
     {
@@ -714,7 +715,7 @@ void jeuMulti::testRegression() const
     Carte carteAjoutee10(10,10,3); // definition de chaque carte (de l'as au 10)
 
 
-    jeuMulti jeuIA(1);
+    JeuMulti jeuIA(1);
     jeuIA.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee8); // test score <17
     jeuIA.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee2);
     assert(jeuIA.tabJoueur[1].mainJoueur.getNbCartes()==2);
@@ -724,7 +725,7 @@ void jeuMulti::testRegression() const
 
 
 
-    jeuMulti jeuIA2(1);
+    JeuMulti jeuIA2(1);
     jeuIA2.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee10); //test score >17
     jeuIA2.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee8);
     assert(jeuIA2.tabJoueur[1].mainJoueur.getNbCartes()==2);
@@ -734,7 +735,7 @@ void jeuMulti::testRegression() const
 
 
 
-    jeuMulti jeuIA3(1);
+    JeuMulti jeuIA3(1);
     jeuIA3.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee10); //test score =17
     jeuIA3.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee7);
     assert(jeuIA3.tabJoueur[1].mainJoueur.getNbCartes()==2);
@@ -744,7 +745,7 @@ void jeuMulti::testRegression() const
 
 
 
-    jeuMulti jeuIAExpert1(3);
+    JeuMulti jeuIAExpert1(3);
     jeuIAExpert1.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee8);
     jeuIAExpert1.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee2);//score joueur=10 => le joueur doit tirer
     jeuIAExpert1.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee8);
@@ -760,7 +761,7 @@ void jeuMulti::testRegression() const
 
 
 
-    jeuMulti jeuIAExpert2(3);
+    JeuMulti jeuIAExpert2(3);
     jeuIAExpert2.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee10);
     jeuIAExpert2.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee10);//main joueur = double 10 => il doit rester
     jeuIAExpert2.tabJoueur[2].mainJoueur.tirerCarte(carteAjouteeAs);
@@ -776,7 +777,7 @@ void jeuMulti::testRegression() const
 
 
 
-    jeuMulti jeuIAExpert3(3);
+    JeuMulti jeuIAExpert3(3);
     jeuIAExpert3.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee6);
     jeuIAExpert3.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee6);//main joueur = double 6 => il doit tirer
     jeuIAExpert3.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee2);
@@ -792,7 +793,7 @@ void jeuMulti::testRegression() const
 
 
 
-    jeuMulti jeuIAExpert4(3);
+    JeuMulti jeuIAExpert4(3);
     jeuIAExpert4.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee5);
     jeuIAExpert4.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee5);//main joueur = double 5 => il doit doubler
     jeuIAExpert4.tabJoueur[2].mainJoueur.tirerCarte(carteAjouteeAs);
@@ -808,7 +809,7 @@ void jeuMulti::testRegression() const
 
 
 
-    jeuMulti jeuIAExpert5(3);
+    JeuMulti jeuIAExpert5(3);
     jeuIAExpert5.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee3);
     jeuIAExpert5.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee4);
     jeuIAExpert5.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee3);//le score du joueur est de 10 avec 3 carte => il doit tirer (pas doubler)
@@ -826,7 +827,7 @@ void jeuMulti::testRegression() const
     
 
 
-    jeuMulti jeuIAIntermediaire(2);
+    JeuMulti jeuIAIntermediaire(2);
     jeuIAIntermediaire.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee10);
     jeuIAIntermediaire.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee7);//score joueur=17
     jeuIAIntermediaire.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee9);
@@ -848,7 +849,7 @@ void jeuMulti::testRegression() const
 
 
 
-    jeuMulti jeuIAIntermediaire2(2);
+    JeuMulti jeuIAIntermediaire2(2);
     jeuIAIntermediaire2.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee4);
     jeuIAIntermediaire2.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee6);//score joueur=10
     jeuIAIntermediaire2.tabJoueur[2].mainJoueur.tirerCarte(carteAjouteeAs);
@@ -878,7 +879,7 @@ void jeuMulti::testRegression() const
 
 
 
-    jeuMulti jeuIAIntermediaire3(2);
+    JeuMulti jeuIAIntermediaire3(2);
     jeuIAIntermediaire3.tabJoueur[1].mainJoueur.tirerCarte(carteAjouteeAs);
     jeuIAIntermediaire3.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee2);//main joueur = As et deux 
     jeuIAIntermediaire3.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee7);
@@ -902,7 +903,7 @@ void jeuMulti::testRegression() const
     cout<<"Test de jeuIAIntermediaire3() OK"<<endl;
     
 
-    jeuMulti jeuIAIntermediaire4(2);
+    JeuMulti jeuIAIntermediaire4(2);
     // toute les IA ont le même jeu mais n'auront pas toute le même comportement selon leur niveau
     jeuIAIntermediaire4.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee10);
     jeuIAIntermediaire4.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee4);//score du joueur= 14 
@@ -934,7 +935,7 @@ void jeuMulti::testRegression() const
             assert (jeuIAIntermediaire4.tabJoueur[3].mainJoueur.getNbCartes()==2); // mode expert
         }
         
-    jeuMulti jeuIAIntermediaire5(2);
+    JeuMulti jeuIAIntermediaire5(2);
     jeuIAIntermediaire5.tabJoueur[1].mainJoueur.tirerCarte(carteAjouteeAs);
     jeuIAIntermediaire5.tabJoueur[1].mainJoueur.tirerCarte(carteAjouteeAs);//main du joueur = double as
     jeuIAIntermediaire5.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee9);
