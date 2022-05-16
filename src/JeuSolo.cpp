@@ -96,7 +96,8 @@ void JeuSolo::actionClavier(const char touche)
 		case 'c' :
 		{
 			assert((joueurSolo.mainJoueur.getNbCartes()==2) && (joueurSolo.getBudget()>=joueurSolo.getMise()));
-			assert((joueurSolo.mainJoueur.getIemeCarte(0).getValeur()==joueurSolo.mainJoueur.getIemeCarte(1).getValeur())||(joueurSolo.mainJoueur.getIemeCarte(0).getRang()==joueurSolo.mainJoueur.getIemeCarte(1).getRang())); 
+			assert((joueurSolo.mainJoueur.getIemeCarte(0).getValeur()==joueurSolo.mainJoueur.getIemeCarte(1).getValeur())
+			||(joueurSolo.mainJoueur.getIemeCarte(0).getRang()==joueurSolo.mainJoueur.getIemeCarte(1).getRang())); 
 			joueurSolo.miser(joueurSolo.getMise());
 			joueurSolo.setMise(joueurSolo.getMise()*2);
 			Carte carteTiree = unDeck.distribuerCarte();

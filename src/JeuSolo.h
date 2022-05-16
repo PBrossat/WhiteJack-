@@ -117,7 +117,8 @@ class JeuSolo
 
 
 	/**
-     * @brief Fonction permettant de déterminer les gains du joueur et renvoyant un entier déterminant le résultat (gagné,perdu,blackjack...)
+     * @brief Fonction permettant de déterminer les gains du joueur et renvoyant un entier déterminant le résultat
+     * (gagné,perdu,blackjack...)
      * @return unsigned int : 0 pour perdu, 1 pour égalité, 2 pour gagné, 3 pour blackjack
      * 
      * Exemple d'utilisation :
