@@ -1,7 +1,7 @@
 #include "Application.h"
 
 
-Application::application()
+Application::Application()
 {
     if (!tExit.loadFromFile("data/exit.png")) 
     {
@@ -90,7 +90,7 @@ void Application::boucleApplication()
     choixMenu = menu.boucleMenu();
     if(choixMenu==1)
     {
-            sfmlJeu* jeuSolo = new sfmlJeu;
+            JeuSoloSfml* jeuSolo = new JeuSoloSfml;
             jeuSolo->sfmlInit();
             jeuSolo->sfmlAff();
             choixRetour = jeuSolo->sfmlBoucle();
@@ -103,7 +103,7 @@ void Application::boucleApplication()
     }
     else if(choixMenu==2)
     {
-            sfmlMulti* jeuMulti = new sfmlMulti;
+            JeuMultiSfml* jeuMulti = new JeuMultiSfml;
             jeuMulti->sfmlInit();
             jeuMulti->sfmlAff();
             choixRetour = jeuMulti->sfmlBoucle();
