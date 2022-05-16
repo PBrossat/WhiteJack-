@@ -1,14 +1,7 @@
 var searchData=
 [
-<<<<<<< HEAD
-  ['remplirjoueurs_90',['remplirJoueurs',['../classjeu_multi.html#aa18451147ac03ac33da1ec53ef275234',1,'jeuMulti']]],
-  ['rester_91',['rester',['../class_main_de_carte.html#a46bfdb90e2b75f8412f89b53ed0e0625',1,'MainDeCarte']]],
-  ['resultat_92',['resultat',['../classjeu_multi.html#a49659f540ed4fa866598e29e39faafbf',1,'jeuMulti::resultat()'],['../class_jeu.html#aec880d4f024281b54ec65036d21b2d87',1,'Jeu::resultat()']]],
-  ['rsregle_93',['rsRegle',['../class_menu.html#a78b2a01b62e216a707b5d86f5c84be41',1,'Menu']]]
-=======
-  ['remplirjoueurs_0',['remplirJoueurs',['../classjeu_multi.html#aa18451147ac03ac33da1ec53ef275234',1,'jeuMulti']]],
-  ['rester_1',['rester',['../class_main_de_carte.html#a46bfdb90e2b75f8412f89b53ed0e0625',1,'MainDeCarte']]],
-  ['resultat_2',['resultat',['../classjeu_multi.html#a49659f540ed4fa866598e29e39faafbf',1,'jeuMulti::resultat()'],['../class_jeu.html#aec880d4f024281b54ec65036d21b2d87',1,'Jeu::resultat()']]],
-  ['rsregle_3',['rsRegle',['../class_menu.html#a78b2a01b62e216a707b5d86f5c84be41',1,'Menu']]]
->>>>>>> 7770350052e1251c79029e7e901cdd5d9aa6b644
+  ['remplirjoueurs_91',['remplirJoueurs',['../class_jeu_multi.html#ad1baa195c60141233dac58d08e5cea53',1,'JeuMulti']]],
+  ['rester_92',['rester',['../class_main_de_cartes.html#a65a4c297a64fc92001117dd79129dca8',1,'MainDeCartes']]],
+  ['resultat_93',['resultat',['../class_jeu_multi.html#a9c156441fdca4cd0a221efc287267c65',1,'JeuMulti::resultat()'],['../class_jeu_solo.html#ac3262a0e863efb729101223b437ffde3',1,'JeuSolo::resultat()']]],
+  ['rsregle_94',['rsRegle',['../class_menu.html#a78b2a01b62e216a707b5d86f5c84be41',1,'Menu']]]
 ];

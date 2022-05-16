@@ -33,6 +33,7 @@ JeuMulti::JeuMulti (unsigned int NiveauJoueur)
     nbJoueurs=4;
 }
 
+
 void JeuMulti::remplirJoueurs(unsigned int NiveauJoueur)
 {
     assert(NiveauJoueur>0 && NiveauJoueur<4);
@@ -53,7 +54,8 @@ JeuMulti::~JeuMulti()
 }
 
 
-void JeuMulti::eliminationJoueur() //procédure permettant d'eliminer un joueur si : soit il n'as plus de budget, soit il a le moins d'argent à la partie n={3,6,9}
+void JeuMulti::eliminationJoueur() //procédure permettant d'eliminer un joueur si :
+// soit il n'as plus de budget, soit il a le moins d'argent à la partie n={3,6,9}
 {
     for (unsigned int i=0; i<tabJoueur.size(); i++) //pour i parcourant tout le tableau 
     {
@@ -64,8 +66,8 @@ void JeuMulti::eliminationJoueur() //procédure permettant d'eliminer un joueur 
         }
 
     }
-
-    if ( ((nbJoueurs==4)&&(nbManches==3)) || ((nbJoueurs==3)&&(nbManches==6))  || ((nbJoueurs==2)&&(nbManches==9))) //si toute les conditions sont réspectées 
+    //si toute les conditions sont réspectées 
+    if ( ((nbJoueurs==4)&&(nbManches==3)) || ((nbJoueurs==3)&&(nbManches==6))  || ((nbJoueurs==2)&&(nbManches==9))) 
     {
         float min=tabJoueur[0].getBudget(); //initialisation de min à la valeur du budget du joueur d'indice 0 
         unsigned int indiceMinimum=0; // initialisation d'indiceMinimum à l'indice 0 par défaut
@@ -107,12 +109,12 @@ void JeuMulti::initialisationMiseMulti()
         if(tabJoueur[i].getNiveau()!=0) //si le niveau du joueur est different de 0 (c'est une IA)
         {
             do
-            {
-                unsigned int aleatoire = rand() % 5; //on tire un nombre entre 0 et 4 compris qui correspond a l'indice du tab que l'on vient de créer 
+            {   //on tire un nombre entre 0 et 4 compris qui correspond a l'indice du tab que l'on vient de créer 
+                unsigned int aleatoire = rand() % 5; 
                 tabJoueur[i].setMise(misePossible[aleatoire]); //mise aléatoire 
             }while (tabJoueur[i].getBudget()<=tabJoueur[i].getMise()); //tant que c'est possible (par rapport à budget)
         }
-        // else Jeu.tabJoueur[i].initialisationMise(touche);               cas du joueur reel (Attention à comment rentrer la mise que l'on veut avec la version graphique)
+       
 
     }
 
@@ -173,7 +175,8 @@ void JeuMulti::actionClavier(const char touche)
 		case 'c' :
 		{
 			assert((tabJoueur[0].mainJoueur.getNbCartes()==2) && (tabJoueur[0].getBudget()>=tabJoueur[0].getMise()));
-			assert((tabJoueur[0].mainJoueur.getIemeCarte(0).getValeur()==tabJoueur[0].mainJoueur.getIemeCarte(1).getValeur())||(tabJoueur[0].mainJoueur.getIemeCarte(0).getRang()==tabJoueur[0].mainJoueur.getIemeCarte(1).getRang())); 
+			assert((tabJoueur[0].mainJoueur.getIemeCarte(0).getValeur()==tabJoueur[0].mainJoueur.getIemeCarte(1).getValeur())
+            ||(tabJoueur[0].mainJoueur.getIemeCarte(0).getRang()==tabJoueur[0].mainJoueur.getIemeCarte(1).getRang())); 
 			tabJoueur[0].miser(tabJoueur[0].getMise());
 			tabJoueur[0].setMise(tabJoueur[0].getMise()*2);
 			Carte carteTiree = unDeck.distribuerCarte();
@@ -326,9 +329,11 @@ void JeuMulti::actionIntermediaire()
 {
     Carte carteTiree;  
     srand (time(NULL));
-    randPourcentage=rand() % 21+40; // création d'une variable aléatoire qui permet de changer le pourcentage de chance de jouer en amateur ou en expert (entre 40 et 60)
-    nvHasard= rand() % 100+1; //nb au hasard entre 1 et 100 qui permettra de definir si l'IA jouera avec un niveau amateur ou expert (55 % de chance de jouer en mode amateur) 
-    // cout<<nvHasard<<"         "<<randPourcentage<<endl;
+    // création d'une variable aléatoire qui permet de changer le pourcentage de chance de jouer en amateur ou en expert (entre 40 et 60)
+    randPourcentage=rand() % 21+40; 
+    //nb au hasard entre 1 et 100 qui permettra de definir si l'IA jouera avec un niveau amateur ou expert (55 % de chance de jouer en mode amateur) 
+    nvHasard= rand() % 100+1; 
+    
     if (nvHasard<=randPourcentage)
     {
         actionAmateur();
@@ -336,7 +341,7 @@ void JeuMulti::actionIntermediaire()
     {
         actionExpert();
     }
-}// si on veut que chaque IA est un nv different on doit passer en parametre l'indice du joueur dans les fonction actionExpert et actionAmateur
+}
 
 
 
@@ -348,129 +353,211 @@ void JeuMulti::actionExpert()
     {
         while (tabJoueur[i].mainJoueur.getJoueToujours()==1)
         {
-        if((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()>=8))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()>=8)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1))))
+        if((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()>=8))
+        ||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()>=8)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1))))
         //si la main du joueur est As et 8 (ou 9 ou buche) alors il reste quoi qu'il en soit
         {
             tabJoueur[i].mainJoueur.rester();
 
         }
-        if((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==7))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==7)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))&&((mainCroupier.getSommeValeur()>=3)&&(mainCroupier.getSommeValeur()<=6))))
+
+        if((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==7))
+        ||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==7)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))
+        &&((mainCroupier.getSommeValeur()>=3)&&(mainCroupier.getSommeValeur()<=6))))
         //si la main du joueur est As et 7 et que le croupier à entre 3 et 6 alors il double
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.doubler(carteTiree);
         }
-        if((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==7))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==7)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))&&((mainCroupier.getSommeValeur()==2)||(mainCroupier.getSommeValeur()==7)||(mainCroupier.getSommeValeur()==8))))
+
+        if((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==7))
+        ||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==7)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))
+        &&((mainCroupier.getSommeValeur()==2)||(mainCroupier.getSommeValeur()==7)||(mainCroupier.getSommeValeur()==8))))
         //si la main du joueur est As et 7 et que le croupier a 2 ou 7 ou 8 alors il reste 
         {
             tabJoueur[i].mainJoueur.rester();
         }
-        if((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==7))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==7)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))&&(mainCroupier.getSommeValeur()>=9)))
+
+        if((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==7))
+        ||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==7)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))
+        &&(mainCroupier.getSommeValeur()>=9)))
         //si la main du joueur est As et 7 et que le croupier à 9 ou plus alors il tire
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }   
-        if((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==6))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==6)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))&&((mainCroupier.getSommeValeur()>=3)&&(mainCroupier.getSommeValeur()<=6))))
+
+        if((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==6))
+        ||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==6)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))
+        &&((mainCroupier.getSommeValeur()>=3)&&(mainCroupier.getSommeValeur()<=6))))
         //main joueur = As et 6 et que le croupier à entre 3 et 6 alors il double 
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.doubler(carteTiree); 
         }
-        if((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==6))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==6)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))&&((mainCroupier.getSommeValeur()==2)||(mainCroupier.getSommeValeur()>=7))))
+
+        if((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==6))
+        ||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==6)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))
+        &&((mainCroupier.getSommeValeur()==2)||(mainCroupier.getSommeValeur()>=7))))
         //main joueur = as et 6 et que le croupier à 2 ou 7 ous plus alors il tire 
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
-        if((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==5))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==5)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))&&(((mainCroupier.getSommeValeur()>=2)&&(mainCroupier.getSommeValeur()<=3))||(mainCroupier.getSommeValeur()>=7))))
+
+        if((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==5))
+        ||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==5)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))
+        &&(((mainCroupier.getSommeValeur()>=2)&&(mainCroupier.getSommeValeur()<=3))||(mainCroupier.getSommeValeur()>=7))))
         //main joueur = as et 5 et que le croupier à entre 2 et 3 ou plus de 7 alors il tire 
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
-        if((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==5))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==5)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))&&(((mainCroupier.getSommeValeur()>=4)&&(mainCroupier.getSommeValeur()<=6)))))
+
+        if((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==5))
+        ||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==5)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))
+        &&(((mainCroupier.getSommeValeur()>=4)&&(mainCroupier.getSommeValeur()<=6)))))
         //main joueur = as et 5 et que le croupier à entre 4 et 6 alors il double 
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.doubler(carteTiree); 
         }
-        if((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==4))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==4)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))&&(((mainCroupier.getSommeValeur()>=2)&&(mainCroupier.getSommeValeur()<=3))||(mainCroupier.getSommeValeur()>=7))))
+
+        if((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==4))
+        ||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==4)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))
+        &&(((mainCroupier.getSommeValeur()>=2)&&(mainCroupier.getSommeValeur()<=3))||(mainCroupier.getSommeValeur()>=7))))
         //main joueur = as et 4 et que le croupier à entre 2 et 3 ou plus de 7 alors il tire 
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
-        if((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==4))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==4)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))&&(((mainCroupier.getSommeValeur()>=4)&&(mainCroupier.getSommeValeur()<=6)))))
+        if((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==4))
+        ||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==4)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))
+        &&(((mainCroupier.getSommeValeur()>=4)&&(mainCroupier.getSommeValeur()<=6)))))
         //main joueur = as et 4 et que le croupier à entre 4 et 6 alors il double 
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.doubler(carteTiree); 
         }
-        if((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==3))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==3)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))&&(((mainCroupier.getSommeValeur()>=2)&&(mainCroupier.getSommeValeur()<=4))||(mainCroupier.getSommeValeur()>=7))))
+
+        if((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==3))
+        ||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==3)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1))
+        )&&(((mainCroupier.getSommeValeur()>=2)&&(mainCroupier.getSommeValeur()<=4))||(mainCroupier.getSommeValeur()>=7))))
         //main joueur = as et 3 et que le croupier à entre 2 et 4 ou plus de 7 alors il tire 
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
-        if((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==3))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==3)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))&&(((mainCroupier.getSommeValeur()>=5)&&(mainCroupier.getSommeValeur()<=6)))))
+
+        if((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==3))
+        ||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==3)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))
+        &&(((mainCroupier.getSommeValeur()>=5)&&(mainCroupier.getSommeValeur()<=6)))))
         //main joueur = as et 3 et que le croupier à entre 5 et 6 alors il double 
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.doubler(carteTiree); 
         }
-        if((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==2))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==2)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))&&(((mainCroupier.getSommeValeur()>=2)&&(mainCroupier.getSommeValeur()<=4))||(mainCroupier.getSommeValeur()>=7))))
+
+        if((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==2))
+        ||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==2)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))
+        &&(((mainCroupier.getSommeValeur()>=2)&&(mainCroupier.getSommeValeur()<=4))||(mainCroupier.getSommeValeur()>=7))))
         //main joueur = as et 2 et que le croupier à entre 2 et 4 ou plus de 7 alors il tire 
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
-        if((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==2))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==2)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))&&(((mainCroupier.getSommeValeur()>=5)&&(mainCroupier.getSommeValeur()<=6))))))
+
+        if((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)
+        &&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==2))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==2)
+        &&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1)))
+        &&(((mainCroupier.getSommeValeur()>=5)&&(mainCroupier.getSommeValeur()<=6))))))
         //main joueur = as et 2 et que le croupier à entre 5 et 6 alors il double 
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.doubler(carteTiree); 
         }
-        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1))||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==8)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==8))))
+
+        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==1)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==1))
+        ||((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==8)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==8))))
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.changeCarte(carteTiree);
         }
-        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==10)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==10)))
+
+        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==10)
+        &&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==10)))
         //main joueur = 10 et 10 alors il reste
         {
             tabJoueur[i].mainJoueur.rester();
         }
-        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==9)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==9))&&((mainCroupier.getSommeValeur()==7)||(mainCroupier.getSommeValeur()>=10))))
+
+        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==9)
+        &&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==9))
+        &&((mainCroupier.getSommeValeur()==7)||(mainCroupier.getSommeValeur()>=10))))
         //main joueur = 9 et 9 et le croupier à 7 ou 10 ou plus alors il reste 
         {
             tabJoueur[i].mainJoueur.rester();
         }
-        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==9)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==9))&&((mainCroupier.getSommeValeur()<=6)||((mainCroupier.getSommeValeur()>=8)&&(mainCroupier.getSommeValeur()<=9)))))
+        
+        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==9)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==9))
+        &&((mainCroupier.getSommeValeur()<=6)||((mainCroupier.getSommeValeur()>=8)
+        &&(mainCroupier.getSommeValeur()<=9)))))
         // main joueur = 9 et 9 et que le croupier à 6 ou moins ou 8 ou 9 alors il splitte
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.changeCarte(carteTiree);
-        }   
-        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==7)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==7))&&((mainCroupier.getSommeValeur()<=7))))
+        }  
+
+        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==7)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==7))
+        &&((mainCroupier.getSommeValeur()<=7))))
         // main joueur = 7 et 7 et que le croupier à 7 ou moins alors il splitte
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.changeCarte(carteTiree);
         }
-        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==7)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==7))&&((mainCroupier.getSommeValeur()>=8))))
+
+        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==7)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==7))
+        &&((mainCroupier.getSommeValeur()>=8))))
         // main joueur = 7 et 7 et que le croupier à 8 ou plus alors il tire
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
-        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==6)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==6))&&((mainCroupier.getSommeValeur()<=6))))
+
+        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==6)
+        &&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==6))
+        &&((mainCroupier.getSommeValeur()<=6))))
         // main joueur = 6 et 6 et que le croupier à 6 ou moins alors il splitte
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.changeCarte(carteTiree);
         }
-        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==6)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==6))&&((mainCroupier.getSommeValeur()>=7))))
+
+        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==6)
+        &&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==6))
+        &&((mainCroupier.getSommeValeur()>=7))))
         // main joueur = 6 et 6 et que le croupier à 7 ou plus alors il tire
         {
             carteTiree = unDeck.distribuerCarte();
@@ -478,90 +565,137 @@ void JeuMulti::actionExpert()
     
         }
 
-        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==5)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==5))&&((mainCroupier.getSommeValeur()<=9))))
+        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==5)
+        &&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==5))
+        &&((mainCroupier.getSommeValeur()<=9))))
         // main joueur = 5 et 5 et que le croupier à 9 ou moins alors il double 
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.doubler(carteTiree); 
         }
-        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==5)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==5))&&((mainCroupier.getSommeValeur()>=10))))
+
+        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==5)
+        &&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==5))
+        &&((mainCroupier.getSommeValeur()>=10))))
         // main joueur = 5 et 5 et que le croupier à 10 ou plus alors il tire
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
-        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==4)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==4))&&((mainCroupier.getSommeValeur()<=4)||(mainCroupier.getSommeValeur()>=7))))
+
+        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==4)
+        &&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==4))
+        &&((mainCroupier.getSommeValeur()<=4)||(mainCroupier.getSommeValeur()>=7))))
         // main joueur = 4 et 4 et que le croupier à 4 ou moins ou 7 ou plus alors il tire
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree); 
         }
-        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==4)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==4))&&((mainCroupier.getSommeValeur()>=5)&&(mainCroupier.getSommeValeur()<=6))))
+
+        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==4)
+        &&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==4))
+        &&((mainCroupier.getSommeValeur()>=5)&&(mainCroupier.getSommeValeur()<=6))))
         // main joueur = 4 et 4 et que le croupier à 5 ou 6 alors il splitte
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.changeCarte(carteTiree);
         }
-        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==3)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==3))&&(mainCroupier.getSommeValeur()>=8)))
+
+        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==3)
+        &&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==3))
+        &&(mainCroupier.getSommeValeur()>=8)))
         // main joueur = 3 et 3 et que le croupier à 8 ou plus alors il tire 
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree); 
         }
-        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==3)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==3))&&(mainCroupier.getSommeValeur()<=7)))
+
+        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==3)
+        &&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==3))
+        &&(mainCroupier.getSommeValeur()<=7)))
         // main joueur = 3 et 3 et que le croupier à 7 ou moins il splitte
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.changeCarte(carteTiree);
         }
-        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==2)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==2))&&(mainCroupier.getSommeValeur()>=8)))
+
+        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==2)
+        &&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==2))
+        &&(mainCroupier.getSommeValeur()>=8)))
         // main joueur = 2 et 2 et que le croupier à 8 ou plus alors il tire 
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree); 
             
         }
-        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)&&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==2)&&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==2))&&(mainCroupier.getSommeValeur()<=7)))
+
+        if ((tabJoueur[i].mainJoueur.getNbCartes()==2)
+        &&(((tabJoueur[i].mainJoueur.getIemeCarte(0).getRang()==2)
+        &&(tabJoueur[i].mainJoueur.getIemeCarte(1).getRang()==2))
+        &&(mainCroupier.getSommeValeur()<=7)))
         // main joueur = 2 et 2 et que le croupier à 7 ou moins il splitte
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.changeCarte(carteTiree);
         }
+
         if (tabJoueur[i].mainJoueur.getSommeValeur()>=17)
         //si le score du joueur est 17 ou plus alors il reste 
         {
         
             tabJoueur[i].mainJoueur.rester(); 
         }
-        if ((tabJoueur[i].mainJoueur.getSommeValeur()<=16)&&(tabJoueur[i].mainJoueur.getSommeValeur()>=13)&&(mainCroupier.getSommeValeur()<=6))
+
+        if ((tabJoueur[i].mainJoueur.getSommeValeur()<=16)
+        &&(tabJoueur[i].mainJoueur.getSommeValeur()>=13)
+        &&(mainCroupier.getSommeValeur()<=6))
         //si le score du joueur est entre 16 et 13 compris et que le croupier a 6 ou moins alors il reste
         {
             tabJoueur[i].mainJoueur.rester();
         }
-        if ((tabJoueur[i].mainJoueur.getSommeValeur()==12)&&(mainCroupier.getSommeValeur()<=6)&&(mainCroupier.getSommeValeur()>=4))
+        
+        if ((tabJoueur[i].mainJoueur.getSommeValeur()==12)
+        &&(mainCroupier.getSommeValeur()<=6)
+        &&(mainCroupier.getSommeValeur()>=4))
         //si le score du joueur est 12 et que le croupier à entre 4 et 6 compris alors il reste 
         {
             tabJoueur[i].mainJoueur.rester();
         }
-        if((tabJoueur[i].mainJoueur.getSommeValeur()<=16)&&(tabJoueur[i].mainJoueur.getSommeValeur()>=13)&&(mainCroupier.getSommeValeur()>=7))
+
+        if((tabJoueur[i].mainJoueur.getSommeValeur()<=16)
+        &&(tabJoueur[i].mainJoueur.getSommeValeur()>=13)
+        &&(mainCroupier.getSommeValeur()>=7))
         //si le score du joueur est entre 16 et 13 compris et que le croupier a 7 ou plus alors il tire
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
-        if ((tabJoueur[i].mainJoueur.getSommeValeur()==12)&&(mainCroupier.getSommeValeur()<=3))
+
+        if ((tabJoueur[i].mainJoueur.getSommeValeur()==12)
+        &&(mainCroupier.getSommeValeur()<=3))
         //si le score du joueur est de 12 et que le croupier a 3 ou moins alors il tire
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
-        if ((tabJoueur[i].mainJoueur.getSommeValeur()==12)&&(mainCroupier.getSommeValeur()>=7))
+
+        if ((tabJoueur[i].mainJoueur.getSommeValeur()==12)
+        &&(mainCroupier.getSommeValeur()>=7))
         //si le score du joueur est de 12 et que le croupier a 7 ou plus alors il tire
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
-        if ((tabJoueur[i].mainJoueur.getSommeValeur()==11)&&(mainCroupier.getSommeValeur()<=10))
+
+        if ((tabJoueur[i].mainJoueur.getSommeValeur()==11)
+        &&(mainCroupier.getSommeValeur()<=10))
         //si le score du joueur est de 11 et que le croupier à 10 ou moins alors il double (si il a deux carte) ou il tire
         {
             if(tabJoueur[i].mainJoueur.getNbCartes()==2)
@@ -574,13 +708,17 @@ void JeuMulti::actionExpert()
                 tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
                 }
         }
-        if((tabJoueur[i].mainJoueur.getSommeValeur()==11)&&(mainCroupier.getSommeValeur()==11))
+
+        if((tabJoueur[i].mainJoueur.getSommeValeur()==11)
+        &&(mainCroupier.getSommeValeur()==11))
         //si le score du joueur est de 11 et que le croupier à 11 alors il tire
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
-        if ((tabJoueur[i].mainJoueur.getSommeValeur()==10)&&(mainCroupier.getSommeValeur()<=9))
+
+        if ((tabJoueur[i].mainJoueur.getSommeValeur()==10)
+        &&(mainCroupier.getSommeValeur()<=9))
         //si le score du joueur est de 10 et que le croupier à 9 ou moins alors il double (si il a deux carte) ou il tire
         {
             if(tabJoueur[i].mainJoueur.getNbCartes()==2)
@@ -593,19 +731,27 @@ void JeuMulti::actionExpert()
                 tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
                 }
         }
-        if((tabJoueur[i].mainJoueur.getSommeValeur()==10)&&(mainCroupier.getSommeValeur()>=10))
+
+        if((tabJoueur[i].mainJoueur.getSommeValeur()==10)
+        &&(mainCroupier.getSommeValeur()>=10))
         //si le score du joueur est de 10 et que le croupier à 10 ou plus alors il tire
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
-        if((tabJoueur[i].mainJoueur.getSommeValeur()==9)&&((mainCroupier.getSommeValeur()==2)||(mainCroupier.getSommeValeur()>=6)))
+
+        if((tabJoueur[i].mainJoueur.getSommeValeur()==9)
+        &&((mainCroupier.getSommeValeur()==2)
+        ||(mainCroupier.getSommeValeur()>=6)))
         //si le score du joueur est de 9 et que le croupier à 2 ou 6 ou plus alors il tire
         {
             carteTiree = unDeck.distribuerCarte();
             tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
         }
-        if((tabJoueur[i].mainJoueur.getSommeValeur()==9)&&((mainCroupier.getSommeValeur()>=3)&&(mainCroupier.getSommeValeur()<=5)))
+
+        if((tabJoueur[i].mainJoueur.getSommeValeur()==9)
+        &&((mainCroupier.getSommeValeur()>=3)
+        &&(mainCroupier.getSommeValeur()<=5)))
         //si le score du joueur est de 9 et que le croupier à entre 3 et 5 compris alors il double (si il a deux carte) ou il tire
         {
             if(tabJoueur[i].mainJoueur.getNbCartes()==2)
@@ -618,7 +764,9 @@ void JeuMulti::actionExpert()
                 tabJoueur[i].mainJoueur.tirerCarte(carteTiree);
                 }
         }
-        if((tabJoueur[i].mainJoueur.getSommeValeur()>=5)&&(tabJoueur[i].mainJoueur.getSommeValeur()<=8))
+
+        if((tabJoueur[i].mainJoueur.getSommeValeur()>=5)
+        &&(tabJoueur[i].mainJoueur.getSommeValeur()<=8))
         //si le joueur à etre 5 et 8 compris il tire quoi qu'il en soit
         {
             carteTiree = unDeck.distribuerCarte();
@@ -676,6 +824,23 @@ void JeuMulti::testRegression() const
     cout<<"Test de eliminationJoueur() OK"<<endl;
 
 
+    JeuMulti unJeuRemplir;
+    unJeuRemplir.remplirJoueurs(3);
+    for (unsigned int i=0; i<tabJoueur.size(); i++)
+    {
+    assert (unJeuRemplir.tabJoueur[i].getNiveau()==3);
+    }
+    assert (unJeuRemplir.tabJoueur.size()==4);
+    unJeuRemplir.finManche();
+    for (unsigned int i=0; i<tabJoueur.size(); i++)
+    {
+    assert (unJeuRemplir.tabJoueur[i].mainJoueur.getNbCartes()==0);
+    assert (unJeuRemplir.tabJoueur[i].getMise()==0);
+    assert (unJeuRemplir.tabJoueur[i].getGain()==0);
+    }
+    cout<<"Test de la procédure remplirJoueur() et finManche() OK"<<endl;
+
+
 
     JeuMulti unJeuMulti2(3); //création d'un nouveau jeuMulti (jeuMulti2)
     unJeuMulti2.initialisationMiseMulti();
@@ -686,7 +851,9 @@ void JeuMulti::testRegression() const
    
     for (unsigned int i=1; i<unJeuMulti2.tabJoueur.size(); i++)
     {
-        assert ((unJeuMulti2.tabJoueur[i].getMise()==1)||(unJeuMulti2.tabJoueur[i].getMise()==10)||(unJeuMulti2.tabJoueur[i].getMise()==100)||(unJeuMulti2.tabJoueur[i].getMise()==250)||(unJeuMulti2.tabJoueur[i].getMise()==500));
+        assert ((unJeuMulti2.tabJoueur[i].getMise()==1)||(unJeuMulti2.tabJoueur[i].getMise()==10)
+        ||(unJeuMulti2.tabJoueur[i].getMise()==100)||(unJeuMulti2.tabJoueur[i].getMise()==250)
+        ||(unJeuMulti2.tabJoueur[i].getMise()==500));
         //verification que les mises jouées sont valides (1 ou 10 ou 100 ou 250 ou 500)
     }
     cout<<"Test de initialisationMiseMulti() OK"<<endl;
@@ -702,6 +869,8 @@ void JeuMulti::testRegression() const
     cout<<"Test de initialisationJeuMulti() OK"<<endl;
 
 
+    
+    
 
     Carte carteAjouteeAs(1,1,1);
     Carte carteAjoutee2(2,2,1);
@@ -714,6 +883,8 @@ void JeuMulti::testRegression() const
     Carte carteAjoutee9(9,9,2);
     Carte carteAjoutee10(10,10,3); // definition de chaque carte (de l'as au 10)
 
+
+    
 
     JeuMulti jeuIA(1);
     jeuIA.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee8); // test score <17
@@ -812,7 +983,8 @@ void JeuMulti::testRegression() const
     JeuMulti jeuIAExpert5(3);
     jeuIAExpert5.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee3);
     jeuIAExpert5.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee4);
-    jeuIAExpert5.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee3);//le score du joueur est de 10 avec 3 carte => il doit tirer (pas doubler)
+    jeuIAExpert5.tabJoueur[1].mainJoueur.tirerCarte(carteAjoutee3);//le score du joueur est de 10 avec 3 carte => il doit tirer
+    //(pas doubler)
     jeuIAExpert5.tabJoueur[2].mainJoueur.tirerCarte(carteAjouteeAs);
     jeuIAExpert5.tabJoueur[2].mainJoueur.tirerCarte(carteAjoutee4);// main du joueur = AS et 4 => il doit tirer 
     jeuIAExpert5.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee10);
@@ -836,15 +1008,18 @@ void JeuMulti::testRegression() const
     jeuIAIntermediaire.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee8);// main joueur=as et 8 
     jeuIAIntermediaire.mainCroupier.tirerCarte(carteAjoutee10); // le croupier à 10 
     jeuIAIntermediaire.actionIntermediaire();
-    assert (jeuIAIntermediaire.tabJoueur[1].mainJoueur.getNbCartes()==2); // dans tout les cas il doit rester (que ce soit en amateur ou en expert)
-    if (jeuIAIntermediaire.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA2 est en mode amateur alors elle tire (moins de 17) sinon elle double 
+    assert (jeuIAIntermediaire.tabJoueur[1].mainJoueur.getNbCartes()==2); // dans tout les cas il doit rester 
+    //(que ce soit en amateur ou en expert)
+    if (jeuIAIntermediaire.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA2 est en mode amateur alors elle tire 
+    //(moins de 17) sinon elle double 
     {
         assert (jeuIAIntermediaire.tabJoueur[2].mainJoueur.getNbCartes()>=3); // mode amateur 
     }else 
     {
         assert (jeuIAIntermediaire.tabJoueur[2].mainJoueur.getNbCartes()==3); // mode expert
     }
-    assert (jeuIAIntermediaire.tabJoueur[3].mainJoueur.getNbCartes()==2); // dans tout les cas il doit rester (que ce soit en amateur ou en expert)
+    assert (jeuIAIntermediaire.tabJoueur[3].mainJoueur.getNbCartes()==2); // dans tout les cas il doit rester 
+    // (que ce soit en amateur ou en expert)
     cout<<"Test de jeuIAIntermediaire() OK"<<endl;
 
 
@@ -858,7 +1033,8 @@ void JeuMulti::testRegression() const
     jeuIAIntermediaire2.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee5);// main joueur= double 5
     jeuIAIntermediaire2.mainCroupier.tirerCarte(carteAjoutee2); // le croupier à 10 
     jeuIAIntermediaire2.actionIntermediaire();
-    if (jeuIAIntermediaire2.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA1 est en mode amateur alors elle tire (moins de 17) sinon il double 
+    if (jeuIAIntermediaire2.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA1 est en mode amateur alors elle tire 
+    //(moins de 17) sinon il double 
     {
         assert (jeuIAIntermediaire2.tabJoueur[1].mainJoueur.getNbCartes()>=3); // mode amateur 
     }else 
@@ -868,7 +1044,8 @@ void JeuMulti::testRegression() const
 
     assert (jeuIAIntermediaire2.tabJoueur[2].mainJoueur.getNbCartes()==2); // dans tout les cas l'IA2 reste
 
-    if (jeuIAIntermediaire2.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle double 
+    if (jeuIAIntermediaire2.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA3 est en mode amateur alors elle tire
+    // (moins de 17) sinon elle double 
     {
         assert (jeuIAIntermediaire2.tabJoueur[1].mainJoueur.getNbCartes()>=3); // mode amateur 
     }else 
@@ -891,7 +1068,8 @@ void JeuMulti::testRegression() const
     jeuIAIntermediaire3.actionIntermediaire();
     assert (jeuIAIntermediaire3.tabJoueur[1].mainJoueur.getNbCartes()>=3); // dans tout les cas l'IA tire
 
-    if (jeuIAIntermediaire3.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle double 
+    if (jeuIAIntermediaire3.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA3 est en mode amateur alors elle tire 
+    //(moins de 17) sinon elle double 
     {
         assert (jeuIAIntermediaire3.tabJoueur[2].mainJoueur.getNbCartes()>=3); // mode amateur 
     }else 
@@ -913,21 +1091,24 @@ void JeuMulti::testRegression() const
     jeuIAIntermediaire4.tabJoueur[3].mainJoueur.tirerCarte(carteAjoutee4); // score du joueur = 14
     jeuIAIntermediaire4.mainCroupier.tirerCarte(carteAjoutee6); // le croupier à 6
     jeuIAIntermediaire4.actionIntermediaire();
-        if (jeuIAIntermediaire4.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle reste
+        if (jeuIAIntermediaire4.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA3 est en mode amateur alors elle tire 
+        //(moins de 17) sinon elle reste
         {
             assert (jeuIAIntermediaire4.tabJoueur[1].mainJoueur.getNbCartes()>=3); // mode amateur 
         }else 
         {
             assert (jeuIAIntermediaire4.tabJoueur[1].mainJoueur.getNbCartes()==2); // mode expert  
         }
-        if (jeuIAIntermediaire4.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle reste
+        if (jeuIAIntermediaire4.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA3 est en mode amateur alors elle tire 
+        //(moins de 17) sinon elle reste
         {
             assert (jeuIAIntermediaire4.tabJoueur[2].mainJoueur.getNbCartes()>=3); // mode amateur
         }else 
         {
             assert (jeuIAIntermediaire4.tabJoueur[2].mainJoueur.getNbCartes()==2); // mode expert
         }
-        if (jeuIAIntermediaire4.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA3 est en mode amateur alors elle tire (moins de 17) sinon elle reste
+        if (jeuIAIntermediaire4.nvHasard<=jeuIAIntermediaire.randPourcentage) // si l'IA3 est en mode amateur alors elle tire 
+        //(moins de 17) sinon elle reste
         {
             assert (jeuIAIntermediaire4.tabJoueur[3].mainJoueur.getNbCartes()>=3); // mode amateur
         }else 

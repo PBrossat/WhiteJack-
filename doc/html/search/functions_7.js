@@ -1,18 +1,9 @@
 var searchData=
 [
-<<<<<<< HEAD
-  ['initdeck_199',['initDeck',['../class_deck.html#aeda57b97a4217282d85cab6129a4a7df',1,'Deck']]],
-  ['initialisationjeu_200',['initialisationJeu',['../class_jeu.html#a1bc9d7f905572db5abe5b17869707504',1,'Jeu']]],
-  ['initialisationjeumulti_201',['initialisationJeuMulti',['../classjeu_multi.html#a66d63ed0b85a253236dd327340bbfe2e',1,'jeuMulti']]],
-  ['initialisationmise_202',['initialisationMise',['../classjeu_multi.html#a36b695125eecc08cffefa84c17c52826',1,'jeuMulti::initialisationMise()'],['../class_jeu.html#ae7000dc393aa925db80a233ef09bc5af',1,'Jeu::initialisationMise()']]],
-  ['initialisationmisemulti_203',['initialisationMiseMulti',['../classjeu_multi.html#aa74e2fd0812a380241a82f67f2321331',1,'jeuMulti']]],
-  ['initmenu_204',['initMenu',['../class_menu.html#aebc90f39203524becf5ad750269d5d82',1,'Menu']]]
-=======
-  ['initdeck_0',['initDeck',['../class_deck.html#aeda57b97a4217282d85cab6129a4a7df',1,'Deck']]],
-  ['initialisationjeu_1',['initialisationJeu',['../class_jeu.html#a1bc9d7f905572db5abe5b17869707504',1,'Jeu']]],
-  ['initialisationjeumulti_2',['initialisationJeuMulti',['../classjeu_multi.html#a66d63ed0b85a253236dd327340bbfe2e',1,'jeuMulti']]],
-  ['initialisationmise_3',['initialisationMise',['../classjeu_multi.html#a36b695125eecc08cffefa84c17c52826',1,'jeuMulti::initialisationMise()'],['../class_jeu.html#ae7000dc393aa925db80a233ef09bc5af',1,'Jeu::initialisationMise()']]],
-  ['initialisationmisemulti_4',['initialisationMiseMulti',['../classjeu_multi.html#aa74e2fd0812a380241a82f67f2321331',1,'jeuMulti']]],
-  ['initmenu_5',['initMenu',['../class_menu.html#aebc90f39203524becf5ad750269d5d82',1,'Menu']]]
->>>>>>> 7770350052e1251c79029e7e901cdd5d9aa6b644
+  ['initdeck_197',['initDeck',['../class_deck.html#aeda57b97a4217282d85cab6129a4a7df',1,'Deck']]],
+  ['initialisationjeu_198',['initialisationJeu',['../class_jeu_solo.html#a441e4f9d7bfb7deea8cdf1ff280763a1',1,'JeuSolo']]],
+  ['initialisationjeumulti_199',['initialisationJeuMulti',['../class_jeu_multi.html#a1819a9e1c1f5d5cce4a339f28eece316',1,'JeuMulti']]],
+  ['initialisationmise_200',['initialisationMise',['../class_jeu_multi.html#a4d9a183f2d0086c75b7a640ddf2a4a2e',1,'JeuMulti::initialisationMise()'],['../class_jeu_solo.html#a8274bef986745e2d11a587bc6877a2b1',1,'JeuSolo::initialisationMise()']]],
+  ['initialisationmisemulti_201',['initialisationMiseMulti',['../class_jeu_multi.html#adda32cc24eba09d091bff28a431cd3c9',1,'JeuMulti']]],
+  ['initmenu_202',['initMenu',['../class_menu.html#aebc90f39203524becf5ad750269d5d82',1,'Menu']]]
 ];

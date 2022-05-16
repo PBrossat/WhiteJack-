@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['finjeu_23',['finJeu',['../class_jeu.html#a80eb667bed400b2f22333bc0018318de',1,'Jeu']]],
-  ['finmanche_24',['finManche',['../classjeu_multi.html#aeb39960b8c20dbc331a95778afd5c6d5',1,'jeuMulti']]]
+  ['finjeu_23',['finJeu',['../class_jeu_solo.html#a84a9d85b0a5bda288cabfc5625fef68b',1,'JeuSolo']]],
+  ['finmanche_24',['finManche',['../class_jeu_multi.html#a81137bfcdbc617a6b902b31b28f654b9',1,'JeuMulti']]]
 ];

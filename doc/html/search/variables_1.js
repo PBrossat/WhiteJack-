@@ -1,8 +1,4 @@
 var searchData=
 [
-<<<<<<< HEAD
-  ['joueursolo_246',['joueurSolo',['../class_jeu.html#a93b2a40e9ba2a952c4cd53ae69176259',1,'Jeu']]]
-=======
-  ['joueursolo_0',['joueurSolo',['../class_jeu.html#a93b2a40e9ba2a952c4cd53ae69176259',1,'Jeu']]]
->>>>>>> 7770350052e1251c79029e7e901cdd5d9aa6b644
+  ['joueursolo_244',['joueurSolo',['../class_jeu_solo.html#ae7f8ef2b2a25b40423aa9aa87aa55069',1,'JeuSolo']]]
 ];

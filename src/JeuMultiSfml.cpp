@@ -1357,12 +1357,13 @@ void JeuMultiSfml::sfmlAff()
                     window->draw(sRester);
                     sTirer.setPosition(dimx-100,dimy-160);
                     window->draw(sTirer);
-                    if((jeu.tabJoueur[0].mainJoueur.getNbCartes()==2) && (jeu.tabJoueur[0].getBudget()>=jeu.tabJoueur[0].getMise())) //si le joueur peut doubler (2 cartes et peut doubler sa mise)
+                    if((jeu.tabJoueur[0].mainJoueur.getNbCartes()==2) && (jeu.tabJoueur[0].getBudget()>=jeu.tabJoueur[0].getMise()))
+                    //si le joueur peut doubler (2 cartes et peut doubler sa mise)
                     {
                         sDoubler.setPosition(dimx-100,dimy-240);
                         window->draw(sDoubler);
                         if((jeu.tabJoueur[0].mainJoueur.getIemeCarte(0).getValeur()==jeu.tabJoueur[0].mainJoueur.getIemeCarte(1).getValeur())
-                            ||(jeu.tabJoueur[0].mainJoueur.getIemeCarte(0).getRang()==jeu.tabJoueur[0].mainJoueur.getIemeCarte(1).getRang()))
+                        ||(jeu.tabJoueur[0].mainJoueur.getIemeCarte(0).getRang()==jeu.tabJoueur[0].mainJoueur.getIemeCarte(1).getRang()))
                         {
                             sChanger.setPosition(dimx-100,dimy-320);
                             window->draw(sChanger);
