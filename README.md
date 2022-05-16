@@ -193,6 +193,8 @@ Pour mettre à jour la documentation doxygen, utiliser la commande make suivante
 	│  ├─ whitejack.doxy
 	│  ├─ html/
 	│  │  ├─ contient tous les fichiers nécessaires à la documentation en html de notre projet
+    │  ├─ Diagramme UML.jpg
+    │  ├─ Diagramme de Gantt.png
 	├─ makefile
 	├─ obj/
 	│  ├─ contient les fichiers objets du projet (Carte.o, Deck.o, ...)
