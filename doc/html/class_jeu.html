@@ -70,7 +70,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_jeu_8h_source.html">Jeu.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_jeu_solo_8h_source.html">JeuSolo.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
@@ -101,19 +101,12 @@ Fonctions membres publiques</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Attributs publics</h2></td></tr>
-<tr class="memitem:aff23ae3b58b67ee7cd58c25d447e7fa0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_deck.html">Deck</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#aff23ae3b58b67ee7cd58c25d447e7fa0">unDeck</a></td></tr>
-<tr class="memdesc:aff23ae3b58b67ee7cd58c25d447e7fa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le deck du jeu.  <a href="class_jeu.html#aff23ae3b58b67ee7cd58c25d447e7fa0">Plus de détails...</a><br /></td></tr>
-<tr class="separator:aff23ae3b58b67ee7cd58c25d447e7fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93b2a40e9ba2a952c4cd53ae69176259"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_joueur.html">Joueur</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#a93b2a40e9ba2a952c4cd53ae69176259">joueurSolo</a></td></tr>
 <tr class="memdesc:a93b2a40e9ba2a952c4cd53ae69176259"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le joueur.  <a href="class_jeu.html#a93b2a40e9ba2a952c4cd53ae69176259">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a93b2a40e9ba2a952c4cd53ae69176259"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2914312f519c318bb365606413c6c874"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_main_de_carte.html">MainDeCarte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#a2914312f519c318bb365606413c6c874">mainCroupier</a></td></tr>
 <tr class="memdesc:a2914312f519c318bb365606413c6c874"><td class="mdescLeft">&#160;</td><td class="mdescRight">La main de carte du croupier.  <a href="class_jeu.html#a2914312f519c318bb365606413c6c874">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a2914312f519c318bb365606413c6c874"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3eb90fd222b30e523ff95c9d3d9f970b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_carte.html">Carte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#a3eb90fd222b30e523ff95c9d3d9f970b">deuxiemeCarteCroupier</a></td></tr>
-<tr class="memdesc:a3eb90fd222b30e523ff95c9d3d9f970b"><td class="mdescLeft">&#160;</td><td class="mdescRight">La deuxième carte du croupier (cachée lorsque le joueur joue) <br  />
-  <a href="class_jeu.html#a3eb90fd222b30e523ff95c9d3d9f970b">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a3eb90fd222b30e523ff95c9d3d9f970b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b166ad365160c2f3fa19c836f91973d"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jeu.html#a3b166ad365160c2f3fa19c836f91973d">mise</a></td></tr>
 <tr class="memdesc:a3b166ad365160c2f3fa19c836f91973d"><td class="mdescLeft">&#160;</td><td class="mdescRight">La mise du joueur.  <a href="class_jeu.html#a3b166ad365160c2f3fa19c836f91973d">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a3b166ad365160c2f3fa19c836f91973d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,7 +132,7 @@ Attributs publics</h2></td></tr>
 
 <p>Constructeur sans paramètre de <a class="el" href="class_jeu.html">Jeu</a>. </p>
 <p >Exemple d'utilisation : </p><div class="fragment"><div class="line"><a class="code hl_class" href="class_jeu.html">Jeu</a> unJeu;</div>
-<div class="ttc" id="aclass_jeu_html"><div class="ttname"><a href="class_jeu.html">Jeu</a></div><div class="ttdef"><b>Definition:</b> Jeu.h:13</div></div>
+<div class="ttc" id="aclass_jeu_html"><div class="ttname"><a href="class_jeu.html">Jeu</a></div><div class="ttdef"><b>Definition:</b> JeuSolo.h:13</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -263,7 +256,7 @@ Attributs publics</h2></td></tr>
 <dl class="section return"><dt>Renvoie</dt><dd>void</dd></dl>
 <p>Exemple d'utilisation : unJeu.initialisationMise('a');  </p><dl class="section warning"><dt>Avertissement</dt><dd>La mise saisie doit être inférieur au budget du joueur (2000) </dd>
 <dd>
-Le parametre touche doit etre obligatoirement 'a', 'z', 'e', 'r' ou 't' </dd></dl>
+Le parametre touche doit etre obligatoirement 'a' pour 1, 'z' pour 10, 'e' pour 100, 'r' pour 250 ou 't' pour 500 </dd></dl>
 
 </div>
 </div>
@@ -311,23 +304,6 @@ Le parametre touche doit etre obligatoirement 'a', 'z', 'e', 'r' ou 't' </dd></d
 </div>
 </div>
 <h2 class="groupheader">Documentation des données membres</h2>
-<a id="a3eb90fd222b30e523ff95c9d3d9f970b" name="a3eb90fd222b30e523ff95c9d3d9f970b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3eb90fd222b30e523ff95c9d3d9f970b">&#9670;&nbsp;</a></span>deuxiemeCarteCroupier</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_carte.html">Carte</a> Jeu::deuxiemeCarteCroupier</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>La deuxième carte du croupier (cachée lorsque le joueur joue) <br  />
- </p>
-
-</div>
-</div>
 <a id="aaa19de4d7a538d33f72f92b9185dc3d5" name="aaa19de4d7a538d33f72f92b9185dc3d5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaa19de4d7a538d33f72f92b9185dc3d5">&#9670;&nbsp;</a></span>gain</h2>
 
@@ -392,25 +368,9 @@ Le parametre touche doit etre obligatoirement 'a', 'z', 'e', 'r' ou 't' </dd></d
 
 </div>
 </div>
-<a id="aff23ae3b58b67ee7cd58c25d447e7fa0" name="aff23ae3b58b67ee7cd58c25d447e7fa0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff23ae3b58b67ee7cd58c25d447e7fa0">&#9670;&nbsp;</a></span>unDeck</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_deck.html">Deck</a> Jeu::unDeck</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Le deck du jeu. </p>
-
-</div>
-</div>
 <hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
-<li>src/<a class="el" href="_jeu_8h_source.html">Jeu.h</a></li>
-<li>src/<a class="el" href="_jeu_8cpp.html">Jeu.cpp</a></li>
+<li>src/<a class="el" href="_jeu_solo_8h_source.html">JeuSolo.h</a></li>
+<li>src/<a class="el" href="_jeu_solo_8cpp.html">JeuSolo.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -44,7 +44,6 @@ var menudata={children:[
 {text:"r",url:"functions.html#index_r"},
 {text:"s",url:"functions.html#index_s"},
 {text:"t",url:"functions.html#index_t"},
-{text:"u",url:"functions.html#index_u"},
 {text:"v",url:"functions.html#index_v"},
 {text:"~",url:"functions.html#index__7E"}]},
 {text:"Fonctions",url:"functions_func.html",children:[
@@ -70,5 +69,4 @@ var menudata={children:[
 {text:"Liste des fichiers",url:"files.html"},
 {text:"Membres de fichier",url:"globals.html",children:[
 {text:"Tout",url:"globals.html"},
-{text:"Fonctions",url:"globals_func.html"},
-{text:"Macros",url:"globals_defs.html"}]}]}]}
+{text:"Fonctions",url:"globals_func.html"}]}]}]}

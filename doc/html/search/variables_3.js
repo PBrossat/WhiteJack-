@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['m1_5fsoundbuffer_0',['m1_soundbuffer',['../class_menu.html#a736c025b61449dc291aa9c628a5d7c38',1,'Menu']]],
-  ['m2_5fsoundbuffer_1',['m2_soundbuffer',['../class_menu.html#a0dd4eda606081b8b519f41ab1ceced6a',1,'Menu']]],
-  ['maincroupier_2',['mainCroupier',['../class_jeu.html#a2914312f519c318bb365606413c6c874',1,'Jeu::mainCroupier()'],['../classjeu_multi.html#a5fbc790070f16787dd41c108b0af2b12',1,'jeuMulti::mainCroupier()']]],
-  ['mainjoueur_3',['mainJoueur',['../class_joueur.html#a199747dae2581da9d661e8104774e20f',1,'Joueur']]],
-  ['mise_4',['mise',['../class_jeu.html#a3b166ad365160c2f3fa19c836f91973d',1,'Jeu']]]
+  ['nbjoueurs_0',['nbJoueurs',['../classjeu_multi.html#a9d0912b8dbe06aa6d155116610b8b4da',1,'jeuMulti']]],
+  ['nbmanches_1',['nbManches',['../classjeu_multi.html#af7aba967bbe798b06f7c64001a5fca30',1,'jeuMulti']]],
+  ['nom_2',['nom',['../class_joueur.html#a251a7192f61dae541f80cbff3914f208',1,'Joueur']]]
 ];

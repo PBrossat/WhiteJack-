@@ -5,9 +5,9 @@ var searchData=
   ['setmise_2',['setMise',['../class_joueur.html#ad9a2d5e2632db3a5e334c533af851dd2',1,'Joueur']]],
   ['setsommevaleur_3',['setSommeValeur',['../class_main_de_carte.html#a35ef876312124b7571bde77c7cb7be05',1,'MainDeCarte']]],
   ['setvaleur_4',['setValeur',['../class_carte.html#a32a60ac4130db24746d2d442966c3459',1,'Carte']]],
-  ['sfmlaff_5',['sfmlAff',['../classsfml_jeu.html#a489729aba87e3775c0ebe5fc1340382b',1,'sfmlJeu::sfmlAff()'],['../classsfml_multi.html#ae1ea63074b6e43db1f6aae5f130e4c12',1,'sfmlMulti::sfmlAff()']]],
-  ['sfmlboucle_6',['sfmlBoucle',['../classsfml_jeu.html#aef35ec84be044db3e0a094361de29003',1,'sfmlJeu::sfmlBoucle()'],['../classsfml_multi.html#adcf1c9bf680957a72f283465778f1935',1,'sfmlMulti::sfmlBoucle()']]],
-  ['sfmlinit_7',['sfmlInit',['../classsfml_jeu.html#a461d610070ec6875ff2a8350211c3d9c',1,'sfmlJeu::sfmlInit()'],['../classsfml_multi.html#a46ea954153eb590400ddf3b6376c7470',1,'sfmlMulti::sfmlInit()']]],
+  ['sfmlaff_5',['sfmlAff',['../classsfml_multi.html#ae1ea63074b6e43db1f6aae5f130e4c12',1,'sfmlMulti::sfmlAff()'],['../classsfml_jeu.html#a489729aba87e3775c0ebe5fc1340382b',1,'sfmlJeu::sfmlAff()']]],
+  ['sfmlboucle_6',['sfmlBoucle',['../classsfml_multi.html#adcf1c9bf680957a72f283465778f1935',1,'sfmlMulti::sfmlBoucle()'],['../classsfml_jeu.html#aef35ec84be044db3e0a094361de29003',1,'sfmlJeu::sfmlBoucle()']]],
+  ['sfmlinit_7',['sfmlInit',['../classsfml_multi.html#a46ea954153eb590400ddf3b6376c7470',1,'sfmlMulti::sfmlInit()'],['../classsfml_jeu.html#a461d610070ec6875ff2a8350211c3d9c',1,'sfmlJeu::sfmlInit()']]],
   ['sfmljeu_8',['sfmlJeu',['../classsfml_jeu.html#a9fc77ecdf5bae6cffe983027799732b4',1,'sfmlJeu']]],
   ['sfmlmulti_9',['sfmlMulti',['../classsfml_multi.html#ac097e85328fc68eeb2fa883e8da28fa9',1,'sfmlMulti']]]
 ];

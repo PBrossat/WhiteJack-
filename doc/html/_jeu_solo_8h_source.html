@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>WhiteJack:  Fichier source de src/JeuSolo.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">WhiteJack
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">JeuSolo.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_jeu_solo_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef JEU_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define JEU_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_main_de_cartes_8h.html">MainDeCartes.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_carte_8h.html">Carte.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="_deck_8h.html">Deck.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_joueur_8h.html">Joueur.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_jeu.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="class_jeu.html">Jeu</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    public :</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_jeu.html#a93b2a40e9ba2a952c4cd53ae69176259">   19</a></span>    <a class="code hl_class" href="class_joueur.html">Joueur</a> <a class="code hl_variable" href="class_jeu.html#a93b2a40e9ba2a952c4cd53ae69176259">joueurSolo</a>; </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_jeu.html#a2914312f519c318bb365606413c6c874">   25</a></span>    <a class="code hl_class" href="class_main_de_carte.html">MainDeCarte</a> <a class="code hl_variable" href="class_jeu.html#a2914312f519c318bb365606413c6c874">mainCroupier</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_jeu.html#a3b166ad365160c2f3fa19c836f91973d">   31</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_jeu.html#a3b166ad365160c2f3fa19c836f91973d">mise</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_jeu.html#aaa19de4d7a538d33f72f92b9185dc3d5">   37</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_jeu.html#aaa19de4d7a538d33f72f92b9185dc3d5">gain</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_function" href="class_jeu.html#acc5795ee00edf75516d3dfe65be3e6d6">Jeu</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_jeu.html#ae7000dc393aa925db80a233ef09bc5af">initialisationMise</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> touche);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_jeu.html#a1bc9d7f905572db5abe5b17869707504">initialisationJeu</a>(); </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_jeu.html#a80eb667bed400b2f22333bc0018318de">finJeu</a>();</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_jeu.html#ab27fb1db9e2ae2a0c19a90ecc838319f">actionClavier</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> touche);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_jeu.html#a68bd821a560b5b59b12c6f691a58b29a">actionCroupier</a>();</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_jeu.html#aec880d4f024281b54ec65036d21b2d87">resultat</a>(); </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_jeu.html#a6c92aea2d97cb7a1467a4edfc041b372">testRegression</a>() <span class="keyword">const</span>; </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    private :</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="comment">//La deuxième carte du croupier (cachée lorsque le joueur joue)</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <a class="code hl_class" href="class_carte.html">Carte</a> deuxiemeCarteCroupier;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="comment">//Le deck du jeu</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <a class="code hl_class" href="class_deck.html">Deck</a> unDeck;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>};</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_carte_8h_html"><div class="ttname"><a href="_carte_8h.html">Carte.h</a></div></div>
+<div class="ttc" id="a_deck_8h_html"><div class="ttname"><a href="_deck_8h.html">Deck.h</a></div></div>
+<div class="ttc" id="a_joueur_8h_html"><div class="ttname"><a href="_joueur_8h.html">Joueur.h</a></div></div>
+<div class="ttc" id="a_main_de_cartes_8h_html"><div class="ttname"><a href="_main_de_cartes_8h.html">MainDeCartes.h</a></div></div>
+<div class="ttc" id="aclass_carte_html"><div class="ttname"><a href="class_carte.html">Carte</a></div><div class="ttdef"><b>Definition:</b> Carte.h:11</div></div>
+<div class="ttc" id="aclass_deck_html"><div class="ttname"><a href="class_deck.html">Deck</a></div><div class="ttdef"><b>Definition:</b> Deck.h:11</div></div>
+<div class="ttc" id="aclass_jeu_html"><div class="ttname"><a href="class_jeu.html">Jeu</a></div><div class="ttdef"><b>Definition:</b> JeuSolo.h:13</div></div>
+<div class="ttc" id="aclass_jeu_html_a1bc9d7f905572db5abe5b17869707504"><div class="ttname"><a href="class_jeu.html#a1bc9d7f905572db5abe5b17869707504">Jeu::initialisationJeu</a></div><div class="ttdeci">void initialisationJeu()</div><div class="ttdoc">Procédure permettant d'initialiser le jeu (distribution des premières cartes)</div><div class="ttdef"><b>Definition:</b> JeuSolo.cpp:49</div></div>
+<div class="ttc" id="aclass_jeu_html_a2914312f519c318bb365606413c6c874"><div class="ttname"><a href="class_jeu.html#a2914312f519c318bb365606413c6c874">Jeu::mainCroupier</a></div><div class="ttdeci">MainDeCarte mainCroupier</div><div class="ttdoc">La main de carte du croupier.</div><div class="ttdef"><b>Definition:</b> JeuSolo.h:25</div></div>
+<div class="ttc" id="aclass_jeu_html_a3b166ad365160c2f3fa19c836f91973d"><div class="ttname"><a href="class_jeu.html#a3b166ad365160c2f3fa19c836f91973d">Jeu::mise</a></div><div class="ttdeci">unsigned int mise</div><div class="ttdoc">La mise du joueur.</div><div class="ttdef"><b>Definition:</b> JeuSolo.h:31</div></div>
+<div class="ttc" id="aclass_jeu_html_a68bd821a560b5b59b12c6f691a58b29a"><div class="ttname"><a href="class_jeu.html#a68bd821a560b5b59b12c6f691a58b29a">Jeu::actionCroupier</a></div><div class="ttdeci">void actionCroupier()</div><div class="ttdoc">Procédure permettant de gérer automatiquement les actions du croupier.</div><div class="ttdef"><b>Definition:</b> JeuSolo.cpp:111</div></div>
+<div class="ttc" id="aclass_jeu_html_a6c92aea2d97cb7a1467a4edfc041b372"><div class="ttname"><a href="class_jeu.html#a6c92aea2d97cb7a1467a4edfc041b372">Jeu::testRegression</a></div><div class="ttdeci">void testRegression() const</div><div class="ttdoc">Procédure permettant de tester les fonctionnalités de la classe.</div><div class="ttdef"><b>Definition:</b> JeuSolo.cpp:185</div></div>
+<div class="ttc" id="aclass_jeu_html_a80eb667bed400b2f22333bc0018318de"><div class="ttname"><a href="class_jeu.html#a80eb667bed400b2f22333bc0018318de">Jeu::finJeu</a></div><div class="ttdeci">void finJeu()</div><div class="ttdoc">Procédure permettant de réinitialiser les mains de cartes du joueur et du croupier.</div><div class="ttdef"><b>Definition:</b> JeuSolo.cpp:63</div></div>
+<div class="ttc" id="aclass_jeu_html_a93b2a40e9ba2a952c4cd53ae69176259"><div class="ttname"><a href="class_jeu.html#a93b2a40e9ba2a952c4cd53ae69176259">Jeu::joueurSolo</a></div><div class="ttdeci">Joueur joueurSolo</div><div class="ttdoc">Le joueur.</div><div class="ttdef"><b>Definition:</b> JeuSolo.h:19</div></div>
+<div class="ttc" id="aclass_jeu_html_aaa19de4d7a538d33f72f92b9185dc3d5"><div class="ttname"><a href="class_jeu.html#aaa19de4d7a538d33f72f92b9185dc3d5">Jeu::gain</a></div><div class="ttdeci">unsigned int gain</div><div class="ttdoc">L'éventuel gain du joueur.</div><div class="ttdef"><b>Definition:</b> JeuSolo.h:37</div></div>
+<div class="ttc" id="aclass_jeu_html_ab27fb1db9e2ae2a0c19a90ecc838319f"><div class="ttname"><a href="class_jeu.html#ab27fb1db9e2ae2a0c19a90ecc838319f">Jeu::actionClavier</a></div><div class="ttdeci">void actionClavier(const char touche)</div><div class="ttdoc">Procédure permettant d'adapter les actions suivant les touches pressées par l'utilisateur.</div><div class="ttdef"><b>Definition:</b> JeuSolo.cpp:72</div></div>
+<div class="ttc" id="aclass_jeu_html_acc5795ee00edf75516d3dfe65be3e6d6"><div class="ttname"><a href="class_jeu.html#acc5795ee00edf75516d3dfe65be3e6d6">Jeu::Jeu</a></div><div class="ttdeci">Jeu()</div><div class="ttdoc">Constructeur sans paramètre de Jeu.</div><div class="ttdef"><b>Definition:</b> JeuSolo.cpp:14</div></div>
+<div class="ttc" id="aclass_jeu_html_ae7000dc393aa925db80a233ef09bc5af"><div class="ttname"><a href="class_jeu.html#ae7000dc393aa925db80a233ef09bc5af">Jeu::initialisationMise</a></div><div class="ttdeci">void initialisationMise(const char touche)</div><div class="ttdoc">Procédure permettant de saisir la mise de départ.</div><div class="ttdef"><b>Definition:</b> JeuSolo.cpp:21</div></div>
+<div class="ttc" id="aclass_jeu_html_aec880d4f024281b54ec65036d21b2d87"><div class="ttname"><a href="class_jeu.html#aec880d4f024281b54ec65036d21b2d87">Jeu::resultat</a></div><div class="ttdeci">unsigned int resultat()</div><div class="ttdoc">Fonction permettant de déterminer les gains du joueur et renvoyant un entier déterminant le résultat ...</div><div class="ttdef"><b>Definition:</b> JeuSolo.cpp:128</div></div>
+<div class="ttc" id="aclass_joueur_html"><div class="ttname"><a href="class_joueur.html">Joueur</a></div><div class="ttdef"><b>Definition:</b> Joueur.h:11</div></div>
+<div class="ttc" id="aclass_main_de_carte_html"><div class="ttname"><a href="class_main_de_carte.html">MainDeCarte</a></div><div class="ttdef"><b>Definition:</b> MainDeCartes.h:10</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+</small></address>
+</body>
+</html>
